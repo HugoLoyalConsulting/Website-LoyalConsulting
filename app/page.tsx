@@ -157,7 +157,7 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow">O problema</p>
+            <p className="section-eyebrow section-eyebrow--red">O problema</p>
             <h2 className="section-title mt-3">Sua operação está perdendo tempo com</h2>
           </div>
           <div className="lc-dores-grid mt-12">

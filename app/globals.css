@@ -695,10 +695,14 @@ a {
 
 .section-eyebrow {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: 0.79rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #6c63ff;
+}
+
+.section-eyebrow--red {
+  color: #ef4444;
 }
 
 /* ─── BENTO GRID ─── */
