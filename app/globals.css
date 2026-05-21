@@ -1622,10 +1622,11 @@ a {
 
 .hca-orb {
   position: absolute;
+  left: 0;
+  top: 0;
   width: clamp(300px, 72%, 450px);
   aspect-ratio: 1.9 / 1;
-  will-change: left, top, transform, opacity;
-  transition: opacity 260ms ease;
+  will-change: transform, opacity;
 }
 
 .hca-vcard {
