@@ -427,9 +427,10 @@ export function Form() {
               onChange={(event) => setForm((prev) => ({ ...prev, consentimentoLgpd: event.target.checked }))}
               className="mt-1"
             />
-            <span>
-              Autorizo a Loyal Consulting a utilizar meus dados para contato comercial e registro no CRM interno,
-              conforme finalidade de atendimento da solicitacao.
+            <span style={{ fontSize: "0.8em" }}>
+              Autorizo o tratamento dos meus dados pessoais para fins de contato comercial, diagnóstico de necessidades,
+              elaboração de propostas, acompanhamento do atendimento e armazenamento em plataforma de CRM, em
+              conformidade com a Lei Geral de Proteção de Dados (LGPD).
             </span>
           </label>
 
