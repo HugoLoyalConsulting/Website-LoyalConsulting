@@ -20,11 +20,12 @@ const IMAGES: Card[] = [
 
 const ROW1 = IMAGES.slice(0, 6);
 const ROW2 = IMAGES.slice(6);
+const ROW3 = [...IMAGES.slice(3, 9), ...IMAGES.slice(9), ...IMAGES.slice(0, 3)]; // offset for variety
 
-function BeltRow({ images, reverse }: { images: Card[]; reverse?: boolean }) {
+function BeltRow({ images, layer }: { images: Card[]; layer: "front" | "mid" | "back" }) {
   const doubled = [...images, ...images];
   return (
-    <div className={`hca-belt${reverse ? " hca-belt--rev" : " hca-belt--fwd"}`}>
+    <div className={`hca-belt hca-belt--${layer}`}>
       {doubled.map((img, i) => (
         <div key={i} className="hca-card">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -39,8 +40,9 @@ export function HeroCarouselAuto() {
   return (
     <div className="hca-root" aria-hidden="true">
       <div className="hca-belt-wrap">
-        <BeltRow images={ROW1} />
-        <BeltRow images={ROW2} reverse />
+        <BeltRow images={ROW1} layer="front" />
+        <BeltRow images={ROW2} layer="mid" />
+        <BeltRow images={ROW3} layer="back" />
       </div>
     </div>
   );

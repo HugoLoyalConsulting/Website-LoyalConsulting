@@ -1614,12 +1614,22 @@ a {
   will-change: transform;
 }
 
-.hca-belt--fwd {
-  animation: hca-fwd 28s linear infinite;
+/* front belt: topmost z-index, moves right, 31s */
+.hca-belt--front {
+  animation: hca-fwd 31s linear infinite;
+  z-index: 3;
 }
 
-.hca-belt--rev {
-  animation: hca-rev 34s linear infinite;
+/* mid belt: middle z-index, moves left, 37s */
+.hca-belt--mid {
+  animation: hca-rev 37s linear infinite;
+  z-index: 2;
+}
+
+/* back belt: lowest z-index, moves right (slower), 42s */
+.hca-belt--back {
+  animation: hca-fwd 42s linear infinite;
+  z-index: 1;
 }
 
 @keyframes hca-fwd {
