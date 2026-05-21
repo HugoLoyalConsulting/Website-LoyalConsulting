@@ -1584,8 +1584,9 @@ a {
   .ts-cc-main, .ts-cc-side { flex: none; width: 100%; transform: none; }
 }
 
-/* ── HERO CAROUSEL — sequential zoom (JS RAF) ───────────────── */
+/* ── HERO CAROUSEL — vertical scroll strip (tasteskill-style) ── */
 .hca-root {
+  --hca-card-h: 188px; /* overridden by JS after first measure */
   position: relative;
   width: 100%;
   max-width: 560px;
@@ -1594,14 +1595,14 @@ a {
   border-radius: 18px;
 }
 
-/* top / bottom vignette so cards fade into the section bg */
+/* Deep fades at top and bottom — hides staging area, looks premium */
 .hca-root::before,
 .hca-root::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  height: 18%;
+  height: 32%;
   z-index: 5;
   pointer-events: none;
 }
@@ -1610,37 +1611,34 @@ a {
 
 .hca-track {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* must match GAP constant in tsx */
+  will-change: transform;
 }
 
-/* each orb covers the whole container — grows from centre via JS scale() */
-.hca-orb {
-  position: absolute;
-  inset: 0;
+.hca-card {
   width: 100%;
-  height: 100%;
+  height: var(--hca-card-h);
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
   transform-origin: center center;
   will-change: transform, opacity;
-}
-
-.hca-vcard {
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  overflow: hidden;
   background: var(--color-surface, #0f0f1a);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.50);
 }
 
-.hca-vcard img {
+.hca-card img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
 }
-
-.hca-vcap { display: none; }
 
 
 /* Tool groups (replacing numbered items) */
