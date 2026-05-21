@@ -1584,9 +1584,8 @@ a {
   .ts-cc-main, .ts-cc-side { flex: none; width: 100%; transform: none; }
 }
 
-/* ── HERO CAROUSEL — vertical scroll strip (tasteskill-style) ── */
+/* ── HERO CAROUSEL — drop from top + exit right ── */
 .hca-root {
-  --hca-card-h: 188px; /* overridden by JS after first measure */
   position: relative;
   width: 100%;
   max-width: 560px;
@@ -1595,39 +1594,12 @@ a {
   border-radius: 18px;
 }
 
-/* Deep fades at top and bottom — hides staging area, looks premium */
-.hca-root::before,
-.hca-root::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 32%;
-  z-index: 5;
-  pointer-events: none;
-}
-.hca-root::before { top: 0;    background: linear-gradient(to bottom, #07070e 0%, transparent 100%); }
-.hca-root::after  { bottom: 0; background: linear-gradient(to top,    #07070e 0%, transparent 100%); }
-
-.hca-track {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 14px; /* must match GAP constant in tsx */
-  will-change: transform;
-}
-
 .hca-card {
-  width: 100%;
-  height: var(--hca-card-h);
-  flex-shrink: 0;
+  position: absolute;
+  inset: 0;
   border-radius: 14px;
   overflow: hidden;
-  transform-origin: center center;
-  will-change: transform, opacity;
+  will-change: transform;
   background: var(--color-surface, #0f0f1a);
   border: 1px solid rgba(255,255,255,0.09);
   box-shadow: 0 8px 28px rgba(0,0,0,0.50);

@@ -1,104 +1,102 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 
-type Card = { src: string };
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-const BASE         = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const SCROLL_SPEED = 70;  // px / second upward — increase to go faster
-const GAP          = 14;  // px between cards — must match CSS gap
-
-const IMAGES: Card[] = [
-  { src: "/images/dashboard-powerbi-vendas.png"         },
-  { src: "/images/dashboard-monitor-colorido.jpg"       },
-  { src: "/images/apresentacao-bi-reuniao-executiva.jpg" },
-  { src: "/images/executivo-painel-wall.jpg"            },
-  { src: "/images/dashboard-powerbi-timeline.jpg"       },
-  { src: "/images/laptop-analytics-angulo.jpg"          },
-  { src: "/images/dashboard-comunicacao-interna.png"    },
-  { src: "/images/dashboard-ui-kpis.webp"               },
-  { src: "/images/analista-bi-monitores-duplos.jpg"     },
-  { src: "/images/laptop-analytics-aberto.jpg"          },
-  { src: "/images/apresentacao-dashboard-apontando.jpg" },
-  { src: "/images/monitor-dados-futurista.jpg"          },
+const IMAGES = [
+  "/images/dashboard-powerbi-vendas.png",
+  "/images/dashboard-monitor-colorido.jpg",
+  "/images/apresentacao-bi-reuniao-executiva.jpg",
+  "/images/executivo-painel-wall.jpg",
+  "/images/dashboard-powerbi-timeline.jpg",
+  "/images/laptop-analytics-angulo.jpg",
+  "/images/dashboard-comunicacao-interna.png",
+  "/images/dashboard-ui-kpis.webp",
+  "/images/analista-bi-monitores-duplos.jpg",
+  "/images/laptop-analytics-aberto.jpg",
+  "/images/apresentacao-dashboard-apontando.jpg",
+  "/images/monitor-dados-futurista.jpg",
 ];
 
-const N         = IMAGES.length;           // 12
-const ALL_CARDS = [...IMAGES, ...IMAGES];  // duplicate for seamless loop
+const ENTER_MS = 620;   // ms — slide in from top
+const HOLD_MS  = 2200;  // ms — card stays fully visible
+const EXIT_MS  = 520;   // ms — slide out to right
 
 export function HeroCarouselAuto() {
-  const rootRef  = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const posRef   = useRef(0);
-  const lastTsRef = useRef(-1);
-  const sizeRef  = useRef({ h: 510, cardH: 188 });
+  const cardRefs = useRef<[HTMLDivElement | null, HTMLDivElement | null]>([null, null]);
+  const imgRefs  = useRef<[HTMLImageElement | null, HTMLImageElement | null]>([null, null]);
+  const curSlot  = useRef(0);
+  const imgIdx   = useRef(0);
 
   useEffect(() => {
-    IMAGES.forEach(({ src }) => { const i = new Image(); i.src = `${BASE}${src}`; });
+    IMAGES.forEach(src => { const el = new Image(); el.src = `${BASE}${src}`; });
 
-    const root = rootRef.current;
-    if (root) {
-      const measure = () => {
-        const h = root.clientHeight || 510;
-        const cardH = Math.round(h * 0.37);
-        sizeRef.current = { h, cardH };
-        root.style.setProperty("--hca-card-h", `${cardH}px`);
-      };
-      measure();
-      const ro = new ResizeObserver(measure);
-      ro.observe(root);
-    }
+    const [c0, c1] = cardRefs.current;
+    if (!c0 || !c1) return;
 
-    let rafId = 0;
+    /** Park a card off-screen top with no transition */
+    const park = (el: HTMLDivElement) => {
+      el.style.transition = "none";
+      el.style.transform  = "translateY(-110%)";
+      el.style.zIndex     = "1";
+    };
+    park(c0); park(c1);
 
-    const tick = (now: number) => {
-      rafId = requestAnimationFrame(tick);
+    // Slot 0 enters immediately on mount
+    c0.style.zIndex = "2";
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      c0.style.transition = `transform ${ENTER_MS}ms cubic-bezier(0.22,1,0.36,1)`;
+      c0.style.transform  = "translateY(0)";
+    }));
 
-      if (lastTsRef.current < 0) { lastTsRef.current = now; return; }
-      const dt = Math.min(now - lastTsRef.current, 50);
-      lastTsRef.current = now;
+    const advance = () => {
+      const outIdx = curSlot.current;
+      const inIdx  = 1 - outIdx;
+      const sOut   = cardRefs.current[outIdx]!;
+      const sIn    = cardRefs.current[inIdx]!;
+      const imgIn  = imgRefs.current[inIdx]!;
 
-      const track = trackRef.current;
-      if (!track) return;
+      // Load next image into incoming slot
+      imgIdx.current = (imgIdx.current + 1) % IMAGES.length;
+      imgIn.src = `${BASE}${IMAGES[imgIdx.current]}`;
 
-      posRef.current -= (SCROLL_SPEED * dt) / 1000;
+      // Park incoming off-screen top (no transition)
+      park(sIn);
+      sIn.style.zIndex = "2";  // incoming is on top
 
-      const { h: containerH, cardH } = sizeRef.current;
-      const stride = cardH + GAP;
-      const loopH  = N * stride;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        // Incoming slides down from top (z=2, covers outgoing)
+        sIn.style.transition = `transform ${ENTER_MS}ms cubic-bezier(0.22,1,0.36,1)`;
+        sIn.style.transform  = "translateY(0)";
 
-      // Seamless loop: once first copy is fully gone, snap back
-      if (posRef.current < -loopH) posRef.current += loopH;
+        // Outgoing drops behind, then exits right
+        sOut.style.zIndex = "1";
+        setTimeout(() => {
+          sOut.style.transition = `transform ${EXIT_MS}ms cubic-bezier(0.55,0,1,0.45)`;
+          sOut.style.transform  = "translateX(115%)";
+        }, 80);
 
-      track.style.transform = `translateY(${posRef.current.toFixed(1)}px)`;
-
-      // Scale + opacity each card by distance from vertical centre
-      const centerY = containerH / 2;
-      for (let i = 0; i < ALL_CARDS.length; i++) {
-        const el         = track.children[i] as HTMLElement;
-        const cardCenter = posRef.current + i * stride + cardH / 2;
-        const dist       = Math.abs(cardCenter - centerY);
-        const norm       = Math.min(dist / (containerH * 0.5), 1);
-
-        el.style.transform = `scale(${(1 - 0.18 * norm).toFixed(4)})`;
-        el.style.opacity   = (1 - 0.72 * norm).toFixed(4);
-      }
+        curSlot.current = inIdx;
+      }));
     };
 
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
+    const id = setInterval(advance, HOLD_MS + ENTER_MS);
+    return () => clearInterval(id);
   }, []);
 
   return (
-    <div ref={rootRef} className="hca-root" aria-label="Amostras de trabalho — Loyal Consulting">
-      <div ref={trackRef} className="hca-track">
-        {ALL_CARDS.map((img, i) => (
-          <div key={i} className="hca-card">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}${img.src}`} alt="" loading="eager" />
-          </div>
-        ))}
-      </div>
+    <div className="hca-root" aria-label="Amostras de trabalho — Loyal Consulting">
+      {([0, 1] as const).map((i) => (
+        <div key={i} ref={(el) => { cardRefs.current[i] = el; }} className="hca-card">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            ref={(el) => { imgRefs.current[i] = el; }}
+            src={`${BASE}${IMAGES[i]}`}
+            alt=""
+            loading="eager"
+          />
+        </div>
+      ))}
     </div>
   );
 }
