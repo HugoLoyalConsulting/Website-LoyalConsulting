@@ -1608,6 +1608,7 @@ a {
 }
 
 .hca-belt {
+  position: relative; /* ensures z-index is respected within the parent stacking context */
   display: flex;
   gap: 12px;
   width: max-content;
@@ -1730,9 +1731,6 @@ a {
     height: 124px;
   }
 
-  .hca-belt--mid  { top: 158px; }
-  .hca-belt--back { top: 292px; }
-
   .ts-tools-groups { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
@@ -1745,10 +1743,6 @@ a {
     width: 160px;
     height: 100px;
   }
-
-  .hca-belt--front { top: 18px; }
-  .hca-belt--mid   { top: 111px; }
-  .hca-belt--back  { top: 204px; }
 
   .ts-nav {
     gap: 0.55rem;
