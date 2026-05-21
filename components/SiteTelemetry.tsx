@@ -17,6 +17,10 @@ type TelemetryPayload = {
 const TELEMETRY_ENDPOINT =
   process.env.NEXT_PUBLIC_TELEMETRY_ENDPOINT?.trim() || "/api/telemetry";
 
+if (typeof window !== "undefined") {
+  window.history.scrollRestoration = "manual";
+}
+
 function getSessionId() {
   const key = "lc_telemetry_session";
   const existing = window.sessionStorage.getItem(key);
