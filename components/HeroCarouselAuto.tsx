@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 type Card = { src: string; label: string };
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const CYCLE_MS = 5200;
 
 const IMAGES: Card[] = [
@@ -84,7 +85,7 @@ function CurvedCarousel({ motion }: { motion: number }) {
           >
             <div className="hca-vcard">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.card.src} alt={item.card.label} loading="eager" />
+              <img src={`${BASE}${item.card.src}`} alt={item.card.label} loading="eager" />
               <span className="hca-vcap">{item.card.label}</span>
             </div>
           </div>

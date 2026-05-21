@@ -184,7 +184,7 @@ export default function HomePage() {
       {/* ── PARALLAX BREAK ──────────────────────────────────── */}
       <div
         className="parallax-break"
-        style={{ backgroundImage: "url('/images/executivo-painel-wall.jpg')" }}
+        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/executivo-painel-wall.jpg')` }}
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
