@@ -1726,9 +1726,8 @@ a {
     height: 440px;
   }
 
-  .hca-card {
-    width: 200px;
-    height: 124px;
+  .hca-orb {
+    width: clamp(255px, 70%, 390px);
   }
 
   .ts-tools-groups { grid-template-columns: repeat(2, 1fr); }
@@ -1739,9 +1738,8 @@ a {
     max-width: 100%;
   }
 
-  .hca-card {
-    width: 160px;
-    height: 100px;
+  .hca-orb {
+    width: clamp(180px, 76%, 300px);
   }
 
   .ts-nav {
