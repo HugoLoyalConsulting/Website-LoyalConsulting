@@ -139,7 +139,7 @@ export default function HomePage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href="#contato" className="btn-accent">
-                Solicitar diagnóstico operacional →
+                Solicitar diagnóstico de maturidade →
               </a>
             </div>
           </div>
@@ -284,9 +284,9 @@ export default function HomePage() {
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
           <h2 className="lc-cta-title">Pronto para parar de operar no escuro?</h2>
-          <p className="lc-cta-sub">Diagnóstico operacional gratuito · 30 minutos · Sem compromisso.</p>
+          <p className="lc-cta-sub">Diagnóstico de maturidade em dados · gratuito · 30 minutos · Sem compromisso.</p>
           <a href="#contato" className="btn-accent mt-8 inline-block">
-            Solicitar diagnóstico operacional →
+            Solicitar diagnóstico de maturidade →
           </a>
         </div>
       </div>

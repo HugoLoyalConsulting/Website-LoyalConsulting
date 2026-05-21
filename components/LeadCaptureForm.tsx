@@ -151,9 +151,9 @@ export function LeadCaptureForm() {
         <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
           {/* Left: copy */}
           <div>
-            <p className="kicker">Diagnóstico operacional</p>
+            <p className="kicker">Diagnóstico de maturidade em dados</p>
             <h2 className="section-title mt-3">
-              Preencha o formulário e receba um diagnóstico focado na sua operação.
+              Descubra em que nível sua empresa está — e o que fazer para avançar.
             </h2>
             <p className="section-copy mt-5">
               Nossa equipe analisa o contexto e entra em contato para estruturar um plano de
@@ -398,7 +398,7 @@ export function LeadCaptureForm() {
                 disabled={isSubmitting}
                 className="btn-primary w-full disabled:opacity-60"
               >
-                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico operacional"}
+                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico de maturidade"}
               </button>
               {status !== "idle" && (
                 <p className={`mt-3 text-sm ${status}`}>{message}</p>
