@@ -7,6 +7,7 @@ type ContactMode = "email" | "whatsapp" | "both";
 type FormState = {
   nome: string;
   empresa: string;
+  setor: string;
   areaSetor: string;
   cargo: string;
   email: string;
@@ -24,6 +25,71 @@ type FormState = {
   utmContent: string;
 };
 
+const SETORES = [
+  "Tecnologia e Software",
+  "Varejo e E-commerce",
+  "Indústria e Manufatura",
+  "Saúde e Farmácia",
+  "Educação",
+  "Financeiro e Seguros",
+  "Agronegócio",
+  "Logística e Transporte",
+  "Construção Civil e Imobiliário",
+  "Serviços Profissionais",
+  "Marketing e Publicidade",
+  "Alimentos e Bebidas",
+  "Energia e Utilities",
+  "Telecomunicações",
+  "Governo e Setor Público",
+  "ONGs e Terceiro Setor",
+  "Turismo e Hotelaria",
+  "Automotivo",
+  "Outro",
+];
+
+const AREAS = [
+  "Dados, Analytics e BI",
+  "Tecnologia da Informação (TI)",
+  "Finanças e Controladoria",
+  "Vendas e Comercial",
+  "Marketing",
+  "Operações e Supply Chain",
+  "Recursos Humanos (RH)",
+  "Gestão de Projetos (PMO)",
+  "Estratégia e Planejamento",
+  "Jurídico e Compliance",
+  "Atendimento ao Cliente",
+  "Produção e Engenharia",
+  "Compras e Suprimentos",
+  "Outro",
+];
+
+const CARGOS = [
+  "CEO / Sócio-Fundador",
+  "CFO / Diretor Financeiro",
+  "COO / Diretor de Operações",
+  "CTO / Diretor de Tecnologia",
+  "CMO / Diretor de Marketing",
+  "Diretor(a) Comercial",
+  "Diretor(a) de RH",
+  "Gerente de Dados / Analytics",
+  "Gerente Financeiro",
+  "Gerente de Operações",
+  "Gerente de TI",
+  "Gerente Comercial",
+  "Gerente de Marketing",
+  "Gerente de Projetos",
+  "Coordenador(a) de Dados",
+  "Coordenador(a) de TI",
+  "Analista de Dados / BI",
+  "Analista Financeiro",
+  "Analista de TI",
+  "Analista de Marketing",
+  "Consultor(a)",
+  "Empresário(a) / Autônomo(a)",
+  "Outro",
+];
+
 const painOptions = [
   "Baixa visibilidade de indicadores",
   "Dados espalhados em varias ferramentas",
@@ -36,6 +102,7 @@ const painOptions = [
 const initialState: FormState = {
   nome: "",
   empresa: "",
+  setor: "",
   areaSetor: "",
   cargo: "",
   email: "",
@@ -72,6 +139,11 @@ export function Form() {
   const [message, setMessage] = useState<string>("");
   const [messageType, setMessageType] = useState<"success" | "error" | "idle">("idle");
 
+  // Tracks the raw select value to detect when "Outro" is chosen
+  const [setorSel, setSetorSel] = useState("");
+  const [areaSel, setAreaSel] = useState("");
+  const [cargoSel, setCargoSel] = useState("");
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setForm((prev) => ({
@@ -99,6 +171,24 @@ export function Form() {
       ...prev,
       dores: checked ? [...prev.dores, pain] : prev.dores.filter((item) => item !== pain)
     }));
+  }
+
+  function handleSetorChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const val = e.target.value;
+    setSetorSel(val);
+    setForm((prev) => ({ ...prev, setor: val !== "Outro" ? val : "" }));
+  }
+
+  function handleAreaChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const val = e.target.value;
+    setAreaSel(val);
+    setForm((prev) => ({ ...prev, areaSetor: val !== "Outro" ? val : "" }));
+  }
+
+  function handleCargoChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const val = e.target.value;
+    setCargoSel(val);
+    setForm((prev) => ({ ...prev, cargo: val !== "Outro" ? val : "" }));
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -132,6 +222,9 @@ export function Form() {
         utmTerm: prev.utmTerm,
         utmContent: prev.utmContent
       }));
+      setSetorSel("");
+      setAreaSel("");
+      setCargoSel("");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Falha ao enviar formulario.");
       setMessageType("error");
@@ -169,21 +262,63 @@ export function Form() {
           </label>
 
           <label className="text-sm">
-            Area/Setor
-            <input
-              value={form.areaSetor}
-              onChange={(event) => setForm((prev) => ({ ...prev, areaSetor: event.target.value }))}
+            Setor
+            <select
+              value={setorSel}
+              onChange={handleSetorChange}
               className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
-            />
+            >
+              <option value="">Selecione</option>
+              {SETORES.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+            {setorSel === "Outro" && (
+              <input
+                placeholder="Descreva o setor"
+                value={form.setor}
+                onChange={(e) => setForm((prev) => ({ ...prev, setor: e.target.value }))}
+                className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
+              />
+            )}
           </label>
 
           <label className="text-sm">
-            Cargo
-            <input
-              value={form.cargo}
-              onChange={(event) => setForm((prev) => ({ ...prev, cargo: event.target.value }))}
+            Área
+            <select
+              value={areaSel}
+              onChange={handleAreaChange}
               className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
-            />
+            >
+              <option value="">Selecione</option>
+              {AREAS.map((a) => <option key={a} value={a}>{a}</option>)}
+            </select>
+            {areaSel === "Outro" && (
+              <input
+                placeholder="Descreva a área"
+                value={form.areaSetor}
+                onChange={(e) => setForm((prev) => ({ ...prev, areaSetor: e.target.value }))}
+                className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
+              />
+            )}
+          </label>
+
+          <label className="text-sm sm:col-span-2">
+            Cargo
+            <select
+              value={cargoSel}
+              onChange={handleCargoChange}
+              className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
+            >
+              <option value="">Selecione</option>
+              {CARGOS.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+            {cargoSel === "Outro" && (
+              <input
+                placeholder="Descreva o cargo"
+                value={form.cargo}
+                onChange={(e) => setForm((prev) => ({ ...prev, cargo: e.target.value }))}
+                className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
+              />
+            )}
           </label>
 
           <label className="text-sm sm:col-span-2">
@@ -230,7 +365,7 @@ export function Form() {
               className="mt-2 w-full rounded-xl2 border border-white/15 bg-bg/60 px-4 py-3 outline-none ring-primary/60 focus:ring"
             >
               <option value="">Selecione</option>
-              <option value="1-10">1 a 10 pessoas</option>
+              <option value="01-10">01 a 10 pessoas</option>
               <option value="11-50">11 a 50 pessoas</option>
               <option value="51-200">51 a 200 pessoas</option>
               <option value="201-500">201 a 500 pessoas</option>

@@ -103,25 +103,19 @@ export async function POST(request: NextRequest) {
 
   const data = parsed.data;
   const cleanNome = sanitizeText(data.nome);
-  const cleanSobrenome = sanitizeText(data.sobrenome);
-  const cleanAreaSetor = sanitizeText(data.area);
-  const cleanCargo = sanitizeText(data.cargo);
-  const cleanEmail = sanitizeText(data.email).toLowerCase();
+  const cleanSetor = sanitizeText(data.setor || "");
+  const cleanAreaSetor = sanitizeText(data.areaSetor || "");
+  const cleanCargo = sanitizeText(data.cargo || "");
+  const cleanEmail = sanitizeText(data.email || "").toLowerCase();
   const cleanWhatsapp = sanitizePhone(data.whatsapp || "");
   const cleanDescricao = sanitizeText(data.dorDescricao || "");
-  const cleanTamanhoEmpresa = sanitizeText(data.tamanhoEmpresa);
-  const cleanFrequencia = sanitizeText(data.frequenciaAtualizacao);
-  const contactMode = data.preferredContactMode.join(", ");
+  const cleanTamanhoEmpresa = sanitizeText(data.tamanhoEmpresa || "");
+  const contactMode = data.preferredContactMode;
 
   const cleanDores = data.dores.map((item) => sanitizeText(item)).filter(Boolean);
-  const cleanTipoServico = data.tipoServico.map((item) => sanitizeText(item)).filter(Boolean);
-  const cleanFontesDados = (data.fontesDados || []).map((item) => sanitizeText(item)).filter(Boolean);
 
   const metadata = JSON.stringify({
-    sobrenome: cleanSobrenome,
-    tipoServico: cleanTipoServico,
-    fontesDados: cleanFontesDados,
-    frequenciaAtualizacao: cleanFrequencia,
+    setor: cleanSetor,
   });
 
   try {
@@ -175,13 +169,13 @@ export async function POST(request: NextRequest) {
 
     await query(
       "INSERT INTO lead_events (lead_id, tipo, origem, payload) VALUES ($1, $2, 'lp', $3::jsonb)",
-      [leadId, "lead_created", JSON.stringify({ preferredContactMode: contactMode, tipoServico: cleanTipoServico })]
+      [leadId, "lead_created", JSON.stringify({ preferredContactMode: contactMode })]
     );
 
     void notifyCrm({
       id: leadId,
       nome: cleanNome,
-      sobrenome: cleanSobrenome,
+      setor: cleanSetor,
       area: cleanAreaSetor,
       cargo: cleanCargo,
       email: cleanEmail,

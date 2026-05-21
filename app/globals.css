@@ -1067,7 +1067,7 @@ a {
   line-height: 1.5;
   color: rgba(240, 237, 232, 0.68);
   font-weight: 400;
-  max-width: 56ch;
+  max-width: 45ch;
 }
 
 .ts-hero-dash {
