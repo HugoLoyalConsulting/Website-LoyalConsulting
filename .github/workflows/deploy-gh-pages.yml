@@ -39,12 +39,12 @@ jobs:
         run: npm run build:static
 
       - name: Add nojekyll marker
-        run: touch out/.nojekyll
+        run: touch next-dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: next-dist
 
   deploy:
     needs: build
