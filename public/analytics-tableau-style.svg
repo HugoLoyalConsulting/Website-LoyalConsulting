@@ -1,0 +1,51 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tbBg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#10151F"/>
+      <stop offset="1" stop-color="#23324D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="url(#tbBg)"/>
+  <rect x="32" y="28" width="1136" height="62" rx="14" fill="#162138"/>
+  <text x="60" y="67" fill="#DDE6F7" font-size="22" font-family="Segoe UI, Arial">Operational Analytics · KPI Board</text>
+
+  <rect x="40" y="108" width="360" height="290" rx="18" fill="#162138"/>
+  <text x="62" y="145" fill="#B8C8EA" font-size="18" font-family="Segoe UI, Arial">Targets vs Actual</text>
+  <line x1="74" y1="354" x2="364" y2="354" stroke="#304468"/>
+  <line x1="74" y1="178" x2="74" y2="354" stroke="#304468"/>
+  <rect x="96" y="298" width="26" height="56" rx="6" fill="#60A5FA"/>
+  <rect x="138" y="270" width="26" height="84" rx="6" fill="#60A5FA"/>
+  <rect x="180" y="238" width="26" height="116" rx="6" fill="#60A5FA"/>
+  <rect x="222" y="206" width="26" height="148" rx="6" fill="#60A5FA"/>
+  <rect x="264" y="184" width="26" height="170" rx="6" fill="#60A5FA"/>
+  <path d="M96 280 L151 250 L193 214 L236 194 L278 170" stroke="#FB7185" stroke-width="5" stroke-linecap="round"/>
+
+  <rect x="420" y="108" width="360" height="290" rx="18" fill="#162138"/>
+  <text x="442" y="145" fill="#B8C8EA" font-size="18" font-family="Segoe UI, Arial">Performance Scatter</text>
+  <circle cx="486" cy="214" r="7" fill="#A78BFA"/>
+  <circle cx="528" cy="246" r="7" fill="#A78BFA"/>
+  <circle cx="562" cy="198" r="7" fill="#A78BFA"/>
+  <circle cx="604" cy="284" r="7" fill="#A78BFA"/>
+  <circle cx="640" cy="234" r="7" fill="#A78BFA"/>
+  <circle cx="680" cy="190" r="7" fill="#A78BFA"/>
+  <circle cx="722" cy="256" r="7" fill="#A78BFA"/>
+  <ellipse cx="606" cy="256" rx="138" ry="64" stroke="#93C5FD" stroke-width="4"/>
+
+  <rect x="800" y="108" width="360" height="290" rx="18" fill="#162138"/>
+  <text x="822" y="145" fill="#B8C8EA" font-size="18" font-family="Segoe UI, Arial">KPI Gauges</text>
+  <circle cx="900" cy="252" r="66" stroke="#304468" stroke-width="24"/>
+  <path d="M834 252 A66 66 0 0 1 954 216" stroke="#22D3EE" stroke-width="24" stroke-linecap="round"/>
+  <text x="875" y="260" fill="#EAF2FF" font-size="20" font-family="Segoe UI, Arial">74%</text>
+  <circle cx="1060" cy="252" r="66" stroke="#304468" stroke-width="24"/>
+  <path d="M994 252 A66 66 0 0 1 1116 236" stroke="#F59E0B" stroke-width="24" stroke-linecap="round"/>
+  <text x="1035" y="260" fill="#EAF2FF" font-size="20" font-family="Segoe UI, Arial">61%</text>
+
+  <rect x="40" y="420" width="1120" height="298" rx="18" fill="#162138"/>
+  <text x="62" y="458" fill="#B8C8EA" font-size="18" font-family="Segoe UI, Arial">Funnel and Projections</text>
+  <polygon points="88,520 346,520 292,566 142,566" fill="#38BDF8" opacity="0.9"/>
+  <polygon points="142,580 292,580 258,626 176,626" fill="#22C55E" opacity="0.9"/>
+  <polygon points="176,640 258,640 236,682 198,682" fill="#F59E0B" opacity="0.95"/>
+
+  <polyline points="446,670 522,620 600,592 678,564 756,526 834,504 912,468 990,446 1068,414" stroke="#F472B6" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <circle cx="1068" cy="414" r="9" fill="#F472B6"/>
+</svg>

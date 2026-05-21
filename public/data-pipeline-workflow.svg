@@ -1,0 +1,69 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pipeBg" x1="0" y1="0" x2="1400" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F2EA"/>
+      <stop offset="1" stop-color="#EEE7DB"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="16" markerHeight="16" refX="10" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 Z" fill="#695A49"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="760" rx="26" fill="url(#pipeBg)"/>
+  <text x="56" y="66" fill="#3D3126" font-size="34" font-family="Segoe UI, Arial" font-weight="700">Data Pipeline & Workflow</text>
+  <text x="56" y="102" fill="#675745" font-size="20" font-family="Segoe UI, Arial">Multiplas fontes → Data Lake/Warehouse → BI layer com KPIs, metas e projecoes</text>
+
+  <rect x="56" y="154" width="300" height="540" rx="20" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="2"/>
+  <text x="82" y="196" fill="#544533" font-size="24" font-family="Segoe UI, Arial" font-weight="700">Fontes</text>
+
+  <g font-family="Segoe UI, Arial" font-size="19" fill="#403325">
+    <rect x="82" y="224" width="248" height="54" rx="12" fill="#F4ECE0"/>
+    <text x="102" y="258">CSV / Excel</text>
+
+    <rect x="82" y="290" width="248" height="54" rx="12" fill="#F4ECE0"/>
+    <text x="102" y="324">SharePoint</text>
+
+    <rect x="82" y="356" width="248" height="54" rx="12" fill="#F4ECE0"/>
+    <text x="102" y="390">APIs</text>
+
+    <rect x="82" y="422" width="248" height="54" rx="12" fill="#F4ECE0"/>
+    <text x="102" y="456">SQL Databases</text>
+
+    <rect x="82" y="488" width="248" height="54" rx="12" fill="#F4ECE0"/>
+    <text x="102" y="522">Azure Blob / Data</text>
+
+    <rect x="82" y="554" width="248" height="54" rx="12" fill="#F4ECE0"/>
+    <text x="102" y="588">Google Sheets</text>
+  </g>
+
+  <rect x="470" y="212" width="456" height="424" rx="24" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="2"/>
+  <text x="516" y="262" fill="#544533" font-size="28" font-family="Segoe UI, Arial" font-weight="700">Data Platform</text>
+
+  <rect x="516" y="302" width="364" height="108" rx="16" fill="#EDE4D6"/>
+  <text x="546" y="346" fill="#413325" font-size="24" font-family="Segoe UI, Arial" font-weight="700">ETL / ELT + Quality Rules</text>
+  <text x="546" y="376" fill="#625344" font-size="18" font-family="Segoe UI, Arial">Tratamento, padronizacao, deduplicacao</text>
+
+  <rect x="516" y="434" width="170" height="146" rx="16" fill="#DDEEF6"/>
+  <text x="546" y="500" fill="#1B4459" font-size="24" font-family="Segoe UI, Arial" font-weight="700">Data Lake</text>
+
+  <rect x="710" y="434" width="170" height="146" rx="16" fill="#E7E2F6"/>
+  <text x="728" y="500" fill="#3E2F6B" font-size="24" font-family="Segoe UI, Arial" font-weight="700">Warehouse</text>
+
+  <rect x="1010" y="154" width="334" height="540" rx="20" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="2"/>
+  <text x="1038" y="196" fill="#544533" font-size="24" font-family="Segoe UI, Arial" font-weight="700">BI & Decisions</text>
+
+  <rect x="1038" y="228" width="278" height="122" rx="14" fill="#E3F2E5"/>
+  <text x="1060" y="276" fill="#23432A" font-size="22" font-family="Segoe UI, Arial" font-weight="700">Power BI / Tableau</text>
+  <text x="1060" y="304" fill="#35583D" font-size="18" font-family="Segoe UI, Arial">Dashboards executivos</text>
+
+  <rect x="1038" y="366" width="278" height="122" rx="14" fill="#E4ECF8"/>
+  <text x="1060" y="414" fill="#233A67" font-size="22" font-family="Segoe UI, Arial" font-weight="700">KPIs & Metas</text>
+  <text x="1060" y="442" fill="#35507C" font-size="18" font-family="Segoe UI, Arial">Acompanhamento diario/semanal</text>
+
+  <rect x="1038" y="504" width="278" height="122" rx="14" fill="#F8EBDD"/>
+  <text x="1060" y="552" fill="#6A3F18" font-size="22" font-family="Segoe UI, Arial" font-weight="700">Forecast & Projecoes</text>
+  <text x="1060" y="580" fill="#7A5535" font-size="18" font-family="Segoe UI, Arial">Cenarios e tomada de decisao</text>
+
+  <line x1="356" y1="424" x2="470" y2="424" stroke="#695A49" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="926" y1="424" x2="1010" y2="424" stroke="#695A49" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>

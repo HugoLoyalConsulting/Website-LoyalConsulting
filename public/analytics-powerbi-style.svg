@@ -1,0 +1,65 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#18233D"/>
+    </linearGradient>
+    <linearGradient id="accentA" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FFB703"/>
+      <stop offset="1" stop-color="#FB8500"/>
+    </linearGradient>
+    <linearGradient id="accentB" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="url(#bg)"/>
+  <rect x="34" y="30" width="1132" height="56" rx="14" fill="#111A2F"/>
+  <text x="62" y="65" fill="#D7E3FF" font-size="22" font-family="Segoe UI, Arial">Executive Dashboard · BI Performance</text>
+
+  <rect x="42" y="110" width="264" height="122" rx="18" fill="#121F36"/>
+  <text x="64" y="152" fill="#8EA2C9" font-size="18" font-family="Segoe UI, Arial">Pipeline</text>
+  <text x="64" y="194" fill="#F7FAFF" font-size="38" font-weight="700" font-family="Segoe UI, Arial">R$ 4.2M</text>
+
+  <rect x="324" y="110" width="264" height="122" rx="18" fill="#121F36"/>
+  <text x="346" y="152" fill="#8EA2C9" font-size="18" font-family="Segoe UI, Arial">Win Rate</text>
+  <text x="346" y="194" fill="#F7FAFF" font-size="38" font-weight="700" font-family="Segoe UI, Arial">31.8%</text>
+
+  <rect x="606" y="110" width="264" height="122" rx="18" fill="#121F36"/>
+  <text x="628" y="152" fill="#8EA2C9" font-size="18" font-family="Segoe UI, Arial">Forecast</text>
+  <text x="628" y="194" fill="#F7FAFF" font-size="38" font-weight="700" font-family="Segoe UI, Arial">+18.4%</text>
+
+  <rect x="888" y="110" width="264" height="122" rx="18" fill="#121F36"/>
+  <text x="910" y="152" fill="#8EA2C9" font-size="18" font-family="Segoe UI, Arial">CAC</text>
+  <text x="910" y="194" fill="#F7FAFF" font-size="38" font-weight="700" font-family="Segoe UI, Arial">R$ 286</text>
+
+  <rect x="42" y="258" width="740" height="456" rx="20" fill="#111A2F"/>
+  <text x="66" y="298" fill="#C7D8FB" font-size="20" font-family="Segoe UI, Arial">Revenue by Month</text>
+  <path d="M76 640 L156 592 L236 560 L316 520 L396 498 L476 446 L556 418 L636 362 L716 336" stroke="url(#accentB)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="716" cy="336" r="10" fill="#7DD3FC"/>
+  <g fill="url(#accentA)">
+    <rect x="96" y="512" width="38" height="154" rx="8"/>
+    <rect x="176" y="478" width="38" height="188" rx="8"/>
+    <rect x="256" y="454" width="38" height="212" rx="8"/>
+    <rect x="336" y="430" width="38" height="236" rx="8"/>
+    <rect x="416" y="400" width="38" height="266" rx="8"/>
+    <rect x="496" y="368" width="38" height="298" rx="8"/>
+    <rect x="576" y="340" width="38" height="326" rx="8"/>
+    <rect x="656" y="314" width="38" height="352" rx="8"/>
+  </g>
+
+  <rect x="804" y="258" width="348" height="220" rx="20" fill="#111A2F"/>
+  <text x="826" y="298" fill="#C7D8FB" font-size="20" font-family="Segoe UI, Arial">Channel Mix</text>
+  <circle cx="976" cy="372" r="74" stroke="#1E2E4D" stroke-width="42"/>
+  <circle cx="976" cy="372" r="74" stroke="#38BDF8" stroke-width="42" stroke-dasharray="230 500" stroke-linecap="round" transform="rotate(-90 976 372)"/>
+  <circle cx="976" cy="372" r="74" stroke="#FFB703" stroke-width="42" stroke-dasharray="120 500" stroke-dashoffset="-230" stroke-linecap="round" transform="rotate(-90 976 372)"/>
+
+  <rect x="804" y="494" width="348" height="220" rx="20" fill="#111A2F"/>
+  <text x="826" y="532" fill="#C7D8FB" font-size="20" font-family="Segoe UI, Arial">Lead Stages</text>
+  <g fill="#7DD3FC">
+    <rect x="832" y="560" width="86" height="24" rx="8"/>
+    <rect x="832" y="596" width="124" height="24" rx="8"/>
+    <rect x="832" y="632" width="164" height="24" rx="8"/>
+    <rect x="832" y="668" width="202" height="24" rx="8"/>
+  </g>
+</svg>
