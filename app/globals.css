@@ -1586,6 +1586,7 @@ a {
 
 /* ── HERO CAROUSEL — drop from top + exit right ── */
 .hca-root {
+  --hca-card-h: 143px;
   position: relative;
   width: 100%;
   max-width: 560px;
@@ -1596,13 +1597,15 @@ a {
 
 .hca-card {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--hca-card-h);
   border-radius: 14px;
   overflow: hidden;
   will-change: transform;
   background: var(--color-surface, #0f0f1a);
   border: 1px solid rgba(255,255,255,0.09);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.50);
 }
 
 .hca-card img {

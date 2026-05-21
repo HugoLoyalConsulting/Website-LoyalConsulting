@@ -18,75 +18,203 @@ const IMAGES = [
   "/images/monitor-dados-futurista.jpg",
 ];
 
-const ENTER_MS = 620;   // ms — slide in from top
-const HOLD_MS  = 2200;  // ms — card stays fully visible
-const EXIT_MS  = 520;   // ms — slide out to right
+const FLOW_SPEED = 30; // px/s downward
+const GAP = 14; // px between cards
+const CARD_RATIO = 0.28; // card height relative to container
+const ENTER_MS = 620; // ms - translateY(-110%) -> in-flow top slot
+const EXIT_MS = 600; // ms - translateX(115%) ease-in
+const FLOW_COUNT = 4;
+const POOL_SIZE = 6;
+
+type CardMode = "idle" | "flow" | "entering" | "exiting";
+
+type LiveCard = {
+  el: HTMLDivElement;
+  img: HTMLImageElement;
+  srcIdx: number;
+  mode: CardMode;
+  y: number;
+  x: number;
+  enterStartAt: number;
+  enterFromY: number;
+  enterToY: number;
+  exitStartAt: number;
+  exitFromY: number;
+  exitToY: number;
+};
+
+function easeOutCubic(t: number): number {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+function easeInCubic(t: number): number {
+  return t * t * t;
+}
 
 export function HeroCarouselAuto() {
-  const cardRefs = useRef<[HTMLDivElement | null, HTMLDivElement | null]>([null, null]);
-  const imgRefs  = useRef<[HTMLImageElement | null, HTMLImageElement | null]>([null, null]);
-  const curSlot  = useRef(0);
-  const imgIdx   = useRef(0);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const imgRefs = useRef<Array<HTMLImageElement | null>>([]);
+  const stateRef = useRef<{
+    cards: LiveCard[];
+    nextSrcIdx: number;
+    cardH: number;
+    stride: number;
+    containerH: number;
+  } | null>(null);
 
   useEffect(() => {
-    IMAGES.forEach(src => { const el = new Image(); el.src = `${BASE}${src}`; });
+    IMAGES.forEach((src) => {
+      const el = new Image();
+      el.src = `${BASE}${src}`;
+    });
 
-    const [c0, c1] = cardRefs.current;
-    if (!c0 || !c1) return;
+    const root = rootRef.current;
+    if (!root) return;
 
-    /** Park a card off-screen top with no transition */
-    const park = (el: HTMLDivElement) => {
-      el.style.transition = "none";
-      el.style.transform  = "translateY(-110%)";
-      el.style.zIndex     = "1";
+    const cards: LiveCard[] = [];
+    for (let i = 0; i < POOL_SIZE; i++) {
+      const el = cardRefs.current[i];
+      const img = imgRefs.current[i];
+      if (!el || !img) return;
+      cards.push({
+        el,
+        img,
+        srcIdx: i % IMAGES.length,
+        mode: "idle",
+        y: -9999,
+        x: 0,
+        enterStartAt: 0,
+        enterFromY: 0,
+        enterToY: 0,
+        exitStartAt: 0,
+        exitFromY: 0,
+        exitToY: 0,
+      });
+    }
+
+    const measure = () => {
+      const containerH = root.clientHeight || 510;
+      const cardH = Math.round(containerH * CARD_RATIO);
+      const stride = cardH + GAP;
+      root.style.setProperty("--hca-card-h", `${cardH}px`);
+      stateRef.current = {
+        cards,
+        nextSrcIdx: FLOW_COUNT % IMAGES.length,
+        cardH,
+        stride,
+        containerH,
+      };
+
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        card.x = 0;
+        card.img.src = `${BASE}${IMAGES[card.srcIdx]}`;
+        if (i < FLOW_COUNT) {
+          card.mode = "flow";
+          card.y = i * stride;
+          card.el.style.zIndex = "3";
+        } else {
+          card.mode = "idle";
+          card.y = -cardH * 2;
+          card.el.style.zIndex = "1";
+        }
+      }
     };
-    park(c0); park(c1);
 
-    // Slot 0 enters immediately on mount
-    c0.style.zIndex = "2";
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      c0.style.transition = `transform ${ENTER_MS}ms cubic-bezier(0.22,1,0.36,1)`;
-      c0.style.transform  = "translateY(0)";
-    }));
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(root);
 
-    const advance = () => {
-      const outIdx = curSlot.current;
-      const inIdx  = 1 - outIdx;
-      const sOut   = cardRefs.current[outIdx]!;
-      const sIn    = cardRefs.current[inIdx]!;
-      const imgIn  = imgRefs.current[inIdx]!;
+    let rafId = 0;
+    let lastTs = -1;
 
-      // Load next image into incoming slot
-      imgIdx.current = (imgIdx.current + 1) % IMAGES.length;
-      imgIn.src = `${BASE}${IMAGES[imgIdx.current]}`;
+    const tick = (now: number) => {
+      rafId = requestAnimationFrame(tick);
+      const st = stateRef.current;
+      if (!st) return;
 
-      // Park incoming off-screen top (no transition)
-      park(sIn);
-      sIn.style.zIndex = "2";  // incoming is on top
+      if (lastTs < 0) {
+        lastTs = now;
+        return;
+      }
 
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        // Incoming slides down from top (z=2, covers outgoing)
-        sIn.style.transition = `transform ${ENTER_MS}ms cubic-bezier(0.22,1,0.36,1)`;
-        sIn.style.transform  = "translateY(0)";
+      const dt = Math.min(now - lastTs, 50);
+      lastTs = now;
 
-        // Outgoing drops behind, then exits right
-        sOut.style.zIndex = "1";
-        setTimeout(() => {
-          sOut.style.transition = `transform ${EXIT_MS}ms cubic-bezier(0.55,0,1,0.45)`;
-          sOut.style.transform  = "translateX(115%)";
-        }, 80);
+      const { cardH, stride, containerH } = st;
 
-        curSlot.current = inIdx;
-      }));
+      for (const card of st.cards) {
+        if (card.mode === "flow") {
+          card.y += (FLOW_SPEED * dt) / 1000;
+        } else if (card.mode === "entering") {
+          const t = Math.min((now - card.enterStartAt) / ENTER_MS, 1);
+          card.y = card.enterFromY + (card.enterToY - card.enterFromY) * easeOutCubic(t);
+          if (t >= 1) {
+            card.mode = "flow";
+            card.el.style.zIndex = "3";
+          }
+        } else if (card.mode === "exiting") {
+          const t = Math.min((now - card.exitStartAt) / EXIT_MS, 1);
+          card.x = easeInCubic(t) * (card.el.clientWidth * 1.15);
+          card.y = card.exitFromY + (card.exitToY - card.exitFromY) * easeInCubic(t);
+          if (t >= 1) {
+            card.mode = "idle";
+            card.x = 0;
+            card.y = -cardH * 2;
+          }
+        }
+      }
+
+      const flowing = st.cards.filter((card) => card.mode === "flow");
+      let leaving: LiveCard | null = null;
+      let maxY = -Infinity;
+      for (const card of flowing) {
+        if (card.y > containerH && card.y > maxY) {
+          maxY = card.y;
+          leaving = card;
+        }
+      }
+
+      if (leaving) {
+        leaving.mode = "exiting";
+        leaving.exitStartAt = now;
+        leaving.exitFromY = leaving.y;
+        leaving.exitToY = leaving.y + cardH * 0.35;
+        leaving.el.style.zIndex = "1";
+
+        const incoming = st.cards.find((card) => card.mode === "idle");
+        if (incoming) {
+          const topFlowY = Math.min(...st.cards.filter((card) => card.mode === "flow").map((card) => card.y));
+          incoming.mode = "entering";
+          incoming.enterStartAt = now;
+          incoming.enterFromY = -cardH * 1.1;
+          incoming.enterToY = topFlowY - stride + (FLOW_SPEED * ENTER_MS) / 1000;
+          incoming.y = incoming.enterFromY;
+          incoming.x = 0;
+          incoming.srcIdx = st.nextSrcIdx;
+          incoming.img.src = `${BASE}${IMAGES[incoming.srcIdx]}`;
+          incoming.el.style.zIndex = "4";
+          st.nextSrcIdx = (st.nextSrcIdx + 1) % IMAGES.length;
+        }
+      }
+
+      for (const card of st.cards) {
+        card.el.style.opacity = "1";
+        card.el.style.transform = `translate3d(${card.x.toFixed(1)}px, ${card.y.toFixed(1)}px, 0)`;
+      }
     };
 
-    const id = setInterval(advance, HOLD_MS + ENTER_MS);
-    return () => clearInterval(id);
+    rafId = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
+    };
   }, []);
 
   return (
-    <div className="hca-root" aria-label="Amostras de trabalho — Loyal Consulting">
-      {([0, 1] as const).map((i) => (
+    <div ref={rootRef} className="hca-root" aria-label="Amostras de trabalho — Loyal Consulting">
+      {Array.from({ length: POOL_SIZE }, (_, i) => (
         <div key={i} ref={(el) => { cardRefs.current[i] = el; }} className="hca-card">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
