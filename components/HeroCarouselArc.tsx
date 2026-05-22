@@ -1,11 +1,18 @@
 "use client";
 
 /**
- * HeroCarouselArc
+ * HeroCarouselArc — Curved-L arc carousel
  *
- * 3 images travel along a ¼-circle arc (slot -1 → 0 → +1 = 90°).
- * Center card is largest; side cards shrink with the arc curve.
- * New cards enter from slot +2 (right) and exit at slot -2 (left).
+ * Images enter from the TOP, travel along a quarter-circle arc
+ * (tangent: vertical → horizontal), zoom to full size at the curve,
+ * then exit toward the RIGHT. Three images visible at once.
+ *
+ * Arc formula — circle whose tangent at θ=0 is straight down:
+ *   x(θ) = ENTRY_X + R·(1 − cos θ)   →  0 at top, R at right
+ *   y(θ) = ENTRY_Y + R·sin θ          →  ENTRY_Y at top, ENTRY_Y+R at bottom
+ *
+ * Slots: −2 (staging, top) … 0 (center, max zoom) … +2 (staging, right)
+ * Each tick all slots increment by 1; new card inserted at slot −2.
  */
 
 import { useEffect, useState } from "react";
@@ -36,11 +43,21 @@ const IMAGES = [
   "relatorios-impressos-mesa.jpg",
 ];
 
-// ── Arc geometry ────────────────────────────────────────────
-// Slots -1, 0, +1 are the 3 visible positions (90° total span).
-// Slots ±2 are invisible staging areas for enter/exit transitions.
-const R = 260; // arc radius in px
-const SLOT_DEG = 45; // degrees per slot step
+// ── Card dimensions ────────────────────────────────────────────────────────
+const CARD_W = 190;
+const CARD_H = 260;
+
+// ── Arc parameters ─────────────────────────────────────────────────────────
+// R      : arc radius (larger = gentler curve)
+// ENTRY_X: x-position where the arc begins (θ = 0, tangent straight down)
+// ENTRY_Y: y of the arc's origin point — negative = above the container
+// BASE_DEG: angle of slot 0 (center, max zoom) on the arc
+// STEP_DEG: angular spacing between adjacent slots
+const R = 320;
+const ENTRY_X = 120;
+const ENTRY_Y = -130;
+const BASE_DEG = 50;
+const STEP_DEG = 26;
 
 function slotToArc(slot: number): {
   x: number;
@@ -48,28 +65,31 @@ function slotToArc(slot: number): {
   scale: number;
   opacity: number;
 } {
-  const rad = (slot * SLOT_DEG * Math.PI) / 180;
+  const rad = ((BASE_DEG + slot * STEP_DEG) * Math.PI) / 180;
+  // Centre of the card on the arc path
+  const cx = ENTRY_X + R * (1 - Math.cos(rad));
+  const cy = ENTRY_Y + R * Math.sin(rad);
   return {
-    x: Math.sin(rad) * R,
-    y: R * (1 - Math.cos(rad)), // 0 at slot 0, grows along arc
-    scale: Math.max(0.42, 1 - Math.abs(slot) * 0.29),
-    opacity: slot === 0 ? 1 : Math.max(0, 1 - Math.abs(slot) * 0.55),
+    x: cx - CARD_W / 2, // top-left of card (framer translate from container origin)
+    y: cy - CARD_H / 2,
+    // Zoom peaks at slot 0, falls off symmetrically
+    scale: Math.max(0.44, 1 - Math.abs(slot) * 0.28),
+    // Staging slots (±2) are invisible; visible slots fade slightly at edges
+    opacity:
+      Math.abs(slot) >= 2 ? 0 : Math.max(0.25, 1 - Math.abs(slot) * 0.5),
   };
 }
 
-// Stable entry/exit reference position (slot +2 — off-screen right)
-const ENTRY = slotToArc(2);
-
-// ── Card pool management (module-level counters are safe for
-//    a single-instance component in a single-page app) ───────
+// ── Card pool ──────────────────────────────────────────────────────────────
+// Module-level counters are fine for a single-instance component.
 let _uid = 0;
-let _nextImg = 5; // next image index to assign (first 5 used for init)
+let _nextImg = 5; // first 5 images used for initCards()
 
 interface ArcCard {
   id: number;
   src: string;
   slot: number;
-  isNew: boolean; // controls whether initial animation fires
+  isNew: boolean; // true → plays enter animation; false → appears immediately
 }
 
 function initCards(): ArcCard[] {
@@ -77,25 +97,30 @@ function initCards(): ArcCard[] {
     id: _uid++,
     src: IMAGES[i % IMAGES.length],
     slot,
-    isNew: false, // initial cards just appear at their positions
+    isNew: false,
   }));
 }
 
-// ── Component ────────────────────────────────────────────────
+// Pre-compute the staging (entry) position so it's stable across renders
+const ENTRY_SLOT = slotToArc(-2);
+
+// ── Component ──────────────────────────────────────────────────────────────
 export function HeroCarouselArc() {
   const [cards, setCards] = useState<ArcCard[]>(initCards);
 
   useEffect(() => {
     const tid = setInterval(() => {
       setCards((prev) => {
+        // Advance every card one slot toward the exit (slot +2)
         const moved = prev
-          .map((c) => ({ ...c, slot: c.slot - 1, isNew: false }))
-          .filter((c) => c.slot >= -2); // -2 stays for one tick (opacity 0), then removed
+          .map((c) => ({ ...c, slot: c.slot + 1, isNew: false }))
+          .filter((c) => c.slot <= 2);
 
-        moved.push({
+        // Inject fresh card at the top staging position
+        moved.unshift({
           id: _uid++,
           src: IMAGES[_nextImg % IMAGES.length],
-          slot: 2,
+          slot: -2,
           isNew: true,
         });
         _nextImg++;
@@ -114,21 +139,21 @@ export function HeroCarouselArc() {
             <motion.div
               key={card.id}
               className="hca2-card"
-              // Initial: new cards enter from slot +2 (off-screen right, opacity 0).
-              // Existing initial cards skip animation (initial={false}).
+              // New cards start at the staging position above; existing initial
+              // cards skip the entry animation to avoid a "burst" on first paint.
               initial={
                 card.isNew
                   ? {
-                      x: ENTRY.x,
-                      y: ENTRY.y,
-                      scale: ENTRY.scale,
+                      x: ENTRY_SLOT.x,
+                      y: ENTRY_SLOT.y,
+                      scale: ENTRY_SLOT.scale,
                       opacity: 0,
                     }
                   : false
               }
               animate={{ x, y, scale, opacity }}
-              exit={{ opacity: 0, transition: { duration: 0.22 } }}
-              transition={{ duration: 0.84, ease: [0.25, 0.46, 0.45, 0.94] }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
               style={{ zIndex: 10 - Math.abs(card.slot) * 3 }}
             >
               <div className="hca2-img-wrap">
@@ -148,3 +173,4 @@ export function HeroCarouselArc() {
     </div>
   );
 }
+
