@@ -2371,3 +2371,103 @@ a {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   HIR — Hero Image Reel
+   Continuous vertical marquee; images scroll upward at a constant
+   subtle speed. Two copies of the array ensure a seamless loop.
+
+   Per-item slot = 191px (16:9 @ 340px) + 12px margin-bottom = 203px.
+   Track height = 38 × 203px = 7714px.
+   translateY(-50%) = -3857px = exactly one copy → perfect loop.
+   ══════════════════════════════════════════════════════════════ */
+
+.hir-root {
+  position: relative;
+  width: 340px;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 20px;
+  /* Top/bottom fade for seamless loop illusion */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.hir-track {
+  display: flex;
+  flex-direction: column;
+  /* No gap — use margin-bottom on each item so per-item slot is
+     uniform and translateY(-50%) lands exactly at the loop point. */
+  animation: hir-scroll 80s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover — accessibility / user control */
+.hir-root:hover .hir-track {
+  animation-play-state: paused;
+}
+
+.hir-item {
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Image container: fixed 16:9 aspect ratio at 340px wide = 191px tall.
+   Combined with 12px margin-bottom → 203px per slot. */
+.hir-img-wrap {
+  position: relative;
+  width: 340px;
+  aspect-ratio: 16 / 9;
+}
+
+.hir-img {
+  object-fit: cover;
+  filter: brightness(0.82) saturate(0.72);
+  transition: filter 0.4s ease;
+}
+
+.hir-item:hover .hir-img {
+  filter: brightness(0.96) saturate(0.9);
+}
+
+@keyframes hir-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Single-column hero: center the reel and allow full-width */
+  .hir-root {
+    width: min(100%, 340px);
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .hir-img-wrap {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hir-root {
+    height: 300px;
+  }
+}
+

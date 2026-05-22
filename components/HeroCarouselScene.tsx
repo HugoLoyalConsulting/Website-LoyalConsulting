@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroCarouselArc } from "./HeroCarouselArc";
+import { HeroImageReel } from "./HeroImageReel";
 
 /* ── HeroCarouselScene ────────────────────────────────────── */
 export function HeroCarouselScene() {
@@ -23,7 +23,7 @@ export function HeroCarouselScene() {
       <div className="hcs-glow hcs-glow--teal" aria-hidden="true" />
       <div className="hcs-glow hcs-glow--amber" aria-hidden="true" />
 
-      <HeroCarouselArc />
+      <HeroImageReel />
     </motion.div>
   );
 }
