@@ -5,17 +5,24 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const IMAGES = [
   "/images/dashboard-powerbi-vendas.png",
-  "/images/dashboard-monitor-colorido.jpg",
-  "/images/apresentacao-bi-reuniao-executiva.jpg",
-  "/images/executivo-painel-wall.jpg",
-  "/images/dashboard-powerbi-timeline.jpg",
-  "/images/laptop-analytics-angulo.jpg",
   "/images/dashboard-comunicacao-interna.png",
+  "/images/dashboard-monitor-colorido.jpg",
+  "/images/dashboard-powerbi-timeline.jpg",
   "/images/dashboard-ui-kpis.webp",
   "/images/analista-bi-monitores-duplos.jpg",
-  "/images/laptop-analytics-aberto.jpg",
+  "/images/analistas-revisando-dashboard.jpg",
+  "/images/apresentacao-bi-reuniao-executiva.jpg",
+  "/images/apresentacao-bi-reuniao-masculino.jpg",
   "/images/apresentacao-dashboard-apontando.jpg",
+  "/images/executivo-painel-wall.jpg",
+  "/images/grafico-crescimento-abstrato.jpg",
+  "/images/ipad-google-analytics.jpg",
+  "/images/laptop-analytics-aberto.jpg",
+  "/images/laptop-analytics-angulo.jpg",
   "/images/monitor-dados-futurista.jpg",
+  "/images/documentos-gestao-projetos.jpg",
+  "/images/relatorio-financeiro-impresso.jpg",
+  "/images/relatorios-impressos-mesa.jpg",
 ];
 
 const FLOW_SPEED = 30; // px/s downward

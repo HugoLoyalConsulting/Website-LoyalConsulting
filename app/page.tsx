@@ -1,6 +1,6 @@
 ﻿import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { MarqueeBand } from "@/components/MarqueeBand";
-import { HeroCarouselAuto } from "@/components/HeroCarouselAuto";
+import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { StickyTopNav, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 
 const dores = [
@@ -144,7 +144,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="ts-hero-visual" style={{ paddingBottom: "2rem" }}>
-            <HeroCarouselAuto />
+            <HeroCarouselScene />
           </div>
         </div>
       </section>
