@@ -2394,108 +2394,42 @@ a {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   HIR — Hero Image Reel (diagonal, top-to-bottom)
+   HIR — Hero Spotlight Carousel (tasteskill.dev-style)
 
-   Geometry:
-   • .hir-root  : 340 × 480px — the visible window, clips everything
-   • .hir-strip : inset -160px → 660 × 800px, rotated -12° (diagonal)
-   • .hir-img-wrap : 100% × 16/9 → 660 × 371px per image
-   • .hir-item  : + 12px margin-bottom → 383px per slot
-   • One copy   : 19 × 383 = 7 277px
-   • Track total: 38 × 383 = 14 554px
-   • translateY(-50%) = −7 277px = exactly one copy → seamless loop
+   Three images visible at once in a diagonal stack:
+   • ENTER  (top, 0.65×) — incoming card
+   • ACTIVE (center, 1.0×) — featured card
+   • EXIT   (bottom-right, 0.65×) — outgoing card
 
-   Direction: from { translateY(-50%) } → to { translateY(0) }
-   The track moves DOWN → images enter from top, exit at bottom.
-   Combined with the -12° tilt this creates a diagonal trajectory.
+   Container : 360 × 460px
+   Active card: 300 × 188px (16:9), base position top:136 left:30
+   Positions are framer-motion x/y translations from the active base.
    ══════════════════════════════════════════════════════════════ */
 
 .hir-root {
   position: relative;
-  width: 340px;
-  height: 480px;
+  width: 360px;
+  height: 460px;
   overflow: hidden;
-  border-radius: 20px;
-  /* Top/bottom fade creates soft entry/exit edges */
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 12%,
-    black 88%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 12%,
-    black 88%,
-    transparent 100%
-  );
 }
 
-/* Rotated strip — positioned with a generous negative inset
-   so after rotate(-12deg) it fully covers all four corners
-   of .hir-root with no background gaps. */
-.hir-strip {
+/* Base position for every card (moved via framer-motion translate) */
+.hir-card {
   position: absolute;
-  inset: -160px;
-  transform: rotate(-12deg);
-  /* Pivot around center of the strip (default transform-origin) */
-}
-
-.hir-track {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  /* Downward scroll: copy-2 starts at top (translateY -50%),
-     animates to translateY(0) where copy-1 is at top, then loops. */
-  animation: hir-scroll 90s linear infinite;
-  will-change: transform;
-}
-
-/* Pause on hover for user control */
-.hir-root:hover .hir-track {
-  animation-play-state: paused;
-}
-
-.hir-item {
-  flex-shrink: 0;
-  border-radius: 12px;
+  top: 136px;
+  left: 30px;
+  width: 300px;
+  height: 188px; /* 16:9 */
+  border-radius: 14px;
   overflow: hidden;
-  /* margin-bottom instead of gap: ensures per-slot height is
-     uniform, making translateY(-50%) land exactly at the loop point. */
-  margin-bottom: 12px;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-/* 660px wide × 371px tall (16:9). Item slot = 371 + 12 = 383px. */
-.hir-img-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-
-.hir-img {
-  object-fit: cover;
-  filter: brightness(0.82) saturate(0.72);
-  transition: filter 0.4s ease;
-}
-
-.hir-item:hover .hir-img {
-  filter: brightness(0.96) saturate(0.9);
-}
-
-@keyframes hir-scroll {
-  from { transform: translateY(-50%); }
-  to   { transform: translateY(0); }
+    0 20px 50px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+  will-change: transform, opacity;
 }
 
 /* ── Responsive ─────────────────────────────────────────────
-   zoom scales the entire component uniformly (layout box +
-   visual). The -50% loop math stays correct at any zoom level
-   because percentage is relative to the element's own height.
+   zoom scales the entire component uniformly.
    ─────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hir-root {
@@ -2515,4 +2449,5 @@ a {
     zoom: 0.55;
   }
 }
+
 
