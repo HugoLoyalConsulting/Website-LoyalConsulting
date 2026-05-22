@@ -2372,13 +2372,20 @@ a {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   HIR — Hero Image Reel
-   Continuous vertical marquee; images scroll upward at a constant
-   subtle speed. Two copies of the array ensure a seamless loop.
+   HIR — Hero Image Reel (diagonal, top-to-bottom)
 
-   Per-item slot = 191px (16:9 @ 340px) + 12px margin-bottom = 203px.
-   Track height = 38 × 203px = 7714px.
-   translateY(-50%) = -3857px = exactly one copy → perfect loop.
+   Geometry:
+   • .hir-root  : 340 × 480px — the visible window, clips everything
+   • .hir-strip : inset -160px → 660 × 800px, rotated -12° (diagonal)
+   • .hir-img-wrap : 100% × 16/9 → 660 × 371px per image
+   • .hir-item  : + 12px margin-bottom → 383px per slot
+   • One copy   : 19 × 383 = 7 277px
+   • Track total: 38 × 383 = 14 554px
+   • translateY(-50%) = −7 277px = exactly one copy → seamless loop
+
+   Direction: from { translateY(-50%) } → to { translateY(0) }
+   The track moves DOWN → images enter from top, exit at bottom.
+   Combined with the -12° tilt this creates a diagonal trajectory.
    ══════════════════════════════════════════════════════════════ */
 
 .hir-root {
@@ -2387,52 +2394,64 @@ a {
   height: 480px;
   overflow: hidden;
   border-radius: 20px;
-  /* Top/bottom fade for seamless loop illusion */
+  /* Top/bottom fade creates soft entry/exit edges */
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    black 10%,
-    black 90%,
+    black 12%,
+    black 88%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    black 10%,
-    black 90%,
+    black 12%,
+    black 88%,
     transparent 100%
   );
+}
+
+/* Rotated strip — positioned with a generous negative inset
+   so after rotate(-12deg) it fully covers all four corners
+   of .hir-root with no background gaps. */
+.hir-strip {
+  position: absolute;
+  inset: -160px;
+  transform: rotate(-12deg);
+  /* Pivot around center of the strip (default transform-origin) */
 }
 
 .hir-track {
   display: flex;
   flex-direction: column;
-  /* No gap — use margin-bottom on each item so per-item slot is
-     uniform and translateY(-50%) lands exactly at the loop point. */
+  width: 100%;
+  /* Downward scroll: copy-2 starts at top (translateY -50%),
+     animates to translateY(0) where copy-1 is at top, then loops. */
   animation: hir-scroll 80s linear infinite;
   will-change: transform;
 }
 
-/* Pause on hover — accessibility / user control */
+/* Pause on hover for user control */
 .hir-root:hover .hir-track {
   animation-play-state: paused;
 }
 
 .hir-item {
   flex-shrink: 0;
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
+  /* margin-bottom instead of gap: ensures per-slot height is
+     uniform, making translateY(-50%) land exactly at the loop point. */
   margin-bottom: 12px;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-/* Image container: fixed 16:9 aspect ratio at 340px wide = 191px tall.
-   Combined with 12px margin-bottom → 203px per slot. */
+/* 660px wide × 371px tall (16:9). Item slot = 371 + 12 = 383px. */
 .hir-img-wrap {
   position: relative;
-  width: 340px;
+  width: 100%;
   aspect-ratio: 16 / 9;
 }
 
@@ -2447,27 +2466,31 @@ a {
 }
 
 @keyframes hir-scroll {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
 }
 
-/* ── Responsive ─────────────────────────────────────────── */
+/* ── Responsive ─────────────────────────────────────────────
+   zoom scales the entire component uniformly (layout box +
+   visual). The -50% loop math stays correct at any zoom level
+   because percentage is relative to the element's own height.
+   ─────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  /* Single-column hero: center the reel and allow full-width */
   .hir-root {
-    width: min(100%, 340px);
-    height: 400px;
+    zoom: 0.82;
     margin: 0 auto;
-  }
-
-  .hir-img-wrap {
-    width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   .hir-root {
-    height: 300px;
+    zoom: 0.65;
+  }
+}
+
+@media (max-width: 400px) {
+  .hir-root {
+    zoom: 0.55;
   }
 }
 

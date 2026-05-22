@@ -3,14 +3,18 @@
 /**
  * HeroImageReel
  *
- * A slow, constant, vertical image reel. Images scroll upward
- * at a fixed speed with no jumps or state transitions.
+ * Continuous diagonal image reel — images flow from top to bottom
+ * along a tilted strip (rotate -12°). No state, no JS timers:
+ * pure CSS animation.
  *
- * Technique: the IMAGES array is duplicated (38 items total).
- * CSS animates from translateY(0) → translateY(-50%).
- * At -50%, we've scrolled exactly one copy's worth of height
- * (each item = image height + margin-bottom, so the per-item
- * measurement is uniform and the loop is perfectly seamless).
+ * Loop technique: IMAGES duplicated to 38 items.
+ * Strip inner width = root (340px) + 2×160px inset = 660px.
+ * Each image: 660px wide × 371px tall (16:9) + 12px margin-bottom = 383px/slot.
+ * One copy: 19 × 383 = 7277px. Track total: 14554px.
+ * translateY(-50%) = −7277px = exactly one copy → seamless.
+ *
+ * Direction: from { translateY(-50%) } → to { translateY(0) }
+ * = track moves DOWN = images enter from top, exit at bottom.
  */
 
 import Image from "next/image";
@@ -40,29 +44,27 @@ const IMAGES = [
 ];
 
 export function HeroImageReel() {
-  // Duplicate for seamless infinite loop.
-  // Each item height is fixed (16:9 @ 340px = 191px) + 12px margin-bottom.
-  // Per-item slot = 203px. 19 items × 203px = 3857px per copy.
-  // translateY(-50%) = -50% of track height (38 × 203 = 7714px) = -3857px.
-  // At -3857px, copy-2 item-0 is exactly at the top → seamless.
   const doubled = [...IMAGES, ...IMAGES];
 
   return (
     <div className="hir-root" aria-hidden="true">
-      <div className="hir-track">
-        {doubled.map((img, i) => (
-          <div key={i} className="hir-item">
-            <div className="hir-img-wrap">
-              <Image
-                src={`${BASE}/images/${img}`}
-                alt=""
-                fill
-                sizes="340px"
-                className="hir-img"
-              />
+      {/* Rotated strip — oversized via inset:-160px so corners are always covered */}
+      <div className="hir-strip">
+        <div className="hir-track">
+          {doubled.map((img, i) => (
+            <div key={i} className="hir-item">
+              <div className="hir-img-wrap">
+                <Image
+                  src={`${BASE}/images/${img}`}
+                  alt=""
+                  fill
+                  sizes="660px"
+                  className="hir-img"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
