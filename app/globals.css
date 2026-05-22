@@ -1495,7 +1495,7 @@ a {
   }
 
   .ts-hero-visual {
-    min-height: 260px;
+    min-height: 300px;
   }
 
   .ts-works-top {
@@ -2344,22 +2344,30 @@ a {
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* ── Responsive ─────────────────────────────────────────── */
-@media (max-width: 640px) {
+/* ── Responsive ─────────────────────────────────────────────
+   The arc positions are JS-computed in fixed px, so we use
+   CSS zoom to uniformly scale the entire carousel at smaller
+   viewports. zoom adjusts both visual size AND layout box.
+   ────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Single-column hero: shrink slightly so the carousel
+     doesn't overflow the stacked column. */
   .hca2-root {
-    width: min(100%, 360px);
-    height: 310px;
+    zoom: 0.76;
   }
+}
 
-  .hca2-card {
-    left: calc(50% - 65px);
-    top: 24px;
+@media (max-width: 600px) {
+  /* Small phones: scale down further to ~60% of desktop size.
+     At 390px screen → 530 × 0.62 ≈ 328px, fits comfortably. */
+  .hca2-root {
+    zoom: 0.62;
   }
+}
 
-  .hca2-img-wrap {
-    width: 130px;
-    height: 178px;
-    border-radius: 12px;
+@media (max-width: 400px) {
+  .hca2-root {
+    zoom: 0.52;
   }
 }
 
