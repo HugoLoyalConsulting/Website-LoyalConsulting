@@ -7,11 +7,11 @@
  * along a tilted strip (rotate -12°). No state, no JS timers:
  * pure CSS animation.
  *
- * Loop technique: IMAGES duplicated to 38 items.
+ * Loop technique: IMAGES duplicated to 14 items.
  * Strip inner width = root (340px) + 2×160px inset = 660px.
  * Each image: 660px wide × 371px tall (16:9) + 12px margin-bottom = 383px/slot.
- * One copy: 19 × 383 = 7277px. Track total: 14554px.
- * translateY(-50%) = −7277px = exactly one copy → seamless.
+ * One copy: 7 × 383 = 2681px. Track total: 5362px.
+ * translateY(-50%) = −2681px = exactly one copy → seamless.
  *
  * Direction: from { translateY(-50%) } → to { translateY(0) }
  * = track moves DOWN = images enter from top, exit at bottom.
@@ -27,20 +27,8 @@ const IMAGES = [
   "dashboard-monitor-colorido.jpg",
   "dashboard-powerbi-timeline.jpg",
   "dashboard-ui-kpis.webp",
-  "analista-bi-monitores-duplos.jpg",
-  "analistas-revisando-dashboard.jpg",
-  "apresentacao-bi-reuniao-executiva.jpg",
-  "apresentacao-bi-reuniao-masculino.jpg",
-  "apresentacao-dashboard-apontando.jpg",
-  "executivo-painel-wall.jpg",
-  "grafico-crescimento-abstrato.jpg",
-  "ipad-google-analytics.jpg",
-  "laptop-analytics-aberto.jpg",
-  "laptop-analytics-angulo.jpg",
-  "monitor-dados-futurista.jpg",
-  "documentos-gestao-projetos.jpg",
-  "relatorio-financeiro-impresso.jpg",
-  "relatorios-impressos-mesa.jpg",
+  "dashboard-crescimento-abstrato.jpg",
+  "dashboard-monitor-dados-futurista.jpg",
 ];
 
 export function HeroImageReel() {

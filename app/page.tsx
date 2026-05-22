@@ -1,4 +1,5 @@
-﻿import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+﻿import Image from "next/image";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { StickyTopNav, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
@@ -29,18 +30,21 @@ const howSteps = [
     title: "Centralizamos fontes de dados",
     body: "Integramos Excel, Google Sheets, ERPs, APIs, bancos SQL, SharePoint, CRMs, sistemas internos e plataformas operacionais — tudo em um fluxo analítico unificado.",
     tags: ["Excel", "Google Sheets", "ERP", "APIs", "SQL", "SharePoint", "CRM"],
+    img: "laptop-analytics-aberto.jpg",
   },
   {
     num: "02",
     title: "Estruturamos uma camada confiável de dados",
     body: "Modelamos indicadores, métricas e regras de negócio para garantir consistência, governança, rastreabilidade e confiança operacional.",
     tags: ["Consistência", "Governança", "Rastreabilidade", "Confiança"],
+    img: "analistas-revisando-dashboard.jpg",
   },
   {
     num: "03",
     title: "Transformamos dados em decisões",
     body: "Criamos dashboards modernos, automações e visões executivas que permitem agir mais rápido, identificar gargalos, reduzir desperdícios e aumentar previsibilidade operacional.",
     tags: ["Dashboards", "Automações", "KPIs críticos", "Previsibilidade"],
+    img: "apresentacao-dashboard-apontando.jpg",
   },
 ];
 
@@ -206,6 +210,15 @@ export default function HomePage() {
           <div className="lc-how-steps mt-12">
             {howSteps.map((step) => (
               <div key={step.num} className="lc-how-step">
+                <figure className="lc-how-step-img">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${step.img}`}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: "cover", filter: "brightness(0.8) saturate(0.7)" }}
+                  />
+                </figure>
                 <span className="lc-how-num">{step.num}</span>
                 <h3 className="lc-how-title">{step.title}</h3>
                 <p className="lc-how-body">{step.body}</p>
@@ -248,6 +261,20 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── PARALLAX BREAK 2 ────────────────────────────────── */}
+      <div
+        className="parallax-break"
+        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/analista-bi-monitores-duplos.jpg')` }}
+      >
+        <div className="parallax-break__inner">
+          <p className="parallax-quote">
+            &ldquo;Dados organizados não são luxo&nbsp;— são o único caminho
+            para decisões rápidas e confiáveis em escala.&rdquo;
+          </p>
+          <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
+        </div>
+      </div>
 
       {/* ── PLANOS ──────────────────────────────────────────── */}
       <section id="planos" className="lc-plans-section">
