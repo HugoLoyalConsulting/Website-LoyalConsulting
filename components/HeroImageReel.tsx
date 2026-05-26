@@ -1,20 +1,19 @@
 "use client";
 
 /**
- * HeroSpotlightCarousel
+ * HeroSpotlightCarousel — continuous, fluid diagonal motion.
  *
- * Auto-advancing diagonal spotlight carousel — inspired by tasteskill.dev.
- * Three images visible at once in a diagonal stack:
- *   • ENTER  (top, small)  → incoming next card
- *   • ACTIVE (center, full) → current featured card
- *   • EXIT   (bottom-right, small) → outgoing card
+ * Three images always visible in a diagonal stack:
+ *   ENTER  (bottom-right, small) → ACTIVE (center, full) → EXIT (top, small)
  *
- * Advances every 3.8 s via framer-motion position transitions.
- * No CSS scroll animation — all driven by React state + Framer Motion.
+ * Driven by requestAnimationFrame at constant speed — no React state
+ * re-renders, no discrete jumps. Direct DOM style updates only.
+ *
+ * Waypoints (x/y = translate from the card's absolute base position):
+ *   base card: top:136px left:30px size:300×188px (16:9) in a 360×460 container
  */
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -29,64 +28,96 @@ const IMAGES = [
   "dashboard-monitor-dados-futurista.jpg",
 ];
 
-/* ── Slot definitions ────────────────────────────────────────
-   x / y are translations from the card's "active" base position.
-   Container: 360 × 460px.
-   Active card base: top=136 left=30, size=300×188px (16:9).
-   ─────────────────────────────────────────────────────────── */
-const SLOTS = {
-  before: { x: -10, y: -190, scale: 0.58, opacity: 0,    rotate:  2, zIndex: 0 },
-  enter:  { x: -10, y:  -95, scale: 0.65, opacity: 0.65, rotate:  2, zIndex: 2 },
-  active: { x:   0, y:    0, scale: 1.00, opacity: 1.00, rotate: -2, zIndex: 4 },
-  exit:   { x:  70, y:  140, scale: 0.65, opacity: 0.65, rotate:  1, zIndex: 2 },
-  gone:   { x: 140, y:  265, scale: 0.58, opacity: 0,    rotate:  3, zIndex: 0 },
-} as const;
+const N = IMAGES.length;
+const SPEED = 0.2; // images per second → 1 image every 5 s; full cycle 35 s
 
-type SlotName = keyof typeof SLOTS;
+/* ── Waypoints ────────────────────────────────────────────── */
+interface WP { x: number; y: number; scale: number; opacity: number; rotate: number }
 
-function getSlot(rel: number): SlotName {
-  if (rel === 0)  return "active";
-  if (rel === -1) return "enter";
-  if (rel ===  1) return "exit";
-  return rel < 0 ? "before" : "gone";
+const WP: Record<string, WP> = {
+  before: { x:  -20, y: -190, scale: 0.55, opacity: 0,    rotate:  2 }, // off-screen top
+  exit:   { x:  -10, y:  -95, scale: 0.65, opacity: 0.65, rotate:  2 }, // top (outgoing)
+  active: { x:    0, y:    0, scale: 1.00, opacity: 1.00, rotate: -2 }, // center (featured)
+  enter:  { x:   70, y:  140, scale: 0.65, opacity: 0.65, rotate:  1 }, // bottom-right (incoming)
+  gone:   { x:  140, y:  265, scale: 0.55, opacity: 0,    rotate:  1 }, // off-screen bottom-right
+};
+
+function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
+
+function lerpWP(a: WP, b: WP, t: number): WP {
+  return {
+    x:       lerp(a.x,       b.x,       t),
+    y:       lerp(a.y,       b.y,       t),
+    scale:   lerp(a.scale,   b.scale,   t),
+    opacity: lerp(a.opacity, b.opacity, t),
+    rotate:  lerp(a.rotate,  b.rotate,  t),
+  };
+}
+
+function getProps(rel: number): WP & { zIndex: number } {
+  // Normalize rel to the range (-N/2, N/2]
+  let r = ((rel % N) + N) % N;
+  if (r > N / 2) r -= N;
+
+  let wp: WP;
+  let zIndex: number;
+
+  if      (r >= -2 && r <  -1) { wp = lerpWP(WP.gone,   WP.enter,  r + 2); zIndex = 1; }
+  else if (r >= -1 && r <   0) { wp = lerpWP(WP.enter,  WP.active, r + 1); zIndex = 3; }
+  else if (r === 0)             { wp = WP.active;                            zIndex = 4; }
+  else if (r >   0 && r <=  1) { wp = lerpWP(WP.active, WP.exit,   r    ); zIndex = 3; }
+  else if (r >   1 && r <=  2) { wp = lerpWP(WP.exit,   WP.before, r - 1); zIndex = 1; }
+  else                          { wp = { x: 0, y: 0, scale: 0.5, opacity: 0, rotate: 0 }; zIndex = 0; }
+
+  return { ...wp, zIndex };
 }
 
 export function HeroImageReel() {
-  const [active, setActive] = useState(0);
-  const n = IMAGES.length;
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rafRef   = useRef<number>(0);
+  const phase    = useRef(0);
+  const prevTs   = useRef<number | null>(null);
 
   useEffect(() => {
-    const id = setInterval(() => setActive(i => (i + 1) % n), 3800);
-    return () => clearInterval(id);
-  }, [n]);
+    function frame(ts: number) {
+      if (prevTs.current !== null) {
+        const dt = (ts - prevTs.current) / 1000;
+        phase.current = (phase.current + SPEED * dt) % N;
+
+        cardRefs.current.forEach((el, idx) => {
+          if (!el) return;
+          const { x, y, scale, opacity, rotate, zIndex } = getProps(phase.current - idx);
+          el.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
+          el.style.opacity   = String(opacity);
+          el.style.zIndex    = String(zIndex);
+        });
+      }
+      prevTs.current = ts;
+      rafRef.current = requestAnimationFrame(frame);
+    }
+
+    rafRef.current = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   return (
     <div className="hir-root" aria-hidden="true">
-      {IMAGES.map((img, idx) => {
-        let rel = ((idx - active) % n + n) % n;
-        if (rel > Math.floor(n / 2)) rel -= n; // normalize to -⌊n/2⌋ … +⌊n/2⌋
-        const slotName = getSlot(rel);
-        const { zIndex, ...animProps } = SLOTS[slotName];
-
-        return (
-          <motion.div
-            key={img}
-            className="hir-card"
-            initial={animProps}
-            animate={animProps}
-            transition={{ duration: 0.75, ease: [0.4, 0, 0.2, 1] }}
-            style={{ zIndex }}
-          >
-            <Image
-              src={`${BASE}/images/${img}`}
-              alt=""
-              fill
-              sizes="(max-width: 600px) 200px, 300px"
-              style={{ objectFit: "cover" }}
-            />
-          </motion.div>
-        );
-      })}
+      {IMAGES.map((img, idx) => (
+        <div
+          key={img}
+          ref={el => { cardRefs.current[idx] = el; }}
+          className="hir-card"
+          style={{ opacity: 0 }}
+        >
+          <Image
+            src={`${BASE}/images/${img}`}
+            alt=""
+            fill
+            sizes="(max-width: 600px) 200px, 300px"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+      ))}
     </div>
   );
 }

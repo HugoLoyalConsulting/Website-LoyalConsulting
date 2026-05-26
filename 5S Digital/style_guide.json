@@ -1,0 +1,441 @@
+{
+  "design_system_name": "Neo-Analytical Motion System",
+  "inspiration_sources": {
+    "primary_visual_reference": "Neo-futuristic glassmorphism mobile UI",
+    "interaction_reference": "TASTE.MD Awwwards-grade motion engineering",
+    "strategic_positioning": [
+      "premium BI consultancy",
+      "executive analytics platform",
+      "high-end operational intelligence",
+      "future-oriented enterprise UX"
+    ],
+    "source_reference": "TASTE.MD motion/UI engineering principles",
+    "uploaded_file_citation": ":contentReference[oaicite:0]{index=0}"
+  },
+
+  "core_experience_principles": {
+    "mandatory_feelings": [
+      "cinematic",
+      "alive",
+      "highly reactive",
+      "premium",
+      "intelligent",
+      "editorial",
+      "interactive",
+      "dimensional",
+      "motion-first"
+    ],
+
+    "forbidden_feelings": [
+      "flat corporate",
+      "template-looking",
+      "wordpress agency",
+      "static dashboard",
+      "generic SaaS",
+      "bootstrap aesthetic",
+      "boring enterprise"
+    ]
+  },
+
+  "visual_language": {
+    "style_family": [
+      "glassmorphism",
+      "neo-brutalist minimalism",
+      "cinematic SaaS",
+      "editorial futurism",
+      "ambient gradients",
+      "motion-centric UI"
+    ],
+
+    "shape_language": {
+      "border_radius": {
+        "cards": "24-36px",
+        "buttons": "18-24px",
+        "floating_elements": "pill-heavy"
+      },
+
+      "preferred_geometry": [
+        "floating cards",
+        "soft rounded rectangles",
+        "large pills",
+        "layered panels",
+        "asymmetric compositions"
+      ]
+    }
+  },
+
+  "layout_architecture": {
+    "global_structure": {
+      "framework": "AIDA",
+      "section_spacing": {
+        "desktop": "py-32 to py-48",
+        "mobile": "py-24"
+      },
+      "container_strategy": {
+        "hero": "max-w-6xl",
+        "content": "max-w-7xl",
+        "text_blocks": "max-w-3xl",
+        "avoid": [
+          "narrow containers",
+          "6-line headings",
+          "compressed layouts"
+        ]
+      }
+    },
+
+    "hero_section": {
+      "preferred_architecture": "Cinematic Center",
+      "behavior": [
+        "massive centered typography",
+        "large negative space",
+        "background ambient motion",
+        "floating analytics cards",
+        "subtle parallax"
+      ],
+
+      "mandatory_rules": [
+        "headline maximum 2-3 lines",
+        "no cheap badges",
+        "no raw metrics",
+        "no clutter"
+      ]
+    },
+
+    "grid_system": {
+      "type": "dense bento grid",
+      "css_strategy": [
+        "grid-auto-flow: dense",
+        "asymmetrical spans",
+        "mathematically filled layouts"
+      ],
+
+      "avoid": [
+        "dead empty cells",
+        "misaligned rows",
+        "repetitive equal cards"
+      ]
+    }
+  },
+
+  "motion_system": {
+    "global_motion_philosophy": [
+      "everything subtly reacts",
+      "motion guides hierarchy",
+      "hover implies depth",
+      "scroll reveals narrative"
+    ],
+
+    "hover_behavior": {
+      "cards": [
+        "scale 1.03-1.06",
+        "soft upward translation",
+        "glow intensification",
+        "background gradient shift",
+        "inner shadow bloom"
+      ],
+
+      "buttons": [
+        "gradient movement",
+        "ambient glow",
+        "micro-scale effect"
+      ],
+
+      "dashboard_previews": [
+        "3D tilt effect",
+        "perspective rotation",
+        "reflection movement"
+      ]
+    },
+
+    "scroll_behavior": {
+      "mandatory_effects": [
+        "GSAP ScrollTrigger pinning",
+        "scrub-based text reveal",
+        "image scale progression",
+        "stacking cards",
+        "fade-depth transitions"
+      ],
+
+      "section_examples": {
+        "services": "cards stack upward while scrolling",
+        "case_studies": "left pinned text + scrolling dashboards",
+        "metrics": "numbers animate progressively",
+        "hero": "floating layered parallax"
+      }
+    },
+
+    "micro_interactions": {
+      "mandatory": [
+        "button hover glow",
+        "card magnetic movement",
+        "cursor-aware highlights",
+        "soft easing everywhere",
+        "animated borders",
+        "animated chart lines"
+      ],
+
+      "animation_timing": {
+        "hover": "250-500ms",
+        "page_motion": "600-1400ms",
+        "easing": [
+          "easeOutExpo",
+          "cubic-bezier(0.22,1,0.36,1)"
+        ]
+      }
+    }
+  },
+
+  "typography_system": {
+    "approved_fonts": [
+      "Satoshi",
+      "Cabinet Grotesk",
+      "Outfit",
+      "Geist"
+    ],
+
+    "strict_rules": {
+      "hero_heading": {
+        "max_lines": 3,
+        "ideal": 2,
+        "font_size": "clamp(3rem, 5vw, 5.5rem)",
+        "tracking": "-0.04em",
+        "weight": "700-800"
+      },
+
+      "body_copy": {
+        "line_height": "150-170%",
+        "max_width": "65-75ch"
+      },
+
+      "editorial_behavior": [
+        "wide layouts",
+        "breathing room",
+        "large headlines",
+        "minimal but impactful text"
+      ]
+    }
+  },
+
+  "color_system": {
+    "backgrounds": {
+      "base": [
+        "#090014",
+        "#120024",
+        "#180038"
+      ],
+
+      "ambient_gradients": [
+        "#FF4D8D",
+        "#FF8C42",
+        "#7A5CFF",
+        "#3A1C71"
+      ]
+    },
+
+    "interactive_colors": {
+      "primary_glow": "#7CF7C5",
+      "secondary_glow": "#58FCEC",
+      "accent_glow": "#FFD95A",
+      "pink_accent": "#FF5EA8"
+    },
+
+    "surfaces": {
+      "glass_layers": [
+        "rgba(255,255,255,0.04)",
+        "rgba(255,255,255,0.06)",
+        "rgba(255,255,255,0.08)"
+      ],
+
+      "border_strategy": [
+        "subtle translucent borders",
+        "gradient borders",
+        "ambient inner glow"
+      ]
+    }
+  },
+
+  "component_system": {
+    "floating_cards": {
+      "behavior": [
+        "independent hover physics",
+        "layered z-index movement",
+        "soft shadow diffusion"
+      ],
+
+      "visual_effects": [
+        "backdrop blur",
+        "inner gradient",
+        "ambient glow"
+      ]
+    },
+
+    "dashboard_cards": {
+      "style": [
+        "dark analytics UI",
+        "soft chart glow",
+        "high KPI contrast",
+        "rounded graph containers"
+      ]
+    },
+
+    "inline_typography_images": {
+      "usage": [
+        "inside hero headlines",
+        "inside service headings",
+        "embedded analytics visuals"
+      ],
+
+      "style": [
+        "pill-shaped",
+        "masked imagery",
+        "animated on hover"
+      ]
+    },
+
+    "horizontal_accordion": {
+      "behavior": [
+        "panels expand on hover",
+        "image reveal",
+        "animated text opacity",
+        "content parallax"
+      ]
+    },
+
+    "marquee_system": {
+      "usage": [
+        "trusted technologies",
+        "integrated platforms",
+        "client industries",
+        "data sources"
+      ],
+
+      "behavior": [
+        "infinite smooth scrolling",
+        "pause on hover",
+        "opacity fade edges"
+      ]
+    }
+  },
+
+  "image_direction": {
+    "preferred_assets": [
+      "3D dashboard renders",
+      "floating UI compositions",
+      "abstract data visualizations",
+      "dark-mode analytics",
+      "executive KPI screens",
+      "glassmorphism UI",
+      "mesh gradients"
+    ],
+
+    "image_processing": [
+      "contrast increase",
+      "slight desaturation",
+      "luminosity blending",
+      "ambient overlays",
+      "soft bloom"
+    ],
+
+    "avoid": [
+      "office stock photos",
+      "people shaking hands",
+      "literal teamwork imagery",
+      "smiling call-center aesthetics"
+    ]
+  },
+
+  "section_blueprints": {
+    "hero": {
+      "elements": [
+        "massive editorial typography",
+        "floating dashboards",
+        "dual CTA",
+        "ambient mesh background"
+      ]
+    },
+
+    "services": {
+      "layout": "3-card asymmetrical bento",
+      "hover_behavior": [
+        "scale",
+        "tilt",
+        "glow amplification",
+        "chart animation"
+      ]
+    },
+
+    "case_studies": {
+      "interaction": [
+        "pinned storytelling",
+        "scroll-linked KPI transitions",
+        "stacking dashboards"
+      ]
+    },
+
+    "diagnostic_lp": {
+      "interaction_style": [
+        "progressive reveal",
+        "step transitions",
+        "animated scoring",
+        "dynamic progress visuals"
+      ]
+    }
+  },
+
+  "frontend_implementation": {
+    "recommended_stack": [
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "Framer Motion",
+      "GSAP",
+      "ScrollTrigger",
+      "Lenis",
+      "Spline"
+    ],
+
+    "recommended_ui_libraries": [
+      "Magic UI",
+      "Aceternity UI",
+      "shadcn/ui"
+    ]
+  },
+
+  "interaction_density": {
+    "target_level": "high",
+    "rule": "every major interactive element should visibly react",
+
+    "examples": [
+      "cards subtly rotate with cursor",
+      "buttons emit glow on hover",
+      "graphs animate into view",
+      "dashboard previews float",
+      "sections transition cinematically"
+    ]
+  },
+
+  "executive_brand_perception": {
+    "desired_reactions": [
+      "this company is technologically elite",
+      "they understand modern operations",
+      "their analytics capability feels premium",
+      "they build sophisticated systems",
+      "they are not a generic BI freelancer"
+    ]
+  },
+
+  "strict_bans": [
+    "bootstrap look",
+    "cheap gradients",
+    "tiny headings",
+    "6-line hero text",
+    "generic dashboard templates",
+    "flat sections",
+    "small spacing",
+    "overuse of cards",
+    "cheap badges",
+    "template-style labels",
+    "white-background corporate aesthetic",
+    "static UI"
+  ]
+}

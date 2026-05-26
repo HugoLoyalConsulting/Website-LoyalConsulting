@@ -113,8 +113,8 @@ export default function HomePage() {
       id="topo"
       className="ts-page-shell relative w-full max-w-full overflow-x-hidden"
       style={{
-        background: "#07070e",
-        color: "#f0ede8",
+        background: "var(--color-bg)",
+        color: "var(--color-text)",
         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.8rem)",
       }}
     >
@@ -127,10 +127,9 @@ export default function HomePage() {
           <div>
             <p className="section-eyebrow reveal-up">Consultoria em Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Centralize dados e transforme<br />
-              trabalhos manuais em<br />
-              visões automatizadas e<br />
-              decisões confiáveis.
+              Centralize dados e transforme operações manuais<br />
+              em visões automatizadas<br />
+              para decisões confiáveis.
             </h1>
             <p className="ts-hero-sub reveal-up">
               Centralizamos planilhas, ERPs, CRMs, APIs, SharePoint, bancos SQL e sistemas operacionais
@@ -144,6 +143,9 @@ export default function HomePage() {
             <div className="ts-cta-row reveal-up">
               <a href="#contato" className="btn-accent">
                 Solicitar diagnóstico de maturidade →
+              </a>
+              <a href="#solucao" className="btn-outline">
+                Ver como funciona
               </a>
             </div>
           </div>

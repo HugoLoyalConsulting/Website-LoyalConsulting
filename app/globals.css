@@ -2450,4 +2450,355 @@ a {
   }
 }
 
+/* ============================================================
+   Neo-Analytical Motion System overrides
+   ============================================================ */
+
+:root {
+  --color-bg: #090014;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface2: rgba(255, 255, 255, 0.08);
+  --color-accent: #7a5cff;
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-text: #f3f3fa;
+  --color-muted: rgba(243, 243, 250, 0.66);
+  --color-success: #7cf7c5;
+  --glow-primary: #7cf7c5;
+  --glow-secondary: #58fcec;
+  --glow-accent: #ffd95a;
+  --glow-pink: #ff5ea8;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  background:
+    radial-gradient(1100px 700px at -4% -6%, rgba(255, 77, 141, 0.2), transparent 62%),
+    radial-gradient(900px 620px at 104% 6%, rgba(122, 92, 255, 0.24), transparent 58%),
+    radial-gradient(760px 640px at 60% 88%, rgba(58, 28, 113, 0.3), transparent 62%),
+    linear-gradient(180deg, #090014 0%, #120024 45%, #180038 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.ts-page-shell::before,
+.ts-page-shell::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(72px);
+}
+
+.ts-page-shell::before {
+  width: 440px;
+  height: 440px;
+  top: 2%;
+  left: -120px;
+  background: radial-gradient(circle, rgba(255, 77, 141, 0.22), transparent 72%);
+}
+
+.ts-page-shell::after {
+  width: 520px;
+  height: 420px;
+  top: 18%;
+  right: -180px;
+  background: radial-gradient(circle, rgba(88, 252, 236, 0.18), transparent 72%);
+}
+
+.section-divider {
+  background: linear-gradient(
+    90deg,
+    rgba(124, 247, 197, 0.14),
+    rgba(88, 252, 236, 0.22),
+    rgba(255, 217, 90, 0.14)
+  );
+}
+
+.section-eyebrow {
+  color: rgba(124, 247, 197, 0.95);
+}
+
+.section-title,
+.ts-hero-h1,
+.lc-cta-title,
+.ts-diag-h2,
+.cta-title {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.ts-hero {
+  gap: 3.4rem;
+  padding-top: 4.8rem;
+  padding-bottom: 7rem;
+}
+
+.ts-hero-h1 {
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.94;
+}
+
+.ts-hero-sub,
+.ts-hero-copy,
+.section-copy {
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.ts-hero-dash {
+  color: rgba(255, 217, 90, 0.92);
+}
+
+.btn-primary,
+.btn-accent,
+.btn-outline,
+.ts-nav-action {
+  border-radius: 999px;
+  transition:
+    transform 320ms var(--ease-premium),
+    box-shadow 360ms var(--ease-premium),
+    background-position 460ms var(--ease-premium),
+    border-color 260ms var(--ease-premium);
+}
+
+.btn-primary,
+.btn-accent {
+  background-image: linear-gradient(120deg, #7a5cff 0%, #ff5ea8 46%, #ff8c42 100%);
+  background-size: 170% 100%;
+  box-shadow:
+    0 12px 34px rgba(122, 92, 255, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.btn-primary:hover,
+.btn-accent:hover {
+  transform: translateY(-3px) scale(1.03);
+  background-position: 100% 0;
+  box-shadow:
+    0 20px 44px rgba(255, 94, 168, 0.34),
+    0 0 24px rgba(124, 247, 197, 0.24);
+}
+
+.btn-outline {
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-outline:hover {
+  border-color: rgba(124, 247, 197, 0.64);
+  background: rgba(124, 247, 197, 0.08);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.ts-nav-pill,
+.form-shell,
+.lc-how-step,
+.lc-plan-card,
+.lc-dores-consequences {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 52px rgba(0, 0, 0, 0.42),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.lc-dores-consequences,
+.lc-how-step,
+.lc-plan-card,
+.form-shell {
+  border-radius: 28px;
+}
+
+.ts-nav-logo-icon {
+  background: linear-gradient(140deg, #7a5cff, #58fcec);
+  box-shadow: 0 0 18px rgba(88, 252, 236, 0.28);
+}
+
+.ts-nav-pill a {
+  color: rgba(243, 243, 250, 0.76);
+}
+
+.ts-nav-pill a:hover {
+  color: #fff;
+  background: rgba(124, 247, 197, 0.12);
+}
+
+.ts-nav-wa {
+  color: var(--glow-primary);
+  border-color: rgba(124, 247, 197, 0.64);
+  background: rgba(7, 20, 16, 0.8);
+}
+
+.ts-nav-wa:hover,
+.ts-float-wa:hover {
+  box-shadow: 0 0 26px rgba(124, 247, 197, 0.34);
+}
+
+.marquee-wrapper {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(6, 5, 16, 0.48);
+}
+
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(9, 0, 20, 0.96), transparent);
+}
+
+.marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(9, 0, 20, 0.96), transparent);
+}
+
+.marquee-item {
+  color: rgba(243, 243, 250, 0.65);
+}
+
+.marquee-sep {
+  color: rgba(255, 94, 168, 0.72);
+}
+
+.lc-dores-section,
+.lc-how-section,
+.lc-benefits-section,
+.lc-plans-section,
+.lc-cta-band {
+  padding: 8.5rem 0;
+}
+
+.lc-how-section,
+.lc-plans-section {
+  background: linear-gradient(180deg, rgba(11, 8, 28, 0.86) 0%, rgba(14, 10, 33, 0.68) 100%);
+}
+
+.lc-how-step {
+  transition:
+    transform 430ms var(--ease-premium),
+    box-shadow 430ms var(--ease-premium),
+    border-color 280ms var(--ease-premium);
+}
+
+.lc-how-step:hover,
+.lc-plan-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(88, 252, 236, 0.46);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(124, 247, 197, 0.26) inset;
+}
+
+.lc-how-tag {
+  background: rgba(124, 247, 197, 0.08);
+  border-color: rgba(124, 247, 197, 0.38);
+  color: rgba(124, 247, 197, 0.94);
+}
+
+.lc-plan-card--highlight {
+  border-color: rgba(122, 92, 255, 0.58);
+  background:
+    radial-gradient(circle at 92% 0%, rgba(124, 247, 197, 0.16), transparent 44%),
+    linear-gradient(135deg, rgba(122, 92, 255, 0.18), rgba(255, 94, 168, 0.08));
+}
+
+.lc-plan-card--highlight::before {
+  background: linear-gradient(120deg, #7a5cff, #ff5ea8);
+}
+
+.parallax-break {
+  min-height: 54vh;
+}
+
+.parallax-break::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 0, 20, 0.9) 0%,
+    rgba(9, 0, 20, 0.58) 26%,
+    rgba(24, 0, 56, 0.5) 74%,
+    rgba(9, 0, 20, 0.9) 100%
+  );
+}
+
+.parallax-quote {
+  line-height: 1.58;
+}
+
+.field-input,
+.checkbox-item {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.field-input:focus {
+  border-color: rgba(124, 247, 197, 0.72);
+  box-shadow: 0 0 0 3px rgba(124, 247, 197, 0.16);
+}
+
+.checkbox-item:hover {
+  border-color: rgba(88, 252, 236, 0.5);
+  background: rgba(88, 252, 236, 0.08);
+}
+
+@media (max-width: 900px) {
+  .ts-hero {
+    padding-top: 3.2rem;
+    padding-bottom: 4.2rem;
+    gap: 2.6rem;
+  }
+
+  .ts-hero-h1 {
+    font-size: clamp(2.2rem, 9.3vw, 3.2rem);
+    line-height: 0.97;
+  }
+
+  .lc-dores-section,
+  .lc-how-section,
+  .lc-benefits-section,
+  .lc-plans-section,
+  .lc-cta-band {
+    padding: 6.2rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .marquee-wrapper::before,
+  .marquee-wrapper::after {
+    width: 64px;
+  }
+
+  .lc-how-step,
+  .lc-plan-card,
+  .lc-dores-consequences,
+  .form-shell {
+    border-radius: 22px;
+  }
+}
+
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Serif_Display } from "next/font/google";
+import { Outfit, Geist } from "next/font/google";
 import "./globals.css";
 import { SiteTelemetry } from "@/components/SiteTelemetry";
 
@@ -9,11 +9,9 @@ const outfit = Outfit({
   display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
+const geist = Geist({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -33,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${outfit.variable} ${dmSerif.variable}`}>
+      <body className={`${outfit.variable} ${geist.variable}`}>
         <SiteTelemetry />
         {children}
       </body>
