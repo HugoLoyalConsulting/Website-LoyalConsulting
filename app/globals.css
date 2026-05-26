@@ -2038,6 +2038,25 @@ a {
   flex-shrink: 0;
 }
 
+.lc-how-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding-bottom: 1.25rem;
+}
+
+.lc-how-gallery-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
 @media (max-width: 900px) {
   .lc-benefits-grid {
     grid-template-columns: 1fr 1fr;
@@ -2206,6 +2225,10 @@ a {
   .lc-how-step {
     padding: 1.3rem;
     gap: 0.8rem;
+  .lc-how-gallery {
+    margin-top: 0.85rem;
+    padding-bottom: 0.25rem;
+  }
   }
 
   .lc-how-num {
@@ -2517,6 +2540,16 @@ body::before {
   background: radial-gradient(circle, rgba(88, 252, 236, 0.18), transparent 72%);
 }
 
+.ts-page-shell > section {
+  min-height: clamp(680px, 56.25vw, 1080px);
+  display: flex;
+  align-items: center;
+}
+
+.ts-page-shell > section > div {
+  width: 100%;
+}
+
 .section-divider {
   background: linear-gradient(
     90deg,
@@ -2550,6 +2583,17 @@ body::before {
 .ts-hero-h1 {
   font-size: clamp(3rem, 5vw, 5.5rem);
   line-height: 0.94;
+}
+
+.section-title {
+  font-size: clamp(2rem, 2.45vw, 3rem);
+}
+.section-copy,
+.lc-how-body,
+.lc-plan-desc,
+.lc-consequences-list li,
+.lc-dores-list li {
+  font-size: clamp(0.98rem, 1.05vw, 1.08rem);
 }
 
 .ts-hero-sub,
@@ -2773,6 +2817,16 @@ body::before {
     gap: 2.6rem;
   }
 
+  .lc-how-gallery {
+    margin-top: 0.85rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .ts-page-shell > section {
+    min-height: auto;
+    display: block;
+  }
+
   .ts-hero-h1 {
     font-size: clamp(2.2rem, 9.3vw, 3.2rem);
     line-height: 0.97;
@@ -2791,6 +2845,25 @@ body::before {
   .marquee-wrapper::before,
   .marquee-wrapper::after {
     width: 64px;
+  }
+  .ts-page-shell > section {
+    min-height: 200svh;
+    display: flex;
+    align-items: center;
+  }
+  .ts-page-shell > section > div {
+    width: 100%;
+  }
+  .section-title {
+    font-size: clamp(1.45rem, 5.1vw, 1.9rem);
+  }
+  .section-copy,
+  .lc-how-body,
+  .lc-plan-desc,
+  .lc-consequences-list li,
+  .lc-dores-list li {
+    font-size: clamp(0.9rem, 3.4vw, 1rem);
+    line-height: 1.58;
   }
 
   .lc-how-step,

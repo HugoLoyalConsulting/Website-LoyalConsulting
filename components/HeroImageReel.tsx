@@ -82,7 +82,8 @@ export function HeroImageReel() {
     function frame(ts: number) {
       if (prevTs.current !== null) {
         const dt = (ts - prevTs.current) / 1000;
-        phase.current = (phase.current + SPEED * dt) % N;
+        // Reverse the carousel direction while preserving the same fluid motion profile.
+        phase.current = (phase.current - SPEED * dt + N) % N;
 
         cardRefs.current.forEach((el, idx) => {
           if (!el) return;

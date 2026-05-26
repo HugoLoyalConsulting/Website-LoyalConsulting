@@ -31,6 +31,10 @@ const howSteps = [
     body: "Integramos Excel, Google Sheets, ERPs, APIs, bancos SQL, SharePoint, CRMs, sistemas internos e plataformas operacionais — tudo em um fluxo analítico unificado.",
     tags: ["Excel", "Google Sheets", "ERP", "APIs", "SQL", "SharePoint", "CRM"],
     img: "laptop-analytics-aberto.jpg",
+    gallery: [
+      "dashboard-powerbi-vendas.png",
+      "dashboard-comunicacao-interna.png",
+    ],
   },
   {
     num: "02",
@@ -38,6 +42,10 @@ const howSteps = [
     body: "Modelamos indicadores, métricas e regras de negócio para garantir consistência, governança, rastreabilidade e confiança operacional.",
     tags: ["Consistência", "Governança", "Rastreabilidade", "Confiança"],
     img: "analistas-revisando-dashboard.jpg",
+    gallery: [
+      "documentos-gestao-projetos.jpg",
+      "relatorio-financeiro-impresso.jpg",
+    ],
   },
   {
     num: "03",
@@ -45,6 +53,10 @@ const howSteps = [
     body: "Criamos dashboards modernos, automações e visões executivas que permitem agir mais rápido, identificar gargalos, reduzir desperdícios e aumentar previsibilidade operacional.",
     tags: ["Dashboards", "Automações", "KPIs críticos", "Previsibilidade"],
     img: "apresentacao-dashboard-apontando.jpg",
+    gallery: [
+      "dashboard-ui-kpis.webp",
+      "dashboard-monitor-colorido.jpg",
+    ],
   },
 ];
 
@@ -227,6 +239,19 @@ export default function HomePage() {
                 <div className="lc-how-tags">
                   {step.tags.map((tag) => (
                     <span key={tag} className="lc-how-tag">{tag}</span>
+                  ))}
+                </div>
+                <div className="lc-how-gallery" aria-label={`Imagens de apoio da etapa ${step.num}`}>
+                  {step.gallery.map((imageName) => (
+                    <figure key={imageName} className="lc-how-gallery-item">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${imageName}`}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 48vw, 16vw"
+                        style={{ objectFit: "cover", filter: "brightness(0.85) saturate(0.9)" }}
+                      />
+                    </figure>
                   ))}
                 </div>
               </div>
