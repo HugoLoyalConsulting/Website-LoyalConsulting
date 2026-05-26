@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Geist } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { SiteTelemetry } from "@/components/SiteTelemetry";
 
@@ -9,9 +9,10 @@ const outfit = Outfit({
   display: "swap",
 });
 
-const geist = Geist({
+const outfitDisplay = Outfit({
   subsets: ["latin"],
   variable: "--font-display",
+  weight: ["700", "800"],
   display: "swap",
 });
 
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${outfit.variable} ${geist.variable}`}>
+      <body className={`${outfit.variable} ${outfitDisplay.variable}`}>
         <SiteTelemetry />
         {children}
       </body>
