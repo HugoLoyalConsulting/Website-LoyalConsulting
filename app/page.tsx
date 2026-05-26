@@ -5,23 +5,34 @@ import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { StickyTopNav, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 
 const dores = [
-  "planilhas descentralizadas",
-  "relatórios manuais",
-  "KPIs conflitantes",
-  "decisões lentas",
-  "múltiplas versões da verdade",
-  "dados difíceis de consolidar",
-  "reuniões improdutivas discutindo números",
-  "retrabalho operacional",
-  "baixa previsibilidade",
-  "falta de visibilidade ponta-a-ponta",
+  "planilhas desconectadas entre áreas",
+  "múltiplas versões do mesmo indicador",
+  "relatórios manuais e demorados",
+  "dados operacionais difíceis de consolidar",
+  "KPIs inconsistentes entre equipes",
+  "retrabalho recorrente em análises",
+  "decisões lentas por baixa confiança nos números",
+  "reuniões gastando tempo para validar dados",
+  "gargalos invisíveis na operação",
+  "baixa previsibilidade operacional e financeira",
+  "ausência de visão ponta-a-ponta",
+  "dependência excessiva de conhecimento manual",
 ];
 
 const consequencias = [
-  "equipes desperdiçam horas consolidando dados",
-  "gestores tomam decisões com baixa confiança",
-  "gargalos permanecem invisíveis",
-  "oportunidades deixam de ser identificadas",
+  "equipes desperdiçam horas consolidando informações",
+  "gestores operam com baixa clareza analítica",
+  "problemas são identificados tarde demais",
+  "o operacional reage em vez de antecipar",
+  "o crescimento aumenta a complexidade e o caos",
+  "oportunidades deixam de ser capturadas por falta de visibilidade",
+];
+
+const riscosAnaliticos = [
+  "dados viram ruído",
+  "processos perdem escalabilidade",
+  "indicadores perdem credibilidade",
+  "decisões estratégicas passam a depender de percepção, não de evidência operacional",
 ];
 
 const howSteps = [
@@ -139,9 +150,9 @@ export default function HomePage() {
           <div>
             <p className="section-eyebrow reveal-up">Consultoria em Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Centralize dados e transforme operações manuais<br />
-              em visões automatizadas<br />
-              para decisões confiáveis.
+              Inteligência operacional<br />
+              ...não é só ter dashboard.<br />
+              É decidir com segurança.
             </h1>
             <p className="ts-hero-sub reveal-up">
               Centralizamos planilhas, ERPs, CRMs, APIs, SharePoint, bancos SQL e sistemas operacionais
@@ -175,8 +186,13 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow section-eyebrow--red">O problema</p>
-            <h2 className="section-title mt-3">Sua operação está perdendo tempo com</h2>
+            <p className="section-eyebrow section-eyebrow--red">O PROBLEMA</p>
+            <h2 className="section-title mt-3">...não é apenas a falta de dashboards.</h2>
+            <p className="section-copy mt-4">
+              É uma operação fragmentada por dados descentralizados, processos manuais e decisões
+              sem visibilidade confiável.
+            </p>
+            <p className="lc-dores-while-title mt-8">Sua empresa provavelmente ainda convive com:</p>
           </div>
           <div className="lc-dores-grid mt-12">
             <ul className="lc-dores-list">
@@ -187,13 +203,24 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <div className="lc-dores-consequences">
-              <p className="lc-dores-while-title">Enquanto isso acontece:</p>
+            <div className="lc-dores-consequences lc-dores-consequences--impact">
+              <p className="lc-dores-while-title lc-dores-while-title--impact">O resultado:</p>
               <ul className="lc-consequences-list">
                 {consequencias.map((c) => (
                   <li key={c}>{c}</li>
                 ))}
               </ul>
+
+              <div className="lc-dores-next-block">
+                <p className="lc-dores-while-title lc-dores-while-title--warning">
+                  Sem uma camada analítica estruturada:
+                </p>
+                <ul className="lc-consequences-list lc-consequences-list--warning">
+                  {riscosAnaliticos.map((r) => (
+                    <li key={r}>{r}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -219,7 +246,7 @@ export default function HomePage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Como funciona</p>
-            <h2 className="section-title mt-3">Do dado ao painel executivo — em 3 etapas.</h2>
+            <h2 className="section-title mt-3">...não é apenas conectar fontes. É organizar decisão.</h2>
           </div>
           <div className="lc-how-steps mt-12">
             {howSteps.map((step) => (
@@ -266,7 +293,7 @@ export default function HomePage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">O que você passa a ter</p>
-            <h2 className="section-title mt-3">Tudo que uma operação orientada a dados precisa.</h2>
+            <h2 className="section-title mt-3">...não é só visual bonito. É clareza operacional diária.</h2>
           </div>
           <div className="lc-dores-grid mt-12">
             <ul className="lc-dores-list">
@@ -309,7 +336,7 @@ export default function HomePage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Planos</p>
-            <h2 className="section-title mt-3">Escolha a cobertura ideal para sua operação.</h2>
+            <h2 className="section-title mt-3">...não é sobre pacote. É sobre maturidade de dados.</h2>
           </div>
           <div className="lc-plans-grid mt-12">
             {plans.map((plan) => (
@@ -337,7 +364,7 @@ export default function HomePage() {
       {/* ── CTA FINAL ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Pronto para parar de operar no escuro?</h2>
+          <h2 className="lc-cta-title">...não espere o caos crescer para agir.</h2>
           <p className="lc-cta-sub">Diagnóstico de maturidade em dados · gratuito · 30 minutos · Sem compromisso.</p>
           <a href="#contato" className="btn-accent mt-8 inline-block">
             Solicitar diagnóstico de maturidade →
