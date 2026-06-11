@@ -1,45 +1,48 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { StickyTopNav, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 
-const dores = [
-  "planilhas desconectadas entre áreas",
-  "múltiplas versões do mesmo indicador",
-  "relatórios manuais e demorados",
-  "dados operacionais difíceis de consolidar",
-  "KPIs inconsistentes entre equipes",
-  "retrabalho recorrente em análises",
-  "decisões lentas por baixa confiança nos números",
-  "reuniões gastando tempo para validar dados",
-  "gargalos invisíveis na operação",
-  "baixa previsibilidade operacional e financeira",
-  "ausência de visão ponta-a-ponta",
-  "dependência excessiva de conhecimento manual",
+const DIAGNOSTICO_URL = "https://hugoloyalconsulting.github.io/diagnostico-maturidade-dados/";
+
+// ── Seção "Dois caminhos" ──────────────────────────────────────────────────
+const path1Features = [
+  "Demora para fechar os números do mês",
+  "Cada área apresenta informações diferentes",
+  "Não sabe quais indicadores deveria acompanhar",
+  "Sente que existe retrabalho, mas não consegue medir",
+  "Quer entender o nível atual de maturidade da empresa em relação aos dados",
 ];
 
-const consequencias = [
-  "equipes desperdiçam horas consolidando informações",
-  "gestores operam com baixa clareza analítica",
-  "problemas são identificados tarde demais",
-  "o operacional reage em vez de antecipar",
-  "o crescimento aumenta a complexidade e o caos",
-  "oportunidades deixam de ser capturadas por falta de visibilidade",
+const path1Results = [
+  "Uma análise da situação atual",
+  "Identificação de gargalos comuns",
+  "Orientações práticas sobre oportunidades de melhoria",
+  "Clareza sobre os próximos passos",
 ];
 
-const riscosAnaliticos = [
-  "dados viram ruído",
-  "processos perdem escalabilidade",
-  "indicadores perdem credibilidade",
-  "decisões estratégicas passam a depender de percepção, não de evidência operacional",
+const path2Features = [
+  "Já sabe quais áreas precisam de visibilidade",
+  "Quer estimar prazo e complexidade do projeto",
+  "Precisa entender quais dados serão necessários",
+  "Deseja conversar sobre possíveis soluções",
+  "Está avaliando a implantação de dashboards",
 ];
 
+const path2Results = [
+  "Um mapeamento inicial do cenário",
+  "Uma visão preliminar da complexidade do projeto",
+  "Identificação das fontes de dados envolvidas",
+  "Orientações para estruturar a iniciativa",
+];
+
+// ── Como funciona ──────────────────────────────────────────────────────────
 const howSteps = [
   {
     num: "01",
-    title: "Centralizamos fontes de dados",
-    body: "Integramos Excel, Google Sheets, ERPs, APIs, bancos SQL, SharePoint, CRMs, sistemas internos e plataformas operacionais — tudo em um fluxo analítico unificado.",
+    title: "Diagnóstico",
+    body: "Entendemos o cenário atual: como os dados estão organizados, onde estão os maiores gargalos e o que precisa mudar para a operação ganhar clareza.",
     tags: ["Excel", "Google Sheets", "ERP", "APIs", "SQL", "SharePoint", "CRM"],
     img: "laptop-analytics-aberto.jpg",
     gallery: [
@@ -49,8 +52,8 @@ const howSteps = [
   },
   {
     num: "02",
-    title: "Estruturamos uma camada confiável de dados",
-    body: "Modelamos indicadores, métricas e regras de negócio para garantir consistência, governança, rastreabilidade e confiança operacional.",
+    title: "Priorização",
+    body: "Identificamos quais informações realmente importam para a tomada de decisão — e deixamos de lado o que não traz resultado imediato.",
     tags: ["Consistência", "Governança", "Rastreabilidade", "Confiança"],
     img: "analistas-revisando-dashboard.jpg",
     gallery: [
@@ -60,8 +63,8 @@ const howSteps = [
   },
   {
     num: "03",
-    title: "Transformamos dados em decisões",
-    body: "Criamos dashboards modernos, automações e visões executivas que permitem agir mais rápido, identificar gargalos, reduzir desperdícios e aumentar previsibilidade operacional.",
+    title: "Desenvolvimento e Entrega",
+    body: "Criamos dashboards adequados à realidade do seu negócio, apresentamos a solução e acompanhamos a utilização para garantir que os dados virem decisão de verdade.",
     tags: ["Dashboards", "Automações", "KPIs críticos", "Previsibilidade"],
     img: "apresentacao-dashboard-apontando.jpg",
     gallery: [
@@ -71,25 +74,47 @@ const howSteps = [
   },
 ];
 
-const benefits = [
-  "visão executiva centralizada e confiável",
-  "dados atualizados automaticamente",
-  "elimina retrabalho de consolidação",
-  "indicadores padronizados em toda a empresa",
-  "dashboards interativos e navegáveis",
-  "análises disponíveis em tempo real",
-  "alertas automáticos por área",
-  "alinhamento entre times com a mesma fonte de verdade",
-  "mais velocidade e confiança nas decisões",
+// ── Exemplos de projetos ───────────────────────────────────────────────────
+const exampleProjects = [
+  {
+    area: "Comercial",
+    items: ["Receita", "Conversão", "Performance da equipe", "Ticket médio"],
+  },
+  {
+    area: "Financeiro",
+    items: ["Fluxo de caixa", "Receitas e despesas", "Margens", "Inadimplência"],
+  },
+  {
+    area: "Operacional",
+    items: ["Produtividade", "Tempos médios", "Gargalos", "Acompanhamento de metas"],
+  },
+  {
+    area: "Executivo",
+    items: ["Indicadores estratégicos", "Consolidação entre áreas", "Tendências e comparativos"],
+  },
 ];
 
-const benefitResults = [
-  "horas de consolidação manual eliminadas por semana",
-  "decisões tomadas com dados confiáveis e auditáveis",
-  "gargalos identificados antes de virar problema",
-  "operação orientada por métricas, não por intuição",
+// ── FAQ ────────────────────────────────────────────────────────────────────
+const faqItems = [
+  {
+    q: "Preciso ter tudo organizado antes?",
+    a: "Não. Muitas empresas iniciam justamente porque sentem que os dados estão espalhados.",
+  },
+  {
+    q: "Preciso entender de Power BI?",
+    a: "Não. Nosso foco é ajudar você a responder perguntas importantes para o negócio.",
+  },
+  {
+    q: "Quanto tempo demora?",
+    a: "Depende da complexidade do projeto. Casos mais simples podem levar poucas semanas.",
+  },
+  {
+    q: "Sou obrigado a contratar algo após os diagnósticos?",
+    a: "Não. O objetivo é gerar clareza para que você tome a melhor decisão para sua realidade.",
+  },
 ];
 
+// ── Planos (mantidos sem alteração) ───────────────────────────────────────
 const plans = [
   {
     tier: "BASIC",
@@ -150,22 +175,18 @@ export default function HomePage() {
           <div>
             <p className="section-eyebrow reveal-up">Consultoria em Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Inteligência operacional<br />
-              ...não é só ter dashboard.<br />
-              É decidir com segurança.
+              Menos planilhas e abas.<br />
+              Mais clareza para<br />
+              tomar decisões.
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Centralizamos planilhas, ERPs, CRMs, APIs, SharePoint, bancos SQL e sistemas operacionais
-              em uma camada única de inteligência visual e automação — reduzindo retrabalho, acelerando
-              análises e aumentando a previsibilidade da operação.
-            </p>
-            <p className="ts-hero-dash reveal-up">
-              Criamos dashboards executivos, automações e fluxos analíticos modernos para empresas que
-              precisam parar de operar no escuro.
+              Transformamos dados espalhados em diversas fontes em dashboards simples e úteis
+              para que você acompanhe os números mais importantes da sua empresa sem depender
+              de relatórios manuais.
             </p>
             <div className="ts-cta-row reveal-up">
-              <a href="#contato" className="btn-accent">
-                Solicitar diagnóstico de maturidade →
+              <a href="#caminhos" className="btn-accent">
+                Fazer diagnóstico gratuito →
               </a>
               <a href="#solucao" className="btn-outline">
                 Ver como funciona
@@ -181,44 +202,122 @@ export default function HomePage() {
       {/* ── MARQUEE ─────────────────────────────────────────── */}
       <MarqueeBand />
 
-      {/* ── DORES ───────────────────────────────────────────── */}
-      <section id="problema" className="lc-dores-section">
+      {/* ── DOIS CAMINHOS ───────────────────────────────────── */}
+      <section id="caminhos" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow section-eyebrow--red">O PROBLEMA</p>
-            <h2 className="section-title mt-3">...não é apenas a falta de dashboards.</h2>
+            <p className="section-eyebrow">Antes de continuar</p>
+            <h2 className="section-title mt-3">Mas, antes, existe uma pergunta importante:</h2>
             <p className="section-copy mt-4">
-              É uma operação fragmentada por dados descentralizados, processos manuais e decisões
-              sem visibilidade confiável.
+              <strong>Você já sabe exatamente o que precisa ou ainda está tentando entender onde estão os principais problemas?</strong>
             </p>
-            <p className="lc-dores-while-title mt-8">Sua empresa provavelmente ainda convive com:</p>
           </div>
+
           <div className="lc-dores-grid mt-12">
-            <ul className="lc-dores-list">
-              {dores.map((d) => (
-                <li key={d}>
-                  <span className="lc-dores-bullet">×</span>
-                  {d}
-                </li>
-              ))}
-            </ul>
-            <div className="lc-dores-consequences lc-dores-consequences--impact">
-              <p className="lc-dores-while-title lc-dores-while-title--impact">O resultado:</p>
-              <ul className="lc-consequences-list">
-                {consequencias.map((c) => (
-                  <li key={c}>{c}</li>
+            {/* Opção 1 */}
+            <div>
+              <p className="lc-dores-while-title">OPÇÃO 1</p>
+              <h3 className="section-title mt-2" style={{ fontSize: "1.35rem" }}>
+                Ainda não sei por onde começar.
+              </h3>
+              <p className="section-copy mt-3">
+                Tenho muitos relatórios, várias planilhas e a sensação de que os dados poderiam
+                ajudar mais, mas ainda não sei exatamente qual é o problema.
+              </p>
+              <p className="lc-dores-while-title mt-6">Recomendado para você se:</p>
+              <ul className="lc-dores-list mt-3">
+                {path1Features.map((f) => (
+                  <li key={f}>
+                    <span className="lc-dores-bullet">×</span>
+                    {f}
+                  </li>
                 ))}
               </ul>
-
-              <div className="lc-dores-next-block">
-                <p className="lc-dores-while-title lc-dores-while-title--warning">
-                  Sem uma camada analítica estruturada:
-                </p>
-                <ul className="lc-consequences-list lc-consequences-list--warning">
-                  {riscosAnaliticos.map((r) => (
+              <div className="lc-dores-next-block mt-6">
+                <p className="lc-dores-while-title">O que você recebe:</p>
+                <ul className="lc-consequences-list mt-3">
+                  {path1Results.map((r) => (
                     <li key={r}>{r}</li>
                   ))}
+                </ul>
+              </div>
+              <div className="mt-6">
+                <a href={DIAGNOSTICO_URL} className="btn-accent" target="_blank" rel="noopener noreferrer">
+                  Fazer Diagnóstico de Maturidade →
+                </a>
+                <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
+                  Leva aproximadamente 5 minutos.
+                </p>
+              </div>
+            </div>
+
+            {/* Opção 2 */}
+            <div className="lc-dores-consequences lc-dores-consequences--impact">
+              <p className="lc-dores-while-title lc-dores-while-title--impact">OPÇÃO 2</p>
+              <h3 className="section-title mt-2" style={{ fontSize: "1.35rem" }}>
+                Já quero entender como seria um dashboard para minha empresa.
+              </h3>
+              <p className="section-copy mt-3">
+                Se você já percebeu que precisa organizar informações e consolidar indicadores,
+                este é o melhor caminho.
+              </p>
+              <p className="lc-dores-while-title mt-6">Recomendado para você se:</p>
+              <ul className="lc-consequences-list mt-3">
+                {path2Features.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+              <div className="lc-dores-next-block mt-6">
+                <p className="lc-dores-while-title lc-dores-while-title--warning">O que você recebe:</p>
+                <ul className="lc-consequences-list lc-consequences-list--warning mt-3">
+                  {path2Results.map((r) => (
+                    <li key={r}>{r}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-6">
+                <a href="#contato" className="btn-accent">
+                  Iniciar Discovery →
+                </a>
+                <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
+                  Leva aproximadamente 7 a 10 minutos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Não tem certeza? */}
+          <div className="mt-14 mb-4" style={{
+            borderTop: "1px solid rgba(255,255,255,0.08)",
+            paddingTop: "2.5rem",
+          }}>
+            <p className="section-eyebrow section-eyebrow--red">Não tem certeza de qual escolher?</p>
+            <p className="section-copy mt-3">Tudo bem.</p>
+            <div className="lc-dores-grid mt-8">
+              <div>
+                <p className="lc-dores-while-title">Escolha o Diagnóstico de Maturidade se você pensa algo como:</p>
+                <ul className="lc-dores-list mt-4">
+                  <li>
+                    <span className="lc-dores-bullet">→</span>
+                    &ldquo;Sei que existe muito retrabalho, mas não sei exatamente o que precisa mudar.&rdquo;
+                  </li>
+                  <li>
+                    <span className="lc-dores-bullet">→</span>
+                    &ldquo;Não faço ideia se minha empresa está pronta para isso.&rdquo;
+                  </li>
+                  <li>
+                    <span className="lc-dores-bullet">→</span>
+                    &ldquo;Quero entender onde estão os maiores problemas.&rdquo;
+                  </li>
+                </ul>
+              </div>
+              <div className="lc-dores-consequences">
+                <p className="lc-dores-while-title">Escolha o Discovery se você pensa algo como:</p>
+                <ul className="lc-consequences-list mt-4">
+                  <li>&ldquo;Preciso enxergar melhor os resultados.&rdquo;</li>
+                  <li>&ldquo;Quero consolidar informações em um dashboard.&rdquo;</li>
+                  <li>&ldquo;Já estou avaliando implementar uma solução.&rdquo;</li>
                 </ul>
               </div>
             </div>
@@ -240,13 +339,13 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── COMO FUNCIONA ───────────────────────────────────── */}
+      {/* ── COMO FUNCIONA O PROCESSO ────────────────────────── */}
       <section id="solucao" className="lc-how-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow">Como funciona</p>
-            <h2 className="section-title mt-3">...não é apenas conectar fontes. É organizar decisão.</h2>
+            <p className="section-eyebrow">Como funciona o processo</p>
+            <h2 className="section-title mt-3">Da conversa inicial ao dashboard no ar.</h2>
           </div>
           <div className="lc-how-steps mt-12">
             {howSteps.map((step) => (
@@ -287,31 +386,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── O QUE VOCÊ PASSA A TER ──────────────────────────── */}
+      {/* ── EXEMPLOS DE PROJETOS ────────────────────────────── */}
       <section className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow">O que você passa a ter</p>
-            <h2 className="section-title mt-3">...não é só visual bonito. É clareza operacional diária.</h2>
+            <p className="section-eyebrow">Exemplos de projetos</p>
+            <h2 className="section-title mt-3">Áreas que já ganharam mais clareza com a gente.</h2>
           </div>
-          <div className="lc-dores-grid mt-12">
-            <ul className="lc-dores-list">
-              {benefits.map((b) => (
-                <li key={b}>
-                  <span className="lc-benefit-check">✓</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="lc-dores-consequences">
-              <p className="lc-dores-while-title">O resultado:</p>
-              <ul className="lc-consequences-list">
-                {benefitResults.map((r) => (
-                  <li key={r}>{r}</li>
-                ))}
-              </ul>
-            </div>
+          <div className="lc-benefits-grid mt-12">
+            {exampleProjects.map((proj) => (
+              <div key={proj.area} className="lc-benefit-item" style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.5rem" }}>
+                <p style={{ fontWeight: 700, fontSize: "0.95rem", color: "rgba(240,237,232,0.95)", letterSpacing: "0.04em" }}>
+                  {proj.area}
+                </p>
+                <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                  {proj.items.map((item) => (
+                    <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.86rem", color: "rgba(240,237,232,0.65)" }}>
+                      <span className="lc-benefit-check" style={{ fontSize: "0.75rem" }}>✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -361,14 +459,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── FAQ ─────────────────────────────────────────────── */}
+      <section className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Perguntas frequentes</p>
+            <h2 className="section-title mt-3">Dúvidas comuns antes de começar.</h2>
+          </div>
+          <div className="mt-10" style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "720px" }}>
+            {faqItems.map((item) => (
+              <div
+                key={item.q}
+                style={{
+                  padding: "1.4rem 1.6rem",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "10px",
+                  background: "rgba(255,255,255,0.03)",
+                }}
+              >
+                <p style={{ fontWeight: 600, fontSize: "0.98rem", color: "rgba(240,237,232,0.95)", marginBottom: "0.5rem" }}>
+                  {item.q}
+                </p>
+                <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6, margin: 0 }}>
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA FINAL ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">...não espere o caos crescer para agir.</h2>
-          <p className="lc-cta-sub">Diagnóstico de maturidade em dados · gratuito · 30 minutos · Sem compromisso.</p>
-          <a href="#contato" className="btn-accent mt-8 inline-block">
-            Solicitar diagnóstico de maturidade →
-          </a>
+          <h2 className="lc-cta-title">O que fazer agora?</h2>
+          <p className="lc-cta-sub">Escolha o caminho que faz mais sentido para o momento da sua empresa.</p>
+          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
+            <a href={DIAGNOSTICO_URL} className="btn-accent" target="_blank" rel="noopener noreferrer">
+              Fazer Diagnóstico de Maturidade →
+            </a>
+            <a href="#contato" className="btn-outline">
+              Iniciar Discovery
+            </a>
+          </div>
         </div>
       </div>
 
