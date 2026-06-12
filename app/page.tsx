@@ -48,13 +48,12 @@ export default function HomePage() {
               dezenas de planilhas.
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Transformamos planilhas, ERPs e sistemas desconectados em dashboards
-              automatizados que mostram exatamente o que está acontecendo na sua operação —
-              sem retrabalho e sem achismos.
+              A gente junta suas planilhas e sistemas em um painel só, que se atualiza
+              sozinho e mostra o que está acontecendo — sem retrabalho e sem achismo.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong style={{ color: "rgba(240,237,232,0.9)" }}>
-                Tenha visibilidade sobre os indicadores que realmente importam para o seu negócio.
+              <strong>
+                Enxergue a floresta e também cada folha do seu negócio, em uma única tela.
               </strong>
             </p>
             <div className="ts-cta-row reveal-up">
@@ -100,8 +99,7 @@ export default function HomePage() {
                 Se pelo menos duas dessas situações fazem parte da sua rotina...
               </p>
               <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...provavelmente existe uma oportunidade clara de automatizar e simplificar
-                o seu processo de gestão.
+                ...dá para automatizar isso e devolver horas para a sua equipe.
               </h3>
               <div className="mt-8">
                 <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
@@ -125,7 +123,7 @@ export default function HomePage() {
               <p className="section-eyebrow">O outro lado</p>
               <h2 className="section-title mt-3">Imagine começar o dia com respostas prontas.</h2>
               <p className="section-copy mt-4">
-                Em vez de procurar informações em múltiplos arquivos, você visualiza em segundos:
+                Em vez de caçar números em vários arquivos, você abre uma tela e vê na hora:
               </p>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">
@@ -135,7 +133,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <p className="section-copy mt-6" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
-                Tudo centralizado em um único ambiente.
+                Tudo em um único painel.
               </p>
             </div>
           </div>
@@ -189,8 +187,8 @@ export default function HomePage() {
               <p className="section-eyebrow">Próximo passo</p>
               <h2 className="section-title mt-3">Quer ver isso aplicado à sua realidade?</h2>
               <p className="section-copy mt-4">
-                A Discovery é uma conversa gratuita de 30 minutos para entender o seu cenário,
-                priorizar indicadores e desenhar o caminho mais eficiente até o seu dashboard.
+                A Discovery é uma conversa gratuita de 30 minutos para entender sua rotina,
+                escolher os números que importam e desenhar o caminho até o seu painel.
               </p>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">

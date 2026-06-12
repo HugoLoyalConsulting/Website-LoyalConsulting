@@ -15,22 +15,22 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Dashboards Power BI",
-    body: "Transformamos dados dispersos em painéis claros e intuitivos para apoiar decisões mais rápidas e seguras.",
+    body: "Painéis visuais e aprofundados: você enxerga a floresta e também cada folha do negócio.",
     img: "dashboard-powerbi-vendas.png",
   },
   {
     title: "Automação de relatórios",
-    body: "Eliminamos processos repetitivos de atualização e consolidação de informações.",
+    body: "O relatório que hoje você monta na mão passa a se montar sozinho.",
     img: "dashboard-comunicacao-interna.png",
   },
   {
     title: "Integração de dados",
-    body: "Conectamos planilhas, ERPs, CRMs e outras fontes para criar uma visão única do negócio.",
+    body: "Juntamos planilhas, ERP, CRM e o que mais você usa em uma visão única.",
     img: "dashboard-monitor-dados-futurista.jpg",
   },
   {
     title: "Estruturação analítica",
-    body: "Organizamos indicadores e métricas para que a gestão acompanhe aquilo que realmente gera resultado.",
+    body: "Organizamos os números para você acompanhar só o que gera resultado.",
     img: "dashboard-ui-kpis.webp",
   },
 ];
@@ -85,8 +85,8 @@ export default function ComoFuncionaPage() {
               à decisão segura.
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Quatro frentes de trabalho e um processo simples, pensados para a realidade de
-              quem gerencia a operação no dia a dia.
+              Quatro coisas que fazemos e um processo simples — pensados para quem vive de
+              planilha e quer os números prontos, em um lugar só.
             </p>
           </div>
         </div>

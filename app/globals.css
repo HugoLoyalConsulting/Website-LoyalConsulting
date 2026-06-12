@@ -3014,4 +3014,332 @@ body::before {
   margin-top: 1.6rem;
 }
 
+/* ── Classes p/ trechos que antes usavam cor inline ───────── */
+.ts-hero-copy strong {
+  color: rgba(240, 237, 232, 0.9);
+}
+
+.lc-cta-caption {
+  font-size: 0.8rem;
+  color: rgba(240, 237, 232, 0.5);
+  margin-top: 0.75rem;
+}
+
+.lc-step-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: rgba(240, 237, 232, 0.7);
+  line-height: 1.5;
+}
+
+.lc-faq-card {
+  padding: 1.4rem 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lc-faq-q {
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: rgba(240, 237, 232, 0.95);
+  margin: 0 0 0.5rem;
+}
+
+.lc-faq-a {
+  font-size: 0.9rem;
+  color: rgba(240, 237, 232, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── ANTES → DEPOIS ─────────────────────────────────────────── */
+.lc-beforeafter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.lc-ba-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.lc-ba-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.lc-ba-label--antes {
+  color: #ef4444;
+}
+
+.lc-ba-label--depois {
+  color: #14b8a6;
+}
+
+.lc-ba-img {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.lc-ba-card--antes .lc-ba-img {
+  transform: rotate(-1.2deg);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.lc-ba-card--depois .lc-ba-img {
+  transform: rotate(1.2deg);
+  border-color: rgba(20, 184, 166, 0.4);
+}
+
+.lc-ba-card .lc-ba-img:hover {
+  transform: rotate(0deg) scale(1.015);
+}
+
+.lc-ba-caption {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(240, 237, 232, 0.6);
+}
+
+@media (max-width: 768px) {
+  .lc-beforeafter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LP DISCOVERY — TEMA CLARO (.lp-light)
+   Fundo claro do hero ao CTA; formulário+footer em faixa escura.
+   ══════════════════════════════════════════════════════════════ */
+.lp-light {
+  background: linear-gradient(180deg, #f7f6fc 0%, #eef1f9 55%, #e7ebf5 100%);
+  color: #17162a;
+}
+
+.lp-light .ts-header-shell {
+  background: linear-gradient(to bottom, rgba(247, 246, 252, 0.94), rgba(247, 246, 252, 0.5));
+}
+
+.lp-light .ts-nav-logo {
+  color: #17162a;
+}
+
+.lp-light .ts-nav-action {
+  background: rgba(23, 22, 42, 0.06);
+  color: #17162a;
+  border-color: rgba(23, 22, 42, 0.18);
+}
+
+.lp-light .ts-nav-action:hover {
+  background: rgba(23, 22, 42, 0.12);
+}
+
+.lp-light .ts-hero-h1,
+.lp-light .section-title,
+.lp-light .lc-how-title,
+.lp-light .lc-cta-title {
+  color: #17162a;
+}
+
+.lp-light .ts-hero-sub,
+.lp-light .ts-hero-copy,
+.lp-light .section-copy,
+.lp-light .lc-cta-sub,
+.lp-light .lc-ba-caption {
+  color: rgba(23, 22, 42, 0.66);
+}
+
+.lp-light .ts-hero-copy strong {
+  color: #17162a;
+}
+
+.lp-light .lc-cta-caption {
+  color: rgba(23, 22, 42, 0.55);
+}
+
+.lp-light .lc-dores-list li,
+.lp-light .lc-consequences-list li {
+  color: rgba(23, 22, 42, 0.78);
+}
+
+.lp-light .lc-step-item {
+  color: rgba(23, 22, 42, 0.72);
+}
+
+.lp-light .lc-how-body {
+  color: rgba(23, 22, 42, 0.62);
+}
+
+.lp-light .section-eyebrow {
+  color: #0e9488;
+}
+
+.lp-light .section-eyebrow--red {
+  color: #dc2626;
+}
+
+.lp-light .lc-dores-while-title--cool,
+.lp-light .lc-consequences-list li::before {
+  color: #0e9488;
+}
+
+.lp-light .lc-how-num {
+  color: #0e9488;
+}
+
+.lp-light .lc-how-tag {
+  background: rgba(14, 148, 136, 0.08);
+  border-color: rgba(14, 148, 136, 0.35);
+  color: #0c7d74;
+}
+
+.lp-light .lc-benefit-check {
+  color: #0ca678;
+}
+
+.lp-light .lc-dores-consequences,
+.lp-light .lc-how-step {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(23, 22, 42, 0.08);
+  box-shadow: 0 18px 44px rgba(23, 22, 42, 0.1);
+}
+
+.lp-light .lc-how-section {
+  background: transparent;
+}
+
+.lp-light .lc-benefit-item {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(23, 22, 42, 0.08);
+  color: rgba(23, 22, 42, 0.8);
+}
+
+.lp-light .lc-faq-card {
+  background: rgba(255, 255, 255, 0.74);
+  border-color: rgba(23, 22, 42, 0.08);
+}
+
+.lp-light .lc-faq-q {
+  color: #17162a;
+}
+
+.lp-light .lc-faq-a {
+  color: rgba(23, 22, 42, 0.65);
+}
+
+.lp-light .marquee-wrapper {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(23, 22, 42, 0.08);
+}
+
+.lp-light .marquee-wrapper::before {
+  background: linear-gradient(90deg, #f3f4fa, transparent);
+}
+
+.lp-light .marquee-wrapper::after {
+  background: linear-gradient(270deg, #f3f4fa, transparent);
+}
+
+.lp-light .marquee-item {
+  color: rgba(23, 22, 42, 0.55);
+}
+
+.lp-light .lc-cta-band {
+  background: linear-gradient(135deg, rgba(122, 92, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+  border-color: rgba(122, 92, 255, 0.24);
+}
+
+.lp-light .btn-outline {
+  color: #17162a;
+  border-color: rgba(23, 22, 42, 0.26);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.lp-light .btn-outline:hover {
+  background: rgba(23, 22, 42, 0.06);
+  border-color: rgba(14, 148, 136, 0.5);
+}
+
+.lp-light .lc-ba-img {
+  box-shadow: 0 22px 48px rgba(23, 22, 42, 0.16);
+}
+
+/* Faixa escura no fim da LP clara (formulário + footer) */
+.lp-dark-band {
+  background: linear-gradient(180deg, #0d0b1f 0%, #090014 100%);
+  color: #f0ede8;
+  margin-top: 4.5rem;
+  padding-top: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SEÇÕES EM TELA CHEIA — sem vazios gigantes
+   Substitui o min-height clamp(680-1080px) + paddings de 8.5rem
+   e corrige o bug de 200svh no mobile.
+   ══════════════════════════════════════════════════════════════ */
+.ts-page-shell > section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.lc-dores-section,
+.lc-how-section,
+.lc-benefits-section,
+.lc-plans-section {
+  padding: 3.5rem 0;
+}
+
+.lc-cta-band {
+  padding: 4rem 0;
+}
+
+.ts-hero {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .ts-page-shell > section {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+  }
+
+  .lc-dores-section,
+  .lc-how-section,
+  .lc-benefits-section,
+  .lc-plans-section,
+  .lc-cta-band {
+    padding: 2.8rem 0;
+  }
+
+  .ts-hero {
+    padding-top: 4.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .ts-page-shell > section {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+  }
+}
+
 

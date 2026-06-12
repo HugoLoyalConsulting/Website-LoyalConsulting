@@ -135,10 +135,8 @@ export default function DiscoveryPage() {
   return (
     <main
       id="topo"
-      className="ts-page-shell relative w-full max-w-full overflow-x-hidden"
+      className="lp-light ts-page-shell relative w-full max-w-full overflow-x-hidden"
       style={{
-        background: "var(--color-bg)",
-        color: "var(--color-text)",
         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.8rem)",
       }}
     >
@@ -185,13 +183,12 @@ export default function DiscoveryPage() {
               se sua empresa está indo bem.
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Descubra quais informações realmente importam para o seu negócio — e como
-              transformá-las em dashboards automatizados. Se você depende de Excel, relatórios
-              exportados ou informações espalhadas para tomar decisões importantes, esta
-              conversa foi feita para você.
+              Descubra quais números realmente importam para o seu negócio — e como tê-los
+              em um painel que se atualiza sozinho. Se você vive no Excel e depende de
+              relatórios espalhados para decidir, esta conversa foi feita para você.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong style={{ color: "rgba(240,237,232,0.9)" }}>
+              <strong>
                 Agende uma Discovery gratuita de 30 minutos
               </strong>{" "}
               e entenda quais indicadores priorizar, quais dados utilizar e qual seria o
@@ -250,11 +247,56 @@ export default function DiscoveryPage() {
                 <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
                   Quero agendar minha Discovery →
                 </a>
-                <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
+                <p className="lc-cta-caption">
                   Sem custo · 30 minutos · Sem compromisso.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ANTES → DEPOIS ──────────────────────────────────── */}
+      <section id="antes-depois" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Antes → Depois</p>
+            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela.</h2>
+          </div>
+          <div className="lc-beforeafter-grid mt-12">
+            <figure className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
+                  alt="Várias planilhas de Excel abertas ao mesmo tempo na mesma tela"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover", objectPosition: "top left" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
+                responder uma única pergunta.
+              </figcaption>
+            </figure>
+            <figure className="lc-ba-card lc-ba-card--depois">
+              <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  alt="Dashboard Power BI com indicadores consolidados"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Um painel que se atualiza sozinho e mostra a floresta e cada folha:
+                a visão geral e o detalhe, no mesmo lugar.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -298,8 +340,8 @@ export default function DiscoveryPage() {
                 <p className="lc-how-body" style={{ flex: "none" }}>{block.intro}</p>
                 <div className="lc-how-tags" style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.5rem" }}>
                   {block.items.map((item) => (
-                    <span key={item} style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", fontSize: "0.88rem", color: "rgba(240,237,232,0.7)", lineHeight: 1.5 }}>
-                      <span style={{ color: "#4adedb", flexShrink: 0 }}>→</span>
+                    <span key={item} className="lc-step-item">
+                      <span style={{ color: "#0e9488", flexShrink: 0 }}>→</span>
                       {item}
                     </span>
                   ))}
@@ -405,21 +447,9 @@ export default function DiscoveryPage() {
           </div>
           <div className="mt-10" style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "720px" }}>
             {faqItems.map((item) => (
-              <div
-                key={item.q}
-                style={{
-                  padding: "1.4rem 1.6rem",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "10px",
-                  background: "rgba(255,255,255,0.03)",
-                }}
-              >
-                <p style={{ fontWeight: 600, fontSize: "0.98rem", color: "rgba(240,237,232,0.95)", marginBottom: "0.5rem" }}>
-                  {item.q}
-                </p>
-                <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6, margin: 0 }}>
-                  {item.a}
-                </p>
+              <div key={item.q} className="lc-faq-card">
+                <p className="lc-faq-q">{item.q}</p>
+                <p className="lc-faq-a">{item.a}</p>
               </div>
             ))}
           </div>
@@ -446,10 +476,9 @@ export default function DiscoveryPage() {
         </div>
       </div>
 
-      {/* ── FORMULÁRIO DE DISCOVERY ─────────────────────────── */}
+      {/* ── FORMULÁRIO DE DISCOVERY + FOOTER (faixa escura) ─── */}
+      <div className="lp-dark-band">
       <LeadCaptureForm />
-
-      {/* ── FOOTER ───────────────────────────────────────────── */}
       <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">
         <div className="section-divider" />
         <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
@@ -473,6 +502,7 @@ export default function DiscoveryPage() {
           </p>
         </div>
       </footer>
+      </div>
 
       <a
         href={WHATSAPP_URL}
