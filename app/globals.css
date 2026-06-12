@@ -3342,6 +3342,18 @@ body::before {
   }
 }
 
+/* Headers de páginas internas: compactos, sem 100svh */
+.ts-page-shell > section.lc-page-header {
+  min-height: auto;
+  display: block;
+}
+
+.lc-page-header .ts-hero {
+  grid-template-columns: 1fr;
+  padding-top: 3rem;
+  padding-bottom: 0.5rem;
+}
+
 /* ── Desktop: fontes maiores (mobile permanece como está) ──── */
 @media (min-width: 901px) {
   .section-copy,

@@ -100,8 +100,8 @@ export default function PlanosPage() {
       <StickyTopNav />
 
       {/* ── HEADER ──────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <div className="ts-hero" style={{ paddingBottom: "2rem" }}>
+      <section className="lc-page-header mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="ts-hero">
           <div>
             <p className="section-eyebrow reveal-up">Planos</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>

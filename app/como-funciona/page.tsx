@@ -9,31 +9,26 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Como Funciona",
   description:
-    "Do dado disperso à decisão segura: dashboards Power BI, automação de relatórios, integração de dados e estruturação analítica em um processo simples de 4 etapas.",
+    "Do dado disperso à decisão segura: automação de relatórios, modelagem e integração de dados e dashboards em Power BI, Tableau ou Python.",
   path: "/como-funciona",
 });
 
-// ── Como ajudamos ──────────────────────────────────────────────────────────
+// ── Como ajudamos (3 frentes) ──────────────────────────────────────────────
 const services = [
   {
-    title: "Dashboards Power BI",
-    body: "Painéis visuais e aprofundados: você enxerga a floresta e também cada folha do negócio.",
-    img: "dashboard-powerbi-vendas.png",
-  },
-  {
     title: "Automação de relatórios",
-    body: "O relatório que hoje você monta na mão passa a se montar sozinho.",
+    body: "As extrações que hoje você faz na mão passam a rodar sozinhas, no horário certo, sem ninguém precisar lembrar.",
     img: "dashboard-comunicacao-interna.png",
   },
   {
-    title: "Integração de dados",
-    body: "Juntamos planilhas, ERP, CRM e o que mais você usa em uma visão única.",
+    title: "Modelagem e integração de dados",
+    body: "Juntamos e organizamos dados de planilhas, ERP, CRM e outras fontes em uma base única e confiável.",
     img: "dashboard-monitor-dados-futurista.jpg",
   },
   {
-    title: "Estruturação analítica",
-    body: "Organizamos os números para você acompanhar só o que gera resultado.",
-    img: "dashboard-ui-kpis.webp",
+    title: "Dashboards",
+    body: "Painéis visuais e aprofundados em Power BI, Tableau ou Python: você enxerga a floresta e também cada folha do negócio.",
+    img: "dashboard-powerbi-vendas.png",
   },
 ];
 
@@ -78,8 +73,8 @@ export default function ComoFuncionaPage() {
       <StickyTopNav />
 
       {/* ── HEADER ──────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <div className="ts-hero" style={{ paddingBottom: "2rem" }}>
+      <section className="lc-page-header mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="ts-hero">
           <div>
             <p className="section-eyebrow reveal-up">Como funciona</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
@@ -87,7 +82,7 @@ export default function ComoFuncionaPage() {
               à decisão segura.
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Quatro coisas que fazemos e um processo simples — pensados para quem vive de
+              Três frentes de trabalho e um processo simples — pensados para quem vive de
               planilha e quer os números prontos, em um lugar só.
             </p>
           </div>
@@ -100,9 +95,9 @@ export default function ComoFuncionaPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Como ajudamos</p>
-            <h2 className="section-title mt-3">Quatro frentes de trabalho.</h2>
+            <h2 className="section-title mt-3">Três frentes de trabalho.</h2>
           </div>
-          <div className="lc-how-steps lc-how-steps--four mt-12">
+          <div className="lc-how-steps mt-12">
             {services.map((service) => (
               <div key={service.title} className="lc-how-step">
                 <figure className="lc-how-step-img">
