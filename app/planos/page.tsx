@@ -15,40 +15,40 @@ export const metadata: Metadata = buildMetadata({
 const plans = [
   {
     tier: "BASIC",
-    price: "R$ 3.000",
-    desc: "Para áreas que precisam sair das planilhas e ganhar visibilidade rapidamente.",
+    price: "R$ 2.000+",
+    desc: "Para quem precisa automatizar uma extração, organizar uma base ou dar os primeiros passos em dados.",
     features: [
+      "Pipeline ou automação de extração",
       "Até 2 fontes de dados",
-      "Até 1 conjunto principal de informações",
-      "Até 2 páginas",
       "Indicadores essenciais",
+      "Entrega prática e objetiva",
       "Treinamento inicial",
     ],
     highlight: false,
   },
   {
     tier: "PRO",
-    price: "R$ 6.000",
-    desc: "Para áreas que precisam integrar diferentes informações e aprofundar análises.",
+    price: "R$ 6.000+",
+    desc: "Para áreas que precisam integrar diferentes fontes e ter um painel completo para acompanhar resultados.",
     features: [
-      "Múltiplas fontes",
-      "Cruzamento entre informações",
-      "Mais indicadores",
-      "Até 5 páginas",
-      "Regras de negócio mais elaboradas",
+      "Múltiplas fontes integradas",
+      "Modelagem e relacionamentos de dados",
+      "Dashboard em Power BI, Tableau ou Looker",
+      "Indicadores e regras de negócio",
+      "Treinamento da equipe",
     ],
     highlight: true,
   },
   {
     tier: "PREMIUM",
-    price: "R$ 15.000",
-    desc: "Para operações mais complexas que exigem automações e atualizações mais robustas.",
+    price: "R$ 15.000+",
+    desc: "Para operações mais complexas, com automações robustas, múltiplos painéis e atualizações recorrentes.",
     features: [
-      "Integrações avançadas",
-      "Diversas fontes",
+      "Pipelines e integrações avançadas",
+      "Diversas fontes e sistemas",
+      "Múltiplos dashboards",
       "Atualizações automatizadas",
-      "Estruturas mais sofisticadas",
-      "Treinamentos ampliados",
+      "Mentoria e treinamentos ampliados",
     ],
     highlight: false,
   },
@@ -128,7 +128,6 @@ export default function PlanosPage() {
               >
                 <span className="lc-plan-tier">{plan.tier}</span>
                 <div>
-                  <p className="lc-plan-price-label">A partir de</p>
                   <p className="lc-plan-price">{plan.price}</p>
                 </div>
                 <p className="lc-plan-desc">{plan.desc}</p>

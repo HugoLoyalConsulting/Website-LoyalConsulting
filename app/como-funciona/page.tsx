@@ -9,26 +9,26 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Como Funciona",
   description:
-    "Do dado disperso à decisão segura: automação de relatórios, modelagem e integração de dados e dashboards em Power BI, Tableau ou Python.",
+    "Do dado disperso à decisão segura: Data Workflows e Pipelines, Dashboards em Power BI, Tableau, Looker ou Python, e Mentoria e Treinamento.",
   path: "/como-funciona",
 });
 
 // ── Como ajudamos (3 frentes) ──────────────────────────────────────────────
 const services = [
   {
-    title: "Automação de relatórios",
-    body: "As extrações que hoje você faz na mão passam a rodar sozinhas, no horário certo, sem ninguém precisar lembrar.",
-    img: "dashboard-comunicacao-interna.png",
-  },
-  {
-    title: "Modelagem e integração de dados",
-    body: "Juntamos e organizamos dados de planilhas, ERP, CRM e outras fontes em uma base única e confiável.",
+    title: "Data Workflows e Pipelines",
+    body: "As extrações que hoje você faz na mão passam a rodar sozinhas. Organizamos e unimos dados de planilhas, ERP, CRM e outras fontes — com os relacionamentos e transformações certos — em uma base única e confiável.",
     img: "dashboard-monitor-dados-futurista.jpg",
   },
   {
     title: "Dashboards",
-    body: "Painéis visuais e aprofundados em Power BI, Tableau ou Python: você enxerga a floresta e também cada folha do negócio.",
+    body: "Painéis visuais em Power BI, Tableau, Looker ou Python: você enxerga a floresta e também cada folha do negócio, em uma única tela que se atualiza sozinha.",
     img: "dashboard-powerbi-vendas.png",
+  },
+  {
+    title: "Mentoria e Treinamento",
+    body: "Para quem quer chegar rápido a um novo patamar. Sessões práticas direcionadas à sua realidade — sem teoria desnecessária, com foco no que você precisa dominar no trabalho.",
+    img: "analistas-revisando-dashboard.jpg",
   },
 ];
 
