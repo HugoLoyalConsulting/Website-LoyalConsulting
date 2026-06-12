@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { MarqueeBand } from "@/components/MarqueeBand";
 import { WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 
 // Agendamento direto pelo WhatsApp (sem Calendly por enquanto)
@@ -197,10 +199,10 @@ export default function DiscoveryPage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Quero agendar minha Discovery →
+                Vamos agendar? É no WhatsApp →
               </a>
-              <a href="#discovery" className="btn-outline">
-                O que acontece na Discovery
+              <a href="#contato" className="btn-outline">
+                Prefiro preencher o formulário
               </a>
             </div>
           </div>
@@ -209,6 +211,9 @@ export default function DiscoveryPage() {
           </div>
         </div>
       </section>
+
+      {/* ── MARQUEE (stack de BI/DataEng) ───────────────────── */}
+      <MarqueeBand />
 
       {/* ── VOCÊ SE IDENTIFICA? ─────────────────────────────── */}
       <section id="identifica" className="lc-dores-section">
@@ -432,14 +437,17 @@ export default function DiscoveryPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Agendar minha Discovery →
+              Vamos agendar? É no WhatsApp →
             </a>
-            <Link href="/" className="btn-outline">
-              Conhecer a Loyal Consulting
-            </Link>
+            <a href="#contato" className="btn-outline">
+              Preencher o formulário de Discovery
+            </a>
           </div>
         </div>
       </div>
+
+      {/* ── FORMULÁRIO DE DISCOVERY ─────────────────────────── */}
+      <LeadCaptureForm />
 
       {/* ── FOOTER ───────────────────────────────────────────── */}
       <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">

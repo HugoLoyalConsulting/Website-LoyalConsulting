@@ -142,6 +142,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── SOBRE A LOYAL ───────────────────────────────────── */}
+      <section id="sobre" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="lc-dores-grid mt-14">
+            <div>
+              <p className="section-eyebrow">Sobre a Loyal</p>
+              <h2 className="section-title mt-3">Uma consultoria boutique de Business Intelligence.</h2>
+            </div>
+            <div>
+              <p className="section-copy">
+                São 10 anos de operações em dados, vendo de perto como áreas inteiras — até em
+                empresas bilionárias — operam às cegas mesmo tendo abundância de informações.
+              </p>
+              <p className="section-copy mt-4">
+                Trabalhamos lado a lado com coordenadores, supervisores e gerentes para
+                transformar planilhas e sistemas desconectados em decisões mais rápidas e
+                confiáveis. Projetos enxutos, entregas práticas, sem complexidade desnecessária.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── PARALLAX BREAK ──────────────────────────────────── */}
       <div
         className="parallax-break"
