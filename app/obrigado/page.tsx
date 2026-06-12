@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Obrigado! | Loyal Consulting",
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Obrigado!",
+  description: "Recebemos suas respostas. Quer falar pelo WhatsApp ou agendar uma Discovery?",
+  path: "/obrigado",
+  noIndex: true,
+});
 
 const WA_DISCOVERY =
   "https://wa.me/5511954824181?text=" +

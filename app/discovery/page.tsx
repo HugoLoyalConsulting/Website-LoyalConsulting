@@ -5,17 +5,19 @@ import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
+import { buildMetadata } from "@/lib/seo";
 
 // Agendamento direto pelo WhatsApp (sem Calendly por enquanto)
 const WA_DISCOVERY =
   "https://wa.me/5511954824181?text=" +
   encodeURIComponent("Olá! Quero agendar minha Discovery gratuita de 30 minutos.");
 
-export const metadata: Metadata = {
-  title: "Discovery gratuita de 30 minutos | Loyal Consulting",
+export const metadata: Metadata = buildMetadata({
+  title: "Discovery gratuita de 30 minutos",
   description:
-    "Agende uma Discovery gratuita de 30 minutos e entenda quais indicadores priorizar, quais dados utilizar e qual seria o caminho mais eficiente para automatizar sua visão do negócio.",
-};
+    "Pare de abrir dezenas de planilhas para descobrir se sua empresa está indo bem. Agende uma conversa gratuita de 30 minutos e veja como seria o seu dashboard.",
+  path: "/discovery",
+});
 
 // ── Você se identifica? ────────────────────────────────────────────────────
 const painPoints = [
@@ -131,6 +133,16 @@ const faqItems = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function DiscoveryPage() {
   return (
     <main
@@ -140,6 +152,10 @@ export default function DiscoveryPage() {
         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.8rem)",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* ── NAV (versão enxuta da LP) ───────────────────────── */}
       <header className="ts-header-shell">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">

@@ -3,12 +3,14 @@ import Link from "next/link";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WA_COMECAR } from "@/lib/links";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Exemplos de Projetos | Loyal Consulting",
+export const metadata: Metadata = buildMetadata({
+  title: "Exemplos de Projetos",
   description:
     "Vendas, Financeiro, Marketing, RH, Logística e Operações: áreas que já ganharam mais clareza com dashboards e indicadores.",
-};
+  path: "/exemplos",
+});
 
 const exampleProjects = [
   {

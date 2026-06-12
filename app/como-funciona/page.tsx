@@ -4,12 +4,14 @@ import Link from "next/link";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WA_DIAGNOSTICO } from "@/lib/links";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Como Funciona | Loyal Consulting",
+export const metadata: Metadata = buildMetadata({
+  title: "Como Funciona",
   description:
     "Do dado disperso à decisão segura: dashboards Power BI, automação de relatórios, integração de dados e estruturação analítica em um processo simples de 4 etapas.",
-};
+  path: "/como-funciona",
+});
 
 // ── Como ajudamos ──────────────────────────────────────────────────────────
 const services = [

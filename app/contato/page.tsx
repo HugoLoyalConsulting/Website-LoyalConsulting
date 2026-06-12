@@ -3,12 +3,14 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { StickyTopNav, WHATSAPP_URL } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EMAIL_URL, LINKEDIN_URL, WA_COMECAR } from "@/lib/links";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contato | Loyal Consulting",
+export const metadata: Metadata = buildMetadata({
+  title: "Contato",
   description:
     "Não precisa saber exatamente o que pedir. Se sua equipe gasta tempo demais montando relatórios ou discutindo números, vale a pena conversar.",
-};
+  path: "/contato",
+});
 
 export default function ContatoPage() {
   return (

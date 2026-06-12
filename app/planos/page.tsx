@@ -3,12 +3,14 @@ import Link from "next/link";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WA_PROPOSTA } from "@/lib/links";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Planos | Loyal Consulting",
+export const metadata: Metadata = buildMetadata({
+  title: "Planos",
   description:
-    "BASIC, PRO e PREMIUM: o investimento acompanha a complexidade do projeto. A partir de R$ 3.000.",
-};
+    "BASIC, PRO e PREMIUM: o investimento acompanha a complexidade do projeto. Dashboards automatizados a partir de R$ 3.000.",
+  path: "/planos",
+});
 
 const plans = [
   {
@@ -71,6 +73,16 @@ const faqItems = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function PlanosPage() {
   return (
     <main
@@ -81,6 +93,10 @@ export default function PlanosPage() {
         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.8rem)",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <StickyTopNav />
 
       {/* ── HEADER ──────────────────────────────────────────── */}
