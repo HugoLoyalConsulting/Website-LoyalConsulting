@@ -30,7 +30,7 @@ export default function ObrigadoPage() {
       <section className="mx-auto w-full max-w-3xl px-5 py-20 text-center sm:px-8">
         <p className="section-eyebrow reveal-up">Formulário enviado com sucesso</p>
         <h1 className="ts-hero-h1 reveal-up mt-4" style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)" }}>
-          Obrigado pelo preenchimento!
+          Obrigado pelo preenchimento
         </h1>
         <p className="section-copy reveal-up mt-6">
           Recebemos suas respostas e vamos analisá-las com atenção. Enquanto isso, quer

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { SiteTelemetry } from "@/components/SiteTelemetry";
+import { ThirdPartyScripts } from "@/components/ThirdPartyScripts";
 import { buildMetadata, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const outfit = Outfit({
@@ -77,7 +78,7 @@ const jsonLd = {
   email: "hugolealsouza9@gmail.com",
   address: { "@type": "PostalAddress", addressCountry: "BR" },
   areaServed: "BR",
-  priceRange: "R$ 3.000 - R$ 15.000",
+  priceRange: "R$ 2.000 - R$ 10.000",
   sameAs: ["https://www.linkedin.com/company/loyal-consulting/"],
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dashboards Power BI" } },
@@ -96,6 +97,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <SiteTelemetry />
+        <ThirdPartyScripts />
         {children}
       </body>
     </html>

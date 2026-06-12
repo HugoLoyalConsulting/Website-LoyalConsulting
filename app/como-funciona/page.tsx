@@ -36,27 +36,39 @@ const services = [
 const processSteps = [
   {
     num: "01",
-    title: "Entendemos o cenário atual",
-    body: "Mapeamos como as informações são acompanhadas hoje e identificamos os principais gargalos.",
-    tags: ["Mapeamento"],
+    title: "Discovery",
+    body: "Entendemos o cenário geral: quais KPIs priorizar, quais sistemas e dados existem, qual a complexidade do projeto e qual a urgência do seu time.",
+    tags: ["KPIs", "Sistemas", "Urgência"],
   },
   {
     num: "02",
-    title: "Definimos prioridades",
-    body: "Entendemos quais indicadores geram maior impacto para a tomada de decisão.",
-    tags: ["Prioridades"],
+    title: "Proposta e orçamento",
+    body: "Você recebe três níveis de entrega, com prazos e valores claros — e escolhe o que faz mais sentido para o momento.",
+    tags: ["3 níveis", "Prazos", "Valores"],
   },
   {
     num: "03",
-    title: "Construímos a solução",
-    body: "Desenvolvemos dashboards e automações alinhados à realidade da sua operação.",
-    tags: ["Dashboards", "Automações"],
+    title: "Criação iterativa",
+    body: "Construímos em ciclos curtos, com seu feedback a cada rodada. Você vê o painel tomando forma e ajusta o rumo antes da entrega final.",
+    tags: ["Feedback", "Ciclos curtos"],
   },
   {
     num: "04",
-    title: "Entregamos visibilidade",
-    body: "Você passa a acompanhar seus resultados de forma rápida, prática e confiável.",
-    tags: ["Visibilidade"],
+    title: "Entrega e deployment",
+    body: "Publicamos a solução no seu ambiente, com as atualizações automáticas funcionando e tudo validado de ponta a ponta.",
+    tags: ["Publicação", "Automação"],
+  },
+  {
+    num: "05",
+    title: "Treinamento do time",
+    body: "Sua equipe aprende a usar o dashboard no dia a dia: navegar, filtrar e tirar as respostas sem depender de ninguém.",
+    tags: ["Capacitação"],
+  },
+  {
+    num: "06",
+    title: "Bônus: manutenção mensal",
+    body: "Pequenos ajustes e correções ficam cobertos mês a mês. Novas funcionalidades e expansões entram como incremento, em novo escopo.",
+    tags: ["Suporte", "Sem surpresas"],
   },
 ];
 
@@ -79,7 +91,7 @@ export default function ComoFuncionaPage() {
             <p className="section-eyebrow reveal-up">Como funciona</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
               Do dado disperso<br />
-              à decisão segura.
+              à decisão segura
             </h1>
             <p className="ts-hero-sub reveal-up">
               Três frentes de trabalho e um processo simples — pensados para quem vive de
@@ -95,7 +107,7 @@ export default function ComoFuncionaPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Como ajudamos</p>
-            <h2 className="section-title mt-3">Três frentes de trabalho.</h2>
+            <h2 className="section-title mt-3">Três frentes de trabalho</h2>
           </div>
           <div className="lc-how-steps mt-12">
             {services.map((service) => (
@@ -126,9 +138,9 @@ export default function ComoFuncionaPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Passo a passo</p>
-            <h2 className="section-title mt-3">Nosso processo é simples.</h2>
+            <h2 className="section-title mt-3">Nosso processo é simples</h2>
           </div>
-          <div className="lc-how-steps lc-how-steps--four mt-12">
+          <div className="lc-how-steps mt-12">
             {processSteps.map((step) => (
               <div key={step.num} className="lc-how-step">
                 <span className="lc-how-num">{step.num}</span>
@@ -166,7 +178,7 @@ export default function ComoFuncionaPage() {
           <div className="lc-dores-grid mt-14">
             <div>
               <p className="section-eyebrow section-eyebrow--red">Vale a reflexão</p>
-              <h2 className="section-title mt-3">Três perguntas para o seu próximo fechamento.</h2>
+              <h2 className="section-title mt-3">Três perguntas para o seu próximo fechamento</h2>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--impact">
               <ul className="lc-consequences-list lc-consequences-list--warning">

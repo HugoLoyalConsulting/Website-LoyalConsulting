@@ -23,6 +23,9 @@ type LeadPayload = {
   utmCampaign: string;
   utmTerm: string;
   utmContent: string;
+  hutk: string;
+  pageUri: string;
+  pageName: string;
 };
 
 const painOptions = [
@@ -79,7 +82,25 @@ const defaultPayload: LeadPayload = {
   utmCampaign: "",
   utmTerm: "",
   utmContent: "",
+  hutk: "",
+  pageUri: "",
+  pageName: "",
 };
+
+// Cookie de tracking do HubSpot — permite atribuição completa da jornada
+// quando o script hs-script-loader está ativo. Vazio se não estiver.
+function getHubSpotCookie(): string {
+  const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+  return match ? match[1] : "";
+}
+
+function identifyInHubSpot(email: string) {
+  const hsq = (window as unknown as { _hsq?: unknown[] })._hsq;
+  if (Array.isArray(hsq) && email) {
+    hsq.push(["identify", { email }]);
+    hsq.push(["trackPageView"]);
+  }
+}
 
 function resolveEndpoint() {
   const configured = process.env.NEXT_PUBLIC_LEADS_ENDPOINT?.trim();
@@ -112,6 +133,8 @@ export function LeadCaptureForm() {
       utmCampaign: params.get("utm_campaign") || "",
       utmTerm: params.get("utm_term") || "",
       utmContent: params.get("utm_content") || "",
+      pageUri: window.location.href,
+      pageName: document.title,
     }));
   }, []);
 
@@ -125,10 +148,11 @@ export function LeadCaptureForm() {
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, hutk: getHubSpotCookie() }),
       });
       const data = (await response.json()) as unknown;
       if (!response.ok) throw new Error(getErrorText(data));
+      identifyInHubSpot(form.email);
       router.push("/obrigado");
       return;
     } catch (error) {
@@ -147,7 +171,7 @@ export function LeadCaptureForm() {
           <div>
             <p className="kicker">Diagnóstico gratuito</p>
             <h2 className="section-title mt-3">
-              Conte o seu cenário — e receba uma recomendação personalizada.
+              Conte o seu cenário — e receba uma recomendação personalizada
             </h2>
             <p className="section-copy mt-5">
               Nossa equipe analisa o contexto e entra em contato para estruturar um plano de

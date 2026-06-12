@@ -31,7 +31,7 @@ export default function ContatoPage() {
             <p className="section-eyebrow reveal-up">Contato</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
               Não precisa saber<br />
-              exatamente o que pedir.
+              exatamente o que pedir
             </h1>
             <p className="ts-hero-sub reveal-up">
               Se você sente que sua equipe está gastando tempo demais montando relatórios ou

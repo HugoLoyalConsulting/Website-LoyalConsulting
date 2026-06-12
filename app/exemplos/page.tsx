@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -69,6 +70,22 @@ const exampleProjects = [
   },
 ];
 
+// ── Galeria de dashboards ──────────────────────────────────────────────────
+const galleryImages = [
+  { src: "dashboard-powerbi-vendas.png", alt: "Dashboard de vendas em Power BI" },
+  { src: "dashboard-powerbi-timeline.jpg", alt: "Dashboard Power BI com linha do tempo de indicadores" },
+  { src: "dashboard-ui-kpis.webp", alt: "Painel de KPIs executivos" },
+  { src: "dashboard-comunicacao-interna.png", alt: "Dashboard de comunicação interna" },
+  { src: "dashboard-monitor-colorido.jpg", alt: "Dashboard colorido em monitor" },
+  { src: "dashboard-monitor-dados-futurista.jpg", alt: "Painel de dados em monitor" },
+  { src: "dashboard-crescimento-abstrato.jpg", alt: "Visualização de crescimento de indicadores" },
+  { src: "laptop-analytics-aberto.jpg", alt: "Painel de analytics aberto em laptop" },
+  { src: "laptop-analytics-angulo.jpg", alt: "Dashboard de analytics em laptop" },
+  { src: "ipad-google-analytics.jpg", alt: "Indicadores em tablet" },
+  { src: "analista-bi-monitores-duplos.jpg", alt: "Análise de dashboards em monitores duplos" },
+  { src: "executivo-painel-wall.jpg", alt: "Painel de indicadores em tela grande" },
+];
+
 export default function ExemplosPage() {
   return (
     <main
@@ -89,7 +106,7 @@ export default function ExemplosPage() {
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
               Áreas que já ganharam<br />
               mais clareza com dashboards<br />
-              e indicadores.
+              e indicadores
             </h1>
             <p className="ts-hero-sub reveal-up">
               Alguns exemplos do que costumamos organizar em cada área — sempre adaptado à
@@ -123,6 +140,30 @@ export default function ExemplosPage() {
         </div>
       </section>
 
+      {/* ── GALERIA DE DASHBOARDS ───────────────────────────── */}
+      <section id="galeria" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Galeria</p>
+            <h2 className="section-title mt-3">Dashboards na prática</h2>
+          </div>
+          <div className="lc-examples-gallery mt-10">
+            {galleryImages.map((img) => (
+              <figure key={img.src} className="lc-examples-gallery-item reveal-up">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${img.src}`}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 900px) 50vw, 33vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PARALLAX ────────────────────────────────────────── */}
       <div
         className="parallax-break"
@@ -141,7 +182,7 @@ export default function ExemplosPage() {
       {/* ── CTA ─────────────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Não encontrou a sua área? Certamente também dá.</h2>
+          <h2 className="lc-cta-title">Não encontrou a sua área? Certamente também dá</h2>
           <p className="lc-cta-sub">
             Qualquer processo que hoje dependa de planilhas e relatórios manuais pode ser
             automatizado.

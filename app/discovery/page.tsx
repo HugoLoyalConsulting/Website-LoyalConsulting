@@ -196,7 +196,7 @@ export default function DiscoveryPage() {
             <h1 className="ts-hero-h1 reveal-up mt-3">
               Pare de abrir dezenas<br />
               de planilhas para descobrir<br />
-              se sua empresa está indo bem.
+              se sua empresa está indo bem
             </h1>
             <p className="ts-hero-sub reveal-up">
               Descubra quais números realmente importam para o seu negócio — e como tê-los
@@ -253,7 +253,7 @@ export default function DiscoveryPage() {
                 Se alguma dessas situações parece familiar...
               </p>
               <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...provavelmente existe uma oportunidade de simplificar sua operação.
+                ...provavelmente existe uma oportunidade de simplificar sua operação
               </h3>
               <p className="section-copy mt-4">
                 E de aumentar a confiança nas decisões — sem depender de consolidações
@@ -278,7 +278,7 @@ export default function DiscoveryPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Antes e depois</p>
-            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela.</h2>
+            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela</h2>
           </div>
           <div className="lc-beforeafter-grid mt-12">
             <figure className="lc-ba-card lc-ba-card--antes">
@@ -352,7 +352,7 @@ export default function DiscoveryPage() {
                   />
                 </figure>
                 <span className="lc-how-num">{block.num}</span>
-                <h3 className="lc-how-title">{block.title}.</h3>
+                <h3 className="lc-how-title">{block.title}</h3>
                 <p className="lc-how-body" style={{ flex: "none" }}>{block.intro}</p>
                 <div className="lc-how-tags" style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.5rem" }}>
                   {block.items.map((item) => (
@@ -426,7 +426,7 @@ export default function DiscoveryPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Como funciona</p>
-            <h2 className="section-title mt-3">Três etapas. Sem fricção.</h2>
+            <h2 className="section-title mt-3">Três etapas. Sem fricção</h2>
           </div>
           <div className="lc-how-steps mt-12">
             {steps.map((step) => (
@@ -459,7 +459,7 @@ export default function DiscoveryPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Perguntas frequentes</p>
-            <h2 className="section-title mt-3">Dúvidas comuns antes de agendar.</h2>
+            <h2 className="section-title mt-3">Dúvidas comuns antes de agendar</h2>
           </div>
           <div className="mt-10" style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "720px" }}>
             {faqItems.map((item) => (
@@ -475,7 +475,7 @@ export default function DiscoveryPage() {
       {/* ── CTA FINAL ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Talvez você não precise de mais uma planilha.</h2>
+          <h2 className="lc-cta-title">Talvez você não precise de mais uma planilha</h2>
           <p className="lc-cta-sub">
             Talvez precise apenas das informações certas, organizadas da forma certa, para
             tomar decisões com mais confiança. Agende sua Discovery gratuita e descubra qual

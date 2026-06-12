@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Planos",
   description:
-    "BASIC, PRO e PREMIUM: o investimento acompanha a complexidade do projeto. Dashboards automatizados a partir de R$ 3.000.",
+    "BASIC, PRO e PREMIUM: o investimento acompanha a complexidade do projeto. Dashboards automatizados a partir de R$ 2.000.",
   path: "/planos",
 });
 
@@ -28,7 +28,7 @@ const plans = [
   },
   {
     tier: "PRO",
-    price: "R$ 6.000+",
+    price: "R$ 5.000+",
     desc: "Para áreas que precisam integrar diferentes fontes e ter um painel completo para acompanhar resultados.",
     features: [
       "Múltiplas fontes integradas",
@@ -41,7 +41,7 @@ const plans = [
   },
   {
     tier: "PREMIUM",
-    price: "R$ 15.000+",
+    price: "R$ 10.000+",
     desc: "Para operações mais complexas, com automações robustas, múltiplos painéis e atualizações recorrentes.",
     features: [
       "Pipelines e integrações avançadas",
@@ -106,7 +106,7 @@ export default function PlanosPage() {
             <p className="section-eyebrow reveal-up">Planos</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
               O investimento acompanha<br />
-              a complexidade do projeto.
+              a complexidade do projeto
             </h1>
             <p className="ts-hero-sub reveal-up">
               Os valores abaixo são pontos de partida. O escopo exato é definido junto com
@@ -157,7 +157,7 @@ export default function PlanosPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Perguntas frequentes</p>
-            <h2 className="section-title mt-3">Dúvidas comuns antes de começar.</h2>
+            <h2 className="section-title mt-3">Dúvidas comuns antes de começar</h2>
           </div>
           <div className="mt-10" style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "720px" }}>
             {faqItems.map((item) => (

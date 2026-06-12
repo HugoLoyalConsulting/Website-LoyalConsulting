@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit } from "@/lib/rate-limit";
 import { sanitizePhone, sanitizeText } from "@/lib/sanitization";
 import { query } from "@/lib/db";
+import { forwardLeadToHubSpot } from "@/lib/integrations";
 import { leadSchema } from "@/lib/validations";
 import type { LeadStatus } from "@/lib/types";
 
@@ -103,19 +104,27 @@ export async function POST(request: NextRequest) {
 
   const data = parsed.data;
   const cleanNome = sanitizeText(data.nome);
+  const cleanSobrenome = sanitizeText(data.sobrenome || "");
+  const cleanNomeCompleto = [cleanNome, cleanSobrenome].filter(Boolean).join(" ");
   const cleanSetor = sanitizeText(data.setor || "");
-  const cleanAreaSetor = sanitizeText(data.areaSetor || "");
+  const cleanAreaSetor = sanitizeText(data.area || data.areaSetor || "");
   const cleanCargo = sanitizeText(data.cargo || "");
   const cleanEmail = sanitizeText(data.email || "").toLowerCase();
   const cleanWhatsapp = sanitizePhone(data.whatsapp || "");
   const cleanDescricao = sanitizeText(data.dorDescricao || "");
   const cleanTamanhoEmpresa = sanitizeText(data.tamanhoEmpresa || "");
-  const contactMode = data.preferredContactMode;
+  const contactMode = data.preferredContactMode.map((item) => sanitizeText(item)).filter(Boolean);
 
   const cleanDores = data.dores.map((item) => sanitizeText(item)).filter(Boolean);
+  const cleanTipoServico = data.tipoServico.map((item) => sanitizeText(item)).filter(Boolean);
+  const cleanFontesDados = data.fontesDados.map((item) => sanitizeText(item)).filter(Boolean);
+  const cleanFrequencia = sanitizeText(data.frequenciaAtualizacao || "");
 
   const metadata = JSON.stringify({
     setor: cleanSetor,
+    tipoServico: cleanTipoServico,
+    fontesDados: cleanFontesDados,
+    frequenciaAtualizacao: cleanFrequencia,
   });
 
   try {
@@ -146,12 +155,12 @@ export async function POST(request: NextRequest) {
       ) RETURNING id
       `,
       [
-        cleanNome,
+        cleanNomeCompleto,
         cleanAreaSetor || null,
         cleanCargo || null,
         cleanEmail || null,
         cleanWhatsapp || null,
-        contactMode,
+        contactMode.join(", "),
         cleanDores,
         cleanDescricao || null,
         cleanTamanhoEmpresa || null,
@@ -174,7 +183,7 @@ export async function POST(request: NextRequest) {
 
     void notifyCrm({
       id: leadId,
-      nome: cleanNome,
+      nome: cleanNomeCompleto,
       setor: cleanSetor,
       area: cleanAreaSetor,
       cargo: cleanCargo,
@@ -189,6 +198,30 @@ export async function POST(request: NextRequest) {
       utmCampaign: sanitizeText(data.utmCampaign || "") || null,
       utmTerm: sanitizeText(data.utmTerm || "") || null,
       utmContent: sanitizeText(data.utmContent || "") || null,
+      consentimentoLgpd: data.consentimentoLgpd,
+    });
+
+    void forwardLeadToHubSpot({
+      nome: cleanNome,
+      sobrenome: cleanSobrenome,
+      email: cleanEmail,
+      whatsapp: cleanWhatsapp,
+      cargo: cleanCargo,
+      area: cleanAreaSetor,
+      tamanhoEmpresa: cleanTamanhoEmpresa,
+      dores: cleanDores,
+      tipoServico: cleanTipoServico,
+      fontesDados: cleanFontesDados,
+      frequenciaAtualizacao: cleanFrequencia,
+      dorDescricao: cleanDescricao,
+      utmSource: sanitizeText(data.utmSource || ""),
+      utmMedium: sanitizeText(data.utmMedium || ""),
+      utmCampaign: sanitizeText(data.utmCampaign || ""),
+      utmTerm: sanitizeText(data.utmTerm || ""),
+      utmContent: sanitizeText(data.utmContent || ""),
+      hutk: sanitizeText(data.hutk || ""),
+      pageUri: sanitizeText(data.pageUri || ""),
+      pageName: sanitizeText(data.pageName || ""),
       consentimentoLgpd: data.consentimentoLgpd,
     });
 

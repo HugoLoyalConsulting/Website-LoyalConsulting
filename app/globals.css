@@ -1045,7 +1045,7 @@ a {
 /* ─── TS HERO (two-column) ─── */
 .ts-hero {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.3fr 0.7fr;
   gap: 2.6rem;
   align-items: center;
   padding-top: 2.8rem;
@@ -2606,8 +2606,8 @@ body::before {
 }
 
 .ts-hero-h1 {
-  font-size: clamp(3rem, 5vw, 5.5rem);
-  line-height: 0.94;
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  line-height: 0.97;
 }
 
 .section-title {
@@ -3053,6 +3053,37 @@ body::before {
   color: rgba(240, 237, 232, 0.6);
   line-height: 1.6;
   margin: 0;
+}
+
+/* ── GALERIA DE DASHBOARDS (Exemplos) ───────────────────────── */
+.lc-examples-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.lc-examples-gallery-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.lc-examples-gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+  .lc-examples-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
 }
 
 /* ── ANTES → DEPOIS ─────────────────────────────────────────── */

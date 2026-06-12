@@ -45,7 +45,7 @@ export default function HomePage() {
             <h1 className="ts-hero-h1 reveal-up mt-3">
               Pare de gerenciar<br />
               o seu negócio através de<br />
-              dezenas de planilhas.
+              dezenas de planilhas
             </h1>
             <p className="ts-hero-sub reveal-up">
               A gente junta suas planilhas e sistemas em um painel só, que se atualiza
@@ -99,7 +99,7 @@ export default function HomePage() {
                 Se pelo menos duas dessas situações fazem parte da sua rotina...
               </p>
               <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...dá para automatizar isso e devolver horas para a sua equipe.
+                ...dá para automatizar isso e devolver horas para a sua equipe
               </h3>
               <div className="mt-8">
                 <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="lc-dores-grid mt-14">
             <div>
               <p className="section-eyebrow">O outro lado</p>
-              <h2 className="section-title mt-3">Imagine começar o dia com respostas prontas.</h2>
+              <h2 className="section-title mt-3">Imagine começar o dia com respostas prontas</h2>
               <p className="section-copy mt-4">
                 Em vez de caçar números em vários arquivos, você abre uma tela e vê na hora:
               </p>
@@ -147,7 +147,7 @@ export default function HomePage() {
           <div className="lc-dores-grid mt-14">
             <div>
               <p className="section-eyebrow">Sobre a Loyal</p>
-              <h2 className="section-title mt-3">Uma consultoria boutique de Business Intelligence.</h2>
+              <h2 className="section-title mt-3">Uma consultoria boutique de Business Intelligence</h2>
             </div>
             <div>
               <p className="section-copy">
