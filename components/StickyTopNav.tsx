@@ -1,10 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { CSSProperties, useEffect, useState } from "react";
+import { getAlternatePath, type Locale } from "@/lib/i18n";
 
 const WHATSAPP_URL =
   "https://wa.me/5511954824181?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20da%20Loyal%20e%20gostaria%20de%20falar%20mais.";
+
+const WHATSAPP_URL_EN =
+  "https://wa.me/5511954824181?text=Hi!%20I%20found%20the%20Loyal%20Consulting%20website%20and%20I%27d%20like%20to%20know%20more.";
 
 function WhatsAppIcon() {
   return (
@@ -17,8 +22,72 @@ function WhatsAppIcon() {
   );
 }
 
-export function StickyTopNav() {
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm8.5 1.8h-8.5A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95Zm-4.25 2.85A5.35 5.35 0 1 1 6.65 12 5.35 5.35 0 0 1 12 6.65Zm0 1.8A3.55 3.55 0 1 0 15.55 12 3.55 3.55 0 0 0 12 8.45Zm5.6-3.38a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z"
+      />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M5.25 3A2.25 2.25 0 1 1 3 5.25 2.25 2.25 0 0 1 5.25 3ZM3.45 8.1h3.6V21h-3.6Zm6.15 0h3.45v1.76h.05A3.78 3.78 0 0 1 16.5 7.9c3.65 0 4.33 2.4 4.33 5.52V21h-3.6v-6.72c0-1.6-.03-3.66-2.23-3.66s-2.58 1.74-2.58 3.55V21H9.6Z"
+      />
+    </svg>
+  );
+}
+
+const NAV_STRINGS = {
+  pt: {
+    home: "/",
+    logoAria: "Início do site Loyal Consulting",
+    items: [
+      { href: "/", label: "Início" },
+      { href: "/como-funciona", label: "Como Funciona" },
+      { href: "/exemplos", label: "Exemplos" },
+      { href: "/planos", label: "Planos" },
+      { href: "/contato", label: "Contato" },
+    ],
+    waAria: "Falar no WhatsApp",
+    igAria: "Instagram em breve",
+    liAria: "LinkedIn em breve",
+    cta: "Falar com especialista",
+    waUrl: WHATSAPP_URL,
+    langLabel: "EN",
+    langAria: "Switch to English",
+  },
+  en: {
+    home: "/en",
+    logoAria: "Loyal Consulting home",
+    items: [
+      { href: "/en", label: "Home" },
+      { href: "/en/how-it-works", label: "How It Works" },
+      { href: "/en/examples", label: "Examples" },
+      { href: "/en/plans", label: "Plans" },
+      { href: "/en/contact", label: "Contact" },
+    ],
+    waAria: "Chat on WhatsApp",
+    igAria: "Instagram coming soon",
+    liAria: "LinkedIn coming soon",
+    cta: "Talk to a specialist",
+    waUrl: WHATSAPP_URL_EN,
+    langLabel: "PT",
+    langAria: "Mudar para português",
+  },
+} as const;
+
+export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
   const [progress, setProgress] = useState(0);
+  const pathname = usePathname();
+  const t = NAV_STRINGS[locale];
+  const alternatePath = getAlternatePath(pathname || (locale === "en" ? "/en" : "/"));
 
   useEffect(() => {
     const onScroll = () => {
@@ -38,35 +107,42 @@ export function StickyTopNav() {
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         <nav className="ts-nav">
-          <Link className="ts-nav-logo" href="/" aria-label="Início do site Loyal Consulting">
+          <Link className="ts-nav-logo" href={t.home} aria-label={t.logoAria}>
             <span className="ts-nav-logo-icon">LC</span>
-            Loyal Consulting
+            <span className="ts-nav-logo-text">Loyal Consulting</span>
           </Link>
-          <div className="ts-nav-pill hidden sm:flex">
-            <Link href="/">Início</Link>
-            <Link href="/como-funciona">Como Funciona</Link>
-            <Link href="/exemplos">Exemplos</Link>
-            <Link href="/planos">Planos</Link>
-            <Link href="/contato">Contato</Link>
+          <div className="ts-nav-pill">
+            {t.items.map((item) => (
+              <Link key={item.href} href={item.href}>{item.label}</Link>
+            ))}
           </div>
           <div className="ts-nav-right">
+            <Link href={alternatePath} className="ts-nav-lang" aria-label={t.langAria}>
+              {t.langLabel}
+            </Link>
             <a
-              href={WHATSAPP_URL}
+              href={t.waUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="ts-nav-wa"
-              aria-label="Falar no WhatsApp"
-              title="Falar no WhatsApp"
+              aria-label={t.waAria}
+              title={t.waAria}
             >
               <WhatsAppIcon />
             </a>
+            <span className="ts-nav-social" role="img" aria-label={t.igAria} title={t.igAria}>
+              <InstagramIcon />
+            </span>
+            <span className="ts-nav-social" role="img" aria-label={t.liAria} title={t.liAria}>
+              <LinkedInIcon />
+            </span>
             <a
-              href={WHATSAPP_URL}
+              href={t.waUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="ts-nav-action"
             >
-              Falar com especialista →
+              {t.cta}
             </a>
           </div>
         </nav>
@@ -75,4 +151,4 @@ export function StickyTopNav() {
   );
 }
 
-export { WHATSAPP_URL, WhatsAppIcon };
+export { WHATSAPP_URL, WHATSAPP_URL_EN, WhatsAppIcon, InstagramIcon, LinkedInIcon };

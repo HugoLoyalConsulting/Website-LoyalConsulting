@@ -12,3 +12,15 @@ export const WA_COMECAR =
   WA + encodeURIComponent("Olá! Quero simplificar a gestão dos dados da minha empresa. Podemos conversar?");
 export const WA_DISCOVERY =
   WA + encodeURIComponent("Olá! Quero agendar minha Discovery gratuita de 30 minutos.");
+
+// ── Versões EN-US ───────────────────────────────────────────────
+export const WA_GENERAL_EN =
+  WA + encodeURIComponent("Hi! I found the Loyal Consulting website and I'd like to know more.");
+export const WA_DIAGNOSTICO_EN =
+  WA + encodeURIComponent("Hi! I'd like a free assessment of my operation's data.");
+export const WA_PROPOSTA_EN =
+  WA + encodeURIComponent("Hi! I'd like to request a dashboard proposal for my team.");
+export const WA_COMECAR_EN =
+  WA + encodeURIComponent("Hi! I want to simplify how my company manages data. Can we talk?");
+export const WA_DISCOVERY_EN =
+  WA + encodeURIComponent("Hi! I'd like to schedule my free 30-minute Discovery call.");

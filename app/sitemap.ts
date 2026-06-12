@@ -12,5 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/planos/`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/contato/`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/discovery/`, lastModified, changeFrequency: "weekly", priority: 1 },
+    // EN-US
+    { url: `${SITE_URL}/en/`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/en/how-it-works/`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/en/examples/`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/en/plans/`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/en/contact/`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/en/discovery/`, lastModified, changeFrequency: "weekly", priority: 0.9 },
   ];
 }

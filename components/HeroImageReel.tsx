@@ -10,7 +10,7 @@
  * re-renders, no discrete jumps. Direct DOM style updates only.
  *
  * Waypoints (x/y = translate from the card's absolute base position):
- *   base card: top:136px left:30px size:300×188px (16:9) in a 360×460 container
+ *   base card: top:116px left:26px size:420×236px (16:9) in a 500×500 container
  */
 
 import { useEffect, useRef } from "react";
@@ -35,11 +35,11 @@ const SPEED = 0.2; // images per second → 1 image every 5 s; full cycle 35 s
 interface WP { x: number; y: number; scale: number; opacity: number; rotate: number }
 
 const WP: Record<string, WP> = {
-  before: { x:  -20, y: -190, scale: 0.55, opacity: 0,    rotate:  2 }, // off-screen top
-  exit:   { x:  -10, y:  -95, scale: 0.65, opacity: 0.65, rotate:  2 }, // top (outgoing)
+  before: { x:  -36, y: -220, scale: 0.55, opacity: 0,    rotate:  2 }, // off-screen top
+  exit:   { x:  -14, y: -102, scale: 0.65, opacity: 0.65, rotate:  2 }, // top (outgoing)
   active: { x:    0, y:    0, scale: 1.00, opacity: 1.00, rotate: -2 }, // center (featured)
-  enter:  { x:   70, y:  140, scale: 0.65, opacity: 0.65, rotate:  1 }, // bottom-right (incoming)
-  gone:   { x:  140, y:  265, scale: 0.55, opacity: 0,    rotate:  1 }, // off-screen bottom-right
+  enter:  { x:   82, y:  156, scale: 0.65, opacity: 0.65, rotate:  1 }, // bottom-right (incoming)
+  gone:   { x:  170, y:  295, scale: 0.55, opacity: 0,    rotate:  1 }, // off-screen bottom-right
 };
 
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
@@ -114,7 +114,7 @@ export function HeroImageReel() {
             src={`${BASE}/images/${img}`}
             alt=""
             fill
-            sizes="(max-width: 600px) 200px, 300px"
+            sizes="(max-width: 600px) 280px, 420px"
             style={{ objectFit: "cover" }}
           />
         </div>

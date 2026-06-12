@@ -1,7 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
+import type { Locale } from "@/lib/i18n";
 
 type LeadPayload = {
   nome: string;
@@ -28,39 +29,116 @@ type LeadPayload = {
   pageName: string;
 };
 
-const painOptions = [
-  "Decisões lentas ou no escuro",
-  "Dados demais, pouca clareza",
-  "Falta de confiança nos KPIs",
-  "Planilhas manuais e frágeis",
-  "Retrabalho para gerar relatórios",
-];
-
-const tipoServicoOptions = [
-  "Dashboards e relatórios",
-  "Otimização de dashboards existentes",
-  "Automação de dados",
-  "Integração entre fontes",
-  "Outro(s)",
-];
-
-const fontesDadosOptions = [
-  "Excel",
-  "Google Sheets",
-  "ERP",
-  "CRM",
-  "APIs",
-  "Outro sistema / não sei",
-];
-
-const tamanhoOptions = ["1–10", "11–50", "51–250", "251–1.000", "1.001+"];
-const frequenciaOptions = [
-  "Tempo real",
-  "Diariamente (mais de 1x)",
-  "Diariamente",
-  "Semanalmente",
-  "Mensalmente",
-];
+const STRINGS = {
+  pt: {
+    kicker: "Diagnóstico gratuito",
+    title: "Conte o seu cenário — e receba uma recomendação personalizada",
+    copy: "Nossa equipe analisa o contexto e entra em contato para estruturar um plano de inteligência analítica personalizado para sua empresa.",
+    sectionBasics: "Informações básicas",
+    sectionPains: "Dores e necessidades",
+    firstName: "Nome *",
+    lastName: "Sobrenome *",
+    role: "Cargo *",
+    selectPlaceholder: "Selecione",
+    roleOptions: ["Diretor(a)", "Gerente", "Coordenador(a)", "Analista", "Outro(s)"],
+    department: "Área *",
+    departmentOptions: ["Marketing/Vendas", "Finanças", "Operações", "Logística", "RH", "TI", "Outra"],
+    email: "E-mail *",
+    whatsapp: "WhatsApp (opcional)",
+    whatsappPlaceholder: "+55 (11) 99999-9999",
+    contactMode: "Como prefere ser contatado? *",
+    contactModeOptions: ["WhatsApp / Telefone", "E-mail"],
+    companySize: "Tamanho da empresa (funcionários) *",
+    companySizeOptions: ["1–10", "11–50", "51–250", "251–1.000", "1.001+"],
+    pains: "Principais dores *",
+    painOptions: [
+      "Decisões lentas ou no escuro",
+      "Dados demais, pouca clareza",
+      "Falta de confiança nos KPIs",
+      "Planilhas manuais e frágeis",
+      "Retrabalho para gerar relatórios",
+    ],
+    services: "O que você precisa? *",
+    serviceOptions: [
+      "Dashboards e relatórios",
+      "Otimização de dashboards existentes",
+      "Automação de dados",
+      "Integração entre fontes",
+      "Outro(s)",
+    ],
+    dataSources: "Fontes de dados utilizadas (opcional)",
+    dataSourceOptions: ["Excel", "Google Sheets", "ERP", "CRM", "APIs", "Outro sistema / não sei"],
+    frequency: "Com que frequência precisa dos dados atualizados? *",
+    frequencyOptions: [
+      "Tempo real",
+      "Diariamente (mais de 1x)",
+      "Diariamente",
+      "Semanalmente",
+      "Mensalmente",
+    ],
+    context: "Descreva o contexto e o objetivo (opcional)",
+    lgpd: "Autorizo o uso dos dados para contato comercial e registro em CRM conforme a finalidade do atendimento.",
+    submit: "Solicitar diagnóstico gratuito",
+    submitting: "Enviando...",
+    genericError: "Não foi possível enviar agora.",
+    submitError: "Falha ao enviar formulário.",
+    thankYouPath: "/obrigado",
+  },
+  en: {
+    kicker: "Free assessment",
+    title: "Tell us about your scenario — and get a personalized recommendation",
+    copy: "Our team reviews your context and gets in touch to outline an analytics plan tailored to your company.",
+    sectionBasics: "Basic information",
+    sectionPains: "Pain points and needs",
+    firstName: "First name *",
+    lastName: "Last name *",
+    role: "Role *",
+    selectPlaceholder: "Select",
+    roleOptions: ["Director", "Manager", "Coordinator", "Analyst", "Other"],
+    department: "Department *",
+    departmentOptions: ["Marketing/Sales", "Finance", "Operations", "Logistics", "HR", "IT", "Other"],
+    email: "E-mail *",
+    whatsapp: "WhatsApp (optional)",
+    whatsappPlaceholder: "+55 (11) 99999-9999",
+    contactMode: "How would you like to be contacted? *",
+    contactModeOptions: ["WhatsApp / Phone", "E-mail"],
+    companySize: "Company size (employees) *",
+    companySizeOptions: ["1–10", "11–50", "51–250", "251–1,000", "1,001+"],
+    pains: "Main pain points *",
+    painOptions: [
+      "Slow decisions, or decisions in the dark",
+      "Too much data, too little clarity",
+      "Low trust in KPIs",
+      "Manual, fragile spreadsheets",
+      "Rework to produce reports",
+    ],
+    services: "What do you need? *",
+    serviceOptions: [
+      "Dashboards and reports",
+      "Improving existing dashboards",
+      "Data automation",
+      "Integrating data sources",
+      "Other",
+    ],
+    dataSources: "Data sources you use (optional)",
+    dataSourceOptions: ["Excel", "Google Sheets", "ERP", "CRM", "APIs", "Other system / not sure"],
+    frequency: "How often do you need the data refreshed? *",
+    frequencyOptions: [
+      "Real time",
+      "Daily (more than once)",
+      "Daily",
+      "Weekly",
+      "Monthly",
+    ],
+    context: "Describe your context and goal (optional)",
+    lgpd: "I authorize the use of my data for business contact and CRM registration for the purpose of this service.",
+    submit: "Request free assessment",
+    submitting: "Sending...",
+    genericError: "We couldn't send it right now.",
+    submitError: "Failed to submit the form.",
+    thankYouPath: "/en/thank-you",
+  },
+} as const;
 
 const defaultPayload: LeadPayload = {
   nome: "",
@@ -107,18 +185,19 @@ function resolveEndpoint() {
   return configured && configured.length > 0 ? configured : "/api/leads";
 }
 
-function getErrorText(payload: unknown): string {
-  if (!payload || typeof payload !== "object") return "Não foi possível enviar agora.";
+function getErrorText(payload: unknown, fallback: string): string {
+  if (!payload || typeof payload !== "object") return fallback;
   const maybeError = (payload as { error?: string }).error;
-  return maybeError || "Não foi possível enviar agora.";
+  return maybeError || fallback;
 }
 
 function toggleArray(arr: string[], value: string, checked: boolean): string[] {
   return checked ? [...arr, value] : arr.filter((v) => v !== value);
 }
 
-export function LeadCaptureForm() {
+export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
   const router = useRouter();
+  const t = STRINGS[locale];
   const [form, setForm] = useState<LeadPayload>(defaultPayload);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -151,13 +230,13 @@ export function LeadCaptureForm() {
         body: JSON.stringify({ ...form, hutk: getHubSpotCookie() }),
       });
       const data = (await response.json()) as unknown;
-      if (!response.ok) throw new Error(getErrorText(data));
+      if (!response.ok) throw new Error(getErrorText(data, t.genericError));
       identifyInHubSpot(form.email);
-      router.push("/obrigado");
+      router.push(t.thankYouPath);
       return;
     } catch (error) {
       setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Falha ao enviar formulário.");
+      setMessage(error instanceof Error ? error.message : t.submitError);
     } finally {
       setIsSubmitting(false);
     }
@@ -169,14 +248,9 @@ export function LeadCaptureForm() {
         <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
           {/* Left: copy */}
           <div>
-            <p className="kicker">Diagnóstico gratuito</p>
-            <h2 className="section-title mt-3">
-              Conte o seu cenário — e receba uma recomendação personalizada
-            </h2>
-            <p className="section-copy mt-5">
-              Nossa equipe analisa o contexto e entra em contato para estruturar um plano de
-              inteligência analítica personalizado para sua empresa.
-            </p>
+            <p className="kicker">{t.kicker}</p>
+            <h2 className="section-title mt-3">{t.title}</h2>
+            <p className="section-copy mt-5">{t.copy}</p>
           </div>
 
           {/* Right: form */}
@@ -184,12 +258,12 @@ export function LeadCaptureForm() {
 
             {/* ── Seção 1: Informações básicas ── */}
             <p className="field-label" style={{ fontWeight: 600, fontSize: "0.78rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", marginBottom: "-0.5rem" }}>
-              Informações básicas
+              {t.sectionBasics}
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="field-label">
-                Nome *
+                {t.firstName}
                 <input
                   required
                   value={form.nome}
@@ -198,7 +272,7 @@ export function LeadCaptureForm() {
                 />
               </label>
               <label className="field-label">
-                Sobrenome *
+                {t.lastName}
                 <input
                   required
                   value={form.sobrenome}
@@ -210,29 +284,29 @@ export function LeadCaptureForm() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="field-label">
-                Cargo *
+                {t.role}
                 <select
                   required
                   value={form.cargo}
                   onChange={(e) => setForm((p) => ({ ...p, cargo: e.target.value }))}
                   className="field-input"
                 >
-                  <option value="">Selecione</option>
-                  {["Diretor(a)", "Gerente", "Coordenador(a)", "Analista", "Outro(s)"].map((v) => (
+                  <option value="">{t.selectPlaceholder}</option>
+                  {t.roleOptions.map((v) => (
                     <option key={v} value={v}>{v}</option>
                   ))}
                 </select>
               </label>
               <label className="field-label">
-                Área *
+                {t.department}
                 <select
                   required
                   value={form.area}
                   onChange={(e) => setForm((p) => ({ ...p, area: e.target.value }))}
                   className="field-input"
                 >
-                  <option value="">Selecione</option>
-                  {["Marketing/Vendas", "Finanças", "Operações", "Logística", "RH", "TI", "Outra"].map((v) => (
+                  <option value="">{t.selectPlaceholder}</option>
+                  {t.departmentOptions.map((v) => (
                     <option key={v} value={v}>{v}</option>
                   ))}
                 </select>
@@ -241,7 +315,7 @@ export function LeadCaptureForm() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="field-label">
-                E-mail *
+                {t.email}
                 <input
                   type="email"
                   required
@@ -251,20 +325,20 @@ export function LeadCaptureForm() {
                 />
               </label>
               <label className="field-label">
-                WhatsApp (opcional)
+                {t.whatsapp}
                 <input
                   value={form.whatsapp}
                   onChange={(e) => setForm((p) => ({ ...p, whatsapp: e.target.value }))}
                   className="field-input"
-                  placeholder="+55 (11) 99999-9999"
+                  placeholder={t.whatsappPlaceholder}
                 />
               </label>
             </div>
 
             <fieldset>
-              <legend className="field-label mb-3">Como prefere ser contatado? *</legend>
+              <legend className="field-label mb-3">{t.contactMode}</legend>
               <div className="flex flex-wrap gap-3">
-                {["WhatsApp / Telefone", "E-mail"].map((opt) => (
+                {t.contactModeOptions.map((opt) => (
                   <label key={opt} className="checkbox-item">
                     <input
                       type="checkbox"
@@ -283,9 +357,9 @@ export function LeadCaptureForm() {
             </fieldset>
 
             <fieldset>
-              <legend className="field-label mb-3">Tamanho da empresa (funcionários) *</legend>
+              <legend className="field-label mb-3">{t.companySize}</legend>
               <div className="flex flex-wrap gap-3">
-                {tamanhoOptions.map((opt) => (
+                {t.companySizeOptions.map((opt) => (
                   <label key={opt} className="checkbox-item">
                     <input
                       type="radio"
@@ -303,13 +377,13 @@ export function LeadCaptureForm() {
 
             {/* ── Seção 2: Dores e Necessidades ── */}
             <p className="field-label" style={{ fontWeight: 600, fontSize: "0.78rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", marginBottom: "-0.5rem", marginTop: "0.5rem" }}>
-              Dores e necessidades
+              {t.sectionPains}
             </p>
 
             <fieldset>
-              <legend className="field-label mb-3">Principais dores *</legend>
+              <legend className="field-label mb-3">{t.pains}</legend>
               <div className="grid gap-2 sm:grid-cols-2">
-                {painOptions.map((opt) => (
+                {t.painOptions.map((opt) => (
                   <label key={opt} className="checkbox-item">
                     <input
                       type="checkbox"
@@ -325,9 +399,9 @@ export function LeadCaptureForm() {
             </fieldset>
 
             <fieldset>
-              <legend className="field-label mb-3">O que você precisa? *</legend>
+              <legend className="field-label mb-3">{t.services}</legend>
               <div className="grid gap-2 sm:grid-cols-2">
-                {tipoServicoOptions.map((opt) => (
+                {t.serviceOptions.map((opt) => (
                   <label key={opt} className="checkbox-item">
                     <input
                       type="checkbox"
@@ -346,9 +420,9 @@ export function LeadCaptureForm() {
             </fieldset>
 
             <fieldset>
-              <legend className="field-label mb-3">Fontes de dados utilizadas (opcional)</legend>
+              <legend className="field-label mb-3">{t.dataSources}</legend>
               <div className="flex flex-wrap gap-2">
-                {fontesDadosOptions.map((opt) => (
+                {t.dataSourceOptions.map((opt) => (
                   <label key={opt} className="checkbox-item">
                     <input
                       type="checkbox"
@@ -367,9 +441,9 @@ export function LeadCaptureForm() {
             </fieldset>
 
             <fieldset>
-              <legend className="field-label mb-3">Com que frequência precisa dos dados atualizados? *</legend>
+              <legend className="field-label mb-3">{t.frequency}</legend>
               <div className="flex flex-wrap gap-3">
-                {frequenciaOptions.map((opt) => (
+                {t.frequencyOptions.map((opt) => (
                   <label key={opt} className="checkbox-item">
                     <input
                       type="radio"
@@ -386,7 +460,7 @@ export function LeadCaptureForm() {
             </fieldset>
 
             <label className="field-label">
-              Descreva o contexto e o objetivo (opcional)
+              {t.context}
               <textarea
                 value={form.dorDescricao}
                 onChange={(e) => setForm((p) => ({ ...p, dorDescricao: e.target.value }))}
@@ -404,10 +478,7 @@ export function LeadCaptureForm() {
                 onChange={(e) => setForm((p) => ({ ...p, consentimentoLgpd: e.target.checked }))}
                 className="mt-1"
               />
-              <span>
-                Autorizo o uso dos dados para contato comercial e registro em CRM conforme
-                a finalidade do atendimento.
-              </span>
+              <span>{t.lgpd}</span>
             </label>
 
             <div>
@@ -416,7 +487,7 @@ export function LeadCaptureForm() {
                 disabled={isSubmitting}
                 className="btn-primary w-full disabled:opacity-60"
               >
-                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico gratuito"}
+                {isSubmitting ? t.submitting : t.submit}
               </button>
               {status !== "idle" && (
                 <p className={`mt-3 text-sm ${status}`}>{message}</p>

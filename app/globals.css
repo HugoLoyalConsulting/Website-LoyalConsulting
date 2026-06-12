@@ -970,6 +970,30 @@ a {
   flex-shrink: 0;
 }
 
+/* Seletor de idioma (PT ↔ EN) */
+.ts-nav-lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(240, 237, 232, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+  flex-shrink: 0;
+}
+
+.ts-nav-lang:hover {
+  color: #f0ede8;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .ts-nav-wa svg {
   width: 18px;
   height: 18px;
@@ -2456,18 +2480,19 @@ a {
 
 .hir-root {
   position: relative;
-  width: 360px;
-  height: 460px;
+  width: min(100%, 520px);
+  height: 440px;
   overflow: hidden;
 }
 
 /* Base position for every card (moved via framer-motion translate) */
 .hir-card {
   position: absolute;
-  top: 136px;
-  left: 30px;
-  width: 300px;
-  height: 188px; /* 16:9 */
+  top: 112px;
+  left: 4%;
+  width: min(92%, 430px);
+  height: auto;
+  aspect-ratio: 16 / 9;
   border-radius: 14px;
   overflow: hidden;
   box-shadow:
@@ -2481,20 +2506,39 @@ a {
    ─────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hir-root {
-    zoom: 0.82;
+    zoom: 1;
+    width: 100%;
+    max-width: 520px;
+    height: 420px;
     margin: 0 auto;
+  }
+
+  .hir-card {
+    top: 102px;
+    left: 4%;
+    width: 92%;
   }
 }
 
 @media (max-width: 600px) {
   .hir-root {
-    zoom: 0.65;
+    zoom: 1;
+    height: 380px;
+  }
+
+  .hir-card {
+    top: 94px;
   }
 }
 
 @media (max-width: 400px) {
   .hir-root {
-    zoom: 0.55;
+    zoom: 1;
+    height: 350px;
+  }
+
+  .hir-card {
+    top: 86px;
   }
 }
 
@@ -3089,8 +3133,8 @@ body::before {
 /* ── ANTES → DEPOIS ─────────────────────────────────────────── */
 .lc-beforeafter-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  gap: 1.7rem;
   align-items: stretch;
 }
 
@@ -3134,6 +3178,27 @@ body::before {
 .lc-ba-card--depois .lc-ba-img {
   transform: rotate(1.2deg);
   border-color: rgba(20, 184, 166, 0.4);
+}
+
+.lc-ba-img--dense-sheet img {
+  transform: scale(1.16);
+  filter: saturate(0.75) contrast(0.92) brightness(0.88);
+}
+
+.lc-ba-img--dense-sheet::after {
+  content: "Dados demais, leitura de menos";
+  position: absolute;
+  left: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 2;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 237, 232, 0.9);
+  background: rgba(7, 7, 14, 0.64);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
 }
 
 .lc-ba-card .lc-ba-img:hover {
@@ -3339,8 +3404,10 @@ body::before {
   padding: 4rem 0;
 }
 
+/* Barra superior é fixed: o hero precisa de respiro para o
+   conteúdo não ficar escondido atrás dela */
 .ts-hero {
-  padding-top: 2.5rem;
+  padding-top: 7rem;
   padding-bottom: 2.5rem;
 }
 
@@ -3363,7 +3430,7 @@ body::before {
   }
 
   .ts-hero {
-    padding-top: 4.5rem;
+    padding-top: 6rem;
     padding-bottom: 2rem;
   }
 }
@@ -3383,8 +3450,33 @@ body::before {
 
 .lc-page-header .ts-hero {
   grid-template-columns: 1fr;
-  padding-top: 3rem;
+  padding-top: 7rem;
   padding-bottom: 0.5rem;
+}
+
+/* ── Respiro vertical entre blocos de texto ─────────────────── */
+.ts-hero .ts-hero-h1 {
+  margin-top: 1.2rem;
+}
+
+.ts-hero-sub {
+  margin-top: 1.6rem;
+}
+
+.ts-hero-copy {
+  margin-top: 1.6rem;
+}
+
+.ts-hero .ts-cta-row {
+  margin-top: 2.4rem;
+}
+
+.section-eyebrow + .section-title {
+  margin-top: 1.1rem;
+}
+
+.section-title + .section-copy {
+  margin-top: 1.4rem;
 }
 
 /* ── Desktop: fontes maiores (mobile permanece como está) ──── */
@@ -3447,6 +3539,267 @@ body::before {
 
   .lc-cta-sub {
     font-size: 0.95rem;
+  }
+}
+
+/* ── Refinos globais: nav, ritmo vertical e hero reel ─────── */
+.ts-page-shell {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 5.2rem);
+}
+
+.ts-nav-logo-text {
+  display: inline;
+}
+
+.ts-nav-wa {
+  color: #1a2620;
+  background: #2ee6a6;
+  border: 1px solid rgba(46, 230, 166, 0.4);
+}
+
+.ts-nav-wa:hover {
+  background: #1ecf93;
+  border-color: rgba(46, 230, 166, 0.65);
+}
+
+.ts-nav-social {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(240, 237, 232, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.ts-nav-social svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hir-root {
+  width: 500px;
+  height: 500px;
+}
+
+.hir-card {
+  top: 116px;
+  left: 26px;
+  width: 420px;
+  height: 236px;
+}
+
+.lc-dores-section,
+.lc-how-section,
+.lc-benefits-section,
+.lc-plans-section,
+.lc-cta-band {
+  padding: 5rem 0 5.6rem;
+}
+
+.lc-page-header .ts-hero {
+  padding-top: 7.8rem;
+}
+
+.ts-hero {
+  padding-top: 7.6rem;
+}
+
+@media (max-width: 900px) {
+  .ts-page-shell {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 6.1rem);
+  }
+
+  .ts-nav {
+    gap: 0.55rem;
+    padding: 0.85rem 0;
+  }
+
+  .ts-nav-right {
+    gap: 0.45rem;
+    margin-left: auto;
+  }
+
+  .ts-nav-action {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.82rem;
+  }
+
+  .hir-root {
+    zoom: 0.74;
+    margin: 0 auto;
+  }
+
+  .ts-hero {
+    padding-top: 7.1rem;
+  }
+
+  .ts-hero-visual {
+    min-height: 430px;
+  }
+
+  .lc-dores-section,
+  .lc-how-section,
+  .lc-benefits-section,
+  .lc-plans-section,
+  .lc-cta-band {
+    padding: 4.2rem 0 4.8rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .ts-nav-action {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .ts-page-shell {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 6.4rem);
+  }
+
+  .ts-nav-logo {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  .ts-nav-lang,
+  .ts-nav-wa,
+  .ts-nav-social {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+  }
+
+  .ts-nav-lang {
+    width: auto;
+    min-width: 38px;
+  }
+
+  .ts-nav-wa svg,
+  .ts-nav-social svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hir-root {
+    zoom: 1;
+    height: 360px;
+  }
+
+  .hir-card {
+    top: 84px;
+  }
+}
+
+@media (max-width: 440px) {
+  .ts-nav-logo-text {
+    display: none;
+  }
+
+  .hir-root {
+    zoom: 1;
+    height: 330px;
+  }
+
+  .hir-card {
+    top: 78px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .ts-nav-pill {
+    display: none !important;
+  }
+
+  .ts-nav-social {
+    display: none;
+  }
+}
+
+/* ── Mobile hard overrides (final cascade guard) ─────────── */
+@media (max-width: 768px) {
+  .ts-page-shell {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 7.2rem) !important;
+  }
+
+  .ts-header-shell {
+    padding-top: max(env(safe-area-inset-top, 0px), 0px);
+  }
+
+  .ts-nav {
+    min-height: 56px;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .ts-nav-right {
+    gap: 0.4rem;
+  }
+
+  .ts-nav-logo {
+    min-width: 0;
+  }
+
+  .ts-hero,
+  .lc-page-header .ts-hero {
+    padding-top: 1.1rem !important;
+  }
+
+  .ts-hero-visual {
+    width: 100%;
+    min-height: 390px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ts-hero-visual .hir-root {
+    width: min(100vw - 2rem, 560px) !important;
+    max-width: none;
+    height: 390px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ts-hero-visual .hir-card {
+    left: 4% !important;
+    width: 92% !important;
+    top: 92px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-page-shell {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 7.5rem) !important;
+  }
+
+  .ts-nav {
+    min-height: 58px;
+  }
+
+  .ts-nav-lang,
+  .ts-nav-wa,
+  .ts-nav-social {
+    width: 31px;
+    height: 31px;
+  }
+
+  .ts-hero-visual {
+    min-height: 360px;
+  }
+
+  .ts-hero-visual .hir-root {
+    width: min(100vw - 1.4rem, 520px) !important;
+    height: 360px !important;
+  }
+
+  .ts-hero-visual .hir-card {
+    left: 2% !important;
+    width: 96% !important;
+    top: 84px !important;
   }
 }
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { MarqueeBand } from "@/components/MarqueeBand";
-import { WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
+import { InstagramIcon, LinkedInIcon, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 import { buildMetadata } from "@/lib/seo";
 
 // Agendamento direto pelo WhatsApp (sem Calendly por enquanto)
@@ -162,7 +162,7 @@ export default function DiscoveryPage() {
           <nav className="ts-nav">
             <Link className="ts-nav-logo" href="/" aria-label="Voltar ao site da Loyal Consulting">
               <span className="ts-nav-logo-icon">LC</span>
-              Loyal Consulting
+              <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
             <div className="ts-nav-right">
               <a
@@ -175,6 +175,12 @@ export default function DiscoveryPage() {
               >
                 <WhatsAppIcon />
               </a>
+              <span className="ts-nav-social" role="img" aria-label="Instagram em breve" title="Instagram em breve">
+                <InstagramIcon />
+              </span>
+              <span className="ts-nav-social" role="img" aria-label="LinkedIn em breve" title="LinkedIn em breve">
+                <LinkedInIcon />
+              </span>
               <a
                 href={WA_DISCOVERY}
                 target="_blank"
@@ -295,6 +301,21 @@ export default function DiscoveryPage() {
               <figcaption className="lc-ba-caption">
                 Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
                 responder uma única pergunta.
+              </figcaption>
+            </figure>
+            <figure className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
+              <div className="lc-ba-img lc-ba-img--dense-sheet">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-planilha-ininteligivel.png`}
+                  alt="Planilha extensa demais para leitura rápida, com excesso de colunas e dados"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: "cover", objectPosition: "right 25% top" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Uma planilha extensa e densa demais para ser inteligível no ritmo da operação.
               </figcaption>
             </figure>
             <figure className="lc-ba-card lc-ba-card--depois">

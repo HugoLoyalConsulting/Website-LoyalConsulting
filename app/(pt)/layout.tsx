@@ -1,22 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { SiteTelemetry } from "@/components/SiteTelemetry";
 import { ThirdPartyScripts } from "@/components/ThirdPartyScripts";
+import { outfit, outfitDisplay } from "@/lib/fonts";
 import { buildMetadata, SITE_NAME, SITE_URL } from "@/lib/seo";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const outfitDisplay = Outfit({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["700", "800"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -84,7 +71,7 @@ const jsonLd = {
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dashboards Power BI" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automação de relatórios" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Integração de dados" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Estruturação analítica" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mentoria e treinamento" } },
   ],
 };
 
