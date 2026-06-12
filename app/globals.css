@@ -2899,4 +2899,119 @@ body::before {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   Site + LP Discovery — acréscimos pontuais
+   ══════════════════════════════════════════════════════════════ */
+
+/* Âncoras não ficam escondidas atrás do nav fixo */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Como funciona com 4 etapas */
+.lc-how-steps--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1180px) {
+  .lc-how-steps--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .lc-how-steps--four {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Planos com preço de referência */
+.lc-plan-price-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 237, 232, 0.42);
+  margin: 0 0 0.25rem;
+}
+
+.lc-plan-price {
+  font-family: var(--font-display), serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f0ede8;
+  margin: 0;
+}
+
+.lc-plan-section-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(124, 247, 197, 0.9);
+  margin: 0 0 0.4rem;
+}
+
+/* Cartão de vidro tinha só padding-left: texto ficava colado nas bordas */
+.lc-dores-consequences {
+  padding: 2.2rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .lc-dores-consequences {
+    border-left: none;
+    padding: 1.6rem 1.4rem;
+  }
+}
+
+/* Listas e labels das seções de dores ~10% menores */
+.lc-dores-list li,
+.lc-consequences-list li {
+  font-size: clamp(0.88rem, 0.95vw, 0.97rem);
+}
+
+.lc-dores-while-title {
+  font-size: 0.63rem;
+}
+
+@media (max-width: 600px) {
+  .lc-dores-list li,
+  .lc-consequences-list li {
+    font-size: clamp(0.81rem, 3vw, 0.9rem);
+    line-height: 1.55;
+  }
+}
+
+/* ── Semântica de cores ─────────────────────────────────────
+   Quente (vermelho/laranja/amarelo) = problemas e alertas.
+   Frio (teal/verde-água) = soluções e resultados positivos.
+   Default da consequences-list passa a ser frio; --warning
+   continua amarelo para atenção. ───────────────────────────── */
+.lc-consequences-list li::before {
+  color: #4adedb;
+}
+
+.lc-dores-while-title--cool {
+  color: #4adedb;
+}
+
+.lc-dores-consequences--cool {
+  border-left-color: rgba(74, 222, 219, 0.45);
+}
+
+@media (max-width: 768px) {
+  .lc-dores-consequences--cool {
+    border-top-color: rgba(74, 222, 219, 0.45);
+  }
+}
+
+/* Linha de canais de contato (WhatsApp / E-mail / LinkedIn) */
+.lc-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
 

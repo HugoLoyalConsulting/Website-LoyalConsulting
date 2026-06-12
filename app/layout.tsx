@@ -17,14 +17,15 @@ const outfitDisplay = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Loyal Consulting | Growth Intelligence",
+  title: "Loyal Consulting | Dashboards automatizados para a sua gestão",
   description:
-    "Consultoria de dados e performance comercial para transformar marketing e vendas em previsibilidade.",
+    "Transformamos planilhas, ERPs e sistemas desconectados em dashboards automatizados que mostram exatamente o que está acontecendo na sua operação.",
   applicationName: "Loyal Consulting",
-  keywords: ["Consultoria de dados", "BI", "Revenue Operations", "CRM", "Dashboard"],
+  keywords: ["Consultoria de dados", "BI", "Power BI", "Dashboard", "Automação de relatórios"],
   openGraph: {
-    title: "Loyal Consulting | Growth Intelligence",
-    description: "Estruture dados, pipeline e decisão comercial em uma operação realmente previsível.",
+    title: "Loyal Consulting | Dashboards automatizados para a sua gestão",
+    description:
+      "Pare de gerenciar o seu negócio através de dezenas de planilhas. Tenha visibilidade sobre os indicadores que realmente importam.",
     type: "website"
   }
 };

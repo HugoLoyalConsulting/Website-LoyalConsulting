@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 
 type LeadPayload = {
@@ -96,6 +97,7 @@ function toggleArray(arr: string[], value: string, checked: boolean): string[] {
 }
 
 export function LeadCaptureForm() {
+  const router = useRouter();
   const [form, setForm] = useState<LeadPayload>(defaultPayload);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -127,16 +129,8 @@ export function LeadCaptureForm() {
       });
       const data = (await response.json()) as unknown;
       if (!response.ok) throw new Error(getErrorText(data));
-      setStatus("success");
-      setMessage("Formulário enviado com sucesso. Entraremos em contato em breve.");
-      setForm((prev) => ({
-        ...defaultPayload,
-        utmSource: prev.utmSource,
-        utmMedium: prev.utmMedium,
-        utmCampaign: prev.utmCampaign,
-        utmTerm: prev.utmTerm,
-        utmContent: prev.utmContent,
-      }));
+      router.push("/obrigado");
+      return;
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Falha ao enviar formulário.");
@@ -151,9 +145,9 @@ export function LeadCaptureForm() {
         <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
           {/* Left: copy */}
           <div>
-            <p className="kicker">Diagnóstico de maturidade em dados</p>
+            <p className="kicker">Diagnóstico gratuito</p>
             <h2 className="section-title mt-3">
-              Descubra em que nível sua empresa está — e o que fazer para avançar.
+              Conte o seu cenário — e receba uma recomendação personalizada.
             </h2>
             <p className="section-copy mt-5">
               Nossa equipe analisa o contexto e entra em contato para estruturar um plano de
@@ -398,7 +392,7 @@ export function LeadCaptureForm() {
                 disabled={isSubmitting}
                 className="btn-primary w-full disabled:opacity-60"
               >
-                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico de maturidade"}
+                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico gratuito"}
               </button>
               {status !== "idle" && (
                 <p className={`mt-3 text-sm ${status}`}>{message}</p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { CSSProperties, useEffect, useState } from "react";
 
 const WHATSAPP_URL =
@@ -37,15 +38,16 @@ export function StickyTopNav() {
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         <nav className="ts-nav">
-          <a className="ts-nav-logo" href="#topo" aria-label="Topo do site Loyal Consulting">
+          <Link className="ts-nav-logo" href="/" aria-label="Início do site Loyal Consulting">
             <span className="ts-nav-logo-icon">LC</span>
             Loyal Consulting
-          </a>
+          </Link>
           <div className="ts-nav-pill hidden sm:flex">
-            <a href="#problema">Problema</a>
-            <a href="#solucao">Solução</a>
-            <a href="#planos">Planos</a>
-            <a href="#contato">Contato</a>
+            <Link href="/">Início</Link>
+            <Link href="/como-funciona">Como Funciona</Link>
+            <Link href="/exemplos">Exemplos</Link>
+            <Link href="/planos">Planos</Link>
+            <Link href="/contato">Contato</Link>
           </div>
           <div className="ts-nav-right">
             <a
@@ -58,7 +60,12 @@ export function StickyTopNav() {
             >
               <WhatsAppIcon />
             </a>
-            <a href="#contato" className="ts-nav-action">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ts-nav-action"
+            >
               Falar com especialista →
             </a>
           </div>
