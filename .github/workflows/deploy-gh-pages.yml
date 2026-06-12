@@ -33,7 +33,7 @@ jobs:
       - name: Build static site
         env:
           STATIC_EXPORT: "true"
-          NEXT_PUBLIC_BASE_PATH: /Website-LoyalConsulting
+          # Domínio próprio (www.loyalconsulting.com.br) é servido na raiz: sem basePath
           NEXT_PUBLIC_LEADS_ENDPOINT: ${{ vars.PUBLIC_BACKEND_URL }}/api/leads
           NEXT_PUBLIC_TELEMETRY_ENDPOINT: ${{ vars.PUBLIC_BACKEND_URL }}/api/telemetry
         run: npm run build:static

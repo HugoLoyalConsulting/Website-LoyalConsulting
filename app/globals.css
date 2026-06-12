@@ -3342,4 +3342,67 @@ body::before {
   }
 }
 
+/* ── Desktop: fontes maiores (mobile permanece como está) ──── */
+@media (min-width: 901px) {
+  .section-copy,
+  .lc-how-body,
+  .lc-plan-desc {
+    font-size: 1.12rem;
+  }
+
+  .lc-dores-list li,
+  .lc-consequences-list li {
+    font-size: 1.06rem;
+  }
+
+  .lc-step-item {
+    font-size: 1rem;
+  }
+
+  .lc-dores-while-title {
+    font-size: 0.74rem;
+  }
+
+  .ts-hero-sub {
+    font-size: 1.08rem;
+    max-width: 52ch;
+  }
+
+  .ts-hero-copy {
+    font-size: 1.04rem;
+  }
+
+  .lc-cta-caption {
+    font-size: 0.9rem;
+  }
+
+  .lc-faq-q {
+    font-size: 1.08rem;
+  }
+
+  .lc-faq-a {
+    font-size: 0.98rem;
+  }
+
+  .lc-benefit-item {
+    font-size: 1rem;
+  }
+
+  .lc-ba-caption {
+    font-size: 0.98rem;
+  }
+
+  .lc-how-title {
+    font-size: 1.22rem;
+  }
+
+  .lc-plan-feature-item {
+    font-size: 0.94rem;
+  }
+
+  .lc-cta-sub {
+    font-size: 0.95rem;
+  }
+}
+
 
