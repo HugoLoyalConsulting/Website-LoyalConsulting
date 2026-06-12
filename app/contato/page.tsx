@@ -39,7 +39,7 @@ export default function ContatoPage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Agendar conversa gratuita →
+                Agendar conversa gratuita
               </a>
               <a href="#contato" className="btn-outline">
                 Prefiro preencher o formulário

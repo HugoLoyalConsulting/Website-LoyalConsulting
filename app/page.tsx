@@ -58,7 +58,7 @@ export default function HomePage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Quero um diagnóstico gratuito →
+                Quero um diagnóstico gratuito
               </a>
               <Link href="/como-funciona" className="btn-outline">
                 Ver como funciona
@@ -103,7 +103,7 @@ export default function HomePage() {
               </h3>
               <div className="mt-8">
                 <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero um diagnóstico gratuito →
+                  Quero um diagnóstico gratuito
                 </a>
                 <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
                   Direto no WhatsApp · Sem compromisso.
@@ -171,8 +171,9 @@ export default function HomePage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Muitas planilhas&nbsp;→ um único lugar para acompanhar resultados.
-            Números desencontrados&nbsp;→ mais confiança nas decisões.&rdquo;
+            &ldquo;Pare de passar horas abrindo planilhas para entender como vai o
+            negócio. Passe a ter um único painel com as respostas prontas —
+            atualizado sozinho, sem retrabalho.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>
@@ -200,7 +201,7 @@ export default function HomePage() {
               </ul>
               <div className="mt-6">
                 <Link href="/discovery" className="btn-accent">
-                  Solicitar Discovery →
+                  Solicitar Discovery
                 </Link>
                 <p className="mt-3" style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.5)" }}>
                   Conversa gratuita de 30 minutos.
@@ -221,7 +222,7 @@ export default function HomePage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Quero começar →
+              Quero começar
             </a>
             <Link href="/contato" className="btn-outline">
               Ir para o contato

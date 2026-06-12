@@ -144,7 +144,7 @@ export default function PlanosPage() {
                   </ul>
                 </div>
                 <a href={WA_PROPOSTA} target="_blank" rel="noopener noreferrer" className="lc-plan-cta">
-                  Solicitar proposta →
+                  Solicitar proposta
                 </a>
               </div>
             ))}
@@ -192,7 +192,7 @@ export default function PlanosPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <Link href="/discovery" className="btn-accent">
-              Solicitar Discovery →
+              Solicitar Discovery
             </Link>
             <Link href="/contato" className="btn-outline">
               Ir para o contato

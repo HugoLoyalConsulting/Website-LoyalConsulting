@@ -38,7 +38,7 @@ export default function ObrigadoPage() {
         </p>
         <div className="ts-cta-row reveal-up mt-10" style={{ justifyContent: "center" }}>
           <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-            Agendar reunião de Discovery →
+            Agendar reunião de Discovery
           </a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
             Falar pelo WhatsApp

@@ -181,7 +181,7 @@ export default function DiscoveryPage() {
                 rel="noopener noreferrer"
                 className="ts-nav-action"
               >
-                Agendar Discovery →
+                Agendar Discovery
               </a>
             </div>
           </nav>
@@ -212,7 +212,7 @@ export default function DiscoveryPage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Vamos agendar? É no WhatsApp →
+                Vamos agendar? É no WhatsApp
               </a>
               <a href="#contato" className="btn-outline">
                 Prefiro preencher o formulário
@@ -261,7 +261,7 @@ export default function DiscoveryPage() {
               </p>
               <div className="mt-8">
                 <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero agendar minha Discovery →
+                  Quero agendar minha Discovery
                 </a>
                 <p className="lc-cta-caption">
                   Sem custo · 30 minutos · Sem compromisso.
@@ -277,7 +277,7 @@ export default function DiscoveryPage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow">Antes → Depois</p>
+            <p className="section-eyebrow">Antes e depois</p>
             <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela.</h2>
           </div>
           <div className="lc-beforeafter-grid mt-12">
@@ -357,7 +357,7 @@ export default function DiscoveryPage() {
                 <div className="lc-how-tags" style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.5rem" }}>
                   {block.items.map((item) => (
                     <span key={item} className="lc-step-item">
-                      <span style={{ color: "#0e9488", flexShrink: 0 }}>→</span>
+                      <span style={{ color: "#0e9488", flexShrink: 0 }}>·</span>
                       {item}
                     </span>
                   ))}
@@ -483,7 +483,7 @@ export default function DiscoveryPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Vamos agendar? É no WhatsApp →
+              Vamos agendar? É no WhatsApp
             </a>
             <a href="#contato" className="btn-outline">
               Preencher o formulário de Discovery

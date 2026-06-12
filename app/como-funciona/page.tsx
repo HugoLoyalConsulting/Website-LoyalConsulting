@@ -186,7 +186,7 @@ export default function ComoFuncionaPage() {
           <p className="lc-cta-sub">Comece por uma conversa rápida, sem compromisso.</p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Quero um diagnóstico gratuito →
+              Quero um diagnóstico gratuito
             </a>
             <Link href="/exemplos" className="btn-outline">
               Ver exemplos de projetos

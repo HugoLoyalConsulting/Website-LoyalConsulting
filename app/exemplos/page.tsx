@@ -130,8 +130,9 @@ export default function ExemplosPage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Relatórios manuais&nbsp;→ mais tempo para análise.
-            Retrabalho&nbsp;→ ganho de produtividade.&rdquo;
+            &ldquo;Deixe o retrabalho para trás: quando os relatórios se atualizam
+            sozinhos, sobra mais tempo para o que realmente importa — analisar e
+            decidir.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>
@@ -147,7 +148,7 @@ export default function ExemplosPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Falar sobre a minha área →
+              Falar sobre a minha área
             </a>
             <Link href="/planos" className="btn-outline">
               Ver planos
