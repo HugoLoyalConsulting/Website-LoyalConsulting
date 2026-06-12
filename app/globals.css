@@ -3287,21 +3287,21 @@ body::before {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   SEÇÕES EM TELA CHEIA — sem vazios gigantes
-   Substitui o min-height clamp(680-1080px) + paddings de 8.5rem
-   e corrige o bug de 200svh no mobile.
+   RITMO DAS SEÇÕES — compacto sem poluir
+   A altura é definida pelo conteúdo (~2 seções por tela);
+   remove o min-height clamp(680-1080px), os paddings de 8.5rem
+   e o bug de 200svh no mobile.
    ══════════════════════════════════════════════════════════════ */
 .ts-page-shell > section {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
+  min-height: 0;
+  display: block;
 }
 
 .lc-dores-section,
 .lc-how-section,
 .lc-benefits-section,
 .lc-plans-section {
-  padding: 3.5rem 0;
+  padding: 4rem 0;
 }
 
 .lc-cta-band {
@@ -3313,11 +3313,14 @@ body::before {
   padding-bottom: 2.5rem;
 }
 
+.parallax-break {
+  min-height: 38vh;
+}
+
 @media (max-width: 900px) {
   .ts-page-shell > section {
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
+    min-height: 0;
+    display: block;
   }
 
   .lc-dores-section,
@@ -3325,7 +3328,7 @@ body::before {
   .lc-benefits-section,
   .lc-plans-section,
   .lc-cta-band {
-    padding: 2.8rem 0;
+    padding: 3rem 0;
   }
 
   .ts-hero {
@@ -3336,9 +3339,8 @@ body::before {
 
 @media (max-width: 600px) {
   .ts-page-shell > section {
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
+    min-height: 0;
+    display: block;
   }
 }
 

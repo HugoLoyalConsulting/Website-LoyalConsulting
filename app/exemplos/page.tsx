@@ -140,7 +140,7 @@ export default function ExemplosPage() {
       {/* ── CTA ─────────────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Não encontrou a sua área? Provavelmente também dá.</h2>
+          <h2 className="lc-cta-title">Não encontrou a sua área? Certamente também dá.</h2>
           <p className="lc-cta-sub">
             Qualquer processo que hoje dependa de planilhas e relatórios manuais pode ser
             automatizado.
