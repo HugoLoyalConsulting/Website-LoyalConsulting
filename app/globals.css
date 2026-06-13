@@ -3364,6 +3364,40 @@ body::before {
   box-shadow: 0 22px 48px rgba(23, 22, 42, 0.16);
 }
 
+/* ══════════════════════════════════════════════════════════════
+   LP DISCOVERY — TEMA MID-DARK (.lp-mid-dark)
+   Indigo profundo — notavelmente mais claro que o site (#090014)
+   mas claramente dark-mode. Herda os estilos escuros padrão;
+   só precisa sobrescrever o fundo e o nav.
+   ══════════════════════════════════════════════════════════════ */
+.lp-mid-dark {
+  background: linear-gradient(
+    180deg,
+    #13102a 0%,
+    #16143a 35%,
+    #1c1a42 70%,
+    #141240 100%
+  );
+}
+
+.lp-mid-dark .ts-header-shell {
+  background: linear-gradient(
+    to bottom,
+    rgba(19, 16, 42, 0.97),
+    rgba(19, 16, 42, 0.62)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.lp-mid-dark .lc-dores-consequences,
+.lp-mid-dark .lc-how-step,
+.lp-mid-dark .lc-benefit-item,
+.lp-mid-dark .lc-faq-card {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
 /* Faixa escura no fim da LP clara (formulário + footer) */
 .lp-dark-band {
   background: linear-gradient(180deg, #0d0b1f 0%, #090014 100%);

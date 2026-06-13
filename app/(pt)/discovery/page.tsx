@@ -7,7 +7,6 @@ import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 import { buildMetadata } from "@/lib/seo";
 
-// Agendamento direto pelo WhatsApp (sem Calendly por enquanto)
 const WA_DISCOVERY =
   "https://wa.me/5511954824181?text=" +
   encodeURIComponent("Olá! Quero agendar minha Discovery gratuita de 30 minutos.");
@@ -15,101 +14,55 @@ const WA_DISCOVERY =
 export const metadata: Metadata = buildMetadata({
   title: "Discovery gratuita de 30 minutos",
   description:
-    "Pare de abrir dezenas de planilhas para descobrir se sua empresa está indo bem. Agende uma conversa gratuita de 30 minutos e veja como seria o seu dashboard.",
+    "Gasta muito tempo em planilhas? Em 30 minutos descubra como dashboards automatizados mudam a rotina de gestores que precisam de dados confiáveis, rápido.",
   path: "/discovery",
 });
 
-// ── Você se identifica? ────────────────────────────────────────────────────
-const painPoints = [
-  "Você abre várias planilhas todos os dias para entender o que está acontecendo na empresa.",
-  "Cada área apresenta números diferentes para responder à mesma pergunta.",
-  "Os relatórios demoram tanto para ficar prontos que as decisões já perderam o timing.",
-  "Sua equipe gasta horas consolidando informações manualmente.",
-  "Você sabe que precisa de dashboards, mas não sabe por onde começar.",
-  "Já tentou implementar BI antes, mas o projeto ficou complexo demais ou não foi utilizado.",
-];
-
-// ── O que acontece durante a Discovery ─────────────────────────────────────
-const discoveryBlocks = [
-  {
-    num: "01",
-    title: "Quais respostas você precisa obter sobre o negócio",
-    intro: "Exemplos:",
-    items: [
-      "Estamos batendo as metas?",
-      "Onde estão os gargalos?",
-      "Quais clientes, produtos ou unidades precisam de atenção?",
-    ],
-    img: "laptop-analytics-aberto.jpg",
-  },
-  {
-    num: "02",
-    title: "Como essas respostas são obtidas hoje",
-    intro: "Vamos mapear:",
-    items: [
-      "Planilhas",
-      "Sistemas utilizados",
-      "Relatórios existentes",
-      "Processos manuais",
-    ],
-    img: "documentos-gestao-projetos.jpg",
-  },
-  {
-    num: "03",
-    title: "Qual seria a primeira entrega com maior impacto",
-    intro: "Ao final, você terá clareza sobre:",
-    items: [
-      "Prioridades",
-      "Possíveis ganhos",
-      "Próximos passos mais adequados ao seu cenário",
-    ],
-    img: "dashboard-powerbi-vendas.png",
-  },
-];
-
-// ── Resultado esperado ─────────────────────────────────────────────────────
-const expectedOutcomes = [
-  "Quais indicadores realmente importam",
-  "Quais processos estão consumindo tempo desnecessariamente",
-  "Quais dados já existem dentro da empresa",
-  "Qual seria o melhor ponto de partida",
-  "Se faz sentido avançar com um projeto de BI ou automação",
-];
-
-// ── Para quem é ────────────────────────────────────────────────────────────
+// ── Qualificador ───────────────────────────────────────────────────────────
 const goodFit = [
-  "Gerencia equipes ou operações",
-  "Toma decisões baseadas em relatórios",
-  "Utiliza Excel com frequência para acompanhar resultados",
-  "Possui informações distribuídas entre diferentes sistemas",
-  "Busca mais agilidade e confiança na análise de dados",
+  "Você gerencia metas, equipes ou resultados",
+  "Seu dia começa abrindo relatórios ou planilhas de áreas diferentes",
+  "Depende de alguém para preparar ou consolidar os dados antes de decidir",
+  "Já quis um dashboard centralizado mas não sabe por onde começar",
+  "Tentou implementar BI antes e o projeto não saiu do papel",
 ];
 
 const badFit = [
-  "Você ainda não acompanha nenhum indicador do negócio",
-  "Não existe abertura para mudanças nos processos atuais",
-  "O objetivo é apenas criar gráficos sem uma necessidade clara de negócio",
+  "Você não acompanha nenhum indicador de negócio ainda",
+  "O objetivo é criar gráficos sem uma necessidade clara de decisão",
+  "Não há abertura para simplificar processos manuais atuais",
+];
+
+// ── O que você vai sair sabendo ────────────────────────────────────────────
+const outcomes = [
+  "Quais 3 indicadores têm mais impacto no seu negócio agora",
+  "Onde estão seus dados e o que já pode ser aproveitado",
+  "O que seria possível construir — e em quanto tempo",
+  "Se faz sentido avançar e qual seria o passo concreto",
 ];
 
 // ── Como funciona ──────────────────────────────────────────────────────────
 const steps = [
   {
     num: "01",
-    title: "Agendamento",
-    body: "Escolha o melhor horário para conversarmos.",
+    title: "Agenda no WhatsApp",
+    body: "Você manda uma mensagem, a gente escolhe um horário que funciona para os dois lados. Sem formulário complicado.",
     img: "ipad-google-analytics.jpg",
+    tag: "2 minutos",
   },
   {
     num: "02",
-    title: "Discovery",
-    body: "Uma reunião de aproximadamente 30 minutos para entender o cenário atual e os objetivos do negócio.",
+    title: "Discovery de 30 minutos",
+    body: "Conversa estruturada: mapeamos seus dados, priorizamos seus indicadores e identificamos o que já existe na empresa.",
     img: "analistas-revisando-dashboard.jpg",
+    tag: "Sem compromisso",
   },
   {
     num: "03",
-    title: "Próximos passos",
-    body: "Caso exista aderência, apresentaremos uma proposta adequada à realidade da sua empresa.",
+    title: "Proposta clara",
+    body: "Se fizer sentido avançar, você recebe três opções de entrega com prazos e valores. Você escolhe — ou não.",
     img: "apresentacao-dashboard-apontando.jpg",
+    tag: "Sem pressão",
   },
 ];
 
@@ -117,19 +70,23 @@ const steps = [
 const faqItems = [
   {
     q: "A Discovery tem custo?",
-    a: "Não. O objetivo é entender o contexto atual e verificar se conseguimos gerar valor para o seu negócio.",
+    a: "Não. É uma conversa de 30 minutos. Sem pitch, sem compromisso. O objetivo é entender se conseguimos gerar valor real para o seu cenário.",
   },
   {
-    q: "Preciso ter Power BI?",
-    a: "Não. A reunião é focada no problema e nas necessidades da empresa, independentemente das ferramentas utilizadas hoje.",
+    q: "Preciso ter um projeto definido antes?",
+    a: "Não. A maioria das empresas chega apenas com a sensação de que o processo atual não escala. A Discovery existe justamente para transformar isso num plano concreto.",
   },
   {
-    q: "Preciso saber exatamente o que quero?",
-    a: "Também não. Muitas empresas chegam apenas com a percepção de que “o processo atual não é sustentável”. A Discovery existe justamente para trazer clareza.",
+    q: "Em quanto tempo o dashboard fica pronto?",
+    a: "Depende da complexidade. Projetos simples entram no ar em 1 a 2 semanas. Projetos com mais fontes de dados e integrações levam mais. A Discovery define isso com precisão.",
   },
   {
-    q: "Vocês trabalham apenas com dashboards?",
-    a: "Não necessariamente. Dependendo do cenário, também podem ser avaliadas automações de relatórios, consolidação de bases, integrações simples e outras iniciativas relacionadas à utilização prática dos dados.",
+    q: "Vocês fazem o dashboard ou me ensinam a fazer?",
+    a: "Os dois. Para quem quer a solução pronta, entregamos. Para quem quer aprender, temos mentoria. A Discovery define qual caminho faz mais sentido para o seu caso.",
+  },
+  {
+    q: "Funciona para qualquer área ou setor?",
+    a: "Sim. Já trabalhamos com empresas de varejo, serviços, saúde, logística e tecnologia. O que muda é o contexto e os indicadores prioritários — o processo é o mesmo.",
   },
 ];
 
@@ -147,7 +104,7 @@ export default function DiscoveryPage() {
   return (
     <main
       id="topo"
-      className="lp-light ts-page-shell relative w-full max-w-full overflow-x-hidden"
+      className="lp-mid-dark ts-page-shell relative w-full max-w-full overflow-x-hidden"
       style={{
         paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.8rem)",
       }}
@@ -156,7 +113,8 @@ export default function DiscoveryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      {/* ── NAV (versão enxuta da LP) ───────────────────────── */}
+
+      {/* ── NAV ─────────────────────────────────────────────── */}
       <header className="ts-header-shell">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <nav className="ts-nav">
@@ -198,27 +156,25 @@ export default function DiscoveryPage() {
       <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         <div className="ts-hero">
           <div>
-            <p className="section-eyebrow reveal-up">Discovery gratuita · 30 minutos</p>
+            <p className="section-eyebrow reveal-up">Discovery gratuita · 30 minutos · Sem compromisso</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Pare de abrir dezenas<br />
-              de planilhas para descobrir<br />
-              se sua empresa está indo bem
+              Você ainda decide<br />
+              olhando planilha<br />
+              por planilha?
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Descubra quais números realmente importam para o seu negócio — e como tê-los
-              em um painel que se atualiza sozinho. Se você vive no Excel e depende de
-              relatórios espalhados para decidir, esta conversa foi feita para você.
+              Gestores que centralizam seus dados num dashboard automatizado recuperam horas
+              por semana — e chegam nas reuniões sabendo exatamente o que está acontecendo.
+              Em 30 minutos, veja se isso funciona para o seu cenário.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong>
-                Agende uma Discovery gratuita de 30 minutos
-              </strong>{" "}
-              e entenda quais indicadores priorizar, quais dados utilizar e qual seria o
-              caminho mais eficiente para automatizar sua visão do negócio.
+              <strong>Sem custo. Sem enrolação. Sem apresentação de produto.</strong>{" "}
+              Só uma conversa estruturada onde entendemos seus dados, suas perguntas e o que
+              precisa mudar para você parar de depender de relatórios manuais.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Vamos agendar? É no WhatsApp
+                Quero minha Discovery gratuita
               </a>
               <a href="#contato" className="btn-outline">
                 Prefiro preencher o formulário
@@ -231,49 +187,70 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      {/* ── MARQUEE (stack de BI/DataEng) ───────────────────── */}
+      {/* ── MARQUEE ─────────────────────────────────────────── */}
       <MarqueeBand />
 
-      {/* ── VOCÊ SE IDENTIFICA? ─────────────────────────────── */}
-      <section id="identifica" className="lc-dores-section">
+      {/* ── QUALIFICADOR ────────────────────────────────────── */}
+      <section id="para-quem" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
-            <p className="section-eyebrow">Você se identifica?</p>
-            <h2 className="section-title mt-3">Você se identifica com alguma destas situações?</h2>
+            <p className="section-eyebrow">Para quem é</p>
+            <h2 className="section-title mt-3">Esta conversa foi feita para você</h2>
           </div>
-
           <div className="lc-dores-grid mt-12">
             <div>
-              <ul className="lc-dores-list">
-                {painPoints.map((pain) => (
-                  <li key={pain}>
+              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
+                Sim, se você:
+              </p>
+              <ul className="lc-consequences-list mt-3">
+                {goodFit.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Quero minha Discovery gratuita
+                </a>
+                <p className="lc-cta-caption">30 minutos · Sem custo · Sem compromisso</p>
+              </div>
+            </div>
+            <div className="lc-dores-consequences">
+              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>
+                Talvez não seja o momento se:
+              </p>
+              <ul className="lc-dores-list mt-3">
+                {badFit.map((item) => (
+                  <li key={item}>
                     <span className="lc-dores-bullet">×</span>
-                    {pain}
+                    {item}
                   </li>
                 ))}
               </ul>
+              <p className="section-copy mt-6" style={{ fontSize: "0.85rem" }}>
+                Se você se identificou com os itens acima, provavelmente ainda não é o
+                momento — e tudo bem. Quando o contexto mudar, a gente está aqui.
+              </p>
             </div>
-            <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">
-                Se alguma dessas situações parece familiar...
-              </p>
-              <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...provavelmente existe uma oportunidade de simplificar sua operação
-              </h3>
-              <p className="section-copy mt-4">
-                E de aumentar a confiança nas decisões — sem depender de consolidações
-                manuais e relatórios atrasados.
-              </p>
-              <div className="mt-8">
-                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero agendar minha Discovery
-                </a>
-                <p className="lc-cta-caption">
-                  Sem custo · 30 minutos · Sem compromisso.
-                </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── O QUE VOCÊ VAI SAIR SABENDO ─────────────────────── */}
+      <section id="resultado" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">O que você vai sair sabendo</p>
+            <h2 className="section-title mt-3">30 minutos depois, você vai ter:</h2>
+          </div>
+          <div className="lc-benefits-grid mt-12">
+            {outcomes.map((item) => (
+              <div key={item} className="lc-benefit-item">
+                <span className="lc-benefit-check">✓</span>
+                {item}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -315,7 +292,7 @@ export default function DiscoveryPage() {
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                Uma planilha extensa e densa demais para ser inteligível no ritmo da operação.
+                Uma planilha densa e lenta demais para ser lida no ritmo da operação.
               </figcaption>
             </figure>
             <figure className="lc-ba-card lc-ba-card--depois">
@@ -330,116 +307,27 @@ export default function DiscoveryPage() {
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                Um painel que se atualiza sozinho e mostra a floresta e cada folha:
-                a visão geral e o detalhe, no mesmo lugar.
+                Um painel que se atualiza sozinho: a visão geral e o detalhe, no mesmo lugar,
+                sem depender de ninguém para preparar.
               </figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      {/* ── PARALLAX BREAK ──────────────────────────────────── */}
+      {/* ── PARALLAX ────────────────────────────────────────── */}
       <div
         className="parallax-break"
         style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/relatorios-impressos-mesa.jpg')` }}
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Esta não é uma demonstração comercial tradicional. É uma conversa
-            estruturada para entender o seu cenário.&rdquo;
+            &ldquo;O problema quase sempre não é falta de dado. É saber qual dado
+            importa — e tê-lo disponível sem precisar de um intermediário.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Discovery</span>
         </div>
       </div>
-
-      {/* ── O QUE ACONTECE DURANTE A DISCOVERY ──────────────── */}
-      <section id="discovery" className="lc-how-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">O que acontece durante a Discovery</p>
-            <h2 className="section-title mt-3">Uma conversa estruturada para entender:</h2>
-          </div>
-          <div className="lc-how-steps mt-12">
-            {discoveryBlocks.map((block) => (
-              <div key={block.num} className="lc-how-step">
-                <figure className="lc-how-step-img">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${block.img}`}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    style={{ objectFit: "cover", filter: "brightness(0.8) saturate(0.7)" }}
-                  />
-                </figure>
-                <span className="lc-how-num">{block.num}</span>
-                <h3 className="lc-how-title">{block.title}</h3>
-                <p className="lc-how-body" style={{ flex: "none" }}>{block.intro}</p>
-                <div className="lc-how-tags" style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.5rem" }}>
-                  {block.items.map((item) => (
-                    <span key={item} className="lc-step-item">
-                      <span style={{ color: "#0e9488", flexShrink: 0 }}>·</span>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── RESULTADO ESPERADO ──────────────────────────────── */}
-      <section id="resultado" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">O resultado esperado</p>
-            <h2 className="section-title mt-3">Ao final da reunião, você terá mais clareza sobre:</h2>
-          </div>
-          <div className="lc-benefits-grid mt-12">
-            {expectedOutcomes.map((item) => (
-              <div key={item} className="lc-benefit-item">
-                <span className="lc-benefit-check">✓</span>
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PARA QUEM É ─────────────────────────────────────── */}
-      <section id="para-quem" className="lc-dores-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Para quem é</p>
-            <h2 className="section-title mt-3">Para quem esta Discovery é indicada?</h2>
-          </div>
-
-          <div className="lc-dores-grid mt-12">
-            <div>
-              <p className="lc-dores-while-title lc-dores-while-title--cool">Sim, se você:</p>
-              <ul className="lc-consequences-list mt-3">
-                {goodFit.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="lc-dores-consequences">
-              <p className="lc-dores-while-title">Talvez não seja o momento se:</p>
-              <ul className="lc-dores-list mt-3">
-                {badFit.map((item) => (
-                  <li key={item}>
-                    <span className="lc-dores-bullet">×</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── COMO FUNCIONA ───────────────────────────────────── */}
       <section id="como-funciona" className="lc-how-section">
@@ -465,8 +353,7 @@ export default function DiscoveryPage() {
                 <h3 className="lc-how-title">{step.title}</h3>
                 <p className="lc-how-body">{step.body}</p>
                 <div className="lc-how-tags">
-                  <span className="lc-how-tag">Sem custo</span>
-                  <span className="lc-how-tag">30 minutos</span>
+                  <span className="lc-how-tag">{step.tag}</span>
                 </div>
               </div>
             ))}
@@ -480,7 +367,7 @@ export default function DiscoveryPage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Perguntas frequentes</p>
-            <h2 className="section-title mt-3">Dúvidas comuns antes de agendar</h2>
+            <h2 className="section-title mt-3">Dúvidas antes de agendar</h2>
           </div>
           <div className="mt-10" style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "720px" }}>
             {faqItems.map((item) => (
@@ -496,49 +383,43 @@ export default function DiscoveryPage() {
       {/* ── CTA FINAL ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Talvez você não precise de mais uma planilha</h2>
+          <h2 className="lc-cta-title">Chega de abrir 5 planilhas para responder uma pergunta</h2>
           <p className="lc-cta-sub">
-            Talvez precise apenas das informações certas, organizadas da forma certa, para
-            tomar decisões com mais confiança. Agende sua Discovery gratuita e descubra qual
-            é o próximo passo mais inteligente para o seu cenário.
+            30 minutos é o tempo que você precisa para entender se existe um caminho mais
+            eficiente. Sem custo. Sem compromisso. E com clareza sobre o que fazer a seguir.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Vamos agendar? É no WhatsApp
+              Quero minha Discovery gratuita
             </a>
             <a href="#contato" className="btn-outline">
-              Preencher o formulário de Discovery
+              Preencher o formulário
             </a>
           </div>
         </div>
       </div>
 
-      {/* ── FORMULÁRIO DE DISCOVERY + FOOTER (faixa escura) ─── */}
+      {/* ── FORMULÁRIO + FOOTER ──────────────────────────────── */}
       <div className="lp-dark-band">
-      <LeadCaptureForm />
-      <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">
-        <div className="section-divider" />
-        <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
-          <p
-            style={{
-              fontSize: "0.72rem",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "rgba(240,237,232,0.28)",
-            }}
-          >
-            © {new Date().getFullYear()} Loyal Consulting
-          </p>
-          <p
-            style={{
-              fontSize: "0.78rem",
-              color: "rgba(240,237,232,0.38)",
-            }}
-          >
-            Dashboards automatizados para gestores que precisam enxergar além das planilhas.
-          </p>
-        </div>
-      </footer>
+        <LeadCaptureForm />
+        <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+            <p
+              style={{
+                fontSize: "0.72rem",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "rgba(240,237,232,0.28)",
+              }}
+            >
+              © {new Date().getFullYear()} Loyal Consulting
+            </p>
+            <p style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.38)" }}>
+              Dashboards automatizados para gestores que precisam enxergar além das planilhas.
+            </p>
+          </div>
+        </footer>
       </div>
 
       <a
