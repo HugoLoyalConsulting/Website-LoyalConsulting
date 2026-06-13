@@ -1,9 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroImageReel } from "./HeroImageReel";
+import { HeroCarouselArc } from "./HeroCarouselArc";
 
-/* ── HeroCarouselScene ────────────────────────────────────── */
 export function HeroCarouselScene() {
   const reduceMotion = useReducedMotion();
 
@@ -18,12 +17,11 @@ export function HeroCarouselScene() {
         delay: reduceMotion ? 0 : 0.22,
       }}
     >
-      {/* Ambient glow orbs — subtle depth, not interactive */}
       <div className="hcs-glow hcs-glow--purple" aria-hidden="true" />
-      <div className="hcs-glow hcs-glow--teal" aria-hidden="true" />
-      <div className="hcs-glow hcs-glow--amber" aria-hidden="true" />
+      <div className="hcs-glow hcs-glow--teal"   aria-hidden="true" />
+      <div className="hcs-glow hcs-glow--amber"  aria-hidden="true" />
 
-      <HeroImageReel />
+      <HeroCarouselArc />
     </motion.div>
   );
 }
