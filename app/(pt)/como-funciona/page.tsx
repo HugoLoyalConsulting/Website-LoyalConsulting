@@ -17,19 +17,19 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Data Workflows e Pipelines",
-    body: "As extrações que hoje você faz na mão passam a rodar sozinhas. Organizamos e unimos dados de planilhas, ERP, CRM e outras fontes — com os relacionamentos e transformações certos — em uma base única e confiável.",
+    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise — é a base. Organizamos e unimos essas fontes em uma estrutura única e confiável, que roda sozinha sem intervenção manual.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Fonte única de verdade",
   },
   {
     title: "Dashboards",
-    body: "Painéis visuais em Power BI, Tableau, Looker ou Python: você enxerga a floresta e também cada folha do negócio, em uma única tela que se atualiza sozinha.",
+    body: "A reunião para de ser um debate sobre qual planilha está certa quando existe uma tela de referência compartilhada, atualizada automaticamente. Construímos painéis em Power BI, Tableau, Looker ou Python — com as perguntas certas respondidas no lugar certo.",
     img: "dashboard-powerbi-vendas.png",
     tag: "Decisão em segundos",
   },
   {
     title: "Mentoria e Treinamento",
-    body: "Para quem quer chegar rápido a um novo patamar. Sessões práticas direcionadas à sua realidade — sem teoria desnecessária, com foco no que você precisa dominar no trabalho.",
+    body: "Às vezes o problema não é falta de ferramenta — é não saber o que fazer com ela. Sessões práticas direcionadas ao seu contexto real: sem teoria desnecessária, com foco no que gera resultado imediato no trabalho.",
     img: "analistas-revisando-dashboard.jpg",
     tag: "Seu time voa sozinho",
   },

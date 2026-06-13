@@ -193,11 +193,11 @@ export default function HomePage() {
               </p>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">Recomendado se você:</p>
+              <p className="lc-dores-while-title lc-dores-while-title--cool">Vale se você:</p>
               <ul className="lc-consequences-list mt-3">
-                <li>Já sabe quais áreas precisam de visibilidade</li>
-                <li>Quer estimar prazo e complexidade do projeto</li>
-                <li>Está avaliando a implantação de dashboards</li>
+                <li>Sente que está tomando decisões no escuro</li>
+                <li>Sabe que o processo atual não escala — mas não sabe por onde começar</li>
+                <li>Quer entender o que é possível antes de qualquer compromisso</li>
               </ul>
               <div className="mt-6">
                 <Link href="/discovery" className="btn-accent">

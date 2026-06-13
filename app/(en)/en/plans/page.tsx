@@ -56,20 +56,20 @@ const plans = [
 
 const faqItems = [
   {
-    q: "Do we need to have Power BI today?",
-    a: "No. We assess your current scenario and recommend the most suitable approach.",
+    q: "Our data is a mess. Can we still start?",
+    a: "Yes — and that is the most common starting point. Data scattered across spreadsheets, disconnected systems and reports that don't agree are the entry state for most projects. Discovery maps what is there and defines a realistic starting point, without requiring everything to already be organized.",
   },
   {
-    q: "Do you only work with Power BI?",
-    a: "Our main focus is Power BI, automations and data consolidation for decision-making.",
+    q: "How do I know which plan makes sense for my situation?",
+    a: "The free 30-minute Discovery exists exactly for that. By the end of the conversation you will have clarity on the complexity of your scenario and which investment range makes the most sense — before any commitment.",
   },
   {
-    q: "Can we reuse our current spreadsheets?",
-    a: "Yes. In many cases they are the starting point for automating existing processes.",
+    q: "Will my team actually use the dashboard day to day?",
+    a: "That depends on how it was built. Dashboards that nobody uses were almost always built without involving the people who will use them. In our process, team validation and training are part of the delivery — not optional.",
   },
   {
-    q: "How much does a project cost?",
-    a: "Projects vary with the complexity of the data and the KPIs required. During the initial assessment we identify the most suitable range for your reality.",
+    q: "Can I start with a smaller scope and grow from there?",
+    a: "Yes — and it is usually the smarter approach. Starting with a focused dashboard, validating with the team, and expanding from what works generates more value than trying to solve everything at once in a long, complex project.",
   },
 ];
 

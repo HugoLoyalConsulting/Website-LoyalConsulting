@@ -56,20 +56,20 @@ const plans = [
 
 const faqItems = [
   {
-    q: "Precisamos ter Power BI hoje?",
-    a: "Não. Avaliamos o cenário atual e recomendamos a abordagem mais adequada.",
+    q: "Nossos dados estão numa bagunça. Dá para começar assim mesmo?",
+    a: "Sim — e esse é o estado mais comum. Dados espalhados por planilhas, sistemas sem integração e relatórios que não batem são a situação de entrada da maioria dos projetos. A Discovery mapeia o que existe e define um ponto de partida realista, sem exigir que tudo já esteja organizado.",
   },
   {
-    q: "Trabalham apenas com Power BI?",
-    a: "Nosso foco principal é Power BI, automações e consolidação de dados para tomada de decisão.",
+    q: "Como sei qual plano faz sentido para o meu caso?",
+    a: "A Discovery gratuita de 30 minutos existe para isso. Ao fim da conversa, você terá clareza sobre a complexidade do seu cenário e qual faixa de investimento faz mais sentido — antes de qualquer compromisso.",
   },
   {
-    q: "É possível aproveitar as planilhas atuais?",
-    a: "Sim. Em muitos casos, elas servem como ponto de partida para automatizar processos existentes.",
+    q: "Meu time vai conseguir usar o dashboard no dia a dia?",
+    a: "Depende de como for construído. Dashboards que ninguém usa quase sempre foram feitos sem envolver quem vai usar. No nosso processo, a validação com o time e o treinamento fazem parte da entrega — não são opcionais.",
   },
   {
-    q: "Quanto custa um projeto?",
-    a: "Os projetos variam conforme a complexidade dos dados e dos indicadores necessários. Durante o diagnóstico inicial, identificamos a faixa mais adequada para sua realidade.",
+    q: "Posso começar com um escopo menor e expandir depois?",
+    a: "Sim — e geralmente é a abordagem mais inteligente. Começar com um painel focado, validar com o time e expandir a partir do que funciona gera mais resultado do que tentar resolver tudo de uma vez em um projeto longo.",
   },
 ];
 

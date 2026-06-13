@@ -66,24 +66,32 @@ const steps = [
 // ── FAQ ────────────────────────────────────────────────────────────────────
 const faqItems = [
   {
+    q: "We tried BI before and no one used it. Why would this be different?",
+    a: "That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. When the central question is "what data do I need to make this decision?", the dashboard becomes a consequence, not a goal. Discovery starts there — and does not move forward until that question is answered.",
+  },
+  {
+    q: "Our data lives in too many places. Seems too complex.",
+    a: "Most of the companies we work with are in exactly that situation: three systems, two spreadsheets and a report that doesn't agree with either of them. That is not an exception — it is the most common starting point. Discovery exists to map what is there and find the most direct path forward, without overpromising.",
+  },
+  {
+    q: "I'm worried the dashboard will be built but no one will use it.",
+    a: "That fear is among the most justified — and it almost always comes true when the dashboard was built without involving the people who will use it. Our process maps from the start who needs to see what, at what frequency and on which device. Adoption doesn't start at training — it starts at design.",
+  },
+  {
+    q: "I don't know exactly what I want. Is it still worth talking?",
+    a: "That is exactly what Discovery is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of Discovery — not a prerequisite for it.",
+  },
+  {
     q: "Does the Discovery cost anything?",
-    a: "No. It is a 30-minute conversation. No pitch, no commitment. The goal is to understand whether we can generate real value for your scenario.",
+    a: "No. It is a 30-minute conversation. No product pitch, no commitment. If moving forward doesn't make sense at the end, you leave with more clarity about the problem than you came in with — which already has value on its own.",
   },
   {
-    q: "Do I need to have a project defined?",
-    a: "No. Most companies arrive with nothing more than the feeling that the current process doesn't scale. The Discovery exists precisely to turn that into a concrete plan.",
+    q: "How long until I have something working?",
+    a: "Most companies want a dashboard "within a week." Sometimes that is possible — when the data is already organized. What determines the timeline is the quality of what exists, not the speed of development. Discovery maps that and returns a realistic estimate, without creating expectations that won't be met.",
   },
   {
-    q: "How long does it take to get a dashboard live?",
-    a: "It depends on the complexity. Simple projects go live in 1 to 2 weeks. Projects with more data sources and integrations take longer. The Discovery sets that expectation precisely.",
-  },
-  {
-    q: "Do you build the dashboard or teach me to build it?",
-    a: "Both. For those who want the solution done, we deliver it. For those who want to learn, we have mentoring. The Discovery defines which path makes the most sense for your case.",
-  },
-  {
-    q: "Does this work for any industry or department?",
-    a: "Yes. We have worked with companies in retail, services, healthcare, logistics and technology. What changes is the context and the priority KPIs — the process is the same.",
+    q: "We already have a BI tool that isn't working well. Now what?",
+    a: "The tool is rarely the problem. The most common patterns are: poorly structured data feeding a well-built dashboard, or a technically correct panel that nobody knows how to use. Discovery looks at the full picture — and only recommends changing tools when there is a concrete reason to do so.",
   },
 ];
 

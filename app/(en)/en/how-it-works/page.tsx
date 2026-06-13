@@ -17,19 +17,19 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Data Workflows and Pipelines",
-    body: "The extractions you run by hand start running on their own. We organize and join data from spreadsheets, ERP, CRM and other sources — with the right relationships and transformations — into a single, reliable base.",
+    body: "When each team lives on its own spreadsheet and nobody agrees on which number is right, the problem isn't the analysis — it's the foundation. We organize and join those sources into a single, reliable structure that runs on its own without manual intervention.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Single source of truth",
   },
   {
     title: "Dashboards",
-    body: "Visual dashboards in Power BI, Tableau, Looker or Python: you see the forest and every leaf of the business, on a single screen that updates itself.",
+    body: "Meetings stop being debates about which spreadsheet is right when there is one shared reference screen, updated automatically. We build dashboards in Power BI, Tableau, Looker or Python — with the right questions answered in the right place.",
     img: "dashboard-powerbi-vendas.png",
     tag: "Insights in seconds",
   },
   {
     title: "Mentoring and Training",
-    body: "For those who want to reach the next level fast. Practical sessions tailored to your reality — no unnecessary theory, focused on what you need to master at work.",
+    body: "Sometimes the problem isn't a missing tool — it is not knowing what to do with the one you have. Practical sessions tailored to your real context: no unnecessary theory, focused on what generates immediate results at work.",
     img: "analistas-revisando-dashboard.jpg",
     tag: "Your team flies solo",
   },

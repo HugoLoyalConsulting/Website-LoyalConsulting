@@ -69,24 +69,32 @@ const steps = [
 // ── FAQ ────────────────────────────────────────────────────────────────────
 const faqItems = [
   {
+    q: "Já tentamos BI antes e o time nunca usou. Por que seria diferente?",
+    a: "Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. Quando a pergunta central é "qual dado preciso para tomar esta decisão?", o dashboard vira consequência, não objetivo. A Discovery começa por aí — e não avança sem ter essa resposta.",
+  },
+  {
+    q: "Nossa operação tem dados em vários sistemas. Parece complexo demais.",
+    a: "A maioria das empresas que atendemos está exatamente nesse cenário: três sistemas, duas planilhas e um relatório que não concorda com nenhum dos outros. Isso não é exceção — é o ponto de partida mais comum. A Discovery existe para mapear o que existe e encontrar o caminho mais direto, sem prometer o impossível.",
+  },
+  {
+    q: "Tenho medo de que o dashboard fique pronto mas ninguém use no dia a dia.",
+    a: "Esse medo é dos mais justificados — e quase sempre se confirma quando o painel foi construído sem envolver quem vai usar. No nosso processo, o mapeamento já inclui quem precisa ver o quê, em qual frequência e de qual dispositivo. Adoção não começa no treinamento — começa no design.",
+  },
+  {
+    q: "Não sei exatamente o que quero. Ainda assim vale conversar?",
+    a: "É exatamente para isso que a Discovery existe. Saber que "os números chegam tarde demais" ou que "ninguém concorda sobre qual planilha está certa" já é suficiente para começar. Clareza de escopo é o produto da Discovery — não o pré-requisito dela.",
+  },
+  {
     q: "A Discovery tem custo?",
-    a: "Não. É uma conversa de 30 minutos. Sem pitch, sem compromisso. O objetivo é entender se conseguimos gerar valor real para o seu cenário.",
+    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou — o que já tem valor por si só.",
   },
   {
-    q: "Preciso ter um projeto definido antes?",
-    a: "Não. A maioria das empresas chega apenas com a sensação de que o processo atual não escala. A Discovery existe justamente para transformar isso num plano concreto.",
+    q: "Em quanto tempo vou ter algo funcionando?",
+    a: "A maioria das empresas quer um dashboard "em uma semana". Às vezes isso é possível — quando os dados já estão organizados. O que determina o prazo é a qualidade do que existe, não a velocidade de desenvolvimento. A Discovery mapeia isso e devolve uma estimativa realista, sem criar expectativa que não vai se cumprir.",
   },
   {
-    q: "Em quanto tempo o dashboard fica pronto?",
-    a: "Depende da complexidade. Projetos simples entram no ar em 1 a 2 semanas. Projetos com mais fontes de dados e integrações levam mais. A Discovery define isso com precisão.",
-  },
-  {
-    q: "Vocês fazem o dashboard ou me ensinam a fazer?",
-    a: "Os dois. Para quem quer a solução pronta, entregamos. Para quem quer aprender, temos mentoria. A Discovery define qual caminho faz mais sentido para o seu caso.",
-  },
-  {
-    q: "Funciona para qualquer área ou setor?",
-    a: "Sim. Já trabalhamos com empresas de varejo, serviços, saúde, logística e tecnologia. O que muda é o contexto e os indicadores prioritários — o processo é o mesmo.",
+    q: "Já uso uma ferramenta de BI que não está funcionando bem. E agora?",
+    a: "A ferramenta raramente é o problema. O que mais aparece é: dado mal estruturado alimentando um dashboard bem construído, ou um painel tecnicamente correto que ninguém sabe usar. A Discovery olha para o cenário como um todo — e só recomenda mudança de ferramenta quando há razão concreta para isso.",
   },
 ];
 
