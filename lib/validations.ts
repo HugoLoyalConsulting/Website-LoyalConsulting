@@ -14,6 +14,8 @@ export const leadSchema = z.object({
   dores: z.array(z.string()).min(1, "Selecione pelo menos uma dor"),
   tipoServico: z.array(z.string().max(120)).default([]),
   fontesDados: z.array(z.string().max(120)).default([]),
+  origemDados: z.array(z.string().max(120)).default([]),
+  ferramentasBI: z.array(z.string().max(120)).default([]),
   frequenciaAtualizacao: z.string().max(60).optional().or(z.literal("")),
   dorDescricao: z.string().max(1200).optional().or(z.literal("")),
   tamanhoEmpresa: z.string().max(50).optional().or(z.literal("")),

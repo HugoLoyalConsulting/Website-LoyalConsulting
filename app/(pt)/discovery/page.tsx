@@ -70,7 +70,7 @@ const steps = [
 const faqItems = [
   {
     q: "Já tentamos BI antes e o time nunca usou. Por que seria diferente?",
-    a: "Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. Quando a pergunta central é "qual dado preciso para tomar esta decisão?", o dashboard vira consequência, não objetivo. A Discovery começa por aí — e não avança sem ter essa resposta.",
+    a: `Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. Quando a pergunta central é "qual dado preciso para tomar esta decisão?", o dashboard vira consequência, não objetivo. A Discovery começa por aí — e não avança sem ter essa resposta.`,
   },
   {
     q: "Nossa operação tem dados em vários sistemas. Parece complexo demais.",
@@ -82,7 +82,7 @@ const faqItems = [
   },
   {
     q: "Não sei exatamente o que quero. Ainda assim vale conversar?",
-    a: "É exatamente para isso que a Discovery existe. Saber que "os números chegam tarde demais" ou que "ninguém concorda sobre qual planilha está certa" já é suficiente para começar. Clareza de escopo é o produto da Discovery — não o pré-requisito dela.",
+    a: `É exatamente para isso que a Discovery existe. Saber que "os números chegam tarde demais" ou que "ninguém concorda sobre qual planilha está certa" já é suficiente para começar. Clareza de escopo é o produto da Discovery — não o pré-requisito dela.`,
   },
   {
     q: "A Discovery tem custo?",
@@ -90,7 +90,7 @@ const faqItems = [
   },
   {
     q: "Em quanto tempo vou ter algo funcionando?",
-    a: "A maioria das empresas quer um dashboard "em uma semana". Às vezes isso é possível — quando os dados já estão organizados. O que determina o prazo é a qualidade do que existe, não a velocidade de desenvolvimento. A Discovery mapeia isso e devolve uma estimativa realista, sem criar expectativa que não vai se cumprir.",
+    a: `A maioria das empresas quer um dashboard "em uma semana". Às vezes isso é possível — quando os dados já estão organizados. O que determina o prazo é a qualidade do que existe, não a velocidade de desenvolvimento. A Discovery mapeia isso e devolve uma estimativa realista, sem criar expectativa que não vai se cumprir.`,
   },
   {
     q: "Já uso uma ferramenta de BI que não está funcionando bem. E agora?",

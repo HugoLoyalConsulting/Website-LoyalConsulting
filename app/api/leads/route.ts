@@ -118,12 +118,16 @@ export async function POST(request: NextRequest) {
   const cleanDores = data.dores.map((item) => sanitizeText(item)).filter(Boolean);
   const cleanTipoServico = data.tipoServico.map((item) => sanitizeText(item)).filter(Boolean);
   const cleanFontesDados = data.fontesDados.map((item) => sanitizeText(item)).filter(Boolean);
+  const cleanOrigemDados = data.origemDados.map((item) => sanitizeText(item)).filter(Boolean);
+  const cleanFerramentasBI = data.ferramentasBI.map((item) => sanitizeText(item)).filter(Boolean);
   const cleanFrequencia = sanitizeText(data.frequenciaAtualizacao || "");
 
   const metadata = JSON.stringify({
     setor: cleanSetor,
     tipoServico: cleanTipoServico,
     fontesDados: cleanFontesDados,
+    origemDados: cleanOrigemDados,
+    ferramentasBI: cleanFerramentasBI,
     frequenciaAtualizacao: cleanFrequencia,
   });
 
@@ -212,6 +216,8 @@ export async function POST(request: NextRequest) {
       dores: cleanDores,
       tipoServico: cleanTipoServico,
       fontesDados: cleanFontesDados,
+      origemDados: cleanOrigemDados,
+      ferramentasBI: cleanFerramentasBI,
       frequenciaAtualizacao: cleanFrequencia,
       dorDescricao: cleanDescricao,
       utmSource: sanitizeText(data.utmSource || ""),

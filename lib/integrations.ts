@@ -25,6 +25,8 @@ export type HubSpotLeadInput = {
   dores: string[];
   tipoServico: string[];
   fontesDados: string[];
+  origemDados: string[];
+  ferramentasBI: string[];
   frequenciaAtualizacao: string;
   dorDescricao: string;
   utmSource: string;
@@ -43,6 +45,8 @@ function buildMessageSummary(lead: HubSpotLeadInput): string {
     lead.dores.length ? `Dores: ${lead.dores.join("; ")}` : "",
     lead.tipoServico.length ? `Serviços de interesse: ${lead.tipoServico.join("; ")}` : "",
     lead.fontesDados.length ? `Fontes de dados: ${lead.fontesDados.join("; ")}` : "",
+    lead.origemDados.length ? `Origem dos dados: ${lead.origemDados.join("; ")}` : "",
+    lead.ferramentasBI.length ? `Ferramentas de BI: ${lead.ferramentasBI.join("; ")}` : "",
     lead.frequenciaAtualizacao ? `Frequência de atualização: ${lead.frequenciaAtualizacao}` : "",
     lead.tamanhoEmpresa ? `Tamanho da empresa: ${lead.tamanhoEmpresa}` : "",
     lead.area ? `Área: ${lead.area}` : "",

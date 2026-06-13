@@ -15,7 +15,8 @@ type LeadPayload = {
   tamanhoEmpresa: string;
   dores: string[];
   tipoServico: string[];
-  fontesDados: string[];
+  origemDados: string[];
+  ferramentasBI: string[];
   frequenciaAtualizacao: string;
   dorDescricao: string;
   consentimentoLgpd: boolean;
@@ -28,6 +29,8 @@ type LeadPayload = {
   pageUri: string;
   pageName: string;
 };
+
+type OptionGroup = { group: string; options: readonly string[] };
 
 const STRINGS = {
   pt: {
@@ -66,8 +69,124 @@ const STRINGS = {
       "Integração entre fontes",
       "Outro(s)",
     ],
-    dataSources: "Fontes de dados utilizadas (opcional)",
-    dataSourceOptions: ["Excel", "Google Sheets", "ERP", "CRM", "APIs", "Outro sistema / não sei"],
+    origemDados: "Onde os dados são gerados / armazenados (opcional)",
+    origemDadosGroups: [
+      {
+        group: "Marketing & Publicidade",
+        options: [
+          "HubSpot (Marketing)",
+          "RD Station",
+          "Meta Ads (Facebook / Instagram)",
+          "Google Ads",
+          "LinkedIn Ads",
+          "TikTok Ads",
+          "Google Analytics / GA4",
+          "Mailchimp / ActiveCampaign",
+        ],
+      },
+      {
+        group: "Vendas & CRM",
+        options: [
+          "Salesforce",
+          "HubSpot (CRM / Vendas)",
+          "Pipedrive",
+          "Moskit",
+          "Ploomes",
+          "Agendor",
+        ],
+      },
+      {
+        group: "E-commerce",
+        options: [
+          "Shopify",
+          "VTEX",
+          "Nuvemshop",
+          "WooCommerce",
+          "Mercado Livre",
+          "Amazon Seller",
+        ],
+      },
+      {
+        group: "Finanças & ERP",
+        options: [
+          "SAP ERP",
+          "TOTVS (Protheus / Datasul)",
+          "Oracle ERP",
+          "Sankhya",
+          "Omie",
+          "Conta Azul",
+          "SAS",
+        ],
+      },
+      {
+        group: "Operações & Logística",
+        options: [
+          "SAP MM / WM",
+          "TOTVS (Logística)",
+          "Microsoft Dynamics",
+          "Infor",
+        ],
+      },
+      {
+        group: "RH",
+        options: [
+          "ADP",
+          "Senior RH",
+          "SAP SuccessFactors",
+          "Gupy",
+        ],
+      },
+      {
+        group: "Dados & Cloud",
+        options: [
+          "Google BigQuery",
+          "AWS (S3 / Redshift)",
+          "Azure (Synapse / Blob)",
+          "SQL Server",
+          "PostgreSQL / MySQL",
+          "APIs internas / próprias",
+        ],
+      },
+      {
+        group: "Outros",
+        options: [
+          "Excel / Google Sheets",
+          "Arquivos CSV / TXT",
+          "Não sei / Preciso levantar",
+        ],
+      },
+    ] as OptionGroup[],
+    ferramentasBI: "Onde os dados são apresentados (opcional)",
+    ferramentasBIGroups: [
+      {
+        group: "Microsoft",
+        options: ["Excel", "PowerPoint", "Power BI"],
+      },
+      {
+        group: "Google",
+        options: ["Google Sheets", "Google Slides", "Looker Studio"],
+      },
+      {
+        group: "Tableau / Salesforce",
+        options: ["Tableau Desktop", "Tableau Online / Server"],
+      },
+      {
+        group: "Open Source",
+        options: ["Metabase", "Apache Superset", "Grafana"],
+      },
+      {
+        group: "Outros BI",
+        options: ["Qlik Sense / QlikView", "MicroStrategy", "SAP Analytics Cloud"],
+      },
+      {
+        group: "Comunicação",
+        options: ["PDF / Relatório impresso", "E-mail automatizado", "Slack / Microsoft Teams"],
+      },
+      {
+        group: "Sem ferramenta",
+        options: ["Não temos ferramenta definida"],
+      },
+    ] as OptionGroup[],
     frequency: "Com que frequência precisa dos dados atualizados? *",
     frequencyOptions: [
       "Tempo real",
@@ -120,8 +239,124 @@ const STRINGS = {
       "Integrating data sources",
       "Other",
     ],
-    dataSources: "Data sources you use (optional)",
-    dataSourceOptions: ["Excel", "Google Sheets", "ERP", "CRM", "APIs", "Other system / not sure"],
+    origemDados: "Where data is generated / stored (optional)",
+    origemDadosGroups: [
+      {
+        group: "Marketing & Advertising",
+        options: [
+          "HubSpot (Marketing)",
+          "RD Station",
+          "Meta Ads (Facebook / Instagram)",
+          "Google Ads",
+          "LinkedIn Ads",
+          "TikTok Ads",
+          "Google Analytics / GA4",
+          "Mailchimp / ActiveCampaign",
+        ],
+      },
+      {
+        group: "Sales & CRM",
+        options: [
+          "Salesforce",
+          "HubSpot (CRM / Sales)",
+          "Pipedrive",
+          "Moskit",
+          "Ploomes",
+          "Agendor",
+        ],
+      },
+      {
+        group: "E-commerce",
+        options: [
+          "Shopify",
+          "VTEX",
+          "Nuvemshop",
+          "WooCommerce",
+          "Mercado Livre",
+          "Amazon Seller",
+        ],
+      },
+      {
+        group: "Finance & ERP",
+        options: [
+          "SAP ERP",
+          "TOTVS (Protheus / Datasul)",
+          "Oracle ERP",
+          "Sankhya",
+          "Omie",
+          "Conta Azul",
+          "SAS",
+        ],
+      },
+      {
+        group: "Operations & Logistics",
+        options: [
+          "SAP MM / WM",
+          "TOTVS (Logistics)",
+          "Microsoft Dynamics",
+          "Infor",
+        ],
+      },
+      {
+        group: "HR",
+        options: [
+          "ADP",
+          "Senior HR",
+          "SAP SuccessFactors",
+          "Gupy",
+        ],
+      },
+      {
+        group: "Data & Cloud",
+        options: [
+          "Google BigQuery",
+          "AWS (S3 / Redshift)",
+          "Azure (Synapse / Blob)",
+          "SQL Server",
+          "PostgreSQL / MySQL",
+          "Internal / proprietary APIs",
+        ],
+      },
+      {
+        group: "Other",
+        options: [
+          "Excel / Google Sheets",
+          "CSV / TXT files",
+          "Not sure / Need to assess",
+        ],
+      },
+    ] as OptionGroup[],
+    ferramentasBI: "Where data is presented (optional)",
+    ferramentasBIGroups: [
+      {
+        group: "Microsoft",
+        options: ["Excel", "PowerPoint", "Power BI"],
+      },
+      {
+        group: "Google",
+        options: ["Google Sheets", "Google Slides", "Looker Studio"],
+      },
+      {
+        group: "Tableau / Salesforce",
+        options: ["Tableau Desktop", "Tableau Online / Server"],
+      },
+      {
+        group: "Open Source",
+        options: ["Metabase", "Apache Superset", "Grafana"],
+      },
+      {
+        group: "Other BI",
+        options: ["Qlik Sense / QlikView", "MicroStrategy", "SAP Analytics Cloud"],
+      },
+      {
+        group: "Communication",
+        options: ["PDF / Printed report", "Automated email", "Slack / Microsoft Teams"],
+      },
+      {
+        group: "No tool",
+        options: ["We don't have a defined tool"],
+      },
+    ] as OptionGroup[],
     frequency: "How often do you need the data refreshed? *",
     frequencyOptions: [
       "Real time",
@@ -151,7 +386,8 @@ const defaultPayload: LeadPayload = {
   tamanhoEmpresa: "",
   dores: [],
   tipoServico: [],
-  fontesDados: [],
+  origemDados: [],
+  ferramentasBI: [],
   frequenciaAtualizacao: "",
   dorDescricao: "",
   consentimentoLgpd: false,
@@ -165,8 +401,6 @@ const defaultPayload: LeadPayload = {
   pageName: "",
 };
 
-// Cookie de tracking do HubSpot — permite atribuição completa da jornada
-// quando o script hs-script-loader está ativo. Vazio se não estiver.
 function getHubSpotCookie(): string {
   const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
   return match ? match[1] : "";
@@ -419,23 +653,60 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
               </div>
             </fieldset>
 
+            {/* ── Onde os dados são gerados / armazenados ── */}
             <fieldset>
-              <legend className="field-label mb-3">{t.dataSources}</legend>
-              <div className="flex flex-wrap gap-2">
-                {t.dataSourceOptions.map((opt) => (
-                  <label key={opt} className="checkbox-item">
-                    <input
-                      type="checkbox"
-                      checked={form.fontesDados.includes(opt)}
-                      onChange={(e) =>
-                        setForm((p) => ({
-                          ...p,
-                          fontesDados: toggleArray(p.fontesDados, opt, e.target.checked),
-                        }))
-                      }
-                    />
-                    <span>{opt}</span>
-                  </label>
+              <legend className="field-label mb-1">{t.origemDados}</legend>
+              <div className="grid gap-1">
+                {t.origemDadosGroups.map((grp) => (
+                  <div key={grp.group}>
+                    <p className="field-group-header">{grp.group}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {grp.options.map((opt) => (
+                        <label key={opt} className="checkbox-item">
+                          <input
+                            type="checkbox"
+                            checked={form.origemDados.includes(opt)}
+                            onChange={(e) =>
+                              setForm((p) => ({
+                                ...p,
+                                origemDados: toggleArray(p.origemDados, opt, e.target.checked),
+                              }))
+                            }
+                          />
+                          <span>{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </fieldset>
+
+            {/* ── Onde os dados são apresentados ── */}
+            <fieldset>
+              <legend className="field-label mb-1">{t.ferramentasBI}</legend>
+              <div className="grid gap-1">
+                {t.ferramentasBIGroups.map((grp) => (
+                  <div key={grp.group}>
+                    <p className="field-group-header">{grp.group}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {grp.options.map((opt) => (
+                        <label key={opt} className="checkbox-item">
+                          <input
+                            type="checkbox"
+                            checked={form.ferramentasBI.includes(opt)}
+                            onChange={(e) =>
+                              setForm((p) => ({
+                                ...p,
+                                ferramentasBI: toggleArray(p.ferramentasBI, opt, e.target.checked),
+                              }))
+                            }
+                          />
+                          <span>{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </fieldset>

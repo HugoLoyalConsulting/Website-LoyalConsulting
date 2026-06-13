@@ -67,7 +67,7 @@ const steps = [
 const faqItems = [
   {
     q: "We tried BI before and no one used it. Why would this be different?",
-    a: "That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. When the central question is "what data do I need to make this decision?", the dashboard becomes a consequence, not a goal. Discovery starts there — and does not move forward until that question is answered.",
+    a: `That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. When the central question is "what data do I need to make this decision?", the dashboard becomes a consequence, not a goal. Discovery starts there — and does not move forward until that question is answered.`,
   },
   {
     q: "Our data lives in too many places. Seems too complex.",
@@ -79,7 +79,7 @@ const faqItems = [
   },
   {
     q: "I don't know exactly what I want. Is it still worth talking?",
-    a: "That is exactly what Discovery is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of Discovery — not a prerequisite for it.",
+    a: `That is exactly what Discovery is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of Discovery — not a prerequisite for it.`,
   },
   {
     q: "Does the Discovery cost anything?",
@@ -87,7 +87,7 @@ const faqItems = [
   },
   {
     q: "How long until I have something working?",
-    a: "Most companies want a dashboard "within a week." Sometimes that is possible — when the data is already organized. What determines the timeline is the quality of what exists, not the speed of development. Discovery maps that and returns a realistic estimate, without creating expectations that won't be met.",
+    a: `Most companies want a dashboard "within a week." Sometimes that is possible — when the data is already organized. What determines the timeline is the quality of what exists, not the speed of development. Discovery maps that and returns a realistic estimate, without creating expectations that won't be met.`,
   },
   {
     q: "We already have a BI tool that isn't working well. Now what?",
