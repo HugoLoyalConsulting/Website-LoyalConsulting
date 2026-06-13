@@ -166,9 +166,9 @@ export default function DiscoveryPage() {
           <div>
             <p className="section-eyebrow reveal-up">Discovery gratuita · 30 minutos · Sem compromisso</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Você ainda decide<br />
-              olhando planilha<br />
-              por planilha?
+              Você ainda consulta<br />
+              planilha por planilha<br />
+              antes de decidir?
             </h1>
             <p className="ts-hero-sub reveal-up">
               Gestores que centralizam seus dados num dashboard automatizado recuperam horas

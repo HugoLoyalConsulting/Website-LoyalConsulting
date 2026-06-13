@@ -104,9 +104,9 @@ export default function ExamplesPage() {
           <div>
             <p className="section-eyebrow reveal-up">Project examples</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
-              Areas that already gained<br />
-              clarity with dashboards<br />
-              and KPIs
+              Areas that already<br />
+              gained clarity with<br />
+              dashboards and KPIs
             </h1>
             <p className="ts-hero-sub reveal-up">
               A few examples of what we usually organize in each area — always adapted to

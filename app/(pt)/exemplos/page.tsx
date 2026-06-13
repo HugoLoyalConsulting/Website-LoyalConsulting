@@ -105,8 +105,8 @@ export default function ExemplosPage() {
             <p className="section-eyebrow reveal-up">Exemplos de projetos</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
               Áreas que já ganharam<br />
-              mais clareza com dashboards<br />
-              e indicadores
+              clareza com dashboards<br />
+              e seus indicadores
             </h1>
             <p className="ts-hero-sub reveal-up">
               Alguns exemplos do que costumamos organizar em cada área — sempre adaptado à

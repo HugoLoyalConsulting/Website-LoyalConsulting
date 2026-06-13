@@ -44,7 +44,7 @@ export default function HomePage() {
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
               Pare de gerenciar<br />
-              o seu negócio através de<br />
+              seu negócio olhando<br />
               dezenas de planilhas
             </h1>
             <p className="ts-hero-sub reveal-up">

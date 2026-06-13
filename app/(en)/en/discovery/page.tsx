@@ -166,9 +166,9 @@ export default function DiscoveryPage() {
           <div>
             <p className="section-eyebrow reveal-up">Free Discovery · 30 minutes · No commitment</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Still making decisions<br />
-              spreadsheet<br />
-              by spreadsheet?
+              Are your decisions<br />
+              still scattered across<br />
+              dozens of spreadsheets?
             </h1>
             <p className="ts-hero-sub reveal-up">
               Managers who centralize their data in an automated dashboard recover hours

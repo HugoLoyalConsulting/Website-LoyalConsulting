@@ -43,8 +43,8 @@ export default function HomePage() {
           <div>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3">
-              Stop running<br />
-              your business through<br />
+              Stop running your<br />
+              business through<br />
               dozens of spreadsheets
             </h1>
             <p className="ts-hero-sub reveal-up">
