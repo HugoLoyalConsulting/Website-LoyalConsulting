@@ -42,10 +42,10 @@ export default function HomePage() {
         <div className="ts-hero">
           <div>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
-            <h1 className="ts-hero-h1 reveal-up mt-3">
+            <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
               Pare de gerenciar<br />
               seu negócio olhando<br />
-              dezenas de planilhas
+              inúmeras planilhas
             </h1>
             <p className="ts-hero-sub reveal-up">
               A gente junta suas planilhas e sistemas em um painel só, que se atualiza

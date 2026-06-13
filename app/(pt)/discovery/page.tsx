@@ -165,9 +165,9 @@ export default function DiscoveryPage() {
         <div className="ts-hero">
           <div>
             <p className="section-eyebrow reveal-up">Discovery gratuita · 30 minutos · Sem compromisso</p>
-            <h1 className="ts-hero-h1 reveal-up mt-3">
+            <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
               Você ainda consulta<br />
-              planilha por planilha<br />
+              planilha a planilha<br />
               antes de decidir?
             </h1>
             <p className="ts-hero-sub reveal-up">
