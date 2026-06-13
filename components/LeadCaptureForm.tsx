@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 
 type LeadPayload = {
@@ -30,7 +30,7 @@ type LeadPayload = {
   pageName: string;
 };
 
-type OptionGroup = { group: string; options: readonly string[] };
+type OptionGroup = { readonly group: string; readonly options: readonly string[] };
 
 const STRINGS = {
   pt: {
@@ -70,18 +70,20 @@ const STRINGS = {
       "Outro(s)",
     ],
     origemDados: "Onde os dados são gerados / armazenados (opcional)",
+    origemDadosPlaceholder: "Selecione as ferramentas...",
+    origemDadosSelected: (n: number) => `${n} ferramenta${n > 1 ? "s" : ""} selecionada${n > 1 ? "s" : ""}`,
     origemDadosGroups: [
       {
         group: "Marketing & Publicidade",
         options: [
-          "HubSpot (Marketing)",
-          "RD Station",
+          "Google Analytics / GA4",
           "Meta Ads (Facebook / Instagram)",
           "Google Ads",
+          "HubSpot (Marketing)",
+          "Mailchimp / ActiveCampaign",
+          "RD Station",
           "LinkedIn Ads",
           "TikTok Ads",
-          "Google Analytics / GA4",
-          "Mailchimp / ActiveCampaign",
         ],
       },
       {
@@ -90,20 +92,20 @@ const STRINGS = {
           "Salesforce",
           "HubSpot (CRM / Vendas)",
           "Pipedrive",
-          "Moskit",
-          "Ploomes",
           "Agendor",
+          "Ploomes",
+          "Moskit",
         ],
       },
       {
         group: "E-commerce",
         options: [
           "Shopify",
+          "Mercado Livre",
+          "WooCommerce",
+          "Amazon Seller",
           "VTEX",
           "Nuvemshop",
-          "WooCommerce",
-          "Mercado Livre",
-          "Amazon Seller",
         ],
       },
       {
@@ -112,9 +114,9 @@ const STRINGS = {
           "SAP ERP",
           "TOTVS (Protheus / Datasul)",
           "Oracle ERP",
-          "Sankhya",
           "Omie",
           "Conta Azul",
+          "Sankhya",
           "SAS",
         ],
       },
@@ -122,28 +124,28 @@ const STRINGS = {
         group: "Operações & Logística",
         options: [
           "SAP MM / WM",
-          "TOTVS (Logística)",
           "Microsoft Dynamics",
+          "TOTVS (Logística)",
           "Infor",
         ],
       },
       {
         group: "RH",
         options: [
-          "ADP",
-          "Senior RH",
           "SAP SuccessFactors",
+          "ADP",
           "Gupy",
+          "Senior RH",
         ],
       },
       {
         group: "Dados & Cloud",
         options: [
-          "Google BigQuery",
-          "AWS (S3 / Redshift)",
-          "Azure (Synapse / Blob)",
-          "SQL Server",
           "PostgreSQL / MySQL",
+          "SQL Server",
+          "AWS (S3 / Redshift)",
+          "Google BigQuery",
+          "Azure (Synapse / Blob)",
           "APIs internas / próprias",
         ],
       },
@@ -155,16 +157,18 @@ const STRINGS = {
           "Não sei / Preciso levantar",
         ],
       },
-    ] as OptionGroup[],
+    ] as unknown as OptionGroup[],
     ferramentasBI: "Onde os dados são apresentados (opcional)",
+    ferramentasBIPlaceholder: "Selecione as ferramentas...",
+    ferramentasBISelected: (n: number) => `${n} ferramenta${n > 1 ? "s" : ""} selecionada${n > 1 ? "s" : ""}`,
     ferramentasBIGroups: [
       {
         group: "Microsoft",
-        options: ["Excel", "PowerPoint", "Power BI"],
+        options: ["Excel", "Power BI", "PowerPoint"],
       },
       {
         group: "Google",
-        options: ["Google Sheets", "Google Slides", "Looker Studio"],
+        options: ["Google Sheets", "Looker Studio", "Google Slides"],
       },
       {
         group: "Tableau / Salesforce",
@@ -172,7 +176,7 @@ const STRINGS = {
       },
       {
         group: "Open Source",
-        options: ["Metabase", "Apache Superset", "Grafana"],
+        options: ["Metabase", "Grafana", "Apache Superset"],
       },
       {
         group: "Outros BI",
@@ -180,13 +184,13 @@ const STRINGS = {
       },
       {
         group: "Comunicação",
-        options: ["PDF / Relatório impresso", "E-mail automatizado", "Slack / Microsoft Teams"],
+        options: ["Slack / Microsoft Teams", "E-mail automatizado", "PDF / Relatório impresso"],
       },
       {
         group: "Sem ferramenta",
         options: ["Não temos ferramenta definida"],
       },
-    ] as OptionGroup[],
+    ] as unknown as OptionGroup[],
     frequency: "Com que frequência precisa dos dados atualizados? *",
     frequencyOptions: [
       "Tempo real",
@@ -240,18 +244,20 @@ const STRINGS = {
       "Other",
     ],
     origemDados: "Where data is generated / stored (optional)",
+    origemDadosPlaceholder: "Select tools...",
+    origemDadosSelected: (n: number) => `${n} tool${n > 1 ? "s" : ""} selected`,
     origemDadosGroups: [
       {
         group: "Marketing & Advertising",
         options: [
-          "HubSpot (Marketing)",
-          "RD Station",
+          "Google Analytics / GA4",
           "Meta Ads (Facebook / Instagram)",
           "Google Ads",
+          "HubSpot (Marketing)",
+          "Mailchimp / ActiveCampaign",
+          "RD Station",
           "LinkedIn Ads",
           "TikTok Ads",
-          "Google Analytics / GA4",
-          "Mailchimp / ActiveCampaign",
         ],
       },
       {
@@ -260,20 +266,20 @@ const STRINGS = {
           "Salesforce",
           "HubSpot (CRM / Sales)",
           "Pipedrive",
-          "Moskit",
-          "Ploomes",
           "Agendor",
+          "Ploomes",
+          "Moskit",
         ],
       },
       {
         group: "E-commerce",
         options: [
           "Shopify",
+          "Mercado Livre",
+          "WooCommerce",
+          "Amazon Seller",
           "VTEX",
           "Nuvemshop",
-          "WooCommerce",
-          "Mercado Livre",
-          "Amazon Seller",
         ],
       },
       {
@@ -282,9 +288,9 @@ const STRINGS = {
           "SAP ERP",
           "TOTVS (Protheus / Datasul)",
           "Oracle ERP",
-          "Sankhya",
           "Omie",
           "Conta Azul",
+          "Sankhya",
           "SAS",
         ],
       },
@@ -292,28 +298,28 @@ const STRINGS = {
         group: "Operations & Logistics",
         options: [
           "SAP MM / WM",
-          "TOTVS (Logistics)",
           "Microsoft Dynamics",
+          "TOTVS (Logistics)",
           "Infor",
         ],
       },
       {
         group: "HR",
         options: [
-          "ADP",
-          "Senior HR",
           "SAP SuccessFactors",
+          "ADP",
           "Gupy",
+          "Senior HR",
         ],
       },
       {
         group: "Data & Cloud",
         options: [
-          "Google BigQuery",
-          "AWS (S3 / Redshift)",
-          "Azure (Synapse / Blob)",
-          "SQL Server",
           "PostgreSQL / MySQL",
+          "SQL Server",
+          "AWS (S3 / Redshift)",
+          "Google BigQuery",
+          "Azure (Synapse / Blob)",
           "Internal / proprietary APIs",
         ],
       },
@@ -325,16 +331,18 @@ const STRINGS = {
           "Not sure / Need to assess",
         ],
       },
-    ] as OptionGroup[],
+    ] as unknown as OptionGroup[],
     ferramentasBI: "Where data is presented (optional)",
+    ferramentasBIPlaceholder: "Select tools...",
+    ferramentasBISelected: (n: number) => `${n} tool${n > 1 ? "s" : ""} selected`,
     ferramentasBIGroups: [
       {
         group: "Microsoft",
-        options: ["Excel", "PowerPoint", "Power BI"],
+        options: ["Excel", "Power BI", "PowerPoint"],
       },
       {
         group: "Google",
-        options: ["Google Sheets", "Google Slides", "Looker Studio"],
+        options: ["Google Sheets", "Looker Studio", "Google Slides"],
       },
       {
         group: "Tableau / Salesforce",
@@ -342,7 +350,7 @@ const STRINGS = {
       },
       {
         group: "Open Source",
-        options: ["Metabase", "Apache Superset", "Grafana"],
+        options: ["Metabase", "Grafana", "Apache Superset"],
       },
       {
         group: "Other BI",
@@ -350,13 +358,13 @@ const STRINGS = {
       },
       {
         group: "Communication",
-        options: ["PDF / Printed report", "Automated email", "Slack / Microsoft Teams"],
+        options: ["Slack / Microsoft Teams", "Automated email", "PDF / Printed report"],
       },
       {
         group: "No tool",
         options: ["We don't have a defined tool"],
       },
-    ] as OptionGroup[],
+    ] as unknown as OptionGroup[],
     frequency: "How often do you need the data refreshed? *",
     frequencyOptions: [
       "Real time",
@@ -400,6 +408,90 @@ const defaultPayload: LeadPayload = {
   pageUri: "",
   pageName: "",
 };
+
+function ChevronDown({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      style={{
+        flexShrink: 0,
+        transform: open ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 200ms ease",
+      }}
+    >
+      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+type MultiSelectProps = {
+  label: string;
+  groups: OptionGroup[];
+  selected: string[];
+  onChange: (values: string[]) => void;
+  placeholder: string;
+  selectedLabel: (n: number) => string;
+};
+
+function MultiSelectDropdown({ label, groups, selected, onChange, placeholder, selectedLabel }: MultiSelectProps) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onOutsideClick(e: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onOutsideClick);
+    return () => document.removeEventListener("mousedown", onOutsideClick);
+  }, []);
+
+  function toggle(opt: string) {
+    onChange(selected.includes(opt) ? selected.filter((v) => v !== opt) : [...selected, opt]);
+  }
+
+  return (
+    <div className="ms-dropdown" ref={containerRef}>
+      <p className="field-label mb-2">{label}</p>
+      <button
+        type="button"
+        className={`ms-dropdown-trigger${selected.length > 0 ? " ms-dropdown-trigger--active" : ""}`}
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+      >
+        <span>{selected.length === 0 ? placeholder : selectedLabel(selected.length)}</span>
+        <ChevronDown open={open} />
+      </button>
+      {open && (
+        <div className="ms-dropdown-panel" role="listbox" aria-multiselectable="true">
+          {groups.map((grp) => (
+            <div key={grp.group}>
+              <p className="ms-dropdown-group-label">{grp.group}</p>
+              {grp.options.map((opt) => {
+                const checked = selected.includes(opt);
+                return (
+                  <label key={opt} className={`ms-dropdown-option${checked ? " ms-dropdown-option--checked" : ""}`}>
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggle(opt)}
+                    />
+                    <span>{opt}</span>
+                  </label>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function getHubSpotCookie(): string {
   const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
@@ -653,63 +745,24 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
               </div>
             </fieldset>
 
-            {/* ── Onde os dados são gerados / armazenados ── */}
-            <fieldset>
-              <legend className="field-label mb-1">{t.origemDados}</legend>
-              <div className="grid gap-1">
-                {t.origemDadosGroups.map((grp) => (
-                  <div key={grp.group}>
-                    <p className="field-group-header">{grp.group}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {grp.options.map((opt) => (
-                        <label key={opt} className="checkbox-item">
-                          <input
-                            type="checkbox"
-                            checked={form.origemDados.includes(opt)}
-                            onChange={(e) =>
-                              setForm((p) => ({
-                                ...p,
-                                origemDados: toggleArray(p.origemDados, opt, e.target.checked),
-                              }))
-                            }
-                          />
-                          <span>{opt}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </fieldset>
+            {/* ── Dropdowns de stack ── */}
+            <MultiSelectDropdown
+              label={t.origemDados}
+              groups={t.origemDadosGroups as unknown as OptionGroup[]}
+              selected={form.origemDados}
+              onChange={(vals) => setForm((p) => ({ ...p, origemDados: vals }))}
+              placeholder={t.origemDadosPlaceholder}
+              selectedLabel={t.origemDadosSelected}
+            />
 
-            {/* ── Onde os dados são apresentados ── */}
-            <fieldset>
-              <legend className="field-label mb-1">{t.ferramentasBI}</legend>
-              <div className="grid gap-1">
-                {t.ferramentasBIGroups.map((grp) => (
-                  <div key={grp.group}>
-                    <p className="field-group-header">{grp.group}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {grp.options.map((opt) => (
-                        <label key={opt} className="checkbox-item">
-                          <input
-                            type="checkbox"
-                            checked={form.ferramentasBI.includes(opt)}
-                            onChange={(e) =>
-                              setForm((p) => ({
-                                ...p,
-                                ferramentasBI: toggleArray(p.ferramentasBI, opt, e.target.checked),
-                              }))
-                            }
-                          />
-                          <span>{opt}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </fieldset>
+            <MultiSelectDropdown
+              label={t.ferramentasBI}
+              groups={t.ferramentasBIGroups as unknown as OptionGroup[]}
+              selected={form.ferramentasBI}
+              onChange={(vals) => setForm((p) => ({ ...p, ferramentasBI: vals }))}
+              placeholder={t.ferramentasBIPlaceholder}
+              selectedLabel={t.ferramentasBISelected}
+            />
 
             <fieldset>
               <legend className="field-label mb-3">{t.frequency}</legend>

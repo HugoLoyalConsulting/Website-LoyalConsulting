@@ -378,6 +378,100 @@ a {
   margin-bottom: 0.35rem;
 }
 
+/* ── Multi-select dropdown ─────────────────────────────────────────────────── */
+.ms-dropdown {
+  position: relative;
+}
+
+.ms-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.72rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(240, 237, 232, 0.45);
+  font-size: 0.96rem;
+  font-family: var(--font-body), sans-serif;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.ms-dropdown-trigger--active {
+  color: #f0ede8;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ms-dropdown-trigger:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.ms-dropdown-trigger:focus {
+  outline: none;
+  border-color: rgba(108, 99, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+.ms-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 340px;
+  overflow-y: auto;
+  background: #151522;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.8rem;
+  padding: 0.3rem 0 0.5rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+.ms-dropdown-group-label {
+  padding: 0.7rem 0.9rem 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240, 237, 232, 0.28);
+  user-select: none;
+  pointer-events: none;
+}
+
+.ms-dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.38rem 0.9rem;
+  font-size: 0.88rem;
+  color: rgba(240, 237, 232, 0.7);
+  cursor: pointer;
+  transition: background 100ms ease, color 100ms ease;
+}
+
+.ms-dropdown-option:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f0ede8;
+}
+
+.ms-dropdown-option--checked {
+  color: #f0ede8;
+}
+
+.ms-dropdown-option input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  accent-color: #6c63ff;
+  cursor: pointer;
+}
+
 .field-input {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.8rem;
