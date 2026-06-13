@@ -171,9 +171,9 @@ export default function ExemplosPage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Deixe o retrabalho para trás: quando os relatórios se atualizam
-            sozinhos, sobra mais tempo para o que realmente importa — analisar e
-            decidir.&rdquo;
+            &ldquo;Quando cada número vem de uma fonte confiável, a reunião para de ser
+            um debate sobre qual planilha está certa — e vira uma conversa sobre
+            o que fazer.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>

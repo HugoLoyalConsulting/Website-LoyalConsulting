@@ -19,16 +19,19 @@ const services = [
     title: "Data Workflows and Pipelines",
     body: "The extractions you run by hand start running on their own. We organize and join data from spreadsheets, ERP, CRM and other sources — with the right relationships and transformations — into a single, reliable base.",
     img: "dashboard-monitor-dados-futurista.jpg",
+    tag: "Single source of truth",
   },
   {
     title: "Dashboards",
     body: "Visual dashboards in Power BI, Tableau, Looker or Python: you see the forest and every leaf of the business, on a single screen that updates itself.",
     img: "dashboard-powerbi-vendas.png",
+    tag: "Insights in seconds",
   },
   {
     title: "Mentoring and Training",
     body: "For those who want to reach the next level fast. Practical sessions tailored to your reality — no unnecessary theory, focused on what you need to master at work.",
     img: "analistas-revisando-dashboard.jpg",
+    tag: "Your team flies solo",
   },
 ];
 
@@ -124,7 +127,7 @@ export default function HowItWorksPage() {
                 <h3 className="lc-how-title" style={{ paddingTop: "1.5rem" }}>{service.title}</h3>
                 <p className="lc-how-body">{service.body}</p>
                 <div className="lc-how-tags">
-                  <span className="lc-how-tag">No rework</span>
+                  <span className="lc-how-tag">{service.tag}</span>
                 </div>
               </div>
             ))}

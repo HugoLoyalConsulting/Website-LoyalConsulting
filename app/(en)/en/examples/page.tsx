@@ -171,8 +171,9 @@ export default function ExamplesPage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Leave the rework behind: when reports update themselves, there is more
-            time for what really matters — analyzing and deciding.&rdquo;
+            &ldquo;When every number comes from one trusted source, meetings stop being
+            debates about which spreadsheet is right — and become conversations
+            about what to do.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>
