@@ -44,6 +44,25 @@ function LinkedInIcon() {
   );
 }
 
+function HamburgerIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <line x1="4" y1="4" x2="20" y2="20" />
+      <line x1="20" y1="4" x2="4" y2="20" />
+    </svg>
+  );
+}
+
 const NAV_STRINGS = {
   pt: {
     home: "/",
@@ -62,6 +81,8 @@ const NAV_STRINGS = {
     waUrl: WHATSAPP_URL,
     langLabel: "EN",
     langAria: "Switch to English",
+    menuOpen: "Abrir menu",
+    menuClose: "Fechar menu",
   },
   en: {
     home: "/en",
@@ -80,11 +101,14 @@ const NAV_STRINGS = {
     waUrl: WHATSAPP_URL_EN,
     langLabel: "PT",
     langAria: "Mudar para português",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
   },
 } as const;
 
 export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
   const [progress, setProgress] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const t = NAV_STRINGS[locale];
   const alternatePath = getAlternatePath(pathname || (locale === "en" ? "/en" : "/"));
@@ -94,60 +118,114 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
       const y = window.scrollY || 0;
       setProgress(Math.min(y / 220, 1));
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
+  // Prevent body scroll when drawer is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <header
-      className="ts-header-shell"
-      style={{ "--ts-nav-progress": progress } as CSSProperties}
-    >
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <nav className="ts-nav">
-          <Link className="ts-nav-logo" href={t.home} aria-label={t.logoAria}>
-            <span className="ts-nav-logo-icon">LC</span>
-            <span className="ts-nav-logo-text">Loyal Consulting</span>
-          </Link>
-          <div className="ts-nav-pill">
-            {t.items.map((item) => (
-              <Link key={item.href} href={item.href}>{item.label}</Link>
-            ))}
-          </div>
-          <div className="ts-nav-right">
-            <Link href={alternatePath} className="ts-nav-lang" aria-label={t.langAria}>
-              {t.langLabel}
+    <>
+      <header
+        className="ts-header-shell"
+        style={{ "--ts-nav-progress": progress } as CSSProperties}
+      >
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <nav className="ts-nav">
+            <Link className="ts-nav-logo" href={t.home} aria-label={t.logoAria}>
+              <span className="ts-nav-logo-icon">LC</span>
+              <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
-            <a
-              href={t.waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ts-nav-wa"
-              aria-label={t.waAria}
-              title={t.waAria}
+            <div className="ts-nav-pill">
+              {t.items.map((item) => (
+                <Link key={item.href} href={item.href}>{item.label}</Link>
+              ))}
+            </div>
+            <div className="ts-nav-right">
+              <Link href={alternatePath} className="ts-nav-lang" aria-label={t.langAria}>
+                {t.langLabel}
+              </Link>
+              <a
+                href={t.waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ts-nav-wa"
+                aria-label={t.waAria}
+                title={t.waAria}
+              >
+                <WhatsAppIcon />
+              </a>
+              <span className="ts-nav-social" role="img" aria-label={t.igAria} title={t.igAria}>
+                <InstagramIcon />
+              </span>
+              <span className="ts-nav-social" role="img" aria-label={t.liAria} title={t.liAria}>
+                <LinkedInIcon />
+              </span>
+              <a
+                href={t.waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ts-nav-action"
+              >
+                {t.cta}
+              </a>
+              <button
+                className="ts-nav-burger"
+                onClick={() => setMenuOpen((v) => !v)}
+                aria-label={menuOpen ? t.menuClose : t.menuOpen}
+                aria-expanded={menuOpen}
+              >
+                {menuOpen ? <CloseIcon /> : <HamburgerIcon />}
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Mobile drawer */}
+      <div
+        className={`ts-nav-drawer${menuOpen ? " ts-nav-drawer--open" : ""}`}
+        onClick={closeMenu}
+        aria-hidden={!menuOpen}
+      >
+        <div className="ts-nav-drawer-inner" onClick={(e) => e.stopPropagation()}>
+          {t.items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="ts-nav-drawer-link"
+              onClick={closeMenu}
             >
-              <WhatsAppIcon />
-            </a>
-            <span className="ts-nav-social" role="img" aria-label={t.igAria} title={t.igAria}>
-              <InstagramIcon />
-            </span>
-            <span className="ts-nav-social" role="img" aria-label={t.liAria} title={t.liAria}>
-              <LinkedInIcon />
-            </span>
-            <a
-              href={t.waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ts-nav-action"
-            >
-              {t.cta}
-            </a>
-          </div>
-        </nav>
+              {item.label}
+            </Link>
+          ))}
+          <a
+            href={t.waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ts-nav-drawer-wa"
+            onClick={closeMenu}
+          >
+            {t.cta}
+          </a>
+        </div>
       </div>
-    </header>
+    </>
   );
 }
 

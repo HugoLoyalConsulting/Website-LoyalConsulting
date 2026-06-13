@@ -2298,10 +2298,10 @@ a {
    Floating glassmorphism composition wrapping the clothesline
    ══════════════════════════════════════════════════════════════ */
 
-/* Container — takes the natural size of .hca-root */
+/* Container — wraps the image reel + ambient glows */
 .hcs-scene {
   position: relative;
-  /* overflow: visible so badges can stick outside carousel bounds */
+  width: 100%;
 }
 
 /* ── Ambient glow orbs ──────────────────────────────────────── */
@@ -2478,68 +2478,58 @@ a {
    Positions are framer-motion x/y translations from the active base.
    ══════════════════════════════════════════════════════════════ */
 
+/* ── HeroImageReel — Vertical Column Marquee ─────────────── */
 .hir-root {
+  display: flex;
+  gap: 10px;
+  height: 480px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.hir-col {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.hir-col-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: hir-scroll-up 26s linear infinite;
+}
+
+.hir-col-inner--1 {
+  animation-name: hir-scroll-down;
+  animation-duration: 21s;
+  margin-top: -55px;
+}
+
+.hir-col-inner--2 {
+  animation-duration: 31s;
+  margin-top: -28px;
+}
+
+.hir-img-card {
   position: relative;
-  width: min(100%, 520px);
-  height: 440px;
-  overflow: hidden;
-}
-
-/* Base position for every card (moved via framer-motion translate) */
-.hir-card {
-  position: absolute;
-  top: 112px;
-  left: 4%;
-  width: min(92%, 430px);
-  height: auto;
+  width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 14px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(255, 255, 255, 0.07);
-  will-change: transform, opacity;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.52);
+  flex-shrink: 0;
 }
 
-/* ── Responsive ─────────────────────────────────────────────
-   zoom scales the entire component uniformly.
-   ─────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .hir-root {
-    zoom: 1;
-    width: 100%;
-    max-width: 520px;
-    height: 420px;
-    margin: 0 auto;
-  }
-
-  .hir-card {
-    top: 102px;
-    left: 4%;
-    width: 92%;
-  }
+@keyframes hir-scroll-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 
-@media (max-width: 600px) {
-  .hir-root {
-    zoom: 1;
-    height: 380px;
-  }
-
-  .hir-card {
-    top: 94px;
-  }
-}
-
-@media (max-width: 400px) {
-  .hir-root {
-    zoom: 1;
-    height: 350px;
-  }
-
-  .hir-card {
-    top: 86px;
-  }
+@keyframes hir-scroll-down {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
 
 /* ============================================================
@@ -3580,17 +3570,7 @@ body::before {
   height: 16px;
 }
 
-.hir-root {
-  width: 500px;
-  height: 500px;
-}
-
-.hir-card {
-  top: 116px;
-  left: 26px;
-  width: 420px;
-  height: 236px;
-}
+/* hir-root dimensions set in the column-marquee block above */
 
 .lc-dores-section,
 .lc-how-section,
@@ -3629,8 +3609,7 @@ body::before {
   }
 
   .hir-root {
-    zoom: 0.74;
-    margin: 0 auto;
+    height: 420px;
   }
 
   .ts-hero {
@@ -3686,12 +3665,8 @@ body::before {
   }
 
   .hir-root {
-    zoom: 1;
-    height: 360px;
-  }
-
-  .hir-card {
-    top: 84px;
+    height: 340px;
+    gap: 7px;
   }
 }
 
@@ -3701,12 +3676,8 @@ body::before {
   }
 
   .hir-root {
-    zoom: 1;
-    height: 330px;
-  }
-
-  .hir-card {
-    top: 78px;
+    height: 300px;
+    gap: 6px;
   }
 }
 
@@ -3757,17 +3728,7 @@ body::before {
   }
 
   .ts-hero-visual .hir-root {
-    width: min(100vw - 2rem, 560px) !important;
-    max-width: none;
-    height: 390px !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .ts-hero-visual .hir-card {
-    left: 4% !important;
-    width: 92% !important;
-    top: 92px !important;
+    height: 370px !important;
   }
 }
 
@@ -3792,15 +3753,114 @@ body::before {
   }
 
   .ts-hero-visual .hir-root {
-    width: min(100vw - 1.4rem, 520px) !important;
-    height: 360px !important;
-  }
-
-  .ts-hero-visual .hir-card {
-    left: 2% !important;
-    width: 96% !important;
-    top: 84px !important;
+    height: 340px !important;
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   MOBILE NAV — Hamburger + Slide Drawer
+   ══════════════════════════════════════════════════════════════ */
 
+.ts-nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(240, 237, 232, 0.86);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 150ms ease, border-color 150ms ease;
+  flex-shrink: 0;
+}
+
+.ts-nav-burger:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.ts-nav-burger svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 1100px) {
+  .ts-nav-burger {
+    display: flex;
+  }
+}
+
+/* Full-screen overlay — tap outside to close */
+.ts-nav-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(9, 0, 20, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.ts-nav-drawer--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Slide-in panel (right side) */
+.ts-nav-drawer-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(300px, 85vw);
+  background: rgba(12, 3, 26, 0.98);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 5.5rem 1.6rem 2rem;
+  transform: translateX(100%);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ts-nav-drawer--open .ts-nav-drawer-inner {
+  transform: translateX(0);
+}
+
+.ts-nav-drawer-link {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(240, 237, 232, 0.72);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 140ms ease;
+}
+
+.ts-nav-drawer-link:hover,
+.ts-nav-drawer-link:focus {
+  color: #f0ede8;
+  outline: none;
+}
+
+.ts-nav-drawer-wa {
+  display: block;
+  margin-top: 1.6rem;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
+  color: rgba(240, 237, 232, 0.9);
+  transition: background 150ms ease;
+}
+
+.ts-nav-drawer-wa:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #f0ede8;
+}
