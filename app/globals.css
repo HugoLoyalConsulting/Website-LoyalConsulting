@@ -975,12 +975,13 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.35rem;
   height: 36px;
-  padding: 0 0.85rem;
+  padding: 0 0.75rem;
   border-radius: 999px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   color: rgba(240, 237, 232, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.04);
