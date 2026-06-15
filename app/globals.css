@@ -3228,7 +3228,7 @@ body::before {
 /* ── ANTES → DEPOIS ─────────────────────────────────────────── */
 .lc-beforeafter-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1.7rem;
   align-items: stretch;
 }

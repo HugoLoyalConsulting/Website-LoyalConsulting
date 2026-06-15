@@ -35,10 +35,26 @@ const badFit = [
 
 // ── O que você vai sair sabendo ────────────────────────────────────────────
 const outcomes = [
-  "Quais 3 indicadores têm mais impacto no seu negócio agora",
-  "Onde estão seus dados e o que já pode ser aproveitado",
-  "O que seria possível construir — e em quanto tempo",
-  "Se faz sentido avançar e qual seria o passo concreto",
+  {
+    q: "Quais KPIs realmente importam para o meu negócio agora?",
+    a: "Sair sabendo quais 3 indicadores têm mais impacto na operação — e parar de acompanhar métricas que não movem o ponteiro.",
+  },
+  {
+    q: "Meus dados estão prontos para virar um dashboard — ou precisam ser estruturados antes?",
+    a: "Mapeamos o que existe, onde está e o que precisa ser ajustado antes de construir qualquer coisa.",
+  },
+  {
+    q: "Power BI, Looker Studio, Metabase — qual ferramenta faz sentido para o meu caso?",
+    a: "A resposta depende do seu volume de dados, da equipe e do orçamento. Saindo daqui, você vai saber qual escolher e por quê.",
+  },
+  {
+    q: "O que é possível construir em 30, 60 e 90 dias com o que já temos?",
+    a: "Uma estimativa realista de prazo e escopo — sem prometer o impossível nem subestimar o que precisa ser feito.",
+  },
+  {
+    q: "Faz sentido avançar — e qual seria o passo concreto?",
+    a: "Se houver fit, você recebe três opções de entrega com prazos e valores. Você escolhe — ou não. Sem pressão.",
+  },
 ];
 
 // ── Como funciona ──────────────────────────────────────────────────────────
@@ -151,7 +167,8 @@ export default function DiscoveryPage() {
                 href={WA_DISCOVERY}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ts-nav-action"
+                className="btn-accent"
+                style={{ fontSize: "0.78rem", padding: "0.5rem 1.1rem" }}
               >
                 Agendar Discovery
               </a>
@@ -252,14 +269,28 @@ export default function DiscoveryPage() {
             <p className="section-eyebrow">O que você vai sair sabendo</p>
             <h2 className="section-title mt-3">30 minutos depois, você vai ter:</h2>
           </div>
-          <div className="lc-benefits-grid mt-12">
-            {outcomes.map((item) => (
-              <div key={item} className="lc-benefit-item">
-                <span className="lc-benefit-check">✓</span>
-                {item}
-              </div>
+          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
+            {outcomes.map((item, i) => (
+              <li
+                key={item.q}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "3rem 1fr",
+                  gap: "0 1.5rem",
+                  padding: "1.75rem 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
+                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -286,21 +317,6 @@ export default function DiscoveryPage() {
               <figcaption className="lc-ba-caption">
                 Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
                 responder uma única pergunta.
-              </figcaption>
-            </figure>
-            <figure className="lc-ba-card lc-ba-card--antes">
-              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
-              <div className="lc-ba-img lc-ba-img--dense-sheet">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-planilha-ininteligivel.png`}
-                  alt="Planilha extensa demais para leitura rápida, com excesso de colunas e dados"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  style={{ objectFit: "cover", objectPosition: "right 25% top" }}
-                />
-              </div>
-              <figcaption className="lc-ba-caption">
-                Uma planilha densa e lenta demais para ser lida no ritmo da operação.
               </figcaption>
             </figure>
             <figure className="lc-ba-card lc-ba-card--depois">
