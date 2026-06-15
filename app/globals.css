@@ -3294,6 +3294,10 @@ body::before {
   color: #14b8a6;
 }
 
+.lc-ba-label--como {
+  color: rgba(240, 237, 232, 0.9);
+}
+
 .lc-ba-img {
   position: relative;
   border-radius: 14px;

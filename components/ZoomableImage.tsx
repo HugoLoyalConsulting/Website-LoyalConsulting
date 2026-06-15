@@ -7,9 +7,10 @@ interface ZoomableImageProps {
   src: string;
   alt: string;
   caption?: string;
+  wrapperStyle?: React.CSSProperties;
 }
 
-export function ZoomableImage({ src, alt, caption }: ZoomableImageProps) {
+export function ZoomableImage({ src, alt, caption, wrapperStyle }: ZoomableImageProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -38,6 +39,7 @@ export function ZoomableImage({ src, alt, caption }: ZoomableImageProps) {
             overflow: "hidden",
             border: "1px solid rgba(255,255,255,0.08)",
             boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
+            ...wrapperStyle,
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}

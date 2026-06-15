@@ -341,11 +341,16 @@ export default function DiscoveryPage() {
               </figcaption>
             </figure>
           </div>
-          <div className="mt-14" style={{ maxWidth: "66%", margin: "3.5rem auto 0" }}>
+          <div style={{ marginTop: "2.5rem" }}>
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO</p>
             <ZoomableImage
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
               alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
               caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único pipeline confiável."
+              wrapperStyle={{
+                border: "5px solid rgba(240,237,232,0.7)",
+                boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
+              }}
             />
           </div>
         </div>
