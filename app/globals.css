@@ -3241,8 +3241,8 @@ body::before {
 }
 
 .lc-ba-label {
-  font-size: 0.66rem;
-  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
 }

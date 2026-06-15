@@ -251,7 +251,7 @@ export default function DiscoveryPage() {
                   </li>
                 ))}
               </ul>
-              <p className="section-copy mt-6" style={{ fontSize: "0.85rem" }}>
+              <p className="section-copy" style={{ fontSize: "0.85rem", marginTop: "2.5rem" }}>
                 If you recognized yourself in the items above, it is probably not the right
                 moment yet; that is completely fine. When the context changes, we are here.
               </p>

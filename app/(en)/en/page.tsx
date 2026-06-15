@@ -133,7 +133,7 @@ export default function HomePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy mt-10" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
+              <p className="section-copy" style={{ marginTop: "2.5rem", color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
                 All in a single dashboard.
               </p>
             </div>
@@ -200,7 +200,7 @@ export default function HomePage() {
                 Ten years of data operations, watching entire departments (even inside
                 billion-dollar companies) operate blind despite having oceans of information.
               </p>
-              <p className="section-copy mt-8">
+              <p className="section-copy" style={{ marginTop: "2rem" }}>
                 We work side by side with directors, managers, coordinators and supervisors to turn
                 disconnected spreadsheets and systems into faster, more reliable decisions.
                 Lean projects, practical deliveries, no unnecessary complexity.

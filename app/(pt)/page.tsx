@@ -134,7 +134,7 @@ export default function HomePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy mt-10" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
+              <p className="section-copy" style={{ marginTop: "2.5rem", color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
                 Tudo em um único painel.
               </p>
             </div>
@@ -208,7 +208,7 @@ export default function HomePage() {
                 São 10 anos de operações em dados, vendo de perto como áreas inteiras (até em
                 empresas bilionárias) operam às cegas mesmo tendo abundância de informações.
               </p>
-              <p className="section-copy mt-8">
+              <p className="section-copy" style={{ marginTop: "2rem" }}>
                 Trabalhamos lado a lado com diretores, gerentes, coordenadores e supervisores para
                 transformar planilhas e sistemas desconectados em decisões mais rápidas e
                 confiáveis. Projetos enxutos, entregas práticas, sem complexidade desnecessária.
