@@ -3356,6 +3356,18 @@ body::before {
   }
 }
 
+.lc-como-wrapper {
+  width: 67%;
+  margin: 2.5rem auto 0;
+}
+
+@media (max-width: 768px) {
+  .lc-como-wrapper {
+    width: 100%;
+    margin: 2.5rem 0 0;
+  }
+}
+
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 .footer-link:hover {
   color: rgba(240, 237, 232, 0.85) !important;

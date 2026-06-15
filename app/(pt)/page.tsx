@@ -193,7 +193,7 @@ export default function HomePage() {
               </figcaption>
             </figure>
           </div>
-          <div style={{ marginTop: "2.5rem" }}>
+          <div className="lc-como-wrapper">
             <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO</p>
             <ZoomableImage
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
