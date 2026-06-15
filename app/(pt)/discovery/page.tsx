@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
 import { buildMetadata } from "@/lib/seo";
@@ -335,6 +336,13 @@ export default function DiscoveryPage() {
                 sem depender de ninguém para preparar.
               </figcaption>
             </figure>
+          </div>
+          <div className="mt-14">
+            <ZoomableImage
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
+              alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
+              caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único pipeline confiável."
+            />
           </div>
         </div>
       </section>
