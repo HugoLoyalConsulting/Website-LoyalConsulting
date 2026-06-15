@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
@@ -132,10 +133,55 @@ export default function HomePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy mt-6" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
+              <p className="section-copy mt-10" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
                 Tudo em um único painel.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ANTES → DEPOIS ──────────────────────────────────── */}
+      <section id="antes-depois" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Antes e depois</p>
+            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela</h2>
+          </div>
+          <div className="lc-beforeafter-grid mt-12">
+            <figure className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
+                  alt="Várias planilhas de Excel abertas ao mesmo tempo na mesma tela"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover", objectPosition: "top left" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
+                responder uma única pergunta.
+              </figcaption>
+            </figure>
+            <figure className="lc-ba-card lc-ba-card--depois">
+              <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  alt="Dashboard Power BI com indicadores consolidados"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Um painel que se atualiza sozinho: a visão geral e o detalhe, no mesmo lugar,
+                sem depender de ninguém para preparar.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -154,8 +200,8 @@ export default function HomePage() {
                 São 10 anos de operações em dados, vendo de perto como áreas inteiras (até em
                 empresas bilionárias) operam às cegas mesmo tendo abundância de informações.
               </p>
-              <p className="section-copy mt-4">
-                Trabalhamos lado a lado com coordenadores, supervisores e gerentes para
+              <p className="section-copy mt-8">
+                Trabalhamos lado a lado com diretores, gerentes, coordenadores e supervisores para
                 transformar planilhas e sistemas desconectados em decisões mais rápidas e
                 confiáveis. Projetos enxutos, entregas práticas, sem complexidade desnecessária.
               </p>

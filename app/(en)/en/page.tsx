@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
@@ -132,10 +133,55 @@ export default function HomePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy mt-6" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
+              <p className="section-copy mt-10" style={{ color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
                 All in a single dashboard.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BEFORE → AFTER ──────────────────────────────────── */}
+      <section id="before-after" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Before and after</p>
+            <h2 className="section-title mt-3">From spreadsheet marathon to a single screen</h2>
+          </div>
+          <div className="lc-beforeafter-grid mt-12">
+            <figure className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">× Before</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
+                  alt="Multiple Excel spreadsheets open at the same time"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover", objectPosition: "top left" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Multiple files open, duplicate tabs, and hours of copy-paste to
+                answer a single question.
+              </figcaption>
+            </figure>
+            <figure className="lc-ba-card lc-ba-card--depois">
+              <span className="lc-ba-label lc-ba-label--depois">✓ After</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  alt="Power BI dashboard with consolidated KPIs"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                One dashboard that updates itself: the big picture and the detail, in one
+                place, without depending on anyone to prepare it.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -151,11 +197,11 @@ export default function HomePage() {
             </div>
             <div>
               <p className="section-copy">
-                Ten years of data operations, watching entire departments — even inside
-                billion-dollar companies — operate blind despite having oceans of information.
+                Ten years of data operations, watching entire departments (even inside
+                billion-dollar companies) operate blind despite having oceans of information.
               </p>
-              <p className="section-copy mt-4">
-                We work side by side with coordinators, supervisors and managers to turn
+              <p className="section-copy mt-8">
+                We work side by side with directors, managers, coordinators and supervisors to turn
                 disconnected spreadsheets and systems into faster, more reliable decisions.
                 Lean projects, practical deliveries, no unnecessary complexity.
               </p>

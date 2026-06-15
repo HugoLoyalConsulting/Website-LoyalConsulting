@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Data Workflows e Pipelines",
-    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise; é a base. Organizamos e unimos essas fontes em uma estrutura única e confiável, que roda sozinha sem intervenção manual.",
+    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise; é a base. Construímos pipelines ETL/ELT que extraem, transformam e centralizam dados de ERPs, CRMs, planilhas e APIs em um modelo único e confiável, com atualizações automáticas, DataViz integrado e capacidade de drill-down até o nível de transação.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Fonte única de verdade",
   },

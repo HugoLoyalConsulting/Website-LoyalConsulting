@@ -79,7 +79,9 @@ const NAV_STRINGS = {
     liAria: "LinkedIn em breve",
     cta: "Falar com especialista",
     waUrl: WHATSAPP_URL,
-    langLabel: "🇺🇸 EN-US",
+    flagUrl: "https://flagcdn.com/w20/us.png",
+    flagAlt: "US",
+    langText: "EN-US",
     langAria: "Switch to English",
     menuOpen: "Abrir menu",
     menuClose: "Fechar menu",
@@ -99,7 +101,9 @@ const NAV_STRINGS = {
     liAria: "LinkedIn coming soon",
     cta: "Talk to a specialist",
     waUrl: WHATSAPP_URL_EN,
-    langLabel: "🇧🇷 PT-BR",
+    flagUrl: "https://flagcdn.com/w20/br.png",
+    flagAlt: "BR",
+    langText: "PT-BR",
     langAria: "Mudar para português",
     menuOpen: "Open menu",
     menuClose: "Close menu",
@@ -158,7 +162,9 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
             </div>
             <div className="ts-nav-right">
               <Link href={alternatePath} className="ts-nav-lang" aria-label={t.langAria}>
-                {t.langLabel}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={t.flagUrl} alt={t.flagAlt} width={20} height={14} style={{ borderRadius: "2px", objectFit: "cover", display: "inline-block", verticalAlign: "middle" }} />
+                {t.langText}
               </Link>
               <a
                 href={t.waUrl}
@@ -180,7 +186,8 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
                 href={t.waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ts-nav-action"
+                className="btn-accent"
+                style={{ fontSize: "0.78rem", padding: "0.5rem 1.1rem" }}
               >
                 {t.cta}
               </a>
