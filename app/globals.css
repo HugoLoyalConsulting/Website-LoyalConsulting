@@ -3312,6 +3312,27 @@ body::before {
   }
 }
 
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.footer-link:hover {
+  color: rgba(240, 237, 232, 0.85) !important;
+}
+
+/* ── Font hierarchy fixes ────────────────────────────────────────────────── */
+/* section-eyebrow clearly smaller than section-title */
+.section-eyebrow {
+  font-size: 0.68rem;
+}
+/* section-title clearly smaller than hero h1 */
+.section-title {
+  font-size: clamp(1.55rem, 2.2vw, 2.6rem);
+  line-height: 1.12;
+}
+/* h3 within cards clearly subordinate to section-title */
+.lc-how-title,
+.lc-plan-tier {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+}
+
 /* ══════════════════════════════════════════════════════════════
    LP DISCOVERY — TEMA CLARO (.lp-light)
    Fundo claro do hero ao CTA; formulário+footer em faixa escura.

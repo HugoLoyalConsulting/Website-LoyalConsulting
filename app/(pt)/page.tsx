@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
-import { HeroCarouselScene } from "@/components/HeroCarouselScene";
+import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WA_COMECAR, WA_DIAGNOSTICO } from "@/lib/links";
@@ -40,9 +40,21 @@ export default function HomePage() {
       <StickyTopNav />
 
       {/* ── HERO ────────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <div className="ts-hero">
-          <div>
+      <section
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "min(88vh, 820px)",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <HeroBackgroundSlideshow />
+        <div
+          className="mx-auto w-full max-w-7xl px-5 sm:px-8"
+          style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
+        >
+          <div style={{ maxWidth: "640px" }}>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
               Pare de gerenciar<br />
@@ -66,9 +78,6 @@ export default function HomePage() {
                 Ver como funciona
               </Link>
             </div>
-          </div>
-          <div className="ts-hero-visual" style={{ paddingBottom: "2rem" }}>
-            <HeroCarouselScene />
           </div>
         </div>
       </section>
