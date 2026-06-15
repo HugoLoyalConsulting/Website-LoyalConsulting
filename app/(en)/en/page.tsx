@@ -4,7 +4,7 @@ import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WA_COMECAR_EN, WA_DIAGNOSTICO_EN } from "@/lib/links";
+import { WA_COMECAR_EN, WA_DIAGNOSTICO_EN, CALENDLY_URL } from "@/lib/links";
 
 // ── Sound familiar? ────────────────────────────────────────────────────────
 const painPoints = [
@@ -278,9 +278,9 @@ export default function HomePage() {
             <a href={WA_COMECAR_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
               I want to get started
             </a>
-            <Link href="/en/contact" className="btn-outline">
-              Go to contact
-            </Link>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Schedule on Calendly
+            </a>
           </div>
         </div>
       </div>

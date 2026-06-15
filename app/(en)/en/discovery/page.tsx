@@ -5,7 +5,7 @@ import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/StickyTopNav";
-import { WA_DISCOVERY_EN } from "@/lib/links";
+import { WA_DISCOVERY_EN, CALENDLY_URL } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -200,8 +200,8 @@ export default function DiscoveryPage() {
               <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
                 I want my free Discovery
               </a>
-              <a href="#contato" className="btn-outline">
-                I&apos;d rather fill out the form
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                Schedule on Calendly
               </a>
             </div>
           </div>
@@ -237,6 +237,9 @@ export default function DiscoveryPage() {
                   I want my free Discovery
                 </a>
                 <p className="lc-cta-caption">30 minutes · Free · No commitment</p>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
+                  or schedule on Calendly →
+                </a>
               </div>
             </div>
             <div className="lc-dores-consequences">
@@ -418,8 +421,8 @@ export default function DiscoveryPage() {
             <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
               I want my free Discovery
             </a>
-            <a href="#contato" className="btn-outline">
-              Fill out the form
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Schedule on Calendly
             </a>
           </div>
         </div>

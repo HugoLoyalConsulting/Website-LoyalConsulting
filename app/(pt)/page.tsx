@@ -5,7 +5,7 @@ import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WA_COMECAR, WA_DIAGNOSTICO } from "@/lib/links";
+import { WA_COMECAR, WA_DIAGNOSTICO, CALENDLY_URL } from "@/lib/links";
 
 // ── Você se identifica? ────────────────────────────────────────────────────
 const painPoints = [
@@ -287,9 +287,9 @@ export default function HomePage() {
             <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
               Quero começar
             </a>
-            <Link href="/contato" className="btn-outline">
-              Ir para o contato
-            </Link>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Agendar pelo Calendly
+            </a>
           </div>
         </div>
       </div>

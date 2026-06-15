@@ -6,6 +6,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
+import { CALENDLY_URL } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 const WA_DISCOVERY =
@@ -202,8 +203,8 @@ export default function DiscoveryPage() {
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
                 Quero minha Discovery gratuita
               </a>
-              <a href="#contato" className="btn-outline">
-                Prefiro preencher o formulário
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                Prefiro agendar pelo Calendly
               </a>
             </div>
           </div>
@@ -239,6 +240,9 @@ export default function DiscoveryPage() {
                   Quero minha Discovery gratuita
                 </a>
                 <p className="lc-cta-caption">30 minutos · Sem custo · Sem compromisso</p>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
+                  ou agendar pelo Calendly →
+                </a>
               </div>
             </div>
             <div className="lc-dores-consequences">
@@ -427,8 +431,8 @@ export default function DiscoveryPage() {
             <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
               Quero minha Discovery gratuita
             </a>
-            <a href="#contato" className="btn-outline">
-              Preencher o formulário
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Agendar pelo Calendly
             </a>
           </div>
         </div>
