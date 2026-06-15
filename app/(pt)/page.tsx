@@ -127,7 +127,7 @@ export default function HomePage() {
 
       {/* ── IMAGINE COMEÇAR O DIA COM RESPOSTAS PRONTAS ─────── */}
       <section id="imagine" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-14">
             <div>
