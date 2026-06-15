@@ -341,7 +341,7 @@ export default function DiscoveryPage() {
               </figcaption>
             </figure>
           </div>
-          <div className="mt-14">
+          <div className="mt-14" style={{ maxWidth: "66%", margin: "3.5rem auto 0" }}>
             <ZoomableImage
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
               alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
