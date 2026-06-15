@@ -400,9 +400,13 @@ export default function DiscoveryPage() {
             <p className="section-eyebrow">Perguntas frequentes</p>
             <h2 className="section-title mt-3">Dúvidas antes de agendar</h2>
           </div>
-          <div className="mt-10" style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "720px" }}>
-            {faqItems.map((item) => (
-              <div key={item.q} className="lc-faq-card">
+          <div className="mt-10 lc-faq-stagger">
+            {faqItems.map((item, i) => (
+              <div
+                key={item.q}
+                className="lc-faq-card"
+                style={{ marginLeft: i % 2 !== 0 ? "clamp(1rem, 5vw, 3.5rem)" : "0" }}
+              >
                 <p className="lc-faq-q">{item.q}</p>
                 <p className="lc-faq-a">{item.a}</p>
               </div>

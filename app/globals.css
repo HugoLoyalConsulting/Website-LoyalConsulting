@@ -3317,21 +3317,41 @@ body::before {
   color: rgba(240, 237, 232, 0.85) !important;
 }
 
-/* ── Font hierarchy fixes ────────────────────────────────────────────────── */
-/* section-eyebrow clearly smaller than section-title */
+/* ── FAQ stagger layout ──────────────────────────────────────────────────── */
+.lc-faq-stagger {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 780px;
+}
+
+/* ── Font hierarchy — clean consultancy scale ────────────────────────────── */
+/* Level 0 — label / eyebrow */
 .section-eyebrow {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
 }
-/* section-title clearly smaller than hero h1 */
+/* Level 1 — page hero (ts-hero-h1) stays at clamp(1.9rem,4vw,4rem), weight 800 via display font */
+
+/* Level 2 — section heading: clearly smaller and lighter than H1 */
 .section-title {
-  font-size: clamp(1.55rem, 2.2vw, 2.6rem);
-  line-height: 1.12;
+  font-size: clamp(1.4rem, 2vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
 }
-/* h3 within cards clearly subordinate to section-title */
+
+/* Level 3 — card / step titles */
 .lc-how-title,
-.lc-plan-tier {
-  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+.lc-plan-tier,
+.lc-faq-q {
+  font-size: clamp(0.93rem, 1.05vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0;
 }
+
+/* Level 4 — body (section-copy, lc-how-body, etc.) already ~0.9–0.95rem */
 
 /* ══════════════════════════════════════════════════════════════
    LP DISCOVERY — TEMA CLARO (.lp-light)

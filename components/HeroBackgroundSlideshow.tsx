@@ -14,15 +14,17 @@ const IMAGES = [
   "dashboard-powerbi-vendas.png",
 ];
 
-const INTERVAL_MS = 6000;
-const FADE_MS = 1300;
+const INTERVAL_MS = 2500;
+const FADE_MS     = 600;
 
 export function HeroBackgroundSlideshow() {
-  const [idx, setIdx] = useState(0);
+  const [idx,     setIdx]     = useState(0);
+  const [animKey, setAnimKey] = useState(0);
 
   useEffect(() => {
     const t = setInterval(() => {
-      setIdx(i => (i + 1) % IMAGES.length);
+      setIdx(i     => (i + 1) % IMAGES.length);
+      setAnimKey(k => k + 1);
     }, INTERVAL_MS);
     return () => clearInterval(t);
   }, []);
@@ -32,27 +34,49 @@ export function HeroBackgroundSlideshow() {
       aria-hidden="true"
       style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}
     >
-      {IMAGES.map((img, i) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          key={img}
-          src={`${BASE}/images/${img}`}
-          alt=""
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center 30%",
-            transition: `opacity ${FADE_MS}ms ease`,
-            opacity: i === idx ? 1 : 0,
-            willChange: "opacity",
-          }}
-        />
-      ))}
+      {/* keyframe lives here — no extra globals.css dependency */}
+      <style>{`
+        @keyframes hero-slide-pan {
+          from { transform: scale(1.07) translateX(-2%); }
+          to   { transform: scale(1.0)  translateX(2%);  }
+        }
+      `}</style>
 
-      {/* dark gradient — left heavy so text is always legible */}
+      {IMAGES.map((img, i) => {
+        const active = i === idx;
+        return (
+          <div
+            key={img}
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: active ? 1 : 0,
+              transition: `opacity ${FADE_MS}ms ease`,
+            }}
+          >
+            {/* key changes every slide → forces remount → animation always restarts */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              key={active ? animKey : img}
+              src={`${BASE}/images/${img}`}
+              alt=""
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center 30%",
+                animation: active
+                  ? `hero-slide-pan ${INTERVAL_MS + FADE_MS}ms ease-out forwards`
+                  : "none",
+              }}
+            />
+          </div>
+        );
+      })}
+
+      {/* dark gradient — left heavy for text legibility */}
       <div
         style={{
           position: "absolute",
