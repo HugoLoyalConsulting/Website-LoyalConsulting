@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { HeroCarouselScene } from "@/components/HeroCarouselScene";
+import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
@@ -180,9 +180,21 @@ export default function DiscoveryPage() {
       </header>
 
       {/* ── HERO ────────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <div className="ts-hero">
-          <div>
+      <section
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "min(88vh, 820px)",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <HeroBackgroundSlideshow />
+        <div
+          className="mx-auto w-full max-w-7xl px-5 sm:px-8"
+          style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
+        >
+          <div style={{ maxWidth: "640px" }}>
             <p className="section-eyebrow reveal-up">Discovery gratuita · 30 minutos · Sem compromisso</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
               Você ainda consulta<br />
@@ -207,9 +219,6 @@ export default function DiscoveryPage() {
                 Prefiro agendar pelo Calendly
               </a>
             </div>
-          </div>
-          <div className="ts-hero-visual" style={{ paddingBottom: "2rem" }}>
-            <HeroCarouselScene />
           </div>
         </div>
       </section>
