@@ -17,19 +17,19 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Data Workflows and Pipelines",
-    body: "When each team lives on its own spreadsheet and nobody agrees on which number is right, the problem isn't the analysis — it's the foundation. We organize and join those sources into a single, reliable structure that runs on its own without manual intervention.",
+    body: "When each team lives on its own spreadsheet and nobody agrees on which number is right, the problem isn't the analysis; it's the foundation. We organize and join those sources into a single, reliable structure that runs on its own without manual intervention.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Single source of truth",
   },
   {
     title: "Dashboards",
-    body: "Meetings stop being debates about which spreadsheet is right when there is one shared reference screen, updated automatically. We build dashboards in Power BI, Tableau, Looker or Python — with the right questions answered in the right place.",
+    body: "Meetings stop being debates about which spreadsheet is right when there is one shared reference screen, updated automatically. We build dashboards in Power BI, Tableau, Looker or Python, with the right questions answered in the right place.",
     img: "dashboard-powerbi-vendas.png",
     tag: "Insights in seconds",
   },
   {
     title: "Mentoring and Training",
-    body: "Sometimes the problem isn't a missing tool — it is not knowing what to do with the one you have. Practical sessions tailored to your real context: no unnecessary theory, focused on what generates immediate results at work.",
+    body: "Sometimes the problem isn't a missing tool; it is not knowing what to do with the one you have. Practical sessions tailored to your real context: no unnecessary theory, focused on what generates immediate results at work.",
     img: "analistas-revisando-dashboard.jpg",
     tag: "Your team flies solo",
   },
@@ -46,7 +46,7 @@ const processSteps = [
   {
     num: "02",
     title: "Proposal and budget",
-    body: "You receive three delivery tiers, with clear timelines and pricing — and choose what makes the most sense right now.",
+    body: "You receive three delivery tiers, with clear timelines and pricing, and choose what makes the most sense right now.",
     tags: ["3 tiers", "Timelines", "Pricing"],
   },
   {

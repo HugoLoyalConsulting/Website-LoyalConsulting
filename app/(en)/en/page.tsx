@@ -49,7 +49,7 @@ export default function HomePage() {
             </h1>
             <p className="ts-hero-sub reveal-up">
               We bring your spreadsheets and systems together into a single dashboard that
-              updates itself and shows what is going on — no rework, no guesswork.
+              updates itself and shows what is going on, with no rework, no guesswork.
             </p>
             <p className="ts-hero-copy reveal-up">
               <strong>

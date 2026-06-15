@@ -49,7 +49,7 @@ export default function HomePage() {
             </h1>
             <p className="ts-hero-sub reveal-up">
               A gente junta suas planilhas e sistemas em um painel só, que se atualiza
-              sozinho e mostra o que está acontecendo — sem retrabalho e sem achismo.
+              sozinho e mostra o que está acontecendo, sem retrabalho e sem achismo.
             </p>
             <p className="ts-hero-copy reveal-up">
               <strong>
@@ -151,8 +151,8 @@ export default function HomePage() {
             </div>
             <div>
               <p className="section-copy">
-                São 10 anos de operações em dados, vendo de perto como áreas inteiras — até em
-                empresas bilionárias — operam às cegas mesmo tendo abundância de informações.
+                São 10 anos de operações em dados, vendo de perto como áreas inteiras (até em
+                empresas bilionárias) operam às cegas mesmo tendo abundância de informações.
               </p>
               <p className="section-copy mt-4">
                 Trabalhamos lado a lado com coordenadores, supervisores e gerentes para
@@ -172,7 +172,7 @@ export default function HomePage() {
         <div className="parallax-break__inner">
           <p className="parallax-quote">
             &ldquo;Pare de passar horas abrindo planilhas para entender como vai o
-            negócio. Passe a ter um único painel com as respostas prontas —
+            negócio. Passe a ter um único painel com as respostas prontas,
             atualizado sozinho, sem retrabalho.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
@@ -196,7 +196,7 @@ export default function HomePage() {
               <p className="lc-dores-while-title lc-dores-while-title--cool">Vale se você:</p>
               <ul className="lc-consequences-list mt-3">
                 <li>Sente que está tomando decisões no escuro</li>
-                <li>Sabe que o processo atual não escala — mas não sabe por onde começar</li>
+                <li>Sabe que o processo atual não escala (mas não sabe por onde começar)</li>
                 <li>Quer entender o que é possível antes de qualquer compromisso</li>
               </ul>
               <div className="mt-6">

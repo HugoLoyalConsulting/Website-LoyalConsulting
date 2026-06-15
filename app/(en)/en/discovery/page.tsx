@@ -32,10 +32,26 @@ const badFit = [
 
 // ── What you will leave knowing ────────────────────────────────────────────
 const outcomes = [
-  "Which 3 KPIs have the most impact on your business right now",
-  "Where your data lives and what can already be leveraged",
-  "What could be built — and how fast",
-  "Whether it makes sense to move forward and what the concrete next step would be",
+  {
+    q: "Which KPIs actually matter for your business right now?",
+    a: "Leaving knowing which 3 indicators have the most impact on your operation, so you stop tracking metrics that don't move the needle.",
+  },
+  {
+    q: "Is your data ready for a dashboard (or does it need to be structured first)?",
+    a: "We map what exists, where it lives and what needs to be adjusted before building anything.",
+  },
+  {
+    q: "Power BI, Looker Studio, Metabase: which tool makes sense for your situation?",
+    a: "The answer depends on your data volume, team and budget. You will leave knowing which to pick and why.",
+  },
+  {
+    q: "What can realistically be built in 30, 60 and 90 days with what you already have?",
+    a: "A realistic timeline and scope estimate, without overpromising or underestimating what needs to be done.",
+  },
+  {
+    q: "Does it make sense to move forward (and what would the concrete next step be)?",
+    a: "If there is a fit, you receive three delivery options with timelines and pricing. You choose (or not). No pressure.",
+  },
 ];
 
 // ── How it works ───────────────────────────────────────────────────────────
@@ -57,7 +73,7 @@ const steps = [
   {
     num: "03",
     title: "Clear proposal",
-    body: "If it makes sense to move forward, you receive three delivery options with timelines and pricing. You choose — or not.",
+    body: "If it makes sense to move forward, you receive three delivery options with timelines and pricing. You choose (or not).",
     img: "apresentacao-dashboard-apontando.jpg",
     tag: "No pressure",
   },
@@ -67,31 +83,31 @@ const steps = [
 const faqItems = [
   {
     q: "We tried BI before and no one used it. Why would this be different?",
-    a: `That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. When the central question is "what data do I need to make this decision?", the dashboard becomes a consequence, not a goal. Discovery starts there — and does not move forward until that question is answered.`,
+    a: `That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. When the central question is "what data do I need to make this decision?", the dashboard becomes a consequence, not a goal. Discovery starts there and does not move forward until that question is answered.`,
   },
   {
     q: "Our data lives in too many places. Seems too complex.",
-    a: "Most of the companies we work with are in exactly that situation: three systems, two spreadsheets and a report that doesn't agree with either of them. That is not an exception — it is the most common starting point. Discovery exists to map what is there and find the most direct path forward, without overpromising.",
+    a: "Most of the companies we work with are in exactly that situation: three systems, two spreadsheets and a report that doesn't agree with either of them. That is not an exception; it is the most common starting point. Discovery exists to map what is there and find the most direct path forward, without overpromising.",
   },
   {
     q: "I'm worried the dashboard will be built but no one will use it.",
-    a: "That fear is among the most justified — and it almost always comes true when the dashboard was built without involving the people who will use it. Our process maps from the start who needs to see what, at what frequency and on which device. Adoption doesn't start at training — it starts at design.",
+    a: "That fear is among the most justified, and it almost always comes true when the dashboard was built without involving the people who will use it. Our process maps from the start who needs to see what, at what frequency and on which device. Adoption doesn't start at training; it starts at design.",
   },
   {
     q: "I don't know exactly what I want. Is it still worth talking?",
-    a: `That is exactly what Discovery is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of Discovery — not a prerequisite for it.`,
+    a: `That is exactly what Discovery is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of Discovery, not a prerequisite for it.`,
   },
   {
     q: "Does the Discovery cost anything?",
-    a: "No. It is a 30-minute conversation. No product pitch, no commitment. If moving forward doesn't make sense at the end, you leave with more clarity about the problem than you came in with — which already has value on its own.",
+    a: "No. It is a 30-minute conversation. No product pitch, no commitment. If moving forward doesn't make sense at the end, you leave with more clarity about the problem than you came in with (which already has value on its own).",
   },
   {
     q: "How long until I have something working?",
-    a: `Most companies want a dashboard "within a week." Sometimes that is possible — when the data is already organized. What determines the timeline is the quality of what exists, not the speed of development. Discovery maps that and returns a realistic estimate, without creating expectations that won't be met.`,
+    a: `Most companies want a dashboard "within a week." Sometimes that is possible (when the data is already organized). What determines the timeline is the quality of what exists, not the speed of development. Discovery maps that and returns a realistic estimate, without creating expectations that won't be met.`,
   },
   {
     q: "We already have a BI tool that isn't working well. Now what?",
-    a: "The tool is rarely the problem. The most common patterns are: poorly structured data feeding a well-built dashboard, or a technically correct panel that nobody knows how to use. Discovery looks at the full picture — and only recommends changing tools when there is a concrete reason to do so.",
+    a: "The tool is rarely the problem. The most common patterns are: poorly structured data feeding a well-built dashboard, or a technically correct panel that nobody knows how to use. Discovery looks at the full picture and only recommends changing tools when there is a concrete reason to do so.",
   },
 ];
 
@@ -172,7 +188,7 @@ export default function DiscoveryPage() {
             </h1>
             <p className="ts-hero-sub reveal-up">
               Managers who centralize their data in an automated dashboard recover hours
-              every week — and walk into meetings knowing exactly what is happening.
+              every week, walking into meetings knowing exactly what is happening.
               In 30 minutes, find out if this works for your scenario.
             </p>
             <p className="ts-hero-copy reveal-up">
@@ -237,7 +253,7 @@ export default function DiscoveryPage() {
               </ul>
               <p className="section-copy mt-6" style={{ fontSize: "0.85rem" }}>
                 If you recognized yourself in the items above, it is probably not the right
-                moment yet — and that is completely fine. When the context changes, we are here.
+                moment yet; that is completely fine. When the context changes, we are here.
               </p>
             </div>
           </div>
@@ -252,14 +268,28 @@ export default function DiscoveryPage() {
             <p className="section-eyebrow">What you will leave knowing</p>
             <h2 className="section-title mt-3">30 minutes later, you will have:</h2>
           </div>
-          <div className="lc-benefits-grid mt-12">
-            {outcomes.map((item) => (
-              <div key={item} className="lc-benefit-item">
-                <span className="lc-benefit-check">✓</span>
-                {item}
-              </div>
+          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
+            {outcomes.map((item, i) => (
+              <li
+                key={item.q}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "3rem 1fr",
+                  gap: "0 1.5rem",
+                  padding: "1.75rem 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
+                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -286,21 +316,6 @@ export default function DiscoveryPage() {
               <figcaption className="lc-ba-caption">
                 Multiple open files, duplicated tabs and hours of copy-paste to answer a
                 single question.
-              </figcaption>
-            </figure>
-            <figure className="lc-ba-card lc-ba-card--antes">
-              <span className="lc-ba-label lc-ba-label--antes">× Before</span>
-              <div className="lc-ba-img lc-ba-img--dense-sheet">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-planilha-ininteligivel.png`}
-                  alt="An overly long spreadsheet with too many columns and dense data"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  style={{ objectFit: "cover", objectPosition: "right 25% top" }}
-                />
-              </div>
-              <figcaption className="lc-ba-caption">
-                An oversized spreadsheet too dense to read fast enough for real decisions.
               </figcaption>
             </figure>
             <figure className="lc-ba-card lc-ba-card--depois">
@@ -330,8 +345,7 @@ export default function DiscoveryPage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;The problem is almost never a lack of data. It is knowing which data
-            matters — and having it available without needing an intermediary.&rdquo;
+            &ldquo;The problem is almost never a lack of data. It is the opportunity cost of not seeing, at the right moment, where profitability is slipping because information still depends on an intermediary to reach whoever decides.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Discovery</span>
         </div>

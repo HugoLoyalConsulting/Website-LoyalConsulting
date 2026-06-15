@@ -109,7 +109,7 @@ export default function ExemplosPage() {
               e seus indicadores
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Alguns exemplos do que costumamos organizar em cada área — sempre adaptado à
+              Alguns exemplos do que costumamos organizar em cada área, sempre adaptado à
               realidade e às perguntas do seu negócio.
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function ExemplosPage() {
         <div className="parallax-break__inner">
           <p className="parallax-quote">
             &ldquo;Quando cada número vem de uma fonte confiável, a reunião para de ser
-            um debate sobre qual planilha está certa — e vira uma conversa sobre
+            um debate sobre qual planilha está certa, e vira uma conversa sobre
             o que fazer.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>

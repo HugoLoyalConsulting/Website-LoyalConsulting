@@ -17,19 +17,19 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Data Workflows e Pipelines",
-    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise — é a base. Organizamos e unimos essas fontes em uma estrutura única e confiável, que roda sozinha sem intervenção manual.",
+    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise; é a base. Organizamos e unimos essas fontes em uma estrutura única e confiável, que roda sozinha sem intervenção manual.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Fonte única de verdade",
   },
   {
     title: "Dashboards",
-    body: "A reunião para de ser um debate sobre qual planilha está certa quando existe uma tela de referência compartilhada, atualizada automaticamente. Construímos painéis em Power BI, Tableau, Looker ou Python — com as perguntas certas respondidas no lugar certo.",
+    body: "A reunião para de ser um debate sobre qual planilha está certa quando existe uma tela de referência compartilhada, atualizada automaticamente. Construímos painéis em Power BI, Tableau, Looker ou Python, com as perguntas certas respondidas no lugar certo.",
     img: "dashboard-powerbi-vendas.png",
     tag: "Decisão em segundos",
   },
   {
     title: "Mentoria e Treinamento",
-    body: "Às vezes o problema não é falta de ferramenta — é não saber o que fazer com ela. Sessões práticas direcionadas ao seu contexto real: sem teoria desnecessária, com foco no que gera resultado imediato no trabalho.",
+    body: "Às vezes o problema não é falta de ferramenta; é não saber o que fazer com ela. Sessões práticas direcionadas ao seu contexto real: sem teoria desnecessária, com foco no que gera resultado imediato no trabalho.",
     img: "analistas-revisando-dashboard.jpg",
     tag: "Seu time voa sozinho",
   },
@@ -46,7 +46,7 @@ const processSteps = [
   {
     num: "02",
     title: "Proposta e orçamento",
-    body: "Você recebe três níveis de entrega, com prazos e valores claros — e escolhe o que faz mais sentido para o momento.",
+    body: "Você recebe três níveis de entrega, com prazos e valores claros, e escolhe o que faz mais sentido para o momento.",
     tags: ["3 níveis", "Prazos", "Valores"],
   },
   {
@@ -97,7 +97,7 @@ export default function ComoFuncionaPage() {
               à decisão segura
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Três frentes de trabalho e um processo simples — pensados para quem vive de
+              Três frentes de trabalho e um processo simples, pensados para quem vive de
               planilha e quer os números prontos, em um lugar só.
             </p>
           </div>

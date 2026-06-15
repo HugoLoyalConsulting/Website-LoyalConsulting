@@ -9,21 +9,21 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const stackCards = [
   {
-    tag: "01 — Visibilidade",
+    tag: "01 · Visibilidade",
     title: "Leitura de pipeline em tempo real",
     text: "Executivos acompanham metas, gaps e projeções sem esperar fechamento manual de relatórios.",
     image: "https://www.imensosoftware.com/wp-content/uploads/2022/07/1.webp",
   },
   {
-    tag: "02 — Confiança",
+    tag: "02 · Confiança",
     title: "Camada única de dados reconciliados",
     text: "Múltiplas fontes centralizadas: CRM, ERP, planilhas e APIs falam a mesma língua.",
     image: "https://i0.wp.com/www.phdata.io/wp-content/uploads/2022/08/Web-Traffic-Power-BI-Dashboard-Example-Screenshot.png",
   },
   {
-    tag: "03 — Automação",
+    tag: "03 · Automação",
     title: "Pipeline que atualiza sem intervenção",
-    text: "ETL em Python, dbt e Azure Data Factory — dados corretos sempre disponíveis sem retrabalho.",
+    text: "ETL em Python, dbt e Azure Data Factory: dados corretos sempre disponíveis sem retrabalho.",
     image: "/svg/etl-pipeline.svg",
   },
 ];
@@ -89,7 +89,7 @@ export function TasteDesireMotion() {
             A operação ideal começa pelo dado.
           </h2>
           <p className="section-copy mt-6">
-            Estruturamos dados, automações e dashboards para que decisões aconteçam por sinal — não por intuição.
+            Estruturamos dados, automações e dashboards para que decisões aconteçam por sinal, não por intuição.
           </p>
           <div className="mt-8 h-px w-12" style={{ background: "#6c63ff" }} />
           <p className="mt-6 text-sm" style={{ color: "rgba(240,237,232,0.4)", lineHeight: 1.7 }}>

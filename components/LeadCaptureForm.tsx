@@ -35,7 +35,7 @@ type OptionGroup = { readonly group: string; readonly options: readonly string[]
 const STRINGS = {
   pt: {
     kicker: "Diagnóstico gratuito",
-    title: "Conte o seu cenário — e receba uma recomendação personalizada",
+    title: "Conte o seu cenário e receba uma recomendação personalizada",
     copy: "Nossa equipe analisa o contexto e entra em contato para estruturar um plano de inteligência analítica personalizado para sua empresa.",
     sectionBasics: "Informações básicas",
     sectionPains: "Dores e necessidades",
@@ -209,7 +209,7 @@ const STRINGS = {
   },
   en: {
     kicker: "Free assessment",
-    title: "Tell us about your scenario — and get a personalized recommendation",
+    title: "Tell us about your scenario and get a personalized recommendation",
     copy: "Our team reviews your context and gets in touch to outline an analytics plan tailored to your company.",
     sectionBasics: "Basic information",
     sectionPains: "Pain points and needs",

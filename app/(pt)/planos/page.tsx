@@ -57,19 +57,19 @@ const plans = [
 const faqItems = [
   {
     q: "Nossos dados estão numa bagunça. Dá para começar assim mesmo?",
-    a: "Sim — e esse é o estado mais comum. Dados espalhados por planilhas, sistemas sem integração e relatórios que não batem são a situação de entrada da maioria dos projetos. A Discovery mapeia o que existe e define um ponto de partida realista, sem exigir que tudo já esteja organizado.",
+    a: "Sim, e esse é o estado mais comum. Dados espalhados por planilhas, sistemas sem integração e relatórios que não batem são a situação de entrada da maioria dos projetos. A Discovery mapeia o que existe e define um ponto de partida realista, sem exigir que tudo já esteja organizado.",
   },
   {
     q: "Como sei qual plano faz sentido para o meu caso?",
-    a: "A Discovery gratuita de 30 minutos existe para isso. Ao fim da conversa, você terá clareza sobre a complexidade do seu cenário e qual faixa de investimento faz mais sentido — antes de qualquer compromisso.",
+    a: "A Discovery gratuita de 30 minutos existe para isso. Ao fim da conversa, você terá clareza sobre a complexidade do seu cenário e qual faixa de investimento faz mais sentido, antes de qualquer compromisso.",
   },
   {
     q: "Meu time vai conseguir usar o dashboard no dia a dia?",
-    a: "Depende de como for construído. Dashboards que ninguém usa quase sempre foram feitos sem envolver quem vai usar. No nosso processo, a validação com o time e o treinamento fazem parte da entrega — não são opcionais.",
+    a: "Depende de como for construído. Dashboards que ninguém usa quase sempre foram feitos sem envolver quem vai usar. No nosso processo, a validação com o time e o treinamento fazem parte da entrega; não são opcionais.",
   },
   {
     q: "Posso começar com um escopo menor e expandir depois?",
-    a: "Sim — e geralmente é a abordagem mais inteligente. Começar com um painel focado, validar com o time e expandir a partir do que funciona gera mais resultado do que tentar resolver tudo de uma vez em um projeto longo.",
+    a: "Sim, e geralmente é a abordagem mais inteligente. Começar com um painel focado, validar com o time e expandir a partir do que funciona gera mais resultado do que tentar resolver tudo de uma vez em um projeto longo.",
   },
 ];
 

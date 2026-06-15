@@ -37,23 +37,23 @@ const badFit = [
 const outcomes = [
   {
     q: "Quais KPIs realmente importam para o meu negócio agora?",
-    a: "Sair sabendo quais 3 indicadores têm mais impacto na operação — e parar de acompanhar métricas que não movem o ponteiro.",
+    a: "Sair sabendo quais 3 indicadores têm mais impacto na operação, para de acompanhar métricas que não movem o ponteiro.",
   },
   {
-    q: "Meus dados estão prontos para virar um dashboard — ou precisam ser estruturados antes?",
+    q: "Meus dados estão prontos para virar um dashboard (ou precisam ser estruturados antes)?",
     a: "Mapeamos o que existe, onde está e o que precisa ser ajustado antes de construir qualquer coisa.",
   },
   {
-    q: "Power BI, Looker Studio, Metabase — qual ferramenta faz sentido para o meu caso?",
+    q: "Power BI, Looker Studio, Metabase: qual ferramenta faz sentido para o meu caso?",
     a: "A resposta depende do seu volume de dados, da equipe e do orçamento. Saindo daqui, você vai saber qual escolher e por quê.",
   },
   {
     q: "O que é possível construir em 30, 60 e 90 dias com o que já temos?",
-    a: "Uma estimativa realista de prazo e escopo — sem prometer o impossível nem subestimar o que precisa ser feito.",
+    a: "Uma estimativa realista de prazo e escopo, sem prometer o impossível nem subestimar o que precisa ser feito.",
   },
   {
-    q: "Faz sentido avançar — e qual seria o passo concreto?",
-    a: "Se houver fit, você recebe três opções de entrega com prazos e valores. Você escolhe — ou não. Sem pressão.",
+    q: "Faz sentido avançar (e qual seria o passo concreto)?",
+    a: "Se houver fit, você recebe três opções de entrega com prazos e valores. Você escolhe (ou não). Sem pressão.",
   },
 ];
 
@@ -76,7 +76,7 @@ const steps = [
   {
     num: "03",
     title: "Proposta clara",
-    body: "Se fizer sentido avançar, você recebe três opções de entrega com prazos e valores. Você escolhe — ou não.",
+    body: "Se fizer sentido avançar, você recebe três opções de entrega com prazos e valores. Você escolhe (ou não).",
     img: "apresentacao-dashboard-apontando.jpg",
     tag: "Sem pressão",
   },
@@ -86,31 +86,31 @@ const steps = [
 const faqItems = [
   {
     q: "Já tentamos BI antes e o time nunca usou. Por que seria diferente?",
-    a: `Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. Quando a pergunta central é "qual dado preciso para tomar esta decisão?", o dashboard vira consequência, não objetivo. A Discovery começa por aí — e não avança sem ter essa resposta.`,
+    a: `Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. Quando a pergunta central é "qual dado preciso para tomar esta decisão?", o dashboard vira consequência, não objetivo. A Discovery começa por aí e não avança sem ter essa resposta.`,
   },
   {
     q: "Nossa operação tem dados em vários sistemas. Parece complexo demais.",
-    a: "A maioria das empresas que atendemos está exatamente nesse cenário: três sistemas, duas planilhas e um relatório que não concorda com nenhum dos outros. Isso não é exceção — é o ponto de partida mais comum. A Discovery existe para mapear o que existe e encontrar o caminho mais direto, sem prometer o impossível.",
+    a: "A maioria das empresas que atendemos está exatamente nesse cenário: três sistemas, duas planilhas e um relatório que não concorda com nenhum dos outros. Isso não é exceção; é o ponto de partida mais comum. A Discovery existe para mapear o que existe e encontrar o caminho mais direto, sem prometer o impossível.",
   },
   {
     q: "Tenho medo de que o dashboard fique pronto mas ninguém use no dia a dia.",
-    a: "Esse medo é dos mais justificados — e quase sempre se confirma quando o painel foi construído sem envolver quem vai usar. No nosso processo, o mapeamento já inclui quem precisa ver o quê, em qual frequência e de qual dispositivo. Adoção não começa no treinamento — começa no design.",
+    a: "Esse medo é dos mais justificados, e quase sempre se confirma quando o painel foi construído sem envolver quem vai usar. No nosso processo, o mapeamento já inclui quem precisa ver o quê, em qual frequência e de qual dispositivo. Adoção não começa no treinamento; começa no design.",
   },
   {
     q: "Não sei exatamente o que quero. Ainda assim vale conversar?",
-    a: `É exatamente para isso que a Discovery existe. Saber que "os números chegam tarde demais" ou que "ninguém concorda sobre qual planilha está certa" já é suficiente para começar. Clareza de escopo é o produto da Discovery — não o pré-requisito dela.`,
+    a: `É exatamente para isso que a Discovery existe. Saber que "os números chegam tarde demais" ou que "ninguém concorda sobre qual planilha está certa" já é suficiente para começar. Clareza de escopo é o produto da Discovery, não o pré-requisito dela.`,
   },
   {
     q: "A Discovery tem custo?",
-    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou — o que já tem valor por si só.",
+    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou (o que já tem valor por si só).",
   },
   {
     q: "Em quanto tempo vou ter algo funcionando?",
-    a: `A maioria das empresas quer um dashboard "em uma semana". Às vezes isso é possível — quando os dados já estão organizados. O que determina o prazo é a qualidade do que existe, não a velocidade de desenvolvimento. A Discovery mapeia isso e devolve uma estimativa realista, sem criar expectativa que não vai se cumprir.`,
+    a: `A maioria das empresas quer um dashboard "em uma semana". Às vezes isso é possível (quando os dados já estão organizados). O que determina o prazo é a qualidade do que existe, não a velocidade de desenvolvimento. A Discovery mapeia isso e devolve uma estimativa realista, sem criar expectativa que não vai se cumprir.`,
   },
   {
     q: "Já uso uma ferramenta de BI que não está funcionando bem. E agora?",
-    a: "A ferramenta raramente é o problema. O que mais aparece é: dado mal estruturado alimentando um dashboard bem construído, ou um painel tecnicamente correto que ninguém sabe usar. A Discovery olha para o cenário como um todo — e só recomenda mudança de ferramenta quando há razão concreta para isso.",
+    a: "A ferramenta raramente é o problema. O que mais aparece é: dado mal estruturado alimentando um dashboard bem construído, ou um painel tecnicamente correto que ninguém sabe usar. A Discovery olha para o cenário como um todo e só recomenda mudança de ferramenta quando há razão concreta para isso.",
   },
 ];
 
@@ -189,7 +189,7 @@ export default function DiscoveryPage() {
             </h1>
             <p className="ts-hero-sub reveal-up">
               Gestores que centralizam seus dados num dashboard automatizado recuperam horas
-              por semana — e chegam nas reuniões sabendo exatamente o que está acontecendo.
+              por semana, chegando às reuniões sabendo exatamente o que está acontecendo.
               Em 30 minutos, veja se isso funciona para o seu cenário.
             </p>
             <p className="ts-hero-copy reveal-up">
@@ -254,7 +254,7 @@ export default function DiscoveryPage() {
               </ul>
               <p className="section-copy mt-10" style={{ fontSize: "0.85rem" }}>
                 Se você se identificou com os itens acima, provavelmente ainda não é o
-                momento — e tudo bem. Quando o contexto mudar, a gente está aqui.
+                momento; tudo bem. Quando o contexto mudar, a gente está aqui.
               </p>
             </div>
           </div>
@@ -346,8 +346,7 @@ export default function DiscoveryPage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;O problema quase sempre não é falta de dado. É saber qual dado
-            importa — e tê-lo disponível sem precisar de um intermediário.&rdquo;
+            &ldquo;O problema quase nunca é falta de dados. É o custo de oportunidade de não enxergar, no momento certo, onde a rentabilidade está escorregando porque a informação ainda depende de um intermediário para chegar a quem decide.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Discovery</span>
         </div>
