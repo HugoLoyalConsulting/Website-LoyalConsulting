@@ -3299,19 +3299,20 @@ body::before {
   border-radius: 14px;
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+  border: 5px solid transparent;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .lc-ba-card--antes .lc-ba-img {
   transform: rotate(-1.2deg);
-  border-color: rgba(239, 68, 68, 0.35);
+  border-color: rgba(239, 68, 68, 0.85);
+  box-shadow: 0 22px 48px rgba(239, 68, 68, 0.35), 0 0 28px rgba(239, 68, 68, 0.25);
 }
 
 .lc-ba-card--depois .lc-ba-img {
   transform: rotate(1.2deg);
-  border-color: rgba(20, 184, 166, 0.4);
+  border-color: rgba(20, 184, 166, 0.9);
+  box-shadow: 0 22px 48px rgba(20, 184, 166, 0.35), 0 0 28px rgba(20, 184, 166, 0.25);
 }
 
 .lc-ba-img--dense-sheet img {
