@@ -41,16 +41,16 @@ const outcomes = [
     a: "We map what exists, where it lives and what needs to be adjusted before building anything.",
   },
   {
-    q: "Power BI, Looker Studio, Metabase: which tool makes sense for your situation?",
+    q: "Power BI, Tableau, Looker Studio, Plotly (Python): which tool makes sense for your situation?",
     a: "The answer depends on your data volume, team and budget. You will leave knowing which to pick and why.",
   },
   {
-    q: "What can realistically be built in 30, 60 and 90 days with what you already have?",
-    a: "A realistic timeline and scope estimate, without overpromising or underestimating what needs to be done.",
+    q: "How long until I have something working?",
+    a: "3 days, 1 week or up to 1 month, from the moment we get access to your data or table structures. You also keep the model to replicate on your own, if you want.",
   },
   {
-    q: "Does it make sense to move forward (and what would the concrete next step be)?",
-    a: "If there is a fit, you receive three delivery options with timelines and pricing. You choose (or not). No pressure.",
+    q: "How and when to move forward (and what would the concrete next step be)?",
+    a: "If there is a fit, you receive three delivery options with defined timelines and pricing. You choose the path, we get started.",
   },
 ];
 
