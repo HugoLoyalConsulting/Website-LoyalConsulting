@@ -6,10 +6,10 @@ import { CSSProperties, useEffect, useState } from "react";
 import { getAlternatePath, type Locale } from "@/lib/i18n";
 
 const WHATSAPP_URL =
-  "https://wa.me/5511954824181?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20da%20Loyal%20e%20gostaria%20de%20falar%20mais.";
+  "https://wa.me/5511981316880?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20da%20Loyal%20e%20gostaria%20de%20falar%20mais.";
 
 const WHATSAPP_URL_EN =
-  "https://wa.me/5511954824181?text=Hi!%20I%20found%20the%20Loyal%20Consulting%20website%20and%20I%27d%20like%20to%20know%20more.";
+  "https://wa.me/5511981316880?text=Hi!%20I%20found%20the%20Loyal%20Consulting%20website%20and%20I%27d%20like%20to%20know%20more.";
 
 function WhatsAppIcon() {
   return (

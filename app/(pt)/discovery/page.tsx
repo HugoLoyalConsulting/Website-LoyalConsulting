@@ -10,7 +10,7 @@ import { CALENDLY_URL } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 const WA_DISCOVERY =
-  "https://wa.me/5511954824181?text=" +
+  "https://wa.me/5511981316880?text=" +
   encodeURIComponent("Olá! Quero agendar minha Discovery gratuita de 30 minutos.");
 
 export const metadata: Metadata = buildMetadata({

@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { WhatsAppIcon, WHATSAPP_URL, WHATSAPP_URL_EN } from "./StickyTopNav";
 
-const PHONE_DISPLAY = "+55 (11) 95482-4181";
-const PHONE_HREF = "tel:+5511954824181";
+const PHONE_DISPLAY = "+55 (11) 98131-6880";
+const PHONE_HREF = "tel:+5511981316880";
 
 const FOOTER_STRINGS = {
   pt: {

@@ -3,7 +3,7 @@ export const EMAIL_URL = "mailto:hugolealsouza9@gmail.com";
 export const CALENDLY_URL = "https://calendly.com/hugo-loyalconsulting/30min";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/loyal-consulting/";
 
-const WA = "https://wa.me/5511954824181?text=";
+const WA = "https://wa.me/5511981316880?text=";
 
 export const WA_DIAGNOSTICO =
   WA + encodeURIComponent("Olá! Quero um diagnóstico gratuito sobre os dados da minha operação.");

@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const WA_DISCOVERY_EN =
-  "https://wa.me/5511954824181?text=" +
+  "https://wa.me/5511981316880?text=" +
   encodeURIComponent("Hi! I just filled out the form and I'd like to schedule a short Discovery call.");
 
 export default function ThankYouPage() {
