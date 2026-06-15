@@ -200,7 +200,7 @@ export default function DiscoveryPage() {
               <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
                 I want my free Discovery
               </a>
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
                 Schedule on Calendly
               </a>
             </div>
@@ -421,7 +421,7 @@ export default function DiscoveryPage() {
             <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
               I want my free Discovery
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
               Schedule on Calendly
             </a>
           </div>

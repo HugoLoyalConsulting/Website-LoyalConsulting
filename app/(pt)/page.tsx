@@ -287,7 +287,7 @@ export default function HomePage() {
             <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
               Quero começar
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
               Agendar pelo Calendly
             </a>
           </div>
