@@ -9,7 +9,7 @@ import { WA_DISCOVERY_EN, CALENDLY_URL } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Free 30-minute Discovery",
+  title: "Strategic Discovery",
   description:
     "Spending too much time in spreadsheets? In 30 minutes find out how automated dashboards change the routine of managers who need reliable data, fast.",
   path: "/en/discovery",
@@ -180,7 +180,7 @@ export default function DiscoveryPage() {
       <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         <div className="ts-hero">
           <div>
-            <p className="section-eyebrow reveal-up">Free Discovery · 30 minutes · No commitment</p>
+            <p className="section-eyebrow reveal-up">Strategic Discovery · 30 minutes</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
               Are your decisions<br />
               still spread across<br />
@@ -192,13 +192,13 @@ export default function DiscoveryPage() {
               In 30 minutes, find out if this works for your scenario.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong>No cost. No fluff. No product pitch.</strong>{" "}
+              <strong>Focused conversation. No fluff. No product pitch.</strong>{" "}
               Just a structured conversation where we understand your data, your questions
               and what needs to change so you stop depending on manual reports.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                I want my free Discovery
+                Schedule Discovery
               </a>
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
                 Schedule on Calendly
@@ -234,9 +234,9 @@ export default function DiscoveryPage() {
               </ul>
               <div className="mt-8">
                 <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  I want my free Discovery
+                  Schedule Discovery
                 </a>
-                <p className="lc-cta-caption">30 minutes · Free · No commitment</p>
+                <p className="lc-cta-caption">30 minutes · Initial analytics evolution plan</p>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
                   or schedule on Calendly →
                 </a>
@@ -419,7 +419,7 @@ export default function DiscoveryPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              I want my free Discovery
+              Schedule Discovery
             </a>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
               Schedule on Calendly

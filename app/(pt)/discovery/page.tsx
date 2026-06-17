@@ -11,10 +11,10 @@ import { buildMetadata } from "@/lib/seo";
 
 const WA_DISCOVERY =
   "https://wa.me/5511981316880?text=" +
-  encodeURIComponent("Olá! Quero agendar minha Discovery gratuita de 30 minutos.");
+  encodeURIComponent("Olá! Quero agendar minha Discovery estratégica.");
 
 export const metadata: Metadata = buildMetadata({
-  title: "Discovery gratuita de 30 minutos",
+  title: "Discovery estratégica",
   description:
     "Gasta muito tempo em planilhas? Em 30 minutos descubra como dashboards automatizados mudam a rotina de gestores que precisam de dados confiáveis, rápido.",
   path: "/discovery",
@@ -195,7 +195,7 @@ export default function DiscoveryPage() {
           style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
         >
           <div style={{ maxWidth: "640px" }}>
-            <p className="section-eyebrow reveal-up">Discovery gratuita · 30 minutos · Sem compromisso</p>
+            <p className="section-eyebrow reveal-up">Discovery estratégica · 30 minutos</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
               Você ainda consulta<br />
               planilha a planilha<br />
@@ -207,13 +207,13 @@ export default function DiscoveryPage() {
               Em 30 minutos, veja se isso funciona para o seu cenário.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong>Sem custo. Sem enrolação. Sem apresentação de produto.</strong>{" "}
+              <strong>Conversa objetiva. Sem enrolação. Sem apresentação de produto.</strong>{" "}
               Só uma conversa estruturada onde entendemos seus dados, suas perguntas e o que
               precisa mudar para você parar de depender de relatórios manuais.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Quero minha Discovery gratuita
+                Agendar Discovery
               </a>
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
                 Prefiro agendar pelo Calendly
@@ -246,9 +246,9 @@ export default function DiscoveryPage() {
               </ul>
               <div className="mt-8">
                 <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero minha Discovery gratuita
+                  Agendar Discovery
                 </a>
-                <p className="lc-cta-caption">30 minutos · Sem custo · Sem compromisso</p>
+                <p className="lc-cta-caption">30 minutos · Plano inicial de evolucao analitica</p>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
                   ou agendar pelo Calendly →
                 </a>
@@ -443,7 +443,7 @@ export default function DiscoveryPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Quero minha Discovery gratuita
+              Agendar Discovery
             </a>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
               Agendar pelo Calendly

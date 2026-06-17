@@ -65,7 +65,7 @@ const jsonLd = {
   email: "hugolealsouza9@gmail.com",
   address: { "@type": "PostalAddress", addressCountry: "BR" },
   areaServed: "BR",
-  priceRange: "R$ 2.000 - R$ 10.000",
+  priceRange: "R$ 2.000 - R$ 10.000+",
   sameAs: ["https://www.linkedin.com/company/loyal-consulting/"],
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dashboards Power BI" } },

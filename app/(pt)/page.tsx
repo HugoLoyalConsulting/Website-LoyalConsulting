@@ -1,29 +1,76 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ZoomableImage } from "@/components/ZoomableImage";
-import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WA_COMECAR, WA_DIAGNOSTICO, CALENDLY_URL } from "@/lib/links";
+import { WA_DISCOVERY } from "@/lib/links";
 
-// ── Você se identifica? ────────────────────────────────────────────────────
-const painPoints = [
-  "Precisa abrir várias planilhas para entender o desempenho da empresa",
-  "Perde horas consolidando relatórios manualmente",
-  "Cada área apresenta números diferentes para o mesmo indicador",
-  "As informações chegam tarde demais para agir",
-  "Falta confiança nos dados utilizados nas reuniões",
-  "Sua equipe gasta tempo produzindo relatórios em vez de analisá-los",
+const serviceLines = [
+  {
+    title: "Analise de Dados",
+    body: "Transformamos dados brutos em indicadores que apoiam decisoes mais rapidas e seguras.",
+    value: "Visibilidade",
+  },
+  {
+    title: "Engenharia de Dados",
+    body: "Integramos planilhas, sistemas e bancos de dados em processos automatizados e escalaveis.",
+    value: "Centralizacao e automacao",
+  },
+  {
+    title: "Visualizacao de Dados",
+    body: "Construimos dashboards executivos que mostram o que realmente importa para o negocio.",
+    value: "Confiabilidade",
+  },
 ];
 
-// ── Imagine começar o dia com respostas prontas ────────────────────────────
-const morningAnswers = [
-  "Como estão os principais indicadores do negócio",
-  "Onde existem desvios em relação às metas",
-  "Quais áreas exigem atenção imediata",
-  "Como a operação evoluiu ao longo do tempo",
-  "Onde estão as maiores oportunidades de melhoria",
+const painPoints = [
+  "Cada area apresenta numeros diferentes",
+  "Relatorios exigem trabalho manual",
+  "Informacoes chegam atrasadas",
+  "Decisoes dependem de planilhas paralelas",
+  "Falta uma visao unica do negocio",
+];
+
+const beforeItems = ["Dados espalhados", "Planilhas paralelas", "Atualizacoes manuais", "Relatorios lentos"];
+const afterItems = [
+  "Fonte unica de verdade",
+  "Integracoes automatizadas",
+  "Indicadores atualizados",
+  "Decisoes rapidas",
+];
+
+const whoIsFor = [
+  "Diretores",
+  "Gerentes",
+  "Coordenadores",
+  "Empresas entre 20 e 500 colaboradores",
+  "Times que ja possuem dados, mas ainda nao possuem inteligencia operacional sobre eles",
+];
+
+const discoveryItems = [
+  "Como seus dados sao gerados",
+  "Onde estao os gargalos",
+  "Quais indicadores realmente importam",
+  "Como reduzir a dependencia de planilhas",
+];
+
+const processSteps = [
+  {
+    num: "01",
+    title: "Mapeamento",
+    body: "Levantamos fontes, indicadores e prioridades de decisao.",
+  },
+  {
+    num: "02",
+    title: "Integracao",
+    body: "Centralizamos os dados em um fluxo confiavel e automatizado.",
+  },
+  {
+    num: "03",
+    title: "Gestao",
+    body: "Entregamos paineis executivos para acompanhar o negocio em tempo real.",
+  },
 ];
 
 export default function HomePage() {
@@ -39,7 +86,7 @@ export default function HomePage() {
     >
       <StickyTopNav />
 
-      {/* ── HERO ────────────────────────────────────────────── */}
+      {/* HERO */}
       <section
         style={{
           position: "relative",
@@ -54,151 +101,194 @@ export default function HomePage() {
           className="mx-auto w-full max-w-7xl px-5 sm:px-8"
           style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
         >
-          <div style={{ maxWidth: "640px" }}>
-            <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
+          <div style={{ maxWidth: "760px" }}>
+            <p className="section-eyebrow reveal-up">Loyal Consulting · Consultoria Boutique em Dados</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Pare de gerenciar<br />
-              seu negócio olhando<br />
-              inúmeras planilhas
+              Transforme planilhas dispersas em uma operacao orientada por dados.
             </h1>
             <p className="ts-hero-sub reveal-up">
-              A gente junta suas planilhas e sistemas em um painel só, que se atualiza
-              sozinho e mostra o que está acontecendo, sem retrabalho e sem achismo.
-            </p>
-            <p className="ts-hero-copy reveal-up">
-              <strong>
-                Enxergue a floresta e também cada folha do seu negócio, em uma única tela.
-              </strong>
+              Centralizamos informacoes de planilhas, ERPs, CRMs e sistemas internos para criar
+              uma unica fonte confiavel para analise, automacao e tomada de decisao.
             </p>
             <div className="ts-cta-row reveal-up">
-              <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Quero um diagnóstico gratuito
+              <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                Agendar Discovery
               </a>
-              <Link href="/como-funciona" className="btn-outline">
-                Ver como funciona
+              <Link href="/exemplos" className="btn-outline">
+                Ver exemplos
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── MARQUEE ─────────────────────────────────────────── */}
-      <MarqueeBand />
-
-      {/* ── VOCÊ SE IDENTIFICA? ─────────────────────────────── */}
-      <section id="identifica" className="lc-dores-section">
+      {/* QUEM VAI TE AJUDAR */}
+      <section id="sobre" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Você se identifica?</p>
-            <h2 className="section-title mt-3">Você se identifica com alguma dessas situações?</h2>
-          </div>
-
-          <div className="lc-dores-grid mt-12">
+          <div className="lc-dores-grid mt-14" style={{ alignItems: "center" }}>
+            <figure
+              style={{
+                position: "relative",
+                width: "100%",
+                minHeight: "380px",
+                borderRadius: "14px",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
+            >
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/analista-bi-monitores-duplos.jpg`}
+                alt="Hugo Leal em ambiente profissional analisando indicadores"
+                fill
+                sizes="(max-width: 768px) 100vw, 45vw"
+                style={{ objectFit: "cover" }}
+              />
+            </figure>
             <div>
-              <ul className="lc-dores-list">
-                {painPoints.map((pain) => (
-                  <li key={pain}>
-                    <span className="lc-dores-bullet">×</span>
-                    {pain}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">
-                Se pelo menos duas dessas situações fazem parte da sua rotina...
+              <p className="section-eyebrow">Quem vai te ajudar</p>
+              <h2 className="section-title mt-3">Hugo Leal</h2>
+              <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
+                Fundador da Loyal Consulting
               </p>
-              <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...dá para automatizar isso e devolver horas para a sua equipe
-              </h3>
+              <p className="section-copy" style={{ marginTop: "1.6rem" }}>
+                Ha mais de 10 anos atuando com dados, automacao e inteligencia de negocios em
+                empresas de grande porte.
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
+                Ao longo da carreira, percebi um padrao: a maioria das empresas nao sofre por
+                falta de dados. Sofre por excesso de planilhas, sistemas desconectados e
+                informacoes dificeis de confiar.
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
+                A Loyal nasceu para resolver exatamente isso.
+              </p>
               <div className="mt-8">
-                <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero um diagnóstico gratuito
+                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Quero conversar com o Hugo
                 </a>
-                <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
-                  Direto no WhatsApp · Sem compromisso.
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── IMAGINE COMEÇAR O DIA COM RESPOSTAS PRONTAS ─────── */}
-      <section id="imagine" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
+      {/* O QUE FAZEMOS */}
+      <section id="servicos" className="lc-how-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">O que fazemos</p>
+            <h2 className="section-title mt-3">Nao vendemos dashboard. Entregamos operacao orientada por dados.</h2>
+          </div>
+          <div className="lc-how-steps mt-12">
+            {serviceLines.map((item) => (
+              <div key={item.title} className="lc-how-step">
+                <h3 className="lc-how-title">{item.title}</h3>
+                <p className="lc-how-body">{item.body}</p>
+                <div className="lc-how-tags">
+                  <span className="lc-how-tag">{item.value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEMAS */}
+      <section id="problemas" className="lc-dores-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-14">
             <div>
-              <p className="section-eyebrow">O outro lado</p>
-              <h2 className="section-title mt-3">Imagine começar o dia com respostas prontas</h2>
-              <p className="section-copy mt-4">
-                Em vez de caçar números em vários arquivos, você abre uma tela e vê na hora:
-              </p>
+              <p className="section-eyebrow">Problemas que resolvemos</p>
+              <h2 className="section-title mt-3">Sua operacao gera dados. Mas voce consegue confiar neles?</h2>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">
               <ul className="lc-consequences-list">
-                {morningAnswers.map((item) => (
+                {painPoints.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy" style={{ marginTop: "2.5rem", color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
-                Tudo em um único painel.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── ANTES → DEPOIS ──────────────────────────────────── */}
+      {/* ANTES E DEPOIS */}
       <section id="antes-depois" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Antes e depois</p>
-            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela</h2>
+            <h2 className="section-title mt-3">Do caos operacional para clareza executiva</h2>
           </div>
           <div className="lc-beforeafter-grid mt-12">
-            <figure className="lc-ba-card lc-ba-card--antes">
-              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
-              <div className="lc-ba-img">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
-                  alt="Várias planilhas de Excel abertas ao mesmo tempo na mesma tela"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover", objectPosition: "top left" }}
-                />
+            <div className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">Antes</span>
+              <ul className="lc-consequences-list" style={{ marginTop: "1rem" }}>
+                {beforeItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="lc-ba-card lc-ba-card--depois">
+              <span className="lc-ba-label lc-ba-label--depois">Depois</span>
+              <ul className="lc-consequences-list" style={{ marginTop: "1rem" }}>
+                {afterItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PARA QUEM E */}
+      <section id="para-quem" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="lc-dores-grid mt-14">
+            <div>
+              <p className="section-eyebrow">Para quem e</p>
+              <h2 className="section-title mt-3">Ideal para liderancas que precisam decidir com velocidade</h2>
+            </div>
+            <div className="lc-dores-consequences lc-dores-consequences--cool">
+              <ul className="lc-consequences-list">
+                {whoIsFor.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMO FUNCIONA */}
+      <section id="como-funciona" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Como funciona</p>
+            <h2 className="section-title mt-3">Um caminho claro da fonte de dados ate a decisao</h2>
+          </div>
+          <div className="lc-how-steps mt-12">
+            {processSteps.map((step) => (
+              <div key={step.num} className="lc-how-step">
+                <span className="lc-how-num">{step.num}</span>
+                <h3 className="lc-how-title">{step.title}</h3>
+                <p className="lc-how-body">{step.body}</p>
               </div>
-              <figcaption className="lc-ba-caption">
-                Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
-                responder uma única pergunta.
-              </figcaption>
-            </figure>
-            <figure className="lc-ba-card lc-ba-card--depois">
-              <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
-              <div className="lc-ba-img">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
-                  alt="Dashboard Power BI com indicadores consolidados"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <figcaption className="lc-ba-caption">
-                Um painel que se atualiza sozinho: a visão geral e o detalhe, no mesmo lugar,
-                sem depender de ninguém para preparar.
-              </figcaption>
-            </figure>
+            ))}
           </div>
           <div className="lc-como-wrapper">
-            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO FUNCIONA</p>
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>
+              ARQUITETURA DE REFERENCIA
+            </p>
             <ZoomableImage
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
-              alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
-              caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único pipeline confiável."
+              alt="Diagrama de centralizacao de dados e camada analitica executiva"
+              caption="Centralizacao, governanca e visualizacao em uma arquitetura unica para apoiar decisoes de negocio."
               wrapperStyle={{
                 border: "5px solid rgba(240,237,232,0.7)",
                 boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
@@ -208,94 +298,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SOBRE A LOYAL ───────────────────────────────────── */}
-      <section id="sobre" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="lc-dores-grid mt-14">
-            <div>
-              <p className="section-eyebrow">Sobre a Loyal</p>
-              <h2 className="section-title mt-3">Uma consultoria boutique de Business Intelligence</h2>
-            </div>
-            <div>
-              <p className="section-copy">
-                São 10 anos de operações em dados, vendo de perto como áreas inteiras (até em
-                empresas bilionárias) operam às cegas mesmo tendo abundância de informações.
-              </p>
-              <p className="section-copy" style={{ marginTop: "2rem" }}>
-                Trabalhamos lado a lado com diretores, gerentes, coordenadores e supervisores para
-                transformar planilhas e sistemas desconectados em decisões mais rápidas e
-                confiáveis. Projetos enxutos, entregas práticas, sem complexidade desnecessária.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── PARALLAX BREAK ──────────────────────────────────── */}
-      <div
-        className="parallax-break"
-        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/executivo-painel-wall.jpg')` }}
-      >
-        <div className="parallax-break__inner">
-          <p className="parallax-quote">
-            &ldquo;Pare de passar horas abrindo planilhas para entender como vai o
-            negócio. Passe a ter um único painel com as respostas prontas,
-            atualizado sozinho, sem retrabalho.&rdquo;
-          </p>
-          <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
-        </div>
-      </div>
-
-      {/* ── DISCOVERY ───────────────────────────────────────── */}
+      {/* DISCOVERY */}
       <section id="discovery" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-14">
             <div>
-              <p className="section-eyebrow">Próximo passo</p>
-              <h2 className="section-title mt-3">Quer ver isso aplicado à sua realidade?</h2>
+              <p className="section-eyebrow">Discovery estrategica</p>
+              <h2 className="section-title mt-3">Uma reuniao para definir o seu proximo passo com dados</h2>
               <p className="section-copy mt-4">
-                A Discovery é uma conversa gratuita de 30 minutos para entender sua rotina,
-                escolher os números que importam e desenhar o caminho até o seu painel.
+                Ao final da conversa, voce sai com um plano inicial de evolucao analitica para
+                sua empresa.
               </p>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">Vale se você:</p>
-              <ul className="lc-consequences-list mt-3">
-                <li>Sente que está tomando decisões no escuro</li>
-                <li>Sabe que o processo atual não escala (mas não sabe por onde começar)</li>
-                <li>Quer entender o que é possível antes de qualquer compromisso</li>
+              <ul className="lc-consequences-list">
+                {discoveryItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
               <div className="mt-6">
-                <Link href="/discovery" className="btn-accent">
-                  Solicitar Discovery
-                </Link>
-                <p className="mt-3" style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.5)" }}>
-                  Conversa gratuita de 30 minutos.
-                </p>
+                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Agendar Discovery
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── CTA FINAL ───────────────────────────────────────── */}
+      {/* CTA FINAL */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Vamos descobrir como simplificar a gestão dos seus dados?</h2>
+          <h2 className="lc-cta-title">Pronto para transformar seus dados em uma vantagem competitiva?</h2>
           <p className="lc-cta-sub">
-            Fale com a gente no WhatsApp e receba uma recomendação personalizada sobre os
-            próximos passos.
+            A maioria das empresas ja possui os dados necessarios para crescer. O problema e que
+            eles estao espalhados. Vamos identificar o caminho mais rapido para centralizar,
+            automatizar e transformar esses dados em decisoes melhores.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Quero começar
-            </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Agendar pelo Calendly
+            <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Agendar Discovery
             </a>
           </div>
+          <p className="mt-3" style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.5)" }}>
+            Sem custo inicial. Sem compromisso.
+          </p>
         </div>
       </div>
 
