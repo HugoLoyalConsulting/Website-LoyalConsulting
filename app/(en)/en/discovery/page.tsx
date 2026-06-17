@@ -3,79 +3,122 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/StickyTopNav";
-import { WA_DISCOVERY_EN, CALENDLY_URL } from "@/lib/links";
+import { WA_DIAGNOSTICO_EN, CALENDLY_URL } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Strategic Discovery",
+  title: "Free Data Assessment",
   description:
-    "Spending too much time in spreadsheets? In 30 minutes find out how automated dashboards change the routine of managers who need reliable data, fast.",
+    "Find out in 3 minutes how much time your company loses with decentralized data. Free data maturity assessment with practical recommendations.",
   path: "/en/discovery",
 });
 
-// ── Qualifier ──────────────────────────────────────────────────────────────
-const goodFit = [
-  "You manage targets, teams or results",
-  "Your day starts by opening reports or spreadsheets from different areas",
-  "You depend on someone to prepare or consolidate data before deciding",
-  "You've wanted a centralized dashboard but don't know where to start",
-  "You tried BI before and the project never got off the ground",
+// ── Today × After ─────────────────────────────────────────────────────────
+const today = [
+  "Spreadsheets scattered across email and WhatsApp",
+  "Reports built manually every week",
+  "Copy-pasting to build presentations",
+  "Meetings arguing about which number is right",
+  "Inconsistent data across teams",
 ];
 
-const badFit = [
-  "You don't track any business KPI yet",
-  "The goal is to create charts with no clear decision-making need",
-  "There is no openness to simplifying current manual processes",
+const after = [
+  "Data centralized and integrated",
+  "Automatic updates, no manual rework",
+  "Real-time dashboards ready to use",
+  "Reliable and standardized KPIs",
+  "Meetings focused on decisions",
 ];
 
-// ── What you will leave knowing ────────────────────────────────────────────
+// ── What the assessment will reveal ───────────────────────────────────────
 const outcomes = [
   {
-    q: "Which KPIs actually matter for your business right now?",
-    a: "Leaving knowing which 3 indicators have the most impact on your operation — and stopping to track metrics that don't move the needle.",
+    q: "Where your company is losing time on data",
+    a: "We identify the manual processes that consume the most of your team's hours and can be automated.",
   },
   {
-    q: "Is your data ready for a dashboard (or does it need to be structured first)?",
+    q: "Why the numbers don't match across teams",
+    a: "We map the sources of inconsistency and show how to centralize data into a single reliable version.",
+  },
+  {
+    q: "Which indicators actually matter for your operation",
+    a: "We prioritize the 3 to 5 KPIs with the highest impact on your decisions — and stop measuring what doesn't move the needle.",
+  },
+  {
+    q: "Whether your data is ready for a dashboard or needs to be structured first",
     a: "We map what exists, where it lives and what needs to be adjusted before building anything.",
   },
   {
-    q: "Power BI, Tableau, Looker Studio, Plotly (Python): which tool makes sense for your situation?",
-    a: "The answer depends on your data volume, team and budget. You will leave knowing which to pick and why.",
+    q: "What the concrete next step would be — and how long it would take",
+    a: "If there is a fit, you receive three delivery options with defined timelines and pricing. You choose the path.",
   },
-  {
-    q: "How long until I have something working?",
-    a: "3 days, 1 week or up to 1 month, from the moment we get access to your data or table structures. You also keep the model to replicate on your own, if you want.",
-  },
-  {
-    q: "How and when to move forward (and what would the concrete next step be)?",
-    a: "If there is a fit, you receive three delivery options with defined timelines and pricing. You choose the path, we get started.",
-  },
+];
+
+// ── Problems we solve ─────────────────────────────────────────────────────
+const problems = [
+  "The numbers don't match across teams",
+  "Every department has its own spreadsheet",
+  "Reports always arrive too late",
+  "You don't fully trust the indicators",
+  "Your team loses hours consolidating data",
+  "You don't know for certain which number is right",
 ];
 
 // ── How it works ───────────────────────────────────────────────────────────
 const steps = [
   {
     num: "01",
-    title: "Book on WhatsApp",
-    body: "Send us a message and we pick a time that works for both sides. No complicated form.",
+    title: "Free assessment",
+    body: "In 30 minutes, we map your data sources, identify bottlenecks and understand what is blocking faster decision-making.",
     img: "ipad-google-analytics.jpg",
-    tag: "2 minutes",
+    tag: "Free",
   },
   {
     num: "02",
-    title: "30-minute Discovery",
-    body: "A structured conversation: we map your data, prioritize your KPIs and identify what already exists in the company.",
+    title: "Data integration",
+    body: "We connect spreadsheets, ERPs, CRMs and APIs into a single reliable model, eliminating inconsistencies across teams.",
     img: "analistas-revisando-dashboard.jpg",
-    tag: "No commitment",
+    tag: "Single source of truth",
   },
   {
     num: "03",
-    title: "Clear proposal",
-    body: "If it makes sense to move forward, you receive three delivery options with timelines and pricing. You choose (or not).",
+    title: "Automation",
+    body: "We replace repetitive manual processes with automatic update flows. Your team stops copy-pasting.",
+    img: "dashboard-monitor-dados-futurista.jpg",
+    tag: "No rework",
+  },
+  {
+    num: "04",
+    title: "Dashboards",
+    body: "We build panels with the indicators that actually matter for your management, updated in real time.",
+    img: "dashboard-powerbi-vendas.png",
+    tag: "Insights in seconds",
+  },
+  {
+    num: "05",
+    title: "Ongoing support",
+    body: "Continuous support for adjustments, team training and indicator expansion as the operation grows.",
     img: "apresentacao-dashboard-apontando.jpg",
-    tag: "No pressure",
+    tag: "No abandonment",
+  },
+];
+
+// ── Proof and credibility ─────────────────────────────────────────────────
+const stats = [
+  {
+    source: "McKinsey",
+    text: "Data-driven organizations significantly outperform peers in customer acquisition, retention and profitability.",
+  },
+  {
+    source: "Deloitte",
+    text: "The absence of integrated data reduces decision speed and increases operational rework in mid-size and large companies.",
+  },
+  {
+    source: "PwC",
+    text: "Companies that modernize data management reduce time spent on manual consolidation and increase confidence in business indicators.",
   },
 ];
 
@@ -83,11 +126,11 @@ const steps = [
 const faqItems = [
   {
     q: "We tried BI before and no one used it. Why would this be different?",
-    a: `That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. When the central question is "what data do I need to make this decision?", the dashboard becomes a consequence, not a goal. Discovery starts there and does not move forward until that question is answered.`,
+    a: `That is the most common story. BI projects fail almost always for the same reason: they started with the tool, not the problem. The assessment starts by identifying what data actually matters for each decision — and only then defines the right tool. The dashboard becomes a consequence, not a goal.`,
   },
   {
     q: "Our data lives in too many places. Seems too complex.",
-    a: "Most of the companies we work with are in exactly that situation: three systems, two spreadsheets and a report that doesn't agree with either of them. That is not an exception; it is the most common starting point. Discovery exists to map what is there and find the most direct path forward, without overpromising.",
+    a: "Most of the companies we work with are in exactly that situation: three systems, two spreadsheets and a report that doesn't agree with either of them. That is not an exception; it is the most common starting point. The assessment exists to map what is there and find the most direct path forward, without overpromising.",
   },
   {
     q: "I'm worried the dashboard will be built but no one will use it.",
@@ -95,19 +138,19 @@ const faqItems = [
   },
   {
     q: "I don't know exactly what I want. Is it still worth talking?",
-    a: `That is exactly what Discovery is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of Discovery, not a prerequisite for it.`,
+    a: `That is exactly what the assessment is for. Knowing that "the numbers arrive too late" or that "nobody agrees on which spreadsheet is right" is already enough to start. Scope clarity is the output of the assessment, not a prerequisite for it.`,
   },
   {
-    q: "Does the Discovery cost anything?",
+    q: "Does the assessment cost anything?",
     a: "No. It is a 30-minute conversation. No product pitch, no commitment. If moving forward doesn't make sense at the end, you leave with more clarity about the problem than you came in with — which already has value on its own.",
   },
   {
     q: "How long until I have something working?",
-    a: `Most companies want a dashboard "within a week." Sometimes that is possible (when the data is already organized). What determines the timeline is the quality of what exists, not the speed of development. Discovery maps that and returns a realistic estimate, without creating expectations that won't be met.`,
+    a: `Most companies want a dashboard "within a week." Sometimes that is possible (when the data is already organized). What determines the timeline is the quality of what exists, not the speed of development. The assessment maps that and returns a realistic estimate, without creating expectations that won't be met.`,
   },
   {
     q: "We already have a BI tool that isn't working well. Now what?",
-    a: "The tool is rarely the problem. The most common patterns are: poorly structured data feeding a well-built dashboard, or a technically correct panel that nobody knows how to use. Discovery looks at the full picture and only recommends changing tools when there is a concrete reason to do so.",
+    a: "The tool is rarely the problem. The most common patterns are: poorly structured data feeding a well-built dashboard, or a technically correct panel that nobody knows how to use. The assessment looks at the full picture and only recommends changing tools when there is a concrete reason to do so.",
   },
 ];
 
@@ -148,7 +191,7 @@ export default function DiscoveryPage() {
                 PT
               </Link>
               <a
-                href={WA_DISCOVERY_EN}
+                href={WA_DIAGNOSTICO_EN}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ts-nav-wa"
@@ -164,12 +207,12 @@ export default function DiscoveryPage() {
                 <LinkedInIcon />
               </span>
               <a
-                href={WA_DISCOVERY_EN}
+                href={WA_DIAGNOSTICO_EN}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ts-nav-action"
               >
-                Book a Discovery
+                Free Assessment
               </a>
             </div>
           </nav>
@@ -180,30 +223,33 @@ export default function DiscoveryPage() {
       <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         <div className="ts-hero">
           <div>
-            <p className="section-eyebrow reveal-up">Strategic Discovery · 30 minutes</p>
+            <p className="section-eyebrow reveal-up">Free assessment · 30 minutes</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Are your decisions<br />
-              still spread across<br />
-              many spreadsheets?
+              Tired of pushing for data-driven<br />
+              decisions while your team still<br />
+              lives on spreadsheets?
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Managers who centralize their data in an automated dashboard recover hours
-              every week, walking into meetings knowing exactly what is happening.
-              In 30 minutes, find out if this works for your scenario.
+              Your team should be analyzing data, not preparing data. We automate
+              reports, integrate data and build dashboards so your team stops losing
+              time hunting for numbers.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong>Focused conversation. No fluff. No product pitch.</strong>{" "}
-              Just a structured conversation where we understand your data, your questions
-              and what needs to change so you stop depending on manual reports.
+              <strong>No commitment. Initial assessment in under 30 minutes.</strong>{" "}
+              You leave with clarity on bottlenecks, priority indicators and a first plan
+              to reduce spreadsheet dependency and speed up decisions.
             </p>
             <div className="ts-cta-row reveal-up">
-              <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Schedule Discovery
+              <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                Get Free Assessment
               </a>
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
                 Schedule on Calendly
               </a>
             </div>
+            <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
+              Takes 3 minutes · Free · Immediate result
+            </p>
           </div>
           <div className="ts-hero-visual" style={{ paddingBottom: "2rem" }}>
             <HeroCarouselScene />
@@ -214,7 +260,106 @@ export default function DiscoveryPage() {
       {/* ── MARQUEE ─────────────────────────────────────────── */}
       <MarqueeBand />
 
-      {/* ── BEFORE AND AFTER ────────────────────────────────── */}
+      {/* ── TRANSFORMATION: TODAY × AFTER ───────────────────── */}
+      <section id="transformation" className="lc-dores-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">The transformation</p>
+            <h2 className="section-title mt-3">
+              Stop wasting time building reports. See what changes.
+            </h2>
+          </div>
+          <div className="lc-dores-grid mt-12">
+            <div className="lc-dores-consequences">
+              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>Today at your company</p>
+              <ul className="lc-dores-list mt-3">
+                {today.map((item) => (
+                  <li key={item}>
+                    <span className="lc-dores-bullet">×</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="lc-dores-consequences lc-dores-consequences--cool">
+              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
+                After implementation
+              </p>
+              <ul className="lc-consequences-list mt-3">
+                {after.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ASSESSMENT (main offer) ──────────────────────────── */}
+      <section id="assessment" className="lc-cta-band">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
+          <p
+            className="section-eyebrow"
+            style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}
+          >
+            Main offer
+          </p>
+          <h2 className="lc-cta-title" style={{ maxWidth: "680px", margin: "0 auto" }}>
+            Find out in 3 minutes how much time your company loses because of decentralized data
+          </h2>
+          <p className="lc-cta-sub" style={{ maxWidth: "540px", margin: "1rem auto 0" }}>
+            Receive a free analysis with practical recommendations to reduce rework,
+            increase confidence in your numbers and speed up decision-making.
+          </p>
+          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
+            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Start Assessment
+            </a>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
+              Schedule on Calendly
+            </a>
+          </div>
+          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
+            Free · No commitment · Immediate result
+          </p>
+        </div>
+      </section>
+
+      {/* ── WHAT THE ASSESSMENT WILL REVEAL ─────────────────── */}
+      <section id="resultado" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">Your team should be analyzing data — not preparing data</p>
+            <h2 className="section-title mt-3">30 minutes later, you will leave knowing:</h2>
+          </div>
+          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
+            {outcomes.map((item, i) => (
+              <li
+                key={item.q}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "3rem 1fr",
+                  gap: "0 1.5rem",
+                  padding: "1.75rem 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
+                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ── BEFORE × AFTER (VISUAL) ──────────────────────────── */}
       <section id="antes-depois" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
@@ -256,88 +401,18 @@ export default function DiscoveryPage() {
               </figcaption>
             </figure>
           </div>
-        </div>
-      </section>
-
-      {/* ── QUALIFIER ───────────────────────────────────────── */}
-      <section id="para-quem" className="lc-dores-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-8">
-            <p className="section-eyebrow">Who it is for</p>
-            <h2 className="section-title mt-3">This conversation was made for you</h2>
+          <div className="lc-como-wrapper">
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>HOW IT WORKS IN PRACTICE</p>
+            <ZoomableImage
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
+              alt="Diagram showing data from different sources being centralized and feeding dashboards"
+              caption="From disconnected sources to decisions: how we centralize your data into a single reliable flow."
+              wrapperStyle={{
+                border: "5px solid rgba(240,237,232,0.7)",
+                boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
+              }}
+            />
           </div>
-          <div className="lc-dores-grid mt-12">
-            <div>
-              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
-                Yes, if you:
-              </p>
-              <ul className="lc-consequences-list mt-3">
-                {goodFit.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Schedule Discovery
-                </a>
-                <p className="lc-cta-caption">30 minutes · Initial analytics evolution plan</p>
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
-                  or schedule on Calendly →
-                </a>
-              </div>
-            </div>
-            <div className="lc-dores-consequences">
-              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>
-                Maybe not the right time if:
-              </p>
-              <ul className="lc-dores-list mt-3">
-                {badFit.map((item) => (
-                  <li key={item}>
-                    <span className="lc-dores-bullet">×</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="section-copy" style={{ fontSize: "0.85rem", marginTop: "2.5rem" }}>
-                If you recognized yourself in the items above, it is probably not the right
-                moment yet — that is completely fine. When the context changes, we are here.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHAT YOU WILL LEAVE KNOWING ─────────────────────── */}
-      <section id="resultado" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-8">
-            <p className="section-eyebrow">What you will leave knowing</p>
-            <h2 className="section-title mt-3">30 minutes later, you will have:</h2>
-          </div>
-          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
-            {outcomes.map((item, i) => (
-              <li
-                key={item.q}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "3rem 1fr",
-                  gap: "0 1.5rem",
-                  padding: "1.75rem 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
-                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
@@ -347,7 +422,7 @@ export default function DiscoveryPage() {
           <div className="section-divider" />
           <div className="mt-8">
             <p className="section-eyebrow">How it works</p>
-            <h2 className="section-title mt-3">Three steps. Zero friction</h2>
+            <h2 className="section-title mt-3">From assessment to dashboard in 5 steps</h2>
           </div>
           <div className="lc-how-steps mt-12">
             {steps.map((step) => (
@@ -373,6 +448,106 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
+      {/* ── PROBLEMS WE SOLVE ───────────────────────────────── */}
+      <section id="problems" className="lc-dores-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="lc-dores-grid mt-8">
+            <div>
+              <p className="section-eyebrow">The problem may be simpler than it looks</p>
+              <h2 className="section-title mt-3">
+                Maybe it is not a lack of dashboards — it is the lack of a single source of truth
+              </h2>
+              <p className="section-copy mt-4" style={{ fontSize: "0.9rem" }}>
+                If you said yes to any of these, the problem is probably not in the reports.
+                It is in how the data is organized.
+              </p>
+            </div>
+            <div>
+              <ul
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.85rem",
+                }}
+              >
+                {problems.map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                      fontSize: "0.96rem",
+                      color: "rgba(240,237,232,0.75)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <span
+                      style={{
+                        flexShrink: 0,
+                        width: "17px",
+                        height: "17px",
+                        border: "1.5px solid rgba(240,237,232,0.3)",
+                        borderRadius: "3px",
+                        marginTop: "0.18rem",
+                        display: "block",
+                      }}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Start Free Assessment
+                </a>
+                <p className="lc-cta-caption">30 minutes · Free · No commitment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROOF AND CREDIBILITY ────────────────────────────── */}
+      <section id="credibility" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">Research confirms the problem</p>
+            <h2 className="section-title mt-3">It is not just your company</h2>
+          </div>
+          <div className="lc-benefits-grid mt-12">
+            {stats.map((stat) => (
+              <div
+                key={stat.source}
+                className="lc-benefit-item"
+                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.75rem" }}
+              >
+                <p
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#2ee6a6",
+                    margin: 0,
+                  }}
+                >
+                  {stat.source}
+                </p>
+                <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.65)", lineHeight: 1.65, margin: 0 }}>
+                  &ldquo;{stat.text}&rdquo;
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PARALLAX ────────────────────────────────────────── */}
       <div
         className="parallax-break"
@@ -380,9 +555,11 @@ export default function DiscoveryPage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;The problem is almost never a lack of data. It is the opportunity cost of not seeing, at the right moment, where profitability is slipping because information still depends on an intermediary to reach whoever decides.&rdquo;
+            &ldquo;The problem is almost never a lack of data. It is the opportunity cost of not seeing,
+            at the right moment, where profitability is slipping because information still depends on
+            an intermediary to reach whoever decides.&rdquo;
           </p>
-          <span className="parallax-attribution">Loyal Consulting · Discovery</span>
+          <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>
       </div>
 
@@ -392,7 +569,7 @@ export default function DiscoveryPage() {
           <div className="section-divider" />
           <div className="mt-8">
             <p className="section-eyebrow">Frequently asked questions</p>
-            <h2 className="section-title mt-3">Questions before booking</h2>
+            <h2 className="section-title mt-3">Questions before getting started</h2>
           </div>
           <div className="mt-10 lc-faq-stagger">
             {faqItems.map((item, i) => (
@@ -434,29 +611,22 @@ export default function DiscoveryPage() {
             </figure>
             <div>
               <p className="section-eyebrow">About Loyal</p>
-              <h2 className="section-title mt-3">Loyal Consulting</h2>
+              <h2 className="section-title mt-3">Specialists in turning data into decisions</h2>
               <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
                 Boutique Business Intelligence consultancy
               </p>
               <p className="section-copy" style={{ marginTop: "1.6rem" }}>
-                Over a decade of data operations inside large companies, building dashboards,
-                data pipelines and analytics models for management teams that needed to see the
-                numbers clearly — not with delay.
+                Loyal Consulting helps companies eliminate manual controls, integrate
+                information and build reliable indicators for management.
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
-                Along the way, we saw the same pattern repeat across completely different
-                industries: the data existed, but nobody trusted it. Not because the systems
-                were bad. Because the information was fragmented, outdated or depended on
-                someone to consolidate it before it reached whoever had to decide.
-              </p>
-              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
-                Loyal was built from that observation. The work is not about installing tools —
-                it is about understanding what you need to see and building the most direct path
-                to that visibility.
+                Our focus is not just building dashboards. It is building the structure that
+                makes the numbers meaningful — and gets them there in time to influence the
+                right decisions.
               </p>
               <div className="mt-8">
-                <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Schedule Discovery
+                <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Get Free Assessment
                 </a>
               </div>
             </div>
@@ -467,14 +637,14 @@ export default function DiscoveryPage() {
       {/* ── FINAL CTA ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Stop opening 5 spreadsheets to answer one question</h2>
+          <h2 className="lc-cta-title">Find out how much time your team can save.</h2>
           <p className="lc-cta-sub">
-            30 minutes is all you need to find out if there is a more efficient path.
-            No cost. No commitment. And with clarity on what to do next.
+            Get a free assessment of your data processes and identify opportunities
+            for automation and integration — no cost, no commitment.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Schedule Discovery
+            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Get Free Assessment
             </a>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
               Schedule on Calendly
@@ -512,7 +682,7 @@ export default function DiscoveryPage() {
       </div>
 
       <a
-        href={WA_DISCOVERY_EN}
+        href={WA_DIAGNOSTICO_EN}
         target="_blank"
         rel="noopener noreferrer"
         className="ts-float-wa"

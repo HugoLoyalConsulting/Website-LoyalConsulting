@@ -1,28 +1,82 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WA_COMECAR_EN, WA_DIAGNOSTICO_EN, CALENDLY_URL } from "@/lib/links";
+import { WA_DIAGNOSTICO_EN } from "@/lib/links";
 
-// ── Sound familiar? ────────────────────────────────────────────────────────
-const painPoints = [
-  "You open several spreadsheets just to understand how the company is doing",
-  "Hours are lost consolidating reports by hand",
-  "Each team reports a different number for the same KPI",
-  "Information arrives too late to act on",
-  "There is little trust in the numbers used in meetings",
-  "Your team spends more time building reports than analyzing them",
+// ── Today × After ─────────────────────────────────────────────────────────
+const today = [
+  "Spreadsheets scattered across email and WhatsApp",
+  "Reports built manually every week",
+  "Each team with its own version of the numbers",
+  "Copy-pasting to build presentations",
+  "Meetings arguing about which version is right",
 ];
 
-// ── Imagine starting the day with answers ──────────────────────────────────
-const morningAnswers = [
-  "How the main business KPIs are doing",
-  "Where results are off-track versus targets",
-  "Which areas need attention right now",
-  "How the operation has evolved over time",
-  "Where the biggest improvement opportunities are",
+const after = [
+  "Data centralized in a single source",
+  "Automatic updates, no manual rework",
+  "Standardized KPIs across every team",
+  "Real-time dashboards",
+  "Meetings focused on decisions",
+];
+
+// ── How it works ───────────────────────────────────────────────────────────
+const processSteps = [
+  {
+    num: "01",
+    title: "Assessment",
+    body: "We map your data sources, current indicators and bottlenecks to understand the real starting point.",
+  },
+  {
+    num: "02",
+    title: "Data integration",
+    body: "We connect spreadsheets, ERPs, CRMs and APIs into a single reliable model, accessible across all teams.",
+  },
+  {
+    num: "03",
+    title: "Automation",
+    body: "We eliminate manual rework by replacing repetitive processes with automatic update flows.",
+  },
+  {
+    num: "04",
+    title: "Dashboards",
+    body: "We build panels with the indicators that actually matter for your management — clear, direct and easy to use.",
+  },
+  {
+    num: "05",
+    title: "Ongoing support",
+    body: "Continuous support for adjustments, team training and indicator expansion as the business grows.",
+  },
+];
+
+// ── Problems we solve ─────────────────────────────────────────────────────
+const problems = [
+  "The numbers don't match across teams",
+  "Every department has its own spreadsheet",
+  "Reports always arrive too late",
+  "You don't fully trust the indicators",
+  "Your team loses hours consolidating data",
+  "You don't know for certain which number is right",
+];
+
+// ── Proof and credibility ─────────────────────────────────────────────────
+const stats = [
+  {
+    source: "McKinsey",
+    text: "Data-driven organizations significantly outperform peers in customer acquisition, retention and profitability.",
+  },
+  {
+    source: "Deloitte",
+    text: "The absence of integrated data reduces decision speed and increases operational rework in mid-size and large companies.",
+  },
+  {
+    source: "PwC",
+    text: "Companies that modernize data management reduce time spent on manual consolidation and increase confidence in business indicators.",
+  },
 ];
 
 export default function HomePage() {
@@ -53,30 +107,29 @@ export default function HomePage() {
           className="mx-auto w-full max-w-7xl px-5 sm:px-8"
           style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
         >
-          <div style={{ maxWidth: "640px" }}>
+          <div style={{ maxWidth: "660px" }}>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Stop running your<br />
-              business through<br />
-              many spreadsheets
+              Tired of pushing for data-driven<br />
+              decisions while your team<br />
+              still lives on spreadsheets?
             </h1>
             <p className="ts-hero-sub reveal-up">
-              We bring your spreadsheets and systems together into a single dashboard that
-              updates itself and shows what is going on, with no rework, no guesswork.
-            </p>
-            <p className="ts-hero-copy reveal-up">
-              <strong>
-                See the forest and every single leaf of your business, on one screen.
-              </strong>
+              Your team should be analyzing data, not preparing data. We connect your sources,
+              automate reports and deliver dashboards with the right numbers, in the right
+              place, at the right time.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                I want a free assessment
+                Get a Free Assessment
               </a>
               <Link href="/en/how-it-works" className="btn-outline">
                 See how it works
               </Link>
             </div>
+            <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
+              Takes 3 minutes · Free · Immediate result
+            </p>
           </div>
         </div>
       </section>
@@ -84,79 +137,88 @@ export default function HomePage() {
       {/* ── MARQUEE ─────────────────────────────────────────── */}
       <MarqueeBand />
 
-      {/* ── SOUND FAMILIAR? ─────────────────────────────────── */}
-      <section id="identifica" className="lc-dores-section">
+      {/* ── TRANSFORMATION: TODAY × AFTER ───────────────────── */}
+      <section id="transformation" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8">
-            <p className="section-eyebrow">Sound familiar?</p>
-            <h2 className="section-title mt-3">Do any of these situations look like your routine?</h2>
+            <p className="section-eyebrow">The transformation</p>
+            <h2 className="section-title mt-3">
+              We turn scattered data into a single reliable source for decision-making
+            </h2>
           </div>
-
           <div className="lc-dores-grid mt-12">
-            <div>
-              <ul className="lc-dores-list">
-                {painPoints.map((pain) => (
-                  <li key={pain}>
+            <div className="lc-dores-consequences">
+              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>Today at your company</p>
+              <ul className="lc-dores-list mt-3">
+                {today.map((item) => (
+                  <li key={item}>
                     <span className="lc-dores-bullet">×</span>
-                    {pain}
+                    {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">
-                If at least two of these are part of your routine...
+              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
+                After Loyal
               </p>
-              <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...this can be automated, giving hours back to your team
-              </h3>
-              <div className="mt-8">
-                <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  I want a free assessment
-                </a>
-                <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
-                  Straight on WhatsApp · No commitment.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── IMAGINE STARTING THE DAY WITH ANSWERS ───────────── */}
-      <section id="imagine" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="lc-dores-grid mt-8">
-            <div>
-              <p className="section-eyebrow">The other side</p>
-              <h2 className="section-title mt-3">Imagine starting the day with answers ready</h2>
-              <p className="section-copy mt-4">
-                Instead of hunting numbers across files, you open one screen and instantly see:
-              </p>
-            </div>
-            <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <ul className="lc-consequences-list">
-                {morningAnswers.map((item) => (
+              <ul className="lc-consequences-list mt-3">
+                {after.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy" style={{ marginTop: "2.5rem", color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
-                All in a single dashboard.
-              </p>
             </div>
           </div>
+          <p
+            style={{
+              marginTop: "2.5rem",
+              textAlign: "center",
+              fontSize: "0.8rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "rgba(240,237,232,0.32)",
+            }}
+          >
+            Through: Data Integration · Automation · Business Intelligence
+          </p>
         </div>
       </section>
 
-      {/* ── BEFORE → AFTER ──────────────────────────────────── */}
+      {/* ── ASSESSMENT (main offer) ──────────────────────────── */}
+      <section id="assessment" className="lc-cta-band">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
+          <p
+            className="section-eyebrow"
+            style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}
+          >
+            Free assessment
+          </p>
+          <h2 className="lc-cta-title" style={{ maxWidth: "680px", margin: "0 auto" }}>
+            Find out in 3 minutes how much time your company loses because of decentralized data
+          </h2>
+          <p className="lc-cta-sub" style={{ maxWidth: "540px", margin: "1rem auto 0" }}>
+            Receive a free analysis with practical recommendations to reduce rework,
+            increase confidence in your numbers and speed up decision-making.
+          </p>
+          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
+            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Start Assessment
+            </a>
+          </div>
+          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
+            Free · No commitment · Immediate result
+          </p>
+        </div>
+      </section>
+
+      {/* ── BEFORE × AFTER (VISUAL) ──────────────────────────── */}
       <section id="before-after" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8">
             <p className="section-eyebrow">Before and after</p>
-            <h2 className="section-title mt-3">From spreadsheet marathon to a single screen</h2>
+            <h2 className="section-title mt-3">From a spreadsheet marathon to a single screen</h2>
           </div>
           <div className="lc-beforeafter-grid mt-12">
             <figure className="lc-ba-card lc-ba-card--antes">
@@ -171,8 +233,8 @@ export default function HomePage() {
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                Multiple files open, duplicate tabs, and hours of copy-paste to
-                answer a single question.
+                Multiple files open, duplicate tabs, hours of copy-paste to answer
+                a single question.
               </figcaption>
             </figure>
             <figure className="lc-ba-card lc-ba-card--depois">
@@ -187,34 +249,141 @@ export default function HomePage() {
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                One dashboard that updates itself: the big picture and the detail, in one
-                place, without depending on anyone to prepare it.
+                One dashboard that updates itself: the big picture and the detail, in the
+                same place, without depending on anyone to prepare.
               </figcaption>
             </figure>
+          </div>
+          <div className="lc-como-wrapper">
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>HOW IT WORKS IN PRACTICE</p>
+            <ZoomableImage
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
+              alt="Diagram showing data from different sources being centralized and feeding dashboards"
+              caption="From disconnected sources to decisions: how we centralize your data into a single reliable flow."
+              wrapperStyle={{
+                border: "5px solid rgba(240,237,232,0.7)",
+                boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
+              }}
+            />
           </div>
         </div>
       </section>
 
-      {/* ── ABOUT LOYAL ─────────────────────────────────────── */}
-      <section id="sobre" className="lc-benefits-section">
+      {/* ── HOW IT WORKS ────────────────────────────────────── */}
+      <section id="how-it-works" className="lc-how-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">How it works</p>
+            <h2 className="section-title mt-3">From assessment to dashboard in 5 steps</h2>
+          </div>
+          <div className="lc-how-steps mt-12">
+            {processSteps.map((step) => (
+              <div key={step.num} className="lc-how-step">
+                <span className="lc-how-num">{step.num}</span>
+                <h3 className="lc-how-title">{step.title}</h3>
+                <p className="lc-how-body">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROBLEMS WE SOLVE ───────────────────────────────── */}
+      <section id="problems" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-8">
             <div>
-              <p className="section-eyebrow">About Loyal</p>
-              <h2 className="section-title mt-3">A boutique Business Intelligence consultancy</h2>
+              <p className="section-eyebrow">Problems we solve</p>
+              <h2 className="section-title mt-3">
+                These situations are preventing your company from growing with clarity
+              </h2>
+              <p className="section-copy mt-4" style={{ fontSize: "0.9rem" }}>
+                If you said yes to any of these, the problem is probably not in the reports
+                — it is in how the data is organized.
+              </p>
             </div>
             <div>
-              <p className="section-copy">
-                Ten years of data operations, watching entire departments (even inside
-                billion-dollar companies) operate blind despite having oceans of information.
-              </p>
-              <p className="section-copy" style={{ marginTop: "2rem" }}>
-                We work side by side with directors, managers, coordinators and supervisors to turn
-                disconnected spreadsheets and systems into faster, more reliable decisions.
-                Lean projects, practical deliveries, no unnecessary complexity.
-              </p>
+              <ul
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.85rem",
+                }}
+              >
+                {problems.map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                      fontSize: "0.96rem",
+                      color: "rgba(240,237,232,0.75)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <span
+                      style={{
+                        flexShrink: 0,
+                        width: "17px",
+                        height: "17px",
+                        border: "1.5px solid rgba(240,237,232,0.3)",
+                        borderRadius: "3px",
+                        marginTop: "0.18rem",
+                        display: "block",
+                      }}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  I want to solve this
+                </a>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROOF AND CREDIBILITY ────────────────────────────── */}
+      <section id="credibility" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">Research confirms the problem</p>
+            <h2 className="section-title mt-3">It is not just your company</h2>
+          </div>
+          <div className="lc-benefits-grid mt-12">
+            {stats.map((stat) => (
+              <div
+                key={stat.source}
+                className="lc-benefit-item"
+                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.75rem" }}
+              >
+                <p
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#2ee6a6",
+                    margin: 0,
+                  }}
+                >
+                  {stat.source}
+                </p>
+                <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.65)", lineHeight: 1.65, margin: 0 }}>
+                  &ldquo;{stat.text}&rdquo;
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -226,42 +395,33 @@ export default function HomePage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Stop spending hours opening spreadsheets to understand how the business
-            is doing. Start the day with one dashboard and the answers ready — updated on
-            its own, with zero rework.&rdquo;
+            &ldquo;If each team has a different number for the same KPI,
+            you don&apos;t have data. You have opinions.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>
       </div>
 
-      {/* ── DISCOVERY ───────────────────────────────────────── */}
-      <section id="discovery" className="lc-dores-section">
+      {/* ── ABOUT LOYAL ─────────────────────────────────────── */}
+      <section id="about" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-8">
             <div>
-              <p className="section-eyebrow">Next step</p>
-              <h2 className="section-title mt-3">Want to see this applied to your reality?</h2>
-              <p className="section-copy mt-4">
-                Discovery is a free 30-minute conversation to understand your routine, pick
-                the numbers that matter and outline the path to your dashboard.
-              </p>
+              <p className="section-eyebrow">About Loyal</p>
+              <h2 className="section-title mt-3">Specialists in turning data into decisions</h2>
             </div>
-            <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">Worth it if you:</p>
-              <ul className="lc-consequences-list mt-3">
-                <li>Feel like you are making decisions in the dark</li>
-                <li>Know the current process doesn&apos;t scale — but don&apos;t know where to start</li>
-                <li>Want to understand what is possible before any commitment</li>
-              </ul>
-              <div className="mt-6">
-                <Link href="/en/discovery" className="btn-accent">
-                  Request a Discovery
-                </Link>
-                <p className="mt-3" style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.5)" }}>
-                  Free 30-minute conversation.
-                </p>
-              </div>
+            <div>
+              <p className="section-copy">
+                Loyal Consulting helps companies eliminate manual controls, integrate
+                information and build reliable indicators for management.
+              </p>
+              <p className="section-copy" style={{ marginTop: "2rem" }}>
+                Our focus is not just building dashboards. It is building the structure that
+                makes the numbers meaningful — and gets them there in time to influence the
+                right decisions. We work alongside directors, managers, coordinators and
+                supervisors, with lean projects and practical deliveries.
+              </p>
             </div>
           </div>
         </div>
@@ -270,17 +430,17 @@ export default function HomePage() {
       {/* ── FINAL CTA ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Shall we find out how to simplify your data management?</h2>
+          <h2 className="lc-cta-title">Find out where your company is losing time on data.</h2>
           <p className="lc-cta-sub">
-            Reach out on WhatsApp and get a personalized recommendation on next steps.
+            Get a free personalized assessment of your data maturity.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_COMECAR_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              I want to get started
+            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Get Free Assessment
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Schedule on Calendly
-            </a>
+            <Link href="/en/how-it-works" className="btn-outline">
+              See how it works
+            </Link>
           </div>
         </div>
       </div>

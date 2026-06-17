@@ -5,25 +5,78 @@ import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WA_COMECAR, WA_DIAGNOSTICO, CALENDLY_URL } from "@/lib/links";
+import { WA_DIAGNOSTICO } from "@/lib/links";
 
-// ── Você se identifica? ────────────────────────────────────────────────────
-const painPoints = [
-  "Precisa abrir várias planilhas para entender o desempenho da empresa",
-  "Perde horas consolidando relatórios manualmente",
-  "Cada área apresenta números diferentes para o mesmo indicador",
-  "As informações chegam tarde demais para agir",
-  "Falta confiança nos dados utilizados nas reuniões",
-  "Sua equipe gasta tempo produzindo relatórios em vez de analisá-los",
+// ── Hoje × Depois ─────────────────────────────────────────────────────────
+const hoje = [
+  "Planilhas espalhadas por e-mail e WhatsApp",
+  "Relatórios feitos manualmente toda semana",
+  "Cada área com seu próprio número",
+  "Copiar e colar para montar apresentações",
+  "Reuniões discutindo qual versão está certa",
 ];
 
-// ── Imagine começar o dia com respostas prontas ────────────────────────────
-const morningAnswers = [
-  "Como estão os principais indicadores do negócio",
-  "Onde existem desvios em relação às metas",
-  "Quais áreas exigem atenção imediata",
-  "Como a operação evoluiu ao longo do tempo",
-  "Onde estão as maiores oportunidades de melhoria",
+const depois = [
+  "Dados centralizados em uma fonte única",
+  "Atualizações automáticas, sem retrabalho",
+  "Indicadores padronizados entre todas as áreas",
+  "Dashboards em tempo real",
+  "Reuniões focadas em decisões",
+];
+
+// ── Como funciona ──────────────────────────────────────────────────────────
+const processSteps = [
+  {
+    num: "01",
+    title: "Diagnóstico",
+    body: "Mapeamos suas fontes de dados, indicadores atuais e gargalos para entender o ponto de partida real.",
+  },
+  {
+    num: "02",
+    title: "Integração dos dados",
+    body: "Conectamos planilhas, ERPs, CRMs e APIs em uma base única e confiável, acessível por todas as áreas.",
+  },
+  {
+    num: "03",
+    title: "Automação",
+    body: "Eliminamos o retrabalho manual substituindo processos repetitivos por fluxos automáticos de atualização.",
+  },
+  {
+    num: "04",
+    title: "Dashboards",
+    body: "Criamos painéis com os indicadores que realmente importam — claros, diretos e fáceis de usar.",
+  },
+  {
+    num: "05",
+    title: "Acompanhamento",
+    body: "Suporte contínuo para ajustes, treinamento do time e expansão dos indicadores conforme o negócio cresce.",
+  },
+];
+
+// ── Problemas que resolvemos ───────────────────────────────────────────────
+const problemas = [
+  "Os números não batem entre as áreas",
+  "Cada departamento tem sua própria planilha",
+  "Os relatórios sempre chegam tarde",
+  "Você não confia totalmente nos indicadores",
+  "Sua equipe perde horas consolidando dados",
+  "Você não sabe com certeza qual número está certo",
+];
+
+// ── Prova e credibilidade ──────────────────────────────────────────────────
+const stats = [
+  {
+    source: "McKinsey",
+    text: "Organizações orientadas por dados apresentam desempenho significativamente superior em aquisição de clientes, retenção e lucratividade.",
+  },
+  {
+    source: "Deloitte",
+    text: "A ausência de dados integrados reduz a velocidade de decisão e aumenta o retrabalho operacional em médias e grandes empresas.",
+  },
+  {
+    source: "PwC",
+    text: "Empresas que modernizam sua gestão de dados reduzem o tempo gasto em consolidação manual e aumentam a confiança nos indicadores.",
+  },
 ];
 
 export default function HomePage() {
@@ -54,30 +107,29 @@ export default function HomePage() {
           className="mx-auto w-full max-w-7xl px-5 sm:px-8"
           style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
         >
-          <div style={{ maxWidth: "640px" }}>
+          <div style={{ maxWidth: "660px" }}>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Pare de gerenciar<br />
-              seu negócio olhando<br />
-              inúmeras planilhas
+              Você está cansado de cobrar<br />
+              decisões baseadas em dados,<br />
+              mas seu time ainda vive de planilha?
             </h1>
             <p className="ts-hero-sub reveal-up">
-              A gente junta suas planilhas e sistemas em um painel só, que se atualiza
-              sozinho e mostra o que está acontecendo, sem retrabalho e sem achismo.
-            </p>
-            <p className="ts-hero-copy reveal-up">
-              <strong>
-                Enxergue a floresta e também cada folha do seu negócio, em uma única tela.
-              </strong>
+              Sua equipe deveria analisar dados, não preparar dados. Conectamos suas fontes,
+              automatizamos relatórios e entregamos dashboards com os números certos, no
+              lugar certo, na hora certa.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Quero um diagnóstico gratuito
+                Fazer o Diagnóstico Gratuito
               </a>
               <Link href="/como-funciona" className="btn-outline">
                 Ver como funciona
               </Link>
             </div>
+            <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
+              Leva 3 minutos · Gratuito · Resultado imediato
+            </p>
           </div>
         </div>
       </section>
@@ -85,73 +137,82 @@ export default function HomePage() {
       {/* ── MARQUEE ─────────────────────────────────────────── */}
       <MarqueeBand />
 
-      {/* ── VOCÊ SE IDENTIFICA? ─────────────────────────────── */}
-      <section id="identifica" className="lc-dores-section">
+      {/* ── TRANSFORMAÇÃO: HOJE × DEPOIS ────────────────────── */}
+      <section id="transformacao" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8">
-            <p className="section-eyebrow">Você se identifica?</p>
-            <h2 className="section-title mt-3">Você se identifica com alguma dessas situações?</h2>
+            <p className="section-eyebrow">A transformação</p>
+            <h2 className="section-title mt-3">
+              Transformamos dados espalhados em uma única fonte confiável para tomada de decisão
+            </h2>
           </div>
-
           <div className="lc-dores-grid mt-12">
-            <div>
-              <ul className="lc-dores-list">
-                {painPoints.map((pain) => (
-                  <li key={pain}>
+            <div className="lc-dores-consequences">
+              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>Hoje na sua empresa</p>
+              <ul className="lc-dores-list mt-3">
+                {hoje.map((item) => (
+                  <li key={item}>
                     <span className="lc-dores-bullet">×</span>
-                    {pain}
+                    {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">
-                Se pelo menos duas dessas situações fazem parte da sua rotina...
+              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
+                Depois da Loyal
               </p>
-              <h3 className="section-title" style={{ fontSize: "1.2rem" }}>
-                ...dá para automatizar isso e devolver horas para a sua equipe
-              </h3>
-              <div className="mt-8">
-                <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero um diagnóstico gratuito
-                </a>
-                <p className="mt-3" style={{ fontSize: "0.82rem", color: "rgba(240,237,232,0.5)" }}>
-                  Direto no WhatsApp · Sem compromisso.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── IMAGINE COMEÇAR O DIA COM RESPOSTAS PRONTAS ─────── */}
-      <section id="imagine" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="lc-dores-grid mt-8">
-            <div>
-              <p className="section-eyebrow">O outro lado</p>
-              <h2 className="section-title mt-3">Imagine começar o dia com respostas prontas</h2>
-              <p className="section-copy mt-4">
-                Em vez de caçar números em vários arquivos, você abre uma tela e vê na hora:
-              </p>
-            </div>
-            <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <ul className="lc-consequences-list">
-                {morningAnswers.map((item) => (
+              <ul className="lc-consequences-list mt-3">
+                {depois.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="section-copy" style={{ marginTop: "2.5rem", color: "rgba(240,237,232,0.85)", fontWeight: 600 }}>
-                Tudo em um único painel.
-              </p>
             </div>
           </div>
+          <p
+            style={{
+              marginTop: "2.5rem",
+              textAlign: "center",
+              fontSize: "0.8rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "rgba(240,237,232,0.32)",
+            }}
+          >
+            Por meio de: Integração de Dados · Automação · Business Intelligence
+          </p>
         </div>
       </section>
 
-      {/* ── ANTES → DEPOIS ──────────────────────────────────── */}
+      {/* ── DIAGNÓSTICO (oferta principal) ──────────────────── */}
+      <section id="diagnostico" className="lc-cta-band">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
+          <p
+            className="section-eyebrow"
+            style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}
+          >
+            Diagnóstico gratuito
+          </p>
+          <h2 className="lc-cta-title" style={{ maxWidth: "680px", margin: "0 auto" }}>
+            Descubra em 3 minutos quanto tempo sua empresa perde por causa de dados descentralizados
+          </h2>
+          <p className="lc-cta-sub" style={{ maxWidth: "540px", margin: "1rem auto 0" }}>
+            Receba uma análise gratuita com recomendações práticas para reduzir retrabalho,
+            aumentar a confiança nos números e acelerar a tomada de decisão.
+          </p>
+          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
+            <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Iniciar Diagnóstico
+            </a>
+          </div>
+          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
+            Gratuito · Sem compromisso · Resultado imediato
+          </p>
+        </div>
+      </section>
+
+      {/* ── ANTES × DEPOIS (VISUAL) ──────────────────────────── */}
       <section id="antes-depois" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
@@ -165,14 +226,14 @@ export default function HomePage() {
               <div className="lc-ba-img">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
-                  alt="Várias planilhas de Excel abertas ao mesmo tempo na mesma tela"
+                  alt="Várias planilhas de Excel abertas ao mesmo tempo"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ objectFit: "cover", objectPosition: "top left" }}
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                Vários arquivos abertos, abas duplicadas e horas de cópia e cola para
+                Vários arquivos abertos, abas duplicadas, horas de cópia e cola para
                 responder uma única pergunta.
               </figcaption>
             </figure>
@@ -188,17 +249,17 @@ export default function HomePage() {
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                Um painel que se atualiza sozinho: a visão geral e o detalhe, no mesmo lugar,
+                Um painel que se atualiza sozinho: visão geral e detalhe no mesmo lugar,
                 sem depender de ninguém para preparar.
               </figcaption>
             </figure>
           </div>
           <div className="lc-como-wrapper">
-            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO FUNCIONA</p>
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO FUNCIONA NA PRÁTICA</p>
             <ZoomableImage
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
-              alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
-              caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único pipeline confiável."
+              alt="Diagrama mostrando dados de diferentes fontes sendo centralizados e alimentando dashboards"
+              caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único fluxo confiável."
               wrapperStyle={{
                 border: "5px solid rgba(240,237,232,0.7)",
                 boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
@@ -208,26 +269,122 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SOBRE A LOYAL ───────────────────────────────────── */}
-      <section id="sobre" className="lc-benefits-section">
+      {/* ── COMO FUNCIONA ───────────────────────────────────── */}
+      <section id="como-funciona" className="lc-how-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">Como funciona</p>
+            <h2 className="section-title mt-3">Do diagnóstico ao dashboard em 5 etapas</h2>
+          </div>
+          <div className="lc-how-steps mt-12">
+            {processSteps.map((step) => (
+              <div key={step.num} className="lc-how-step">
+                <span className="lc-how-num">{step.num}</span>
+                <h3 className="lc-how-title">{step.title}</h3>
+                <p className="lc-how-body">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROBLEMAS QUE RESOLVEMOS ─────────────────────────── */}
+      <section id="problemas" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-8">
             <div>
-              <p className="section-eyebrow">Sobre a Loyal</p>
-              <h2 className="section-title mt-3">Uma consultoria boutique de Business Intelligence</h2>
+              <p className="section-eyebrow">Problemas que resolvemos</p>
+              <h2 className="section-title mt-3">
+                Essas situações estão impedindo sua empresa de crescer com clareza
+              </h2>
+              <p className="section-copy mt-4" style={{ fontSize: "0.9rem" }}>
+                Se você respondeu sim para qualquer um desses pontos, o problema
+                provavelmente não está nos relatórios — está na forma como os dados
+                estão organizados.
+              </p>
             </div>
             <div>
-              <p className="section-copy">
-                São 10 anos de operações em dados, vendo de perto como áreas inteiras (até em
-                empresas bilionárias) operam às cegas mesmo tendo abundância de informações.
-              </p>
-              <p className="section-copy" style={{ marginTop: "2rem" }}>
-                Trabalhamos lado a lado com diretores, gerentes, coordenadores e supervisores para
-                transformar planilhas e sistemas desconectados em decisões mais rápidas e
-                confiáveis. Projetos enxutos, entregas práticas, sem complexidade desnecessária.
-              </p>
+              <ul
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.85rem",
+                }}
+              >
+                {problemas.map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                      fontSize: "0.96rem",
+                      color: "rgba(240,237,232,0.75)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <span
+                      style={{
+                        flexShrink: 0,
+                        width: "17px",
+                        height: "17px",
+                        border: "1.5px solid rgba(240,237,232,0.3)",
+                        borderRadius: "3px",
+                        marginTop: "0.18rem",
+                        display: "block",
+                      }}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Quero resolver isso
+                </a>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROVA E CREDIBILIDADE ────────────────────────────── */}
+      <section id="credibilidade" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-8">
+            <p className="section-eyebrow">Dados que confirmam a dor</p>
+            <h2 className="section-title mt-3">Não é só na sua empresa</h2>
+          </div>
+          <div className="lc-benefits-grid mt-12">
+            {stats.map((stat) => (
+              <div
+                key={stat.source}
+                className="lc-benefit-item"
+                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.75rem" }}
+              >
+                <p
+                  style={{
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#2ee6a6",
+                    margin: 0,
+                  }}
+                >
+                  {stat.source}
+                </p>
+                <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.65)", lineHeight: 1.65, margin: 0 }}>
+                  &ldquo;{stat.text}&rdquo;
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -239,42 +396,33 @@ export default function HomePage() {
       >
         <div className="parallax-break__inner">
           <p className="parallax-quote">
-            &ldquo;Pare de passar horas abrindo planilhas para entender como vai o
-            negócio. Passe a ter um único painel com as respostas prontas,
-            atualizado sozinho, sem retrabalho.&rdquo;
+            &ldquo;Se cada área tem um número diferente para o mesmo indicador,
+            você não tem dados. Você tem opiniões.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>
         </div>
       </div>
 
-      {/* ── DISCOVERY ───────────────────────────────────────── */}
-      <section id="discovery" className="lc-dores-section">
+      {/* ── SOBRE A LOYAL ───────────────────────────────────── */}
+      <section id="sobre" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="lc-dores-grid mt-8">
             <div>
-              <p className="section-eyebrow">Próximo passo</p>
-              <h2 className="section-title mt-3">Quer ver isso aplicado à sua realidade?</h2>
-              <p className="section-copy mt-4">
-                A Discovery é uma conversa gratuita de 30 minutos para entender sua rotina,
-                escolher os números que importam e desenhar o caminho até o seu painel.
-              </p>
+              <p className="section-eyebrow">Sobre a Loyal</p>
+              <h2 className="section-title mt-3">Especialistas em transformar dados em decisões</h2>
             </div>
-            <div className="lc-dores-consequences lc-dores-consequences--cool">
-              <p className="lc-dores-while-title lc-dores-while-title--cool">Vale se você:</p>
-              <ul className="lc-consequences-list mt-3">
-                <li>Sente que está tomando decisões no escuro</li>
-                <li>Sabe que o processo atual não escala (mas não sabe por onde começar)</li>
-                <li>Quer entender o que é possível antes de qualquer compromisso</li>
-              </ul>
-              <div className="mt-6">
-                <Link href="/discovery" className="btn-accent">
-                  Solicitar Discovery
-                </Link>
-                <p className="mt-3" style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.5)" }}>
-                  Conversa gratuita de 30 minutos.
-                </p>
-              </div>
+            <div>
+              <p className="section-copy">
+                A Loyal Consulting ajuda empresas a eliminar controles manuais, integrar
+                informações e construir indicadores confiáveis para a gestão.
+              </p>
+              <p className="section-copy" style={{ marginTop: "2rem" }}>
+                Nosso foco não é apenas criar dashboards. É construir a estrutura necessária
+                para que os números façam sentido — e cheguem a tempo de influenciar as
+                decisões certas. Trabalhamos lado a lado com diretores, gerentes, coordenadores
+                e supervisores, com projetos enxutos e entregas práticas.
+              </p>
             </div>
           </div>
         </div>
@@ -283,18 +431,17 @@ export default function HomePage() {
       {/* ── CTA FINAL ───────────────────────────────────────── */}
       <div className="lc-cta-band">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <h2 className="lc-cta-title">Vamos descobrir como simplificar a gestão dos seus dados?</h2>
+          <h2 className="lc-cta-title">Descubra onde sua empresa está perdendo tempo com dados.</h2>
           <p className="lc-cta-sub">
-            Fale com a gente no WhatsApp e receba uma recomendação personalizada sobre os
-            próximos passos.
+            Receba gratuitamente um diagnóstico personalizado da sua maturidade de dados.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_COMECAR} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Quero começar
+            <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
+              Fazer Diagnóstico Gratuito
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Agendar pelo Calendly
-            </a>
+            <Link href="/como-funciona" className="btn-outline">
+              Ver como funciona
+            </Link>
           </div>
         </div>
       </div>
