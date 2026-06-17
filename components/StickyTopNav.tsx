@@ -161,7 +161,7 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
               ))}
             </div>
             <div className="ts-nav-right">
-              <
+              <a
                 href={t.waUrl}
                 target="_blank"
                 rel="noopener noreferrer"

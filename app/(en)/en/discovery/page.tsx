@@ -193,7 +193,7 @@ export default function DiscoveryPage() {
               <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
             <div className="ts-nav-right">
-              <
+              <a
                 href={WA_DIAGNOSTICO_EN}
                 target="_blank"
                 rel="noopener noreferrer"
