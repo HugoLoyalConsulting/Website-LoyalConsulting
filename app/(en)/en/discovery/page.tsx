@@ -109,16 +109,22 @@ const steps = [
 // ── Proof and credibility ─────────────────────────────────────────────────
 const stats = [
   {
-    source: "McKinsey",
-    text: "Data-driven organizations significantly outperform peers in customer acquisition, retention and profitability.",
+    source: "McKinsey Global Institute",
+    title: "The Age of Analytics: Competing in a Data-Driven World",
+    url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-age-of-analytics-competing-in-a-data-driven-world",
+    text: "47% of global executives say data and analytics have significantly or fundamentally changed competition in their industries — while laggards face growing disadvantage.",
   },
   {
-    source: "Deloitte",
-    text: "The absence of integrated data reduces decision speed and increases operational rework in mid-size and large companies.",
+    source: "Deloitte Insights",
+    title: "Insight-Driven Organisations",
+    url: "https://www.deloitte.com/uk/en/services/consulting/services/insight-driven-organisations.html",
+    text: "Companies that become insight-driven speed up decision-making, reduce operational errors and build a sustainable competitive advantage over peers that still depend on manual data preparation.",
   },
   {
     source: "PwC",
-    text: "Companies that modernize data management reduce time spent on manual consolidation and increase confidence in business indicators.",
+    title: "ERP Data Modernization",
+    url: "https://www.pwc.com/us/en/services/consulting/business-transformation/data-analytics/erp-data-modernization.html",
+    text: "ERP data modernization unlocks value trapped in fragmented systems — turning disconnected data into a strategic asset for forecasting, reporting and confident decision-making.",
   },
 ];
 
@@ -187,10 +193,7 @@ export default function DiscoveryPage() {
               <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
             <div className="ts-nav-right">
-              <Link href="/discovery" className="ts-nav-lang" aria-label="Mudar para português">
-                PT
-              </Link>
-              <a
+              <
                 href={WA_DIAGNOSTICO_EN}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -225,8 +228,9 @@ export default function DiscoveryPage() {
           <div>
             <p className="section-eyebrow reveal-up">Free assessment · 30 minutes</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Tired of pushing for data-driven<br />
-              decisions while your team still<br />
+              Tired of pushing for<br />
+              data-driven decisions<br />
+              while your team still<br />
               lives on spreadsheets?
             </h1>
             <p className="ts-hero-sub reveal-up">
@@ -525,7 +529,7 @@ export default function DiscoveryPage() {
               <div
                 key={stat.source}
                 className="lc-benefit-item"
-                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.75rem" }}
+                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.6rem" }}
               >
                 <p
                   style={{
@@ -542,6 +546,14 @@ export default function DiscoveryPage() {
                 <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.65)", lineHeight: 1.65, margin: 0 }}>
                   &ldquo;{stat.text}&rdquo;
                 </p>
+                <a
+                  href={stat.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: "0.68rem", color: "rgba(240,237,232,0.28)", textDecoration: "underline", wordBreak: "break-all", lineHeight: 1.4 }}
+                >
+                  {stat.title} — {stat.source}
+                </a>
               </div>
             ))}
           </div>
@@ -677,6 +689,23 @@ export default function DiscoveryPage() {
             <p style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.38)" }}>
               Automated dashboards for managers who need to see beyond spreadsheets.
             </p>
+            <Link
+              href="/discovery"
+              aria-label="Mudar para português"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                fontWeight: 700,
+                color: "rgba(240,237,232,0.38)",
+                textDecoration: "none",
+                padding: "0.35rem 0.7rem",
+                border: "1px solid rgba(240,237,232,0.14)",
+                borderRadius: "4px",
+              }}
+            >
+              PT-BR
+            </Link>
           </div>
         </footer>
       </div>

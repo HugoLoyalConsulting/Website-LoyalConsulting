@@ -3057,6 +3057,10 @@ body::before {
   .ts-page-shell > section > div {
     width: 100%;
   }
+  .ts-hero-h1 {
+    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
+    line-height: 1.1;
+  }
   .section-title {
     font-size: clamp(1.45rem, 5.1vw, 1.9rem);
   }

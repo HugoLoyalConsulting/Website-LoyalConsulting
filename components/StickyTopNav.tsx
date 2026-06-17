@@ -161,12 +161,7 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
               ))}
             </div>
             <div className="ts-nav-right">
-              <Link href={alternatePath} className="ts-nav-lang" aria-label={t.langAria}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={t.flagUrl} alt={t.flagAlt} width={20} height={14} style={{ borderRadius: "2px", objectFit: "cover", display: "inline-block", verticalAlign: "middle" }} />
-                {t.langText}
-              </Link>
-              <a
+              <
                 href={t.waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -230,6 +225,17 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
           >
             {t.cta}
           </a>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: "0.75rem", paddingTop: "0.75rem" }}>
+            <Link
+              href={alternatePath}
+              className="ts-nav-drawer-link"
+              onClick={closeMenu}
+              aria-label={t.langAria}
+              style={{ fontSize: "0.78rem", letterSpacing: "0.14em", color: "rgba(240,237,232,0.45)" }}
+            >
+              {t.langText} — {t.langAria}
+            </Link>
+          </div>
         </div>
       </div>
     </>

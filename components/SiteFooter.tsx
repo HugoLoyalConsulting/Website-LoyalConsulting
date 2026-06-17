@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { WhatsAppIcon, WHATSAPP_URL, WHATSAPP_URL_EN } from "./StickyTopNav";
+import { FooterLangSwitcher } from "./FooterLangSwitcher";
 
 const PHONE_DISPLAY = "+55 (11) 98131-6880";
 const PHONE_HREF = "tel:+5511981316880";
@@ -131,16 +132,22 @@ export function SiteFooter({ locale = "pt" }: { locale?: Locale }) {
             paddingTop: "1.2rem",
             borderTop: "1px solid rgba(255,255,255,0.06)",
             display: "flex",
-            justifyContent: "center",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "0.75rem",
           }}
         >
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", flex: 1 }}>
             <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", color: "rgba(240,237,232,0.2)", textTransform: "uppercase" }}>
               {t.copyright}
             </p>
             <p style={{ fontSize: "0.65rem", color: "rgba(240,237,232,0.12)", marginTop: "0.2rem" }}>
               {t.founderNote}
             </p>
+          </div>
+          <div className="hidden md:block">
+            <FooterLangSwitcher locale={locale} />
           </div>
         </div>
       </footer>

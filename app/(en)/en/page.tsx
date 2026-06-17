@@ -66,16 +66,22 @@ const problems = [
 // ── Proof and credibility ─────────────────────────────────────────────────
 const stats = [
   {
-    source: "McKinsey",
-    text: "Data-driven organizations significantly outperform peers in customer acquisition, retention and profitability.",
+    source: "McKinsey Global Institute",
+    title: "The Age of Analytics: Competing in a Data-Driven World",
+    url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-age-of-analytics-competing-in-a-data-driven-world",
+    text: "47% of global executives say data and analytics have significantly or fundamentally changed competition in their industries — while laggards face growing disadvantage.",
   },
   {
-    source: "Deloitte",
-    text: "The absence of integrated data reduces decision speed and increases operational rework in mid-size and large companies.",
+    source: "Deloitte Insights",
+    title: "Insight-Driven Organisations",
+    url: "https://www.deloitte.com/uk/en/services/consulting/services/insight-driven-organisations.html",
+    text: "Companies that become insight-driven speed up decision-making, reduce operational errors and build a sustainable competitive advantage over peers that still depend on manual data preparation.",
   },
   {
     source: "PwC",
-    text: "Companies that modernize data management reduce time spent on manual consolidation and increase confidence in business indicators.",
+    title: "ERP Data Modernization",
+    url: "https://www.pwc.com/us/en/services/consulting/business-transformation/data-analytics/erp-data-modernization.html",
+    text: "ERP data modernization unlocks value trapped in fragmented systems — turning disconnected data into a strategic asset for forecasting, reporting and confident decision-making.",
   },
 ];
 
@@ -365,7 +371,7 @@ export default function HomePage() {
               <div
                 key={stat.source}
                 className="lc-benefit-item"
-                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.75rem" }}
+                style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.6rem" }}
               >
                 <p
                   style={{
@@ -382,6 +388,14 @@ export default function HomePage() {
                 <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.65)", lineHeight: 1.65, margin: 0 }}>
                   &ldquo;{stat.text}&rdquo;
                 </p>
+                <a
+                  href={stat.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: "0.68rem", color: "rgba(240,237,232,0.28)", textDecoration: "underline", wordBreak: "break-all", lineHeight: 1.4 }}
+                >
+                  {stat.title} — {stat.source}
+                </a>
               </div>
             ))}
           </div>
