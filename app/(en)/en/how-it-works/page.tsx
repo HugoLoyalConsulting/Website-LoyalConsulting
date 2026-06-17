@@ -108,7 +108,7 @@ export default function HowItWorksPage() {
       <section id="servicos" className="lc-how-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">How we help</p>
             <h2 className="section-title mt-3">Three service lines</h2>
           </div>
@@ -139,7 +139,7 @@ export default function HowItWorksPage() {
       <section id="processo" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Step by step</p>
             <h2 className="section-title mt-3">Our process is simple</h2>
           </div>
@@ -178,7 +178,7 @@ export default function HowItWorksPage() {
       <section id="custo" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14">
+          <div className="lc-dores-grid mt-8">
             <div>
               <p className="section-eyebrow section-eyebrow--red">Worth reflecting on</p>
               <h2 className="section-title mt-3">Three questions for your next month-end close</h2>

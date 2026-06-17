@@ -88,7 +88,7 @@ export default function HomePage() {
       <section id="identifica" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Sound familiar?</p>
             <h2 className="section-title mt-3">Do any of these situations look like your routine?</h2>
           </div>
@@ -128,7 +128,7 @@ export default function HomePage() {
       <section id="imagine" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14">
+          <div className="lc-dores-grid mt-8">
             <div>
               <p className="section-eyebrow">The other side</p>
               <h2 className="section-title mt-3">Imagine starting the day with answers ready</h2>
@@ -154,7 +154,7 @@ export default function HomePage() {
       <section id="before-after" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Before and after</p>
             <h2 className="section-title mt-3">From spreadsheet marathon to a single screen</h2>
           </div>
@@ -199,7 +199,7 @@ export default function HomePage() {
       <section id="sobre" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14">
+          <div className="lc-dores-grid mt-8">
             <div>
               <p className="section-eyebrow">About Loyal</p>
               <h2 className="section-title mt-3">A boutique Business Intelligence consultancy</h2>
@@ -238,7 +238,7 @@ export default function HomePage() {
       <section id="discovery" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14">
+          <div className="lc-dores-grid mt-8">
             <div>
               <p className="section-eyebrow">Next step</p>
               <h2 className="section-title mt-3">Want to see this applied to your reality?</h2>

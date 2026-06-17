@@ -21,6 +21,7 @@ const FOOTER_STRINGS = {
     phoneLabel:   "WhatsApp / Telefone",
     securityNote: "Site protegido com HTTPS · Dados tratados com responsabilidade.",
     copyright: "Loyal Consulting · Business Intelligence",
+    founderNote: "Fundado por Hugo Leal",
   },
   en: {
     tagline: "Automated dashboards for managers who need to see beyond spreadsheets.",
@@ -37,6 +38,7 @@ const FOOTER_STRINGS = {
     phoneLabel:   "WhatsApp / Phone",
     securityNote: "HTTPS-secured site · Data handled responsibly.",
     copyright: "Loyal Consulting · Business Intelligence",
+    founderNote: "Founded by Hugo Leal",
   },
 } as const;
 
@@ -132,9 +134,14 @@ export function SiteFooter({ locale = "pt" }: { locale?: Locale }) {
             justifyContent: "center",
           }}
         >
-          <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", color: "rgba(240,237,232,0.2)", textTransform: "uppercase" }}>
-            {t.copyright}
-          </p>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "0.7rem", letterSpacing: "0.12em", color: "rgba(240,237,232,0.2)", textTransform: "uppercase" }}>
+              {t.copyright}
+            </p>
+            <p style={{ fontSize: "0.65rem", color: "rgba(240,237,232,0.12)", marginTop: "0.2rem" }}>
+              {t.founderNote}
+            </p>
+          </div>
         </div>
       </footer>
 

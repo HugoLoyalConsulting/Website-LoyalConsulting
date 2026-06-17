@@ -108,7 +108,7 @@ export default function ComoFuncionaPage() {
       <section id="servicos" className="lc-how-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Como ajudamos</p>
             <h2 className="section-title mt-3">Três frentes de trabalho</h2>
           </div>
@@ -139,7 +139,7 @@ export default function ComoFuncionaPage() {
       <section id="processo" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Passo a passo</p>
             <h2 className="section-title mt-3">Nosso processo é simples</h2>
           </div>
@@ -178,7 +178,7 @@ export default function ComoFuncionaPage() {
       <section id="custo" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14">
+          <div className="lc-dores-grid mt-8">
             <div>
               <p className="section-eyebrow section-eyebrow--red">Vale a reflexão</p>
               <h2 className="section-title mt-3">Três perguntas para o seu próximo fechamento</h2>

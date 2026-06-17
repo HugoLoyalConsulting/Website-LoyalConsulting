@@ -120,7 +120,7 @@ export default function PlansPage() {
       <section id="planos" className="lc-plans-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-plans-grid mt-14">
+          <div className="lc-plans-grid mt-8">
             {plans.map((plan) => (
               <div
                 key={plan.tier}
@@ -155,7 +155,7 @@ export default function PlansPage() {
       <section id="faq" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Frequently asked questions</p>
             <h2 className="section-title mt-3">Common questions before getting started</h2>
           </div>

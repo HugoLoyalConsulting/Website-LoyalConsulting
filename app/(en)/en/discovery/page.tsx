@@ -218,7 +218,7 @@ export default function DiscoveryPage() {
       <section id="antes-depois" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Before and after</p>
             <h2 className="section-title mt-3">From a spreadsheet marathon to a single screen</h2>
           </div>
@@ -263,7 +263,7 @@ export default function DiscoveryPage() {
       <section id="para-quem" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Who it is for</p>
             <h2 className="section-title mt-3">This conversation was made for you</h2>
           </div>
@@ -312,7 +312,7 @@ export default function DiscoveryPage() {
       <section id="resultado" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">What you will leave knowing</p>
             <h2 className="section-title mt-3">30 minutes later, you will have:</h2>
           </div>
@@ -345,7 +345,7 @@ export default function DiscoveryPage() {
       <section id="como-funciona" className="lc-how-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">How it works</p>
             <h2 className="section-title mt-3">Three steps. Zero friction</h2>
           </div>
@@ -390,7 +390,7 @@ export default function DiscoveryPage() {
       <section id="faq" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Frequently asked questions</p>
             <h2 className="section-title mt-3">Questions before booking</h2>
           </div>
@@ -409,11 +409,11 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      {/* ── WHO'S HELPING YOU ───────────────────────────────── */}
-      <section id="apresentacao" className="lc-benefits-section">
+      {/* ── ABOUT LOYAL ────────────────────────────────────── */}
+      <section id="about" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14" style={{ alignItems: "center" }}>
+          <div className="lc-dores-grid mt-8" style={{ alignItems: "center" }}>
             <figure
               style={{
                 position: "relative",
@@ -426,25 +426,25 @@ export default function DiscoveryPage() {
             >
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/analista-bi-monitores-duplos.jpg`}
-                alt="Hugo Leal in a professional environment analyzing business indicators"
+                alt="Loyal Consulting team analyzing business indicators on dual monitors"
                 fill
                 sizes="(max-width: 768px) 100vw, 45vw"
                 style={{ objectFit: "cover" }}
               />
             </figure>
             <div>
-              <p className="section-eyebrow">Who will help you</p>
-              <h2 className="section-title mt-3">Hugo Leal</h2>
+              <p className="section-eyebrow">About Loyal</p>
+              <h2 className="section-title mt-3">Loyal Consulting</h2>
               <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
-                Founder of Loyal Consulting · 10 years in data and BI
+                Boutique Business Intelligence consultancy
               </p>
               <p className="section-copy" style={{ marginTop: "1.6rem" }}>
-                Before Loyal, I spent over a decade inside large companies building dashboards,
+                Over a decade of data operations inside large companies, building dashboards,
                 data pipelines and analytics models for management teams that needed to see the
                 numbers clearly — not with delay.
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
-                Over that time, I saw the same pattern repeat across completely different
+                Along the way, we saw the same pattern repeat across completely different
                 industries: the data existed, but nobody trusted it. Not because the systems
                 were bad. Because the information was fragmented, outdated or depended on
                 someone to consolidate it before it reached whoever had to decide.
@@ -456,7 +456,7 @@ export default function DiscoveryPage() {
               </p>
               <div className="mt-8">
                 <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Talk to Hugo
+                  Schedule Discovery
                 </a>
               </div>
             </div>
@@ -489,16 +489,21 @@ export default function DiscoveryPage() {
         <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
-            <p
-              style={{
-                fontSize: "0.72rem",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(240,237,232,0.28)",
-              }}
-            >
-              © {new Date().getFullYear()} Loyal Consulting
-            </p>
+            <div>
+              <p
+                style={{
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "rgba(240,237,232,0.28)",
+                }}
+              >
+                © {new Date().getFullYear()} Loyal Consulting
+              </p>
+              <p style={{ fontSize: "0.65rem", color: "rgba(240,237,232,0.18)", marginTop: "0.2rem" }}>
+                Founded by Hugo Leal
+              </p>
+            </div>
             <p style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.38)" }}>
               Automated dashboards for managers who need to see beyond spreadsheets.
             </p>

@@ -120,7 +120,7 @@ export default function ExemplosPage() {
       <section id="areas" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-benefits-grid mt-14">
+          <div className="lc-benefits-grid mt-8">
             {exampleProjects.map((proj) => (
               <div key={proj.area} className="lc-benefit-item" style={{ flexDirection: "column", alignItems: "flex-start", gap: "0.5rem" }}>
                 <p style={{ fontWeight: 700, fontSize: "0.95rem", color: "rgba(240,237,232,0.95)", letterSpacing: "0.04em", margin: 0 }}>
@@ -144,7 +144,7 @@ export default function ExemplosPage() {
       <section id="galeria" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Galeria</p>
             <h2 className="section-title mt-3">Dashboards na prática</h2>
           </div>

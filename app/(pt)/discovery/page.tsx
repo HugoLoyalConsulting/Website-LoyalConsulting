@@ -154,7 +154,7 @@ export default function DiscoveryPage() {
               <a href="#resultado">Resultado</a>
               <a href="#como-funciona">Como Funciona</a>
               <a href="#faq">FAQ</a>
-              <a href="#apresentacao">Apresentação</a>
+              <a href="#sobre">Sobre a Loyal</a>
             </div>
             <div className="ts-nav-right">
               <a
@@ -238,7 +238,7 @@ export default function DiscoveryPage() {
       <section id="antes-depois" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Antes e depois</p>
             <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela</h2>
           </div>
@@ -295,7 +295,7 @@ export default function DiscoveryPage() {
       <section id="para-quem" className="lc-dores-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Para quem é</p>
             <h2 className="section-title mt-3">Esta conversa foi feita para você</h2>
           </div>
@@ -344,7 +344,7 @@ export default function DiscoveryPage() {
       <section id="resultado" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">O que você vai sair sabendo</p>
             <h2 className="section-title mt-3">30 minutos depois, você vai ter:</h2>
           </div>
@@ -377,7 +377,7 @@ export default function DiscoveryPage() {
       <section id="como-funciona" className="lc-how-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Como funciona</p>
             <h2 className="section-title mt-3">Três etapas. Sem fricção</h2>
           </div>
@@ -422,7 +422,7 @@ export default function DiscoveryPage() {
       <section id="faq" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Perguntas frequentes</p>
             <h2 className="section-title mt-3">Dúvidas antes de agendar</h2>
           </div>
@@ -441,11 +441,11 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      {/* ── APRESENTACAO ───────────────────────────────────── */}
-      <section id="apresentacao" className="lc-benefits-section">
+      {/* ── SOBRE A LOYAL ──────────────────────────────────── */}
+      <section id="sobre" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-dores-grid mt-14" style={{ alignItems: "center" }}>
+          <div className="lc-dores-grid mt-8" style={{ alignItems: "center" }}>
             <figure
               style={{
                 position: "relative",
@@ -458,37 +458,36 @@ export default function DiscoveryPage() {
             >
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/analista-bi-monitores-duplos.jpg`}
-                alt="Hugo Leal em ambiente profissional analisando indicadores"
+                alt="Equipe da Loyal Consulting analisando indicadores de negócio"
                 fill
                 sizes="(max-width: 768px) 100vw, 45vw"
                 style={{ objectFit: "cover" }}
               />
             </figure>
             <div>
-              <p className="section-eyebrow">Quem vai te ajudar</p>
-              <h2 className="section-title mt-3">Hugo Leal</h2>
+              <p className="section-eyebrow">Sobre a Loyal</p>
+              <h2 className="section-title mt-3">Loyal Consulting</h2>
               <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
-                Fundador da Loyal Consulting · 10 anos em dados e BI
+                Consultoria boutique de Business Intelligence
               </p>
               <p className="section-copy" style={{ marginTop: "1.6rem" }}>
-                Antes da Loyal, passei mais de uma década dentro de empresas de grande porte
+                São mais de 10 anos de operações em dados dentro de empresas de grande porte,
                 construindo dashboards, pipelines de dados e modelos de análise para equipes de
                 gestão que precisavam enxergar os números com clareza — não com atraso.
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
-                Nesse tempo, vi o mesmo padrão repetir em setores completamente diferentes: os
+                Nesse percurso, vimos o mesmo padrão se repetir em setores completamente diferentes: os
                 dados existiam, mas ninguém confiava neles. Não porque os sistemas fossem ruins.
                 Porque a informação estava fragmentada, desatualizada ou dependia de alguém
                 para consolidar antes de chegar a quem decide.
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
                 A Loyal nasceu a partir dessa observação. O trabalho não é instalar ferramenta —
-                é entender o que você precisa enxergar e construir o caminho mais direto até
-                essa visão.
+                é entender o que você precisa enxergar e construir o caminho mais direto até essa visão.
               </p>
               <div className="mt-8">
                 <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero conversar com o Hugo
+                  Agendar Discovery
                 </a>
               </div>
             </div>
@@ -521,16 +520,21 @@ export default function DiscoveryPage() {
         <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
-            <p
-              style={{
-                fontSize: "0.72rem",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(240,237,232,0.28)",
-              }}
-            >
-              © {new Date().getFullYear()} Loyal Consulting
-            </p>
+            <div>
+              <p
+                style={{
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "rgba(240,237,232,0.28)",
+                }}
+              >
+                © {new Date().getFullYear()} Loyal Consulting
+              </p>
+              <p style={{ fontSize: "0.65rem", color: "rgba(240,237,232,0.18)", marginTop: "0.2rem" }}>
+                Fundado por Hugo Leal
+              </p>
+            </div>
             <p style={{ fontSize: "0.78rem", color: "rgba(240,237,232,0.38)" }}>
               Dashboards automatizados para gestores que precisam enxergar além das planilhas.
             </p>

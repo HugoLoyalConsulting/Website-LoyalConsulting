@@ -42,7 +42,7 @@ const plans = [
   {
     tier: "PREMIUM",
     price: "R$ 10.000+",
-    desc: "Para operações mais complexas, com automações robustas, múltiplos painéis e atualizações recorrentes.",
+    desc: "Para operações mais complexas, com automações completas, múltiplos painéis e atualizações recorrentes.",
     features: [
       "Pipelines e integrações avançadas",
       "Diversas fontes e sistemas",
@@ -120,7 +120,7 @@ export default function PlanosPage() {
       <section id="planos" className="lc-plans-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="lc-plans-grid mt-14">
+          <div className="lc-plans-grid mt-8">
             {plans.map((plan) => (
               <div
                 key={plan.tier}
@@ -155,7 +155,7 @@ export default function PlanosPage() {
       <section id="faq" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
-          <div className="mt-14">
+          <div className="mt-8">
             <p className="section-eyebrow">Perguntas frequentes</p>
             <h2 className="section-title mt-3">Dúvidas comuns antes de começar</h2>
           </div>
