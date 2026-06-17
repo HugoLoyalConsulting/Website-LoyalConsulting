@@ -148,6 +148,14 @@ export default function DiscoveryPage() {
               <span className="ts-nav-logo-icon">LC</span>
               <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
+            <div className="ts-nav-pill">
+              <a href="#topo">Inicio</a>
+              <a href="#apresentacao">Apresentacao</a>
+              <a href="#resultado">Resultado</a>
+              <a href="#antes-depois">Antes e Depois</a>
+              <a href="#como-funciona">Como Funciona</a>
+              <a href="#faq">FAQ</a>
+            </div>
             <div className="ts-nav-right">
               <a
                 href={WHATSAPP_URL}
@@ -218,6 +226,57 @@ export default function DiscoveryPage() {
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
                 Prefiro agendar pelo Calendly
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── APRESENTACAO ───────────────────────────────────── */}
+      <section id="apresentacao" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="lc-dores-grid mt-14" style={{ alignItems: "center" }}>
+            <figure
+              style={{
+                position: "relative",
+                width: "100%",
+                minHeight: "380px",
+                borderRadius: "14px",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
+            >
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/analista-bi-monitores-duplos.jpg`}
+                alt="Hugo Leal em ambiente profissional analisando indicadores"
+                fill
+                sizes="(max-width: 768px) 100vw, 45vw"
+                style={{ objectFit: "cover" }}
+              />
+            </figure>
+            <div>
+              <p className="section-eyebrow">Quem vai te ajudar</p>
+              <h2 className="section-title mt-3">Hugo Leal</h2>
+              <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
+                Fundador da Loyal Consulting
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.6rem" }}>
+                Ha mais de 10 anos atuando com dados, automacao e inteligencia de negocios em
+                empresas de grande porte.
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
+                Ao longo da carreira, percebi um padrao: a maioria das empresas nao sofre por
+                falta de dados. Sofre por excesso de planilhas, sistemas desconectados e
+                informacoes dificeis de confiar.
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
+                A Loyal nasceu para resolver exatamente isso.
+              </p>
+              <div className="mt-8">
+                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Quero conversar com o Hugo
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -32,14 +32,6 @@ const painPoints = [
   "Falta uma visao unica do negocio",
 ];
 
-const beforeItems = ["Dados espalhados", "Planilhas paralelas", "Atualizacoes manuais", "Relatorios lentos"];
-const afterItems = [
-  "Fonte unica de verdade",
-  "Integracoes automatizadas",
-  "Indicadores atualizados",
-  "Decisoes rapidas",
-];
-
 const whoIsFor = [
   "Diretores",
   "Gerentes",
@@ -221,25 +213,55 @@ export default function HomePage() {
           <div className="section-divider" />
           <div className="mt-14">
             <p className="section-eyebrow">Antes e depois</p>
-            <h2 className="section-title mt-3">Do caos operacional para clareza executiva</h2>
+            <h2 className="section-title mt-3">Da maratona de planilhas a uma unica tela</h2>
           </div>
           <div className="lc-beforeafter-grid mt-12">
-            <div className="lc-ba-card lc-ba-card--antes">
-              <span className="lc-ba-label lc-ba-label--antes">Antes</span>
-              <ul className="lc-consequences-list" style={{ marginTop: "1rem" }}>
-                {beforeItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="lc-ba-card lc-ba-card--depois">
-              <span className="lc-ba-label lc-ba-label--depois">Depois</span>
-              <ul className="lc-consequences-list" style={{ marginTop: "1rem" }}>
-                {afterItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <figure className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
+                  alt="Varias planilhas de Excel abertas ao mesmo tempo na mesma tela"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover", objectPosition: "top left" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Varios arquivos abertos, abas duplicadas e horas de copia-e-cola para
+                responder uma unica pergunta.
+              </figcaption>
+            </figure>
+            <figure className="lc-ba-card lc-ba-card--depois">
+              <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  alt="Dashboard Power BI com indicadores consolidados"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Um painel que se atualiza sozinho: a visao geral e o detalhe, no mesmo lugar,
+                sem depender de ninguem para preparar.
+              </figcaption>
+            </figure>
+          </div>
+          <div className="lc-como-wrapper">
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>
+              COMO FUNCIONA
+            </p>
+            <ZoomableImage
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
+              alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
+              caption="De fontes desconectadas a decisoes: como centralizamos seus dados em um unico pipeline confiavel."
+              wrapperStyle={{
+                border: "5px solid rgba(240,237,232,0.7)",
+                boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
+              }}
+            />
           </div>
         </div>
       </section>
