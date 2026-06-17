@@ -207,9 +207,9 @@ export default function DiscoveryPage() {
               Em 30 minutos, veja se isso funciona para o seu cenário.
             </p>
             <p className="ts-hero-copy reveal-up">
-              <strong>Conversa objetiva. Sem enrolação. Sem apresentação de produto.</strong>{" "}
-              Só uma conversa estruturada onde entendemos seus dados, suas perguntas e o que
-              precisa mudar para você parar de depender de relatórios manuais.
+              <strong>Conversa objetiva, com foco no seu cenário e nos próximos passos.</strong>{" "}
+              Você sai com clareza sobre gargalos, indicadores prioritários e um plano inicial
+              para reduzir dependência de planilhas e acelerar decisões.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
