@@ -34,7 +34,7 @@ const badFit = [
 const outcomes = [
   {
     q: "Which KPIs actually matter for your business right now?",
-    a: "Leaving knowing which 3 indicators have the most impact on your operation, so you stop tracking metrics that don't move the needle.",
+    a: "Leaving knowing which 3 indicators have the most impact on your operation — and stopping to track metrics that don't move the needle.",
   },
   {
     q: "Is your data ready for a dashboard (or does it need to be structured first)?",
@@ -99,7 +99,7 @@ const faqItems = [
   },
   {
     q: "Does the Discovery cost anything?",
-    a: "No. It is a 30-minute conversation. No product pitch, no commitment. If moving forward doesn't make sense at the end, you leave with more clarity about the problem than you came in with (which already has value on its own).",
+    a: "No. It is a 30-minute conversation. No product pitch, no commitment. If moving forward doesn't make sense at the end, you leave with more clarity about the problem than you came in with — which already has value on its own.",
   },
   {
     q: "How long until I have something working?",
@@ -214,88 +214,6 @@ export default function DiscoveryPage() {
       {/* ── MARQUEE ─────────────────────────────────────────── */}
       <MarqueeBand />
 
-      {/* ── QUALIFIER ───────────────────────────────────────── */}
-      <section id="para-quem" className="lc-dores-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Who it is for</p>
-            <h2 className="section-title mt-3">This conversation was made for you</h2>
-          </div>
-          <div className="lc-dores-grid mt-12">
-            <div>
-              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
-                Yes, if you:
-              </p>
-              <ul className="lc-consequences-list mt-3">
-                {goodFit.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Schedule Discovery
-                </a>
-                <p className="lc-cta-caption">30 minutes · Initial analytics evolution plan</p>
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
-                  or schedule on Calendly →
-                </a>
-              </div>
-            </div>
-            <div className="lc-dores-consequences">
-              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>
-                Maybe not the right time if:
-              </p>
-              <ul className="lc-dores-list mt-3">
-                {badFit.map((item) => (
-                  <li key={item}>
-                    <span className="lc-dores-bullet">×</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="section-copy" style={{ fontSize: "0.85rem", marginTop: "2.5rem" }}>
-                If you recognized yourself in the items above, it is probably not the right
-                moment yet; that is completely fine. When the context changes, we are here.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHAT YOU WILL LEAVE KNOWING ─────────────────────── */}
-      <section id="resultado" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">What you will leave knowing</p>
-            <h2 className="section-title mt-3">30 minutes later, you will have:</h2>
-          </div>
-          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
-            {outcomes.map((item, i) => (
-              <li
-                key={item.q}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "3rem 1fr",
-                  gap: "0 1.5rem",
-                  padding: "1.75rem 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
-                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
       {/* ── BEFORE AND AFTER ────────────────────────────────── */}
       <section id="antes-depois" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
@@ -341,18 +259,87 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      {/* ── PARALLAX ────────────────────────────────────────── */}
-      <div
-        className="parallax-break"
-        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/relatorios-impressos-mesa.jpg')` }}
-      >
-        <div className="parallax-break__inner">
-          <p className="parallax-quote">
-            &ldquo;The problem is almost never a lack of data. It is the opportunity cost of not seeing, at the right moment, where profitability is slipping because information still depends on an intermediary to reach whoever decides.&rdquo;
-          </p>
-          <span className="parallax-attribution">Loyal Consulting · Discovery</span>
+      {/* ── QUALIFIER ───────────────────────────────────────── */}
+      <section id="para-quem" className="lc-dores-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Who it is for</p>
+            <h2 className="section-title mt-3">This conversation was made for you</h2>
+          </div>
+          <div className="lc-dores-grid mt-12">
+            <div>
+              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
+                Yes, if you:
+              </p>
+              <ul className="lc-consequences-list mt-3">
+                {goodFit.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Schedule Discovery
+                </a>
+                <p className="lc-cta-caption">30 minutes · Initial analytics evolution plan</p>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
+                  or schedule on Calendly →
+                </a>
+              </div>
+            </div>
+            <div className="lc-dores-consequences">
+              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>
+                Maybe not the right time if:
+              </p>
+              <ul className="lc-dores-list mt-3">
+                {badFit.map((item) => (
+                  <li key={item}>
+                    <span className="lc-dores-bullet">×</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="section-copy" style={{ fontSize: "0.85rem", marginTop: "2.5rem" }}>
+                If you recognized yourself in the items above, it is probably not the right
+                moment yet — that is completely fine. When the context changes, we are here.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ── WHAT YOU WILL LEAVE KNOWING ─────────────────────── */}
+      <section id="resultado" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">What you will leave knowing</p>
+            <h2 className="section-title mt-3">30 minutes later, you will have:</h2>
+          </div>
+          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
+            {outcomes.map((item, i) => (
+              <li
+                key={item.q}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "3rem 1fr",
+                  gap: "0 1.5rem",
+                  padding: "1.75rem 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
+                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* ── HOW IT WORKS ────────────────────────────────────── */}
       <section id="como-funciona" className="lc-how-section">
@@ -386,6 +373,19 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
+      {/* ── PARALLAX ────────────────────────────────────────── */}
+      <div
+        className="parallax-break"
+        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/relatorios-impressos-mesa.jpg')` }}
+      >
+        <div className="parallax-break__inner">
+          <p className="parallax-quote">
+            &ldquo;The problem is almost never a lack of data. It is the opportunity cost of not seeing, at the right moment, where profitability is slipping because information still depends on an intermediary to reach whoever decides.&rdquo;
+          </p>
+          <span className="parallax-attribution">Loyal Consulting · Discovery</span>
+        </div>
+      </div>
+
       {/* ── FAQ ─────────────────────────────────────────────── */}
       <section id="faq" className="lc-benefits-section">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
@@ -405,6 +405,61 @@ export default function DiscoveryPage() {
                 <p className="lc-faq-a">{item.a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO'S HELPING YOU ───────────────────────────────── */}
+      <section id="apresentacao" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="lc-dores-grid mt-14" style={{ alignItems: "center" }}>
+            <figure
+              style={{
+                position: "relative",
+                width: "100%",
+                minHeight: "380px",
+                borderRadius: "14px",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
+            >
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/analista-bi-monitores-duplos.jpg`}
+                alt="Hugo Leal in a professional environment analyzing business indicators"
+                fill
+                sizes="(max-width: 768px) 100vw, 45vw"
+                style={{ objectFit: "cover" }}
+              />
+            </figure>
+            <div>
+              <p className="section-eyebrow">Who will help you</p>
+              <h2 className="section-title mt-3">Hugo Leal</h2>
+              <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
+                Founder of Loyal Consulting · 10 years in data and BI
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.6rem" }}>
+                Before Loyal, I spent over a decade inside large companies building dashboards,
+                data pipelines and analytics models for management teams that needed to see the
+                numbers clearly — not with delay.
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
+                Over that time, I saw the same pattern repeat across completely different
+                industries: the data existed, but nobody trusted it. Not because the systems
+                were bad. Because the information was fragmented, outdated or depended on
+                someone to consolidate it before it reached whoever had to decide.
+              </p>
+              <p className="section-copy" style={{ marginTop: "1.2rem" }}>
+                Loyal was built from that observation. The work is not about installing tools —
+                it is about understanding what you need to see and building the most direct path
+                to that visibility.
+              </p>
+              <div className="mt-8">
+                <a href={WA_DISCOVERY_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Talk to Hugo
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

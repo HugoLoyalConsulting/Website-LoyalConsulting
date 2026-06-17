@@ -172,7 +172,7 @@ export default function HomePage() {
                 />
               </div>
               <figcaption className="lc-ba-caption">
-                Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
+                Vários arquivos abertos, abas duplicadas e horas de cópia e cola para
                 responder uma única pergunta.
               </figcaption>
             </figure>

@@ -39,7 +39,7 @@ const badFit = [
 const outcomes = [
   {
     q: "Quais KPIs realmente importam para o meu negócio agora?",
-    a: "Sair sabendo quais 3 indicadores têm mais impacto na operação, para de acompanhar métricas que não movem o ponteiro.",
+    a: "Sair sabendo quais 3 indicadores têm mais impacto na operação — e parar de acompanhar métricas que não movem o ponteiro.",
   },
   {
     q: "Meus dados estão prontos para virar um dashboard (ou precisam ser estruturados antes)?",
@@ -104,7 +104,7 @@ const faqItems = [
   },
   {
     q: "A Discovery tem custo?",
-    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou (o que já tem valor por si só).",
+    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou — o que já tem valor por si só.",
   },
   {
     q: "Em quanto tempo vou ter algo funcionando?",
@@ -150,11 +150,11 @@ export default function DiscoveryPage() {
             </Link>
             <div className="ts-nav-pill">
               <a href="#topo">Início</a>
-              <a href="#apresentacao">Apresentação</a>
-              <a href="#resultado">Resultado</a>
               <a href="#antes-depois">Antes e Depois</a>
+              <a href="#resultado">Resultado</a>
               <a href="#como-funciona">Como Funciona</a>
               <a href="#faq">FAQ</a>
+              <a href="#apresentacao">Apresentação</a>
             </div>
             <div className="ts-nav-right">
               <a
@@ -217,7 +217,7 @@ export default function DiscoveryPage() {
             <p className="ts-hero-copy reveal-up">
               <strong>Conversa objetiva, com foco no seu cenário e nos próximos passos.</strong>{" "}
               Você sai com clareza sobre gargalos, indicadores prioritários e um plano inicial
-              para reduzir dependência de planilhas e acelerar decisões.
+              para reduzir a dependência de planilhas e acelerar decisões.
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
@@ -227,6 +227,216 @@ export default function DiscoveryPage() {
                 Prefiro agendar pelo Calendly
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── MARQUEE ─────────────────────────────────────────── */}
+      <MarqueeBand />
+
+      {/* ── ANTES → DEPOIS ──────────────────────────────────── */}
+      <section id="antes-depois" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Antes e depois</p>
+            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela</h2>
+          </div>
+          <div className="lc-beforeafter-grid mt-12">
+            <figure className="lc-ba-card lc-ba-card--antes">
+              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
+                  alt="Várias planilhas de Excel abertas ao mesmo tempo na mesma tela"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover", objectPosition: "top left" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Vários arquivos abertos, abas duplicadas e horas de cópia e cola para
+                responder uma única pergunta.
+              </figcaption>
+            </figure>
+            <figure className="lc-ba-card lc-ba-card--depois">
+              <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
+              <div className="lc-ba-img">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  alt="Dashboard Power BI com indicadores consolidados"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <figcaption className="lc-ba-caption">
+                Um painel que se atualiza sozinho: a visão geral e o detalhe, no mesmo lugar,
+                sem depender de ninguém para preparar.
+              </figcaption>
+            </figure>
+          </div>
+          <div className="lc-como-wrapper">
+            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO FUNCIONA</p>
+            <ZoomableImage
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
+              alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
+              caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único pipeline confiável."
+              wrapperStyle={{
+                border: "5px solid rgba(240,237,232,0.7)",
+                boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUALIFICADOR ────────────────────────────────────── */}
+      <section id="para-quem" className="lc-dores-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Para quem é</p>
+            <h2 className="section-title mt-3">Esta conversa foi feita para você</h2>
+          </div>
+          <div className="lc-dores-grid mt-12">
+            <div>
+              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
+                Sim, se você:
+              </p>
+              <ul className="lc-consequences-list mt-3">
+                {goodFit.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Agendar Discovery
+                </a>
+                <p className="lc-cta-caption">30 minutos · Plano inicial de evolução analítica</p>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
+                  ou agendar pelo Calendly →
+                </a>
+              </div>
+            </div>
+            <div className="lc-dores-consequences">
+              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>
+                Talvez não seja o momento se:
+              </p>
+              <ul className="lc-dores-list mt-3">
+                {badFit.map((item) => (
+                  <li key={item}>
+                    <span className="lc-dores-bullet">×</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="section-copy" style={{ fontSize: "0.85rem", marginTop: "2.5rem" }}>
+                Se você se identificou com os itens acima, provavelmente ainda não é o
+                momento — tudo bem. Quando o contexto mudar, a gente está aqui.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── O QUE VOCÊ VAI SAIR SABENDO ─────────────────────── */}
+      <section id="resultado" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">O que você vai sair sabendo</p>
+            <h2 className="section-title mt-3">30 minutos depois, você vai ter:</h2>
+          </div>
+          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
+            {outcomes.map((item, i) => (
+              <li
+                key={item.q}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "3rem 1fr",
+                  gap: "0 1.5rem",
+                  padding: "1.75rem 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
+                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ── COMO FUNCIONA ───────────────────────────────────── */}
+      <section id="como-funciona" className="lc-how-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Como funciona</p>
+            <h2 className="section-title mt-3">Três etapas. Sem fricção</h2>
+          </div>
+          <div className="lc-how-steps mt-12">
+            {steps.map((step) => (
+              <div key={step.num} className="lc-how-step">
+                <figure className="lc-how-step-img">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${step.img}`}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: "cover", filter: "brightness(0.8) saturate(0.7)" }}
+                  />
+                </figure>
+                <span className="lc-how-num">{step.num}</span>
+                <h3 className="lc-how-title">{step.title}</h3>
+                <p className="lc-how-body">{step.body}</p>
+                <div className="lc-how-tags">
+                  <span className="lc-how-tag">{step.tag}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PARALLAX ────────────────────────────────────────── */}
+      <div
+        className="parallax-break"
+        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/relatorios-impressos-mesa.jpg')` }}
+      >
+        <div className="parallax-break__inner">
+          <p className="parallax-quote">
+            &ldquo;O problema quase nunca é falta de dados. É o custo de oportunidade de não enxergar, no momento certo, onde a rentabilidade está escorregando porque a informação ainda depende de um intermediário para chegar a quem decide.&rdquo;
+          </p>
+          <span className="parallax-attribution">Loyal Consulting · Discovery</span>
+        </div>
+      </div>
+
+      {/* ── FAQ ─────────────────────────────────────────────── */}
+      <section id="faq" className="lc-benefits-section">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="section-divider" />
+          <div className="mt-14">
+            <p className="section-eyebrow">Perguntas frequentes</p>
+            <h2 className="section-title mt-3">Dúvidas antes de agendar</h2>
+          </div>
+          <div className="mt-10 lc-faq-stagger">
+            {faqItems.map((item, i) => (
+              <div
+                key={item.q}
+                className="lc-faq-card"
+                style={{ marginLeft: i % 2 !== 0 ? "clamp(1rem, 5vw, 3.5rem)" : "0" }}
+              >
+                <p className="lc-faq-q">{item.q}</p>
+                <p className="lc-faq-a">{item.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -282,216 +492,6 @@ export default function DiscoveryPage() {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── MARQUEE ─────────────────────────────────────────── */}
-      <MarqueeBand />
-
-      {/* ── QUALIFICADOR ────────────────────────────────────── */}
-      <section id="para-quem" className="lc-dores-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Para quem é</p>
-            <h2 className="section-title mt-3">Esta conversa foi feita para você</h2>
-          </div>
-          <div className="lc-dores-grid mt-12">
-            <div>
-              <p className="lc-dores-while-title lc-dores-while-title--cool" style={{ marginBottom: "1rem" }}>
-                Sim, se você:
-              </p>
-              <ul className="lc-consequences-list mt-3">
-                {goodFit.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Agendar Discovery
-                </a>
-                <p className="lc-cta-caption">30 minutos · Plano inicial de evolução analítica</p>
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
-                  ou agendar pelo Calendly →
-                </a>
-              </div>
-            </div>
-            <div className="lc-dores-consequences">
-              <p className="lc-dores-while-title" style={{ marginBottom: "1rem" }}>
-                Talvez não seja o momento se:
-              </p>
-              <ul className="lc-dores-list mt-3">
-                {badFit.map((item) => (
-                  <li key={item}>
-                    <span className="lc-dores-bullet">×</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="section-copy" style={{ fontSize: "0.85rem", marginTop: "2.5rem" }}>
-                Se você se identificou com os itens acima, provavelmente ainda não é o
-                momento; tudo bem. Quando o contexto mudar, a gente está aqui.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── O QUE VOCÊ VAI SAIR SABENDO ─────────────────────── */}
-      <section id="resultado" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">O que você vai sair sabendo</p>
-            <h2 className="section-title mt-3">30 minutos depois, você vai ter:</h2>
-          </div>
-          <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
-            {outcomes.map((item, i) => (
-              <li
-                key={item.q}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "3rem 1fr",
-                  gap: "0 1.5rem",
-                  padding: "1.75rem 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                <span style={{ fontVariantNumeric: "tabular-nums", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.08em", color: "#2ee6a6", paddingTop: "0.2rem" }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "var(--color-text, #f0ede8)", lineHeight: 1.35 }}>{item.q}</p>
-                  <p style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.6 }}>{item.a}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ── ANTES → DEPOIS ──────────────────────────────────── */}
-      <section id="antes-depois" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Antes e depois</p>
-            <h2 className="section-title mt-3">Da maratona de planilhas a uma única tela</h2>
-          </div>
-          <div className="lc-beforeafter-grid mt-12">
-            <figure className="lc-ba-card lc-ba-card--antes">
-              <span className="lc-ba-label lc-ba-label--antes">× Antes</span>
-              <div className="lc-ba-img">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/antes-caos-planilhas-excel.png`}
-                  alt="Várias planilhas de Excel abertas ao mesmo tempo na mesma tela"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover", objectPosition: "top left" }}
-                />
-              </div>
-              <figcaption className="lc-ba-caption">
-                Vários arquivos abertos, abas duplicadas e horas de copia-e-cola para
-                responder uma única pergunta.
-              </figcaption>
-            </figure>
-            <figure className="lc-ba-card lc-ba-card--depois">
-              <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
-              <div className="lc-ba-img">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
-                  alt="Dashboard Power BI com indicadores consolidados"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <figcaption className="lc-ba-caption">
-                Um painel que se atualiza sozinho: a visão geral e o detalhe, no mesmo lugar,
-                sem depender de ninguém para preparar.
-              </figcaption>
-            </figure>
-          </div>
-          <div className="lc-como-wrapper">
-            <p className="lc-ba-label lc-ba-label--como" style={{ marginBottom: "0.75rem" }}>COMO FUNCIONA</p>
-            <ZoomableImage
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pipeline-dados-centralizado.png`}
-              alt="Diagrama mostrando sistemas desconectados sendo centralizados em um Data Lake e alimentando dashboards de indicadores"
-              caption="De fontes desconectadas a decisões: como centralizamos seus dados em um único pipeline confiável."
-              wrapperStyle={{
-                border: "5px solid rgba(240,237,232,0.7)",
-                boxShadow: "0 22px 48px rgba(240,237,232,0.15), 0 0 28px rgba(240,237,232,0.12)",
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── PARALLAX ────────────────────────────────────────── */}
-      <div
-        className="parallax-break"
-        style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/relatorios-impressos-mesa.jpg')` }}
-      >
-        <div className="parallax-break__inner">
-          <p className="parallax-quote">
-            &ldquo;O problema quase nunca é falta de dados. É o custo de oportunidade de não enxergar, no momento certo, onde a rentabilidade está escorregando porque a informação ainda depende de um intermediário para chegar a quem decide.&rdquo;
-          </p>
-          <span className="parallax-attribution">Loyal Consulting · Discovery</span>
-        </div>
-      </div>
-
-      {/* ── COMO FUNCIONA ───────────────────────────────────── */}
-      <section id="como-funciona" className="lc-how-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Como funciona</p>
-            <h2 className="section-title mt-3">Três etapas. Sem fricção</h2>
-          </div>
-          <div className="lc-how-steps mt-12">
-            {steps.map((step) => (
-              <div key={step.num} className="lc-how-step">
-                <figure className="lc-how-step-img">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/${step.img}`}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    style={{ objectFit: "cover", filter: "brightness(0.8) saturate(0.7)" }}
-                  />
-                </figure>
-                <span className="lc-how-num">{step.num}</span>
-                <h3 className="lc-how-title">{step.title}</h3>
-                <p className="lc-how-body">{step.body}</p>
-                <div className="lc-how-tags">
-                  <span className="lc-how-tag">{step.tag}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ─────────────────────────────────────────────── */}
-      <section id="faq" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-14">
-            <p className="section-eyebrow">Perguntas frequentes</p>
-            <h2 className="section-title mt-3">Dúvidas antes de agendar</h2>
-          </div>
-          <div className="mt-10 lc-faq-stagger">
-            {faqItems.map((item, i) => (
-              <div
-                key={item.q}
-                className="lc-faq-card"
-                style={{ marginLeft: i % 2 !== 0 ? "clamp(1rem, 5vw, 3.5rem)" : "0" }}
-              >
-                <p className="lc-faq-q">{item.q}</p>
-                <p className="lc-faq-a">{item.a}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
