@@ -149,8 +149,8 @@ export default function DiscoveryPage() {
               <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
             <div className="ts-nav-pill">
-              <a href="#topo">Inicio</a>
-              <a href="#apresentacao">Apresentacao</a>
+              <a href="#topo">Início</a>
+              <a href="#apresentacao">Apresentação</a>
               <a href="#resultado">Resultado</a>
               <a href="#antes-depois">Antes e Depois</a>
               <a href="#como-funciona">Como Funciona</a>
@@ -258,19 +258,23 @@ export default function DiscoveryPage() {
               <p className="section-eyebrow">Quem vai te ajudar</p>
               <h2 className="section-title mt-3">Hugo Leal</h2>
               <p className="section-copy" style={{ marginTop: "0.75rem", fontWeight: 600 }}>
-                Fundador da Loyal Consulting
+                Fundador da Loyal Consulting · 10 anos em dados e BI
               </p>
               <p className="section-copy" style={{ marginTop: "1.6rem" }}>
-                Ha mais de 10 anos atuando com dados, automacao e inteligencia de negocios em
-                empresas de grande porte.
+                Antes da Loyal, passei mais de uma década dentro de empresas de grande porte
+                construindo dashboards, pipelines de dados e modelos de análise para equipes de
+                gestão que precisavam enxergar os números com clareza — não com atraso.
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
-                Ao longo da carreira, percebi um padrao: a maioria das empresas nao sofre por
-                falta de dados. Sofre por excesso de planilhas, sistemas desconectados e
-                informacoes dificeis de confiar.
+                Nesse tempo, vi o mesmo padrão repetir em setores completamente diferentes: os
+                dados existiam, mas ninguém confiava neles. Não porque os sistemas fossem ruins.
+                Porque a informação estava fragmentada, desatualizada ou dependia de alguém
+                para consolidar antes de chegar a quem decide.
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
-                A Loyal nasceu para resolver exatamente isso.
+                A Loyal nasceu a partir dessa observação. O trabalho não é instalar ferramenta —
+                é entender o que você precisa enxergar e construir o caminho mais direto até
+                essa visão.
               </p>
               <div className="mt-8">
                 <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
@@ -307,7 +311,7 @@ export default function DiscoveryPage() {
                 <a href={WA_DISCOVERY} target="_blank" rel="noopener noreferrer" className="btn-accent">
                   Agendar Discovery
                 </a>
-                <p className="lc-cta-caption">30 minutos · Plano inicial de evolucao analitica</p>
+                <p className="lc-cta-caption">30 minutos · Plano inicial de evolução analítica</p>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: "0.5rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.5)", textDecoration: "underline" }}>
                   ou agendar pelo Calendly →
                 </a>

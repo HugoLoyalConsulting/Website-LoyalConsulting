@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Plans",
   description:
-    "BASIC, PRO and PREMIUM: the investment follows data-operation complexity. Engagements start at R$ 2,000.",
+    "BASIC, PRO and PREMIUM: the investment follows project complexity. Automated dashboards starting at R$ 2,000.",
   path: "/en/plans",
 });
 
@@ -16,7 +16,7 @@ const plans = [
   {
     tier: "BASIC",
     price: "R$ 2,000+",
-    desc: "For teams that need to organize the foundation, automate extraction, and gain initial visibility.",
+    desc: "For teams that need to automate an extraction, organize a data base or take their first steps with data.",
     features: [
       "Pipeline or extraction automation",
       "Up to 2 data sources",
@@ -28,8 +28,8 @@ const plans = [
   },
   {
     tier: "PRO",
-    price: "R$ 6,000+",
-    desc: "For operations that need to integrate multiple sources and drive decisions through executive dashboards.",
+    price: "R$ 5,000+",
+    desc: "For areas that need to integrate different sources and get a complete dashboard to track results.",
     features: [
       "Multiple integrated sources",
       "Data modeling and relationships",
@@ -42,7 +42,7 @@ const plans = [
   {
     tier: "PREMIUM",
     price: "R$ 10,000+",
-    desc: "For complex operations with robust automations, multiple dashboards and ongoing analytics evolution.",
+    desc: "For more complex operations, with robust automations, multiple dashboards and recurring refreshes.",
     features: [
       "Advanced pipelines and integrations",
       "Many sources and systems",
@@ -61,7 +61,7 @@ const faqItems = [
   },
   {
     q: "How do I know which plan makes sense for my situation?",
-    a: "The strategic Discovery exists exactly for that. By the end of the conversation you will understand your complexity level and the most suitable investment range.",
+    a: "The free 30-minute Discovery exists exactly for that. By the end of the conversation you will have clarity on the complexity of your scenario and which investment range makes the most sense, before any commitment.",
   },
   {
     q: "Will my team actually use the dashboard day to day?",
@@ -187,7 +187,7 @@ export default function PlansPage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
           <h2 className="lc-cta-title">Not sure which plan makes sense?</h2>
           <p className="lc-cta-sub">
-            Strategic Discovery helps estimate complexity and define the right starting point.
+            The free 30-minute Discovery helps estimate the complexity of your scenario.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <Link href="/en/discovery" className="btn-accent">

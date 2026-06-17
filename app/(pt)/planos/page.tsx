@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Planos",
   description:
-    "BASIC, PRO e PREMIUM: o investimento acompanha a complexidade da operacao de dados. Entregas a partir de R$ 2.000.",
+    "BASIC, PRO e PREMIUM: o investimento acompanha a complexidade do projeto. Dashboards automatizados a partir de R$ 2.000.",
   path: "/planos",
 });
 
@@ -16,7 +16,7 @@ const plans = [
   {
     tier: "BASIC",
     price: "R$ 2.000+",
-    desc: "Para quem precisa organizar a base, automatizar uma extracao e ganhar visibilidade inicial de indicadores.",
+    desc: "Para quem precisa automatizar uma extração, organizar uma base ou dar os primeiros passos em dados.",
     features: [
       "Pipeline ou automação de extração",
       "Até 2 fontes de dados",
@@ -28,8 +28,8 @@ const plans = [
   },
   {
     tier: "PRO",
-    price: "R$ 6.000+",
-    desc: "Para operacoes que precisam integrar fontes diferentes e consolidar decisoes em paineis executivos.",
+    price: "R$ 5.000+",
+    desc: "Para áreas que precisam integrar diferentes fontes e ter um painel completo para acompanhar resultados.",
     features: [
       "Múltiplas fontes integradas",
       "Modelagem e relacionamentos de dados",
@@ -42,7 +42,7 @@ const plans = [
   {
     tier: "PREMIUM",
     price: "R$ 10.000+",
-    desc: "Para operacoes mais complexas, com automacoes robustas, multiplos paineis e evolucao analitica continua.",
+    desc: "Para operações mais complexas, com automações robustas, múltiplos painéis e atualizações recorrentes.",
     features: [
       "Pipelines e integrações avançadas",
       "Diversas fontes e sistemas",
@@ -61,7 +61,7 @@ const faqItems = [
   },
   {
     q: "Como sei qual plano faz sentido para o meu caso?",
-    a: "A Discovery estrategica existe para isso. Ao fim da conversa, voce tera clareza sobre a complexidade do seu cenario e qual faixa de investimento faz mais sentido.",
+    a: "A Discovery gratuita de 30 minutos existe para isso. Ao fim da conversa, você terá clareza sobre a complexidade do seu cenário e qual faixa de investimento faz mais sentido, antes de qualquer compromisso.",
   },
   {
     q: "Meu time vai conseguir usar o dashboard no dia a dia?",
@@ -187,7 +187,7 @@ export default function PlanosPage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
           <h2 className="lc-cta-title">Em dúvida sobre qual plano faz sentido?</h2>
           <p className="lc-cta-sub">
-            A Discovery estrategica ajuda a estimar a complexidade do seu cenario e definir o melhor ponto de partida.
+            A Discovery gratuita de 30 minutos ajuda a estimar a complexidade do seu cenário.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <Link href="/discovery" className="btn-accent">
