@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const IMAGES = [
-  "/images/dashboard-powerbi-vendas.png",
   "/images/dashboard-comunicacao-interna.png",
   "/images/dashboard-monitor-colorido.jpg",
   "/images/dashboard-powerbi-timeline.jpg",

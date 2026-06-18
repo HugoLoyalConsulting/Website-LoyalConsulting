@@ -1299,7 +1299,6 @@ a {
   left: 0;
   width: 62%;
   z-index: 1;
-  transform: rotate(-1.8deg);
 }
 
 .ts-hv-2 {
@@ -1307,7 +1306,6 @@ a {
   right: 0;
   width: 52%;
   z-index: 3;
-  transform: rotate(1.4deg);
 }
 
 .ts-hv-3 {
@@ -1315,7 +1313,6 @@ a {
   left: 16%;
   width: 64%;
   z-index: 2;
-  transform: rotate(0.6deg);
 }
 
 /* ─── TS WORKS-WITH ─── */
@@ -1366,7 +1363,6 @@ a {
   left: 0;
   width: 70%;
   z-index: 1;
-  transform: rotate(-1deg);
 }
 
 .ts-wc-2 {
@@ -1374,7 +1370,6 @@ a {
   right: 0;
   width: 48%;
   z-index: 3;
-  transform: rotate(1.5deg);
 }
 
 .ts-wc-3 {
@@ -1382,7 +1377,6 @@ a {
   left: 10%;
   width: 56%;
   z-index: 2;
-  transform: rotate(0.5deg);
 }
 
 /* Tools / compatibility grid */
@@ -1700,10 +1694,9 @@ a {
   overflow: hidden;
   border: 1px solid rgba(108, 99, 255, 0.22);
   box-shadow: 0 24px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04);
-  transform: rotate(-1.2deg) translateY(12px);
   transition: transform 0.4s ease;
 }
-.ts-cc-main:hover { transform: rotate(0deg) translateY(0); }
+.ts-cc-main:hover { transform: none; }
 .ts-cc-main img {
   width: 100%;
   height: 100%;
@@ -1719,10 +1712,9 @@ a {
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-  transform: rotate(1.5deg) translateY(-18px);
   transition: transform 0.4s ease;
 }
-.ts-cc-side:hover { transform: rotate(0deg) translateY(0); }
+.ts-cc-side:hover { transform: none; }
 .ts-cc-side img {
   width: 100%;
   height: 100%;
@@ -3058,8 +3050,8 @@ body::before {
     width: 100%;
   }
   .ts-hero-h1 {
-    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
-    line-height: 1.1;
+    font-size: clamp(2.64rem, 11.2vw, 3.84rem);
+    line-height: 1.0;
   }
   .section-title {
     font-size: clamp(1.45rem, 5.1vw, 1.9rem);
@@ -3312,13 +3304,11 @@ body::before {
 }
 
 .lc-ba-card--antes .lc-ba-img {
-  transform: rotate(-1.2deg);
   border-color: rgba(239, 68, 68, 0.85);
   box-shadow: 0 22px 48px rgba(239, 68, 68, 0.35), 0 0 28px rgba(239, 68, 68, 0.25);
 }
 
 .lc-ba-card--depois .lc-ba-img {
-  transform: rotate(1.2deg);
   border-color: rgba(20, 184, 166, 0.9);
   box-shadow: 0 22px 48px rgba(20, 184, 166, 0.35), 0 0 28px rgba(20, 184, 166, 0.25);
 }
@@ -3345,7 +3335,7 @@ body::before {
 }
 
 .lc-ba-card .lc-ba-img:hover {
-  transform: rotate(0deg) scale(1.015);
+  transform: scale(1.015);
 }
 
 .lc-ba-caption {

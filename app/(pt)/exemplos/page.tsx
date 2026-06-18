@@ -72,7 +72,6 @@ const exampleProjects = [
 
 // ── Galeria de dashboards ──────────────────────────────────────────────────
 const galleryImages = [
-  { src: "dashboard-powerbi-vendas.png", alt: "Dashboard de vendas em Power BI" },
   { src: "dashboard-powerbi-timeline.jpg", alt: "Dashboard Power BI com linha do tempo de indicadores" },
   { src: "dashboard-ui-kpis.webp", alt: "Painel de KPIs executivos" },
   { src: "dashboard-comunicacao-interna.png", alt: "Dashboard de comunicação interna" },

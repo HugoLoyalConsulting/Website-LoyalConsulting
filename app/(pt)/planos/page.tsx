@@ -56,7 +56,7 @@ const plans = [
 
 const faqItems = [
   {
-    q: "Nossos dados estão numa bagunça. Dá para começar assim mesmo?",
+    q: "Nossos dados estão em uma bagunça. Dá para começar assim mesmo?",
     a: "Sim, e esse é o estado mais comum. Dados espalhados por planilhas, sistemas sem integração e relatórios que não batem são a situação de entrada da maioria dos projetos. A Discovery mapeia o que existe e define um ponto de partida realista, sem exigir que tudo já esteja organizado.",
   },
   {

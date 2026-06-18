@@ -72,7 +72,6 @@ const exampleProjects = [
 
 // ── Dashboard gallery ──────────────────────────────────────────────────────
 const galleryImages = [
-  { src: "dashboard-powerbi-vendas.png", alt: "Sales dashboard in Power BI" },
   { src: "dashboard-powerbi-timeline.jpg", alt: "Power BI dashboard with KPI timeline" },
   { src: "dashboard-ui-kpis.webp", alt: "Executive KPI dashboard" },
   { src: "dashboard-comunicacao-interna.png", alt: "Internal communications dashboard" },
@@ -109,7 +108,7 @@ export default function ExamplesPage() {
               dashboards and KPIs
             </h1>
             <p className="ts-hero-sub reveal-up">
-              A few examples of what we usually organize in each area — always adapted to
+              A few examples of what we usually organize in each area, always adapted to
               your business reality and questions.
             </p>
           </div>
@@ -172,7 +171,7 @@ export default function ExamplesPage() {
         <div className="parallax-break__inner">
           <p className="parallax-quote">
             &ldquo;When every number comes from one trusted source, meetings stop being
-            debates about which spreadsheet is right — and become conversations
+            debates about which spreadsheet is right, and become conversations
             about what to do.&rdquo;
           </p>
           <span className="parallax-attribution">Loyal Consulting · Business Intelligence</span>

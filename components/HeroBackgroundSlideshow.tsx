@@ -11,7 +11,7 @@ const IMAGES = [
   "apresentacao-dashboard-apontando.jpg",
   "dashboard-monitor-colorido.jpg",
   "laptop-analytics-aberto.jpg",
-  "dashboard-powerbi-vendas.png",
+  "dashboard-ui-kpis.webp",
 ];
 
 const INTERVAL_MS = 2500;

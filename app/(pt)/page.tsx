@@ -44,7 +44,7 @@ const processSteps = [
   {
     num: "04",
     title: "Dashboards",
-    body: "Criamos painéis com os indicadores que realmente importam — claros, diretos e fáceis de usar.",
+    body: "Criamos painéis com os indicadores que realmente importam: claros, diretos e fáceis de usar.",
   },
   {
     num: "05",
@@ -69,7 +69,7 @@ const stats = [
     source: "McKinsey Global Institute",
     title: "The Age of Analytics: Competing in a Data-Driven World",
     url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-age-of-analytics-competing-in-a-data-driven-world",
-    text: "47% dos executivos globais afirmam que dados e analytics mudaram de forma significativa ou fundamental a dinâmica competitiva de seus setores — enquanto os retardatários enfrentam desvantagem crescente.",
+    text: "47% dos executivos globais afirmam que dados e analytics mudaram de forma significativa ou fundamental a dinâmica competitiva de seus setores, enquanto os retardatários enfrentam desvantagem crescente.",
   },
   {
     source: "Deloitte Insights",
@@ -81,7 +81,7 @@ const stats = [
     source: "PwC",
     title: "ERP Data Modernization",
     url: "https://www.pwc.com/us/en/services/consulting/business-transformation/data-analytics/erp-data-modernization.html",
-    text: "A modernização dos dados libera valor preso em sistemas fragmentados — transformando informações dispersas em ativos estratégicos para previsões, relatórios e decisões com mais confiança.",
+    text: "A modernização dos dados libera valor preso em sistemas fragmentados, transformando informações dispersas em ativos estratégicos para previsões, relatórios e decisões com mais confiança.",
   },
 ];
 
@@ -247,7 +247,7 @@ export default function HomePage() {
               <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
               <div className="lc-ba-img">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-ui-kpis.webp`}
                   alt="Dashboard Power BI com indicadores consolidados"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -307,7 +307,7 @@ export default function HomePage() {
               </h2>
               <p className="section-copy mt-4" style={{ fontSize: "0.9rem" }}>
                 Se você respondeu sim para qualquer um desses pontos, o problema
-                provavelmente não está nos relatórios — está na forma como os dados
+                provavelmente não está nos relatórios. Está na forma como os dados
                 estão organizados.
               </p>
             </div>
@@ -395,7 +395,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   style={{ fontSize: "0.68rem", color: "rgba(240,237,232,0.28)", textDecoration: "underline", wordBreak: "break-all", lineHeight: 1.4 }}
                 >
-                  {stat.title} — {stat.source}
+                  {stat.title} · {stat.source}
                 </a>
               </div>
             ))}
@@ -433,7 +433,7 @@ export default function HomePage() {
               </p>
               <p className="section-copy" style={{ marginTop: "2rem" }}>
                 Nosso foco não é apenas criar dashboards. É construir a estrutura necessária
-                para que os números façam sentido — e cheguem a tempo de influenciar as
+                para que os números façam sentido e cheguem a tempo de influenciar as
                 decisões certas. Trabalhamos lado a lado com diretores, gerentes, coordenadores
                 e supervisores, com projetos enxutos e entregas práticas.
               </p>

@@ -17,14 +17,14 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Data Integration and Automation",
-    body: "When each team lives on its own spreadsheet and nobody agrees on which number is right, the problem isn't the analysis; it's the foundation. We connect ERPs, CRMs, spreadsheets and APIs into a single reliable model, with automated updates and end-to-end visibility — no manual processes required.",
+    body: "When each team lives on its own spreadsheet and nobody agrees on which number is right, the problem isn't the analysis; it's the foundation. We connect ERPs, CRMs, spreadsheets and APIs into a single reliable model, with automated updates and end-to-end visibility, no manual processes required.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Single source of truth",
   },
   {
     title: "Dashboards",
     body: "Meetings stop being debates about which spreadsheet is right when there is one shared reference screen, updated automatically. We build dashboards in Power BI, Tableau, Looker or Python, with the right questions answered in the right place.",
-    img: "dashboard-powerbi-vendas.png",
+    img: "dashboard-ui-kpis.webp",
     tag: "Insights in seconds",
   },
   {
@@ -97,7 +97,7 @@ export default function HowItWorksPage() {
               to confident decisions
             </h1>
             <p className="ts-hero-sub reveal-up">
-              Three service lines and a simple process — built for people who live in
+              Three service lines and a simple process, built for people who live in
               spreadsheets and want the numbers ready, in one place.
             </p>
           </div>

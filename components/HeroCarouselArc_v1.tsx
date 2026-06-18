@@ -18,7 +18,6 @@ import Image from "next/image";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const IMAGES = [
-  "dashboard-powerbi-vendas.png",
   "dashboard-comunicacao-interna.png",
   "dashboard-monitor-colorido.jpg",
   "dashboard-powerbi-timeline.jpg",

@@ -17,14 +17,14 @@ export const metadata: Metadata = buildMetadata({
 const services = [
   {
     title: "Integração e automação de dados",
-    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise; é a base. Conectamos ERPs, CRMs, planilhas e APIs em um modelo único e confiável, com atualizações automáticas e visibilidade de ponta a ponta — sem depender de processos manuais.",
+    body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise; é a base. Conectamos ERPs, CRMs, planilhas e APIs em um modelo único e confiável, com atualizações automáticas e visibilidade de ponta a ponta, sem depender de processos manuais.",
     img: "dashboard-monitor-dados-futurista.jpg",
     tag: "Fonte única de verdade",
   },
   {
     title: "Dashboards",
     body: "A reunião para de ser um debate sobre qual planilha está certa quando existe uma tela de referência compartilhada, atualizada automaticamente. Construímos painéis em Power BI, Tableau, Looker ou Python, com as perguntas certas respondidas no lugar certo.",
-    img: "dashboard-powerbi-vendas.png",
+    img: "dashboard-ui-kpis.webp",
     tag: "Decisão em segundos",
   },
   {

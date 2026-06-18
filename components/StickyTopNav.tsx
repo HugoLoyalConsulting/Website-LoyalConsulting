@@ -161,16 +161,6 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
               ))}
             </div>
             <div className="ts-nav-right">
-              <a
-                href={t.waUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ts-nav-wa"
-                aria-label={t.waAria}
-                title={t.waAria}
-              >
-                <WhatsAppIcon />
-              </a>
               <span className="ts-nav-social" role="img" aria-label={t.igAria} title={t.igAria}>
                 <InstagramIcon />
               </span>

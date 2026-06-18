@@ -45,14 +45,14 @@ const outcomes = [
   },
   {
     q: "Quais indicadores realmente importam para a sua operação",
-    a: "Priorizamos os 3 a 5 KPIs com maior impacto nas suas decisões — e paramos de medir o que não move o ponteiro.",
+    a: "Priorizamos os 3 a 5 KPIs com maior impacto nas suas decisões, e paramos de medir o que não move o ponteiro.",
   },
   {
     q: "Se seus dados estão prontos para um dashboard ou precisam ser estruturados antes",
     a: "Mapeamos o que existe, onde está e o que precisa ser ajustado antes de construir qualquer coisa.",
   },
   {
-    q: "Qual seria o próximo passo concreto — e quanto tempo levaria",
+    q: "Qual seria o próximo passo concreto e quanto tempo levaria",
     a: "Se fizer sentido avançar, você recebe três opções de entrega com prazos e valores definidos. Você escolhe o caminho.",
   },
 ];
@@ -94,7 +94,7 @@ const steps = [
     num: "04",
     title: "Dashboards",
     body: "Criamos painéis com os indicadores que realmente importam para a sua gestão, atualizados em tempo real.",
-    img: "dashboard-powerbi-vendas.png",
+    img: "dashboard-ui-kpis.webp",
     tag: "Decisão em segundos",
   },
   {
@@ -112,7 +112,7 @@ const stats = [
     source: "McKinsey Global Institute",
     title: "The Age of Analytics: Competing in a Data-Driven World",
     url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-age-of-analytics-competing-in-a-data-driven-world",
-    text: "47% dos executivos globais afirmam que dados e analytics mudaram de forma significativa ou fundamental a dinâmica competitiva de seus setores — enquanto os retardatários enfrentam desvantagem crescente.",
+    text: "47% dos executivos globais afirmam que dados e analytics mudaram de forma significativa ou fundamental a dinâmica competitiva de seus setores, enquanto os retardatários enfrentam desvantagem crescente.",
   },
   {
     source: "Deloitte Insights",
@@ -124,7 +124,7 @@ const stats = [
     source: "PwC",
     title: "ERP Data Modernization",
     url: "https://www.pwc.com/us/en/services/consulting/business-transformation/data-analytics/erp-data-modernization.html",
-    text: "A modernização dos dados libera valor preso em sistemas fragmentados — transformando informações dispersas em ativos estratégicos para previsões, relatórios e decisões com mais confiança.",
+    text: "A modernização dos dados libera valor preso em sistemas fragmentados, transformando informações dispersas em ativos estratégicos para previsões, relatórios e decisões com mais confiança.",
   },
 ];
 
@@ -132,7 +132,7 @@ const stats = [
 const faqItems = [
   {
     q: "Já tentamos BI antes e o time nunca usou. Por que seria diferente?",
-    a: `Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. O diagnóstico começa por identificar qual dado realmente importa para cada decisão — e só depois define a ferramenta certa. Dashboard vira consequência, não objetivo.`,
+    a: `Esse é o histórico mais comum. Projetos de BI fracassam quase sempre pelo mesmo motivo: começaram pela ferramenta, não pelo problema. O diagnóstico começa por identificar qual dado realmente importa para cada decisão, e só depois define a ferramenta certa. Dashboard vira consequência, não objetivo.`,
   },
   {
     q: "Nossa operação tem dados em vários sistemas. Parece complexo demais.",
@@ -148,7 +148,7 @@ const faqItems = [
   },
   {
     q: "O diagnóstico tem custo?",
-    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou — o que já tem valor por si só.",
+    a: "Não. É uma conversa de 30 minutos. Sem apresentação de produto, sem compromisso. Se ao final não fizer sentido avançar, você sai com mais clareza sobre o problema do que entrou. Isso já tem valor por si só.",
   },
   {
     q: "Em quanto tempo vou ter algo funcionando?",
@@ -352,7 +352,7 @@ export default function DiscoveryPage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8">
-            <p className="section-eyebrow">Sua equipe deveria analisar dados — não preparar dados</p>
+            <p className="section-eyebrow">Sua equipe deveria analisar dados, não preparar dados</p>
             <h2 className="section-title mt-3">30 minutos depois, você vai sair sabendo:</h2>
           </div>
           <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
@@ -409,7 +409,7 @@ export default function DiscoveryPage() {
               <span className="lc-ba-label lc-ba-label--depois">✓ Depois</span>
               <div className="lc-ba-img">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-powerbi-vendas.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/dashboard-ui-kpis.webp`}
                   alt="Dashboard Power BI com indicadores consolidados"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -477,7 +477,7 @@ export default function DiscoveryPage() {
             <div>
               <p className="section-eyebrow">O problema pode ser mais simples do que parece</p>
               <h2 className="section-title mt-3">
-                Talvez não seja falta de dashboards — é falta de uma fonte única de verdade
+                Talvez não seja falta de dashboards. É falta de uma fonte única de verdade
               </h2>
               <p className="section-copy mt-4" style={{ fontSize: "0.9rem" }}>
                 Se você respondeu sim para qualquer um desses pontos, o problema
@@ -570,7 +570,7 @@ export default function DiscoveryPage() {
                   rel="noopener noreferrer"
                   style={{ fontSize: "0.68rem", color: "rgba(240,237,232,0.28)", textDecoration: "underline", wordBreak: "break-all", lineHeight: 1.4 }}
                 >
-                  {stat.title} — {stat.source}
+                  {stat.title} · {stat.source}
                 </a>
               </div>
             ))}
@@ -602,11 +602,10 @@ export default function DiscoveryPage() {
             <h2 className="section-title mt-3">Dúvidas antes de começar</h2>
           </div>
           <div className="mt-10 lc-faq-stagger">
-            {faqItems.map((item, i) => (
+            {faqItems.map((item) => (
               <div
                 key={item.q}
                 className="lc-faq-card"
-                style={{ marginLeft: i % 2 !== 0 ? "clamp(1rem, 5vw, 3.5rem)" : "0" }}
               >
                 <p className="lc-faq-q">{item.q}</p>
                 <p className="lc-faq-a">{item.a}</p>
@@ -651,7 +650,7 @@ export default function DiscoveryPage() {
               </p>
               <p className="section-copy" style={{ marginTop: "1.2rem" }}>
                 Nosso foco não é apenas criar dashboards. É construir a estrutura necessária
-                para que os números façam sentido — e cheguem a tempo de influenciar as
+                para que os números façam sentido e cheguem a tempo de influenciar as
                 decisões certas.
               </p>
               <div className="mt-8">
@@ -670,7 +669,7 @@ export default function DiscoveryPage() {
           <h2 className="lc-cta-title">Descubra quanto tempo sua equipe pode economizar.</h2>
           <p className="lc-cta-sub">
             Receba uma avaliação gratuita dos seus processos de dados e identifique
-            oportunidades de automação e integração — sem custo, sem compromisso.
+            oportunidades de automação e integração, sem custo e sem compromisso.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">

@@ -6,7 +6,6 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 // 18 images distributed across 3 columns (indices 0,3,6… / 1,4,7… / 2,5,8…)
 const IMAGES = [
-  "dashboard-powerbi-vendas.png",
   "dashboard-comunicacao-interna.png",
   "dashboard-monitor-colorido.jpg",
   "dashboard-powerbi-timeline.jpg",
