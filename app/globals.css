@@ -2119,12 +2119,12 @@ a {
 .lc-how-step > .lc-how-title,
 .lc-how-step > .lc-how-body,
 .lc-how-step > .lc-how-tags {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
 }
 
-.lc-how-step > .lc-how-num  { padding-top: 1.5rem; }
-.lc-how-step > .lc-how-tags { padding-bottom: 1.75rem; }
+.lc-how-step > .lc-how-num  { padding-top: 2.2rem; }
+.lc-how-step > .lc-how-tags { padding-bottom: 2.2rem; }
 .lc-how-step > .lc-how-title { margin-top: 0.5rem; }
 .lc-how-step > .lc-how-body  { margin-top: 0.5rem; }
 
@@ -2252,7 +2252,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  padding: 2rem;
+  padding: 2.4rem 2.2rem;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.02);
@@ -2390,7 +2390,7 @@ a {
   }
 
   .lc-how-step {
-    padding: 1.3rem;
+    padding: 1.6rem;
     gap: 0.8rem;
   }
 
@@ -3209,7 +3209,7 @@ body::before {
 }
 
 .lc-faq-card {
-  padding: 1.4rem 1.6rem;
+  padding: 1.75rem 2rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
