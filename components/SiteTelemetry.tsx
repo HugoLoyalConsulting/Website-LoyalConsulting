@@ -15,7 +15,7 @@ type TelemetryPayload = {
 };
 
 const TELEMETRY_ENDPOINT =
-  process.env.NEXT_PUBLIC_TELEMETRY_ENDPOINT?.trim() || "/api/telemetry";
+  process.env.NEXT_PUBLIC_TELEMETRY_ENDPOINT?.trim() || null;
 
 if (typeof window !== "undefined") {
   window.history.scrollRestoration = "manual";
@@ -31,15 +31,16 @@ function getSessionId() {
 }
 
 function postTelemetry(payload: TelemetryPayload) {
+  if (!TELEMETRY_ENDPOINT) return;
   const body = JSON.stringify(payload);
 
   if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
     const blob = new Blob([body], { type: "application/json" });
-    navigator.sendBeacon(TELEMETRY_ENDPOINT, blob);
+    navigator.sendBeacon(TELEMETRY_ENDPOINT!, blob);
     return;
   }
 
-  fetch(TELEMETRY_ENDPOINT, {
+  fetch(TELEMETRY_ENDPOINT!, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body,

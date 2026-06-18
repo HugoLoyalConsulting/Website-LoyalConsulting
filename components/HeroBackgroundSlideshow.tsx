@@ -57,7 +57,7 @@ export function HeroBackgroundSlideshow() {
     <div aria-hidden="true" style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}>
       <div style={layerStyle(front === "a")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${BASE}/images/${IMAGES[a]}`} alt="" style={imgStyle} loading="eager" decoding="async" />
+        <img src={`${BASE}/images/${IMAGES[a]}`} alt="" style={imgStyle} loading="eager" decoding="async" fetchPriority="high" />
       </div>
       <div style={layerStyle(front === "b")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -29,6 +29,13 @@
     "react-dom": "18.3.1",
     "zod": "3.23.8"
   },
+  "browserslist": [
+    "chrome >= 96",
+    "edge >= 96",
+    "firefox >= 90",
+    "safari >= 15.4",
+    "not ie 11"
+  ],
   "devDependencies": {
     "@types/node": "20.14.12",
     "@types/pg": "^8.20.0",

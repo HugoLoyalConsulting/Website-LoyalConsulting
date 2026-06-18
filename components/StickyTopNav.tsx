@@ -152,7 +152,7 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <nav className="ts-nav">
             <Link className="ts-nav-logo" href={t.home} aria-label={t.logoAria}>
-              <span className="ts-nav-logo-icon">LC</span>
+              <span className="ts-nav-logo-icon" aria-hidden="true">LC</span>
               <span className="ts-nav-logo-text">Loyal Consulting</span>
             </Link>
             <div className="ts-nav-pill">
@@ -194,6 +194,7 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
         className={`ts-nav-drawer${menuOpen ? " ts-nav-drawer--open" : ""}`}
         onClick={closeMenu}
         aria-hidden={!menuOpen}
+        {...(!menuOpen ? ({ inert: "" } as object) : {})}
       >
         <div className="ts-nav-drawer-inner" onClick={(e) => e.stopPropagation()}>
           {t.items.map((item) => (

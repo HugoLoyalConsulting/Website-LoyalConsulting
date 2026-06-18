@@ -46,6 +46,7 @@ export function ZoomableImage({ src, alt, caption, wrapperStyle }: ZoomableImage
           <img
             src={src}
             alt={alt}
+            loading="lazy"
             style={{ width: "100%", height: "auto", display: "block" }}
           />
         </div>

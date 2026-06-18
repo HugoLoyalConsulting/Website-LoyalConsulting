@@ -75,9 +75,14 @@ const jsonLd = {
   ],
 };
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="preload" href={`${BASE}/images/executivo-painel-wall.jpg`} as="image" type="image/jpeg" />
+      </head>
       <body className={`${outfit.variable} ${outfitDisplay.variable}`}>
         <script
           type="application/ld+json"
