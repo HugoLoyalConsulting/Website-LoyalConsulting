@@ -113,12 +113,10 @@ export default function HomePage() {
           className="mx-auto w-full max-w-7xl px-5 sm:px-8"
           style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
         >
-          <div style={{ maxWidth: "660px" }}>
+          <div style={{ maxWidth: "880px" }}>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
-            <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Você está cansado de cobrar<br />
-              decisões baseadas em dados,<br />
-              mas seu time ainda vive de planilha?
+            <h1 className="ts-hero-h1 reveal-up mt-3">
+              Você está cansado de cobrar decisões baseadas em dados, mas seu time ainda vive de planilha?
             </h1>
             <p className="ts-hero-sub reveal-up">
               Sua equipe deveria analisar dados, não preparar dados. Conectamos suas fontes,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -14,67 +14,55 @@ const IMAGES = [
   "dashboard-ui-kpis.webp",
 ];
 
-const INTERVAL_MS = 2500;
-const FADE_MS     = 600;
+const DISPLAY_MS = 4500;
+const FADE_MS = 1000;
+
+const imgStyle: React.CSSProperties = {
+  position: "absolute",
+  inset: 0,
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  objectPosition: "center 30%",
+  display: "block",
+};
 
 export function HeroBackgroundSlideshow() {
-  const [idx,     setIdx]     = useState(0);
-  const [animKey, setAnimKey] = useState(0);
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(1);
+  const [front, setFront] = useState<"a" | "b">("a");
+  const idxRef = useRef(0);
 
   useEffect(() => {
     const t = setInterval(() => {
-      setIdx(i     => (i + 1) % IMAGES.length);
-      setAnimKey(k => k + 1);
-    }, INTERVAL_MS);
+      idxRef.current = (idxRef.current + 1) % IMAGES.length;
+      const next = idxRef.current;
+      setFront(prev => {
+        if (prev === "a") { setB(next); return "b"; }
+        else               { setA(next); return "a"; }
+      });
+    }, DISPLAY_MS);
     return () => clearInterval(t);
   }, []);
 
-  return (
-    <div
-      aria-hidden="true"
-      style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}
-    >
-      {/* keyframe lives here — no extra globals.css dependency */}
-      <style>{`
-        @keyframes hero-slide-pan {
-          from { transform: scale(1.07) translateX(-2%); }
-          to   { transform: scale(1.0)  translateX(2%);  }
-        }
-      `}</style>
+  const layerStyle = (active: boolean): React.CSSProperties => ({
+    position: "absolute",
+    inset: 0,
+    opacity: active ? 1 : 0,
+    transition: `opacity ${FADE_MS}ms ease-in-out`,
+    willChange: "opacity",
+  });
 
-      {IMAGES.map((img, i) => {
-        const active = i === idx;
-        return (
-          <div
-            key={img}
-            style={{
-              position: "absolute",
-              inset: 0,
-              opacity: active ? 1 : 0,
-              transition: `opacity ${FADE_MS}ms ease`,
-            }}
-          >
-            {/* key changes every slide → forces remount → animation always restarts */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              key={active ? animKey : img}
-              src={`${BASE}/images/${img}`}
-              alt=""
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center 30%",
-                animation: active
-                  ? `hero-slide-pan ${INTERVAL_MS + FADE_MS}ms ease-out forwards`
-                  : "none",
-              }}
-            />
-          </div>
-        );
-      })}
+  return (
+    <div aria-hidden="true" style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}>
+      <div style={layerStyle(front === "a")}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${BASE}/images/${IMAGES[a]}`} alt="" style={imgStyle} loading="eager" decoding="async" />
+      </div>
+      <div style={layerStyle(front === "b")}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${BASE}/images/${IMAGES[b]}`} alt="" style={imgStyle} loading="lazy" decoding="async" />
+      </div>
 
       {/* dark gradient — left heavy for text legibility */}
       <div

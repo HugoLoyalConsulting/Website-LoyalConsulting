@@ -113,12 +113,10 @@ export default function HomePage() {
           className="mx-auto w-full max-w-7xl px-5 sm:px-8"
           style={{ position: "relative", zIndex: 1, paddingTop: "8rem", paddingBottom: "6rem" }}
         >
-          <div style={{ maxWidth: "660px" }}>
+          <div style={{ maxWidth: "880px" }}>
             <p className="section-eyebrow reveal-up">Loyal Consulting · Business Intelligence</p>
-            <h1 className="ts-hero-h1 reveal-up mt-3" style={{ textWrap: "auto" }}>
-              Tired of pushing for data-driven<br />
-              decisions while your team<br />
-              still lives on spreadsheets?
+            <h1 className="ts-hero-h1 reveal-up mt-3">
+              Tired of pushing for data-driven decisions while your team still lives on spreadsheets?
             </h1>
             <p className="ts-hero-sub reveal-up">
               Your team should be analyzing data, not preparing data. We connect your sources,
