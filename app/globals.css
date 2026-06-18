@@ -1983,7 +1983,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem 4rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .lc-dores-list {
