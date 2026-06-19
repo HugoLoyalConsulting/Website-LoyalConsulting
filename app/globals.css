@@ -3594,6 +3594,45 @@ body::before {
   border-color: rgba(255, 255, 255, 0.13);
 }
 
+/* ══════════════════════════════════════════════════════════════
+   LP CALCULADORA — TEMA VERDE-ÁGUA (.lp-teal)
+   Dégradé de verde-água profundo → roxo escuro do site.
+   ══════════════════════════════════════════════════════════════ */
+.lp-teal {
+  background: linear-gradient(
+    160deg,
+    #071c14 0%,
+    #0c2419 25%,
+    #0b1728 60%,
+    #090014 100%
+  );
+}
+
+.lp-teal .ts-header-shell {
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 28, 20, 0.97),
+    rgba(7, 28, 20, 0.62)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.lp-teal .lc-dores-consequences,
+.lp-teal .lc-how-step,
+.lp-teal .lc-benefit-item,
+.lp-teal .lc-faq-card {
+  background: rgba(46, 230, 166, 0.05);
+  border-color: rgba(46, 230, 166, 0.14);
+}
+
+/* ── Desktop: conteúdo máximo 2/3 da largura da tela ── */
+@media (min-width: 1100px) {
+  .max-w-7xl {
+    max-width: min(66.67vw, 1280px);
+  }
+}
+
 /* Faixa escura no fim da LP clara (formulário + footer) */
 .lp-dark-band {
   background: linear-gradient(180deg, #0d0b1f 0%, #090014 100%);

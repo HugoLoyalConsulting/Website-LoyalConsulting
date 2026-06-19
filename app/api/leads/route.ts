@@ -5,6 +5,7 @@ import { query } from "@/lib/db";
 import { forwardLeadToHubSpot } from "@/lib/integrations";
 import { leadSchema } from "@/lib/validations";
 import type { LeadStatus } from "@/lib/types";
+import { sendNotificationEmail } from "@/lib/email";
 
 const ALLOWED_STATUSES: LeadStatus[] = [
   "novo",
@@ -230,6 +231,22 @@ export async function POST(request: NextRequest) {
       pageName: sanitizeText(data.pageName || ""),
       consentimentoLgpd: data.consentimentoLgpd,
     });
+
+    // Notificação por e-mail — fire-and-forget
+    sendNotificationEmail(
+      `[Loyal] Novo lead — ${cleanNomeCompleto || "Sem nome"} · ${cleanEmail || cleanWhatsapp || "sem contato"}`,
+      `<h2>Novo Lead — Formulário de Contato</h2>
+       <table>
+         <tr><td><strong>Nome</strong></td><td>${cleanNomeCompleto || "—"}</td></tr>
+         <tr><td><strong>E-mail</strong></td><td>${cleanEmail || "—"}</td></tr>
+         <tr><td><strong>WhatsApp</strong></td><td>${cleanWhatsapp || "—"}</td></tr>
+         <tr><td><strong>Cargo</strong></td><td>${cleanCargo || "—"}</td></tr>
+         <tr><td><strong>Área / Setor</strong></td><td>${cleanAreaSetor || "—"}</td></tr>
+         <tr><td><strong>Tamanho da empresa</strong></td><td>${cleanTamanhoEmpresa || "—"}</td></tr>
+         <tr><td><strong>Dores</strong></td><td>${cleanDores.join(", ") || "—"}</td></tr>
+         <tr><td><strong>Descrição</strong></td><td>${cleanDescricao || "—"}</td></tr>
+       </table>`
+    );
 
     return withCorsHeaders(request, NextResponse.json({ success: true, id: leadId }, { status: 201 }));
   } catch (error) {

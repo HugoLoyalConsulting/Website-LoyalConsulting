@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit } from "@/lib/rate-limit";
 import { sanitizeText } from "@/lib/sanitization";
 import { query } from "@/lib/db";
+import { sendNotificationEmail } from "@/lib/email";
 
 function getIp(request: NextRequest) {
   const fwd = request.headers.get("x-forwarded-for");
@@ -99,6 +100,25 @@ export async function POST(request: NextRequest) {
         }),
       }).catch(() => {});
     }
+
+    // Notificação por e-mail — fire-and-forget
+    const custoFmt = custoAnual.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
+    sendNotificationEmail(
+      `[Loyal] Nova estimativa de BI — ${empresa || "Empresa não informada"} · ${custoFmt}/ano`,
+      `<h2>Nova Estimativa de Economias em BI</h2>
+       <table>
+         <tr><td><strong>Empresa</strong></td><td>${empresa || "—"}</td></tr>
+         <tr><td><strong>Nome</strong></td><td>${nome || "—"}</td></tr>
+         <tr><td><strong>E-mail</strong></td><td>${email || "—"}</td></tr>
+         <tr><td><strong>Custo anual estimado</strong></td><td>${custoFmt}</td></tr>
+         <tr><td><strong>Membros da equipe</strong></td><td>${membros}</td></tr>
+         <tr><td><strong>Horas/semana</strong></td><td>${horasSemana}</td></tr>
+         <tr><td><strong>Fontes de dados</strong></td><td>${fontes}</td></tr>
+         <tr><td><strong>Onde armazenam</strong></td><td>${local}</td></tr>
+         <tr><td><strong>Frequência</strong></td><td>${frequencia}</td></tr>
+         <tr><td><strong>Divergências</strong></td><td>${divergem}</td></tr>
+       </table>`
+    );
 
     return withCors(request, NextResponse.json({ success: true, id: inserted.rows[0]?.id }, { status: 201 }));
   } catch (error) {

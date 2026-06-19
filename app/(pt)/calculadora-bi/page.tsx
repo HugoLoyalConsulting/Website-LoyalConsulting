@@ -57,7 +57,7 @@ export default function CalculadoraBIPage() {
   return (
     <main
       id="topo"
-      className="lp-mid-dark ts-page-shell relative w-full max-w-full overflow-x-hidden"
+      className="lp-teal ts-page-shell relative w-full max-w-full overflow-x-hidden"
       style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.8rem)" }}
     >
       {/* ── NAV ─────────────────────────────────────────────── */}
@@ -72,7 +72,7 @@ export default function CalculadoraBIPage() {
               <a href="#topo">Início</a>
               <a href="#beneficios">Benefícios</a>
               <a href="#como-funciona">Como Funciona</a>
-              <a href="#calculadora">Calculadora</a>
+              <Link href="/calculadora/">Abrir Calculadora →</Link>
             </div>
             <div className="ts-nav-right">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="ts-nav-wa" aria-label="Falar no WhatsApp">
@@ -80,7 +80,7 @@ export default function CalculadoraBIPage() {
               </a>
               <span className="ts-nav-social" role="img" aria-label="Instagram em breve"><InstagramIcon /></span>
               <span className="ts-nav-social" role="img" aria-label="LinkedIn em breve"><LinkedInIcon /></span>
-              <a href="#calculadora" className="btn-accent" style={{ fontSize: "0.78rem", padding: "0.5rem 1.1rem" }}>
+              <a href="/calculadora/" className="btn-accent" style={{ fontSize: "0.78rem", padding: "0.5rem 1.1rem" }}>
                 Calcular agora
               </a>
             </div>
@@ -119,7 +119,7 @@ export default function CalculadoraBIPage() {
               organizados e prontos para apresentar à diretoria.
             </p>
             <div className="ts-cta-row reveal-up">
-              <a href="#calculadora" className="btn-accent">
+              <a href="/calculadora/" className="btn-accent">
                 Calcular agora (grátis)
               </a>
               <a href={WA_CALCULADORA} target="_blank" rel="noopener noreferrer" className="btn-calendly">
@@ -175,7 +175,7 @@ export default function CalculadoraBIPage() {
                 </div>
               ))}
               <div style={{ marginTop: "0.5rem" }}>
-                <a href="#calculadora" className="btn-accent">
+                <a href="/calculadora/" className="btn-accent">
                   Calcular meu custo agora
                 </a>
                 <p className="lc-cta-caption">Gratuito · PDF incluso · Sem cadastro</p>
@@ -290,27 +290,38 @@ export default function CalculadoraBIPage() {
         </div>
       </section>
 
-      {/* ── CALCULADORA (iframe) ─────────────────────────────── */}
-      <section id="calculadora" className="lc-benefits-section">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="section-divider" />
-          <div className="mt-8 text-center">
-            <p className="section-eyebrow">Calculadora de Economias em BI</p>
-            <h2 className="section-title mt-3">Descubra o custo real antes de qualquer decisão sobre dados</h2>
-            <p className="section-copy" style={{ marginTop: "0.75rem", maxWidth: "560px", margin: "0.75rem auto 0" }}>
-              A estimativa é gratuita, leva menos de 3 minutos e você sai com um PDF executivo pronto para compartilhar internamente.
-            </p>
+      {/* ── CTA CALCULADORA ─────────────────────────────────── */}
+      <div className="lc-cta-band" style={{ position: "relative", overflow: "hidden" }}>
+        <div
+          style={{
+            position: "absolute", inset: 0, pointerEvents: "none",
+            background: "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(46,230,166,0.08), transparent)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center" style={{ position: "relative" }}>
+          <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+            Calculadora de Economias em BI · Gratuito
+          </p>
+          <h2 className="lc-cta-title" style={{ maxWidth: "620px", margin: "0 auto" }}>
+            Descubra o custo real antes de qualquer decisão sobre dados
+          </h2>
+          <p className="lc-cta-sub" style={{ maxWidth: "520px", margin: "1rem auto 0" }}>
+            A estimativa leva menos de 3 minutos. Você sai com um relatório executivo pronto para apresentar — sem cadastro, sem compromisso.
+          </p>
+          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
+            <Link href="/calculadora/" className="btn-accent" style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}>
+              Abrir Calculadora Gratuita →
+            </Link>
+            <a href={WA_CALCULADORA} target="_blank" rel="noopener noreferrer" className="btn-calendly">
+              Prefiro conversar primeiro
+            </a>
           </div>
-          <div style={{ marginTop: "2.5rem", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.1)" }}>
-            <iframe
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/calculadora/`}
-              style={{ width: "100%", minHeight: "100vh", border: "none", display: "block" }}
-              title="Calculadora de Economias em BI"
-              loading="lazy"
-            />
-          </div>
+          <p style={{ marginTop: "1rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.38)" }}>
+            Sem cadastro · PDF executivo incluso · Resultado imediato
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* ── PRÓXIMOS PASSOS ─────────────────────────────────── */}
       <section className="lc-dores-section">
