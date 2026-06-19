@@ -1196,7 +1196,7 @@ a {
 /* ─── TS HERO (two-column) ─── */
 .ts-hero {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2.6rem;
   align-items: center;
   padding-top: 2.8rem;
@@ -2370,7 +2370,7 @@ a {
   }
 
   .ts-hero-h1 {
-    font-size: clamp(1.4rem, 7vw, 1.9rem);
+    font-size: clamp(1.54rem, 7.7vw, 2.09rem);
     line-height: 1.02;
   }
 
@@ -3023,7 +3023,7 @@ body::before {
   }
 
   .ts-hero-h1 {
-    font-size: clamp(2.2rem, 9.3vw, 3.2rem);
+    font-size: clamp(2.42rem, 10.2vw, 3.52rem);
     line-height: 0.97;
   }
 
@@ -3050,7 +3050,7 @@ body::before {
     width: 100%;
   }
   .ts-hero-h1 {
-    font-size: clamp(2.64rem, 11.2vw, 3.84rem);
+    font-size: clamp(2.9rem, 12.3vw, 4.22rem);
     line-height: 1.0;
   }
   .section-title {
