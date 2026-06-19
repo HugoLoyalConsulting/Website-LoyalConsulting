@@ -1,27 +1,12 @@
-import nodemailer from "nodemailer";
-
-function createTransport() {
-  const user = process.env.GMAIL_USER?.trim();
-  const pass = process.env.GMAIL_APP_PASSWORD?.trim();
-  if (!user || !pass) return null;
-
-  return nodemailer.createTransport({
-    service: "gmail",
-    auth: { user, pass },
-  });
-}
+import { Resend } from "resend";
 
 export async function sendNotificationEmail(subject: string, html: string): Promise<void> {
-  const transport = createTransport();
-  if (!transport) return;
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  if (!apiKey) return;
 
-  const to = process.env.NOTIFY_EMAIL?.trim() || process.env.GMAIL_USER?.trim();
-  if (!to) return;
+  const resend = new Resend(apiKey);
+  const to = process.env.NOTIFY_EMAIL?.trim() || "hugo.loyalconsulting@gmail.com";
+  const from = process.env.EMAIL_FROM?.trim() || "Loyal Consulting <noreply@loyalconsulting.com.br>";
 
-  transport.sendMail({
-    from: `"Loyal Consulting Site" <${process.env.GMAIL_USER}>`,
-    to,
-    subject,
-    html,
-  }).catch((err: unknown) => console.error("[email]", err));
+  resend.emails.send({ from, to, subject, html }).catch((err: unknown) => console.error("[email]", err));
 }
