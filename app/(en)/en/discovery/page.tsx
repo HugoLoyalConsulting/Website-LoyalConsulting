@@ -6,7 +6,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/StickyTopNav";
-import { WA_DIAGNOSTICO_EN, CALENDLY_URL } from "@/lib/links";
+import { WA_DIAGNOSTICO_EN, WA_CALCULADORA_EN } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -247,12 +247,12 @@ export default function DiscoveryPage() {
               <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
                 Get Free Assessment
               </a>
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-                Schedule on Calendly
-              </a>
+              <Link href="/en/bi-calculator" className="btn-calendly">
+                Calculate my data cost →
+              </Link>
             </div>
             <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
-              Takes 3 minutes · Free · Immediate result
+              Free assessment · Or calculate your cost in 3 min
             </p>
           </div>
           <div className="ts-hero-visual" style={{ paddingBottom: "2rem" }}>
@@ -318,14 +318,14 @@ export default function DiscoveryPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Start Assessment
+              Schedule Assessment on WhatsApp
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Schedule on Calendly
-            </a>
+            <Link href="/en/bi-calculator" className="btn-calendly">
+              Calculate my data cost →
+            </Link>
           </div>
           <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
-            Free · No commitment · Immediate result
+            Free · No commitment · Executive PDF included in the calculator
           </p>
         </div>
       </section>
@@ -506,10 +506,15 @@ export default function DiscoveryPage() {
                 ))}
               </ul>
               <div className="mt-8">
-                <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Start Free Assessment
-                </a>
-                <p className="lc-cta-caption">30 minutes · Free · No commitment</p>
+                <div className="ts-cta-row">
+                  <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                    Schedule Free Assessment
+                  </a>
+                  <Link href="/en/bi-calculator" className="btn-calendly">
+                    Calculate my cost →
+                  </Link>
+                </div>
+                <p className="lc-cta-caption">30 minutes · Free · Or calculate in 3 min without leaving the site</p>
               </div>
             </div>
           </div>
@@ -657,9 +662,9 @@ export default function DiscoveryPage() {
             <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
               Get Free Assessment
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Schedule on Calendly
-            </a>
+            <Link href="/en/bi-calculator" className="btn-calendly">
+              Calculate my data cost →
+            </Link>
           </div>
         </div>
       </div>

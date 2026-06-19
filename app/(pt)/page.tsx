@@ -6,6 +6,7 @@ import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WA_DIAGNOSTICO } from "@/lib/links";
+import { WA_CALCULADORA } from "@/lib/links";
 
 // ── Hoje × Depois ─────────────────────────────────────────────────────────
 const hoje = [
@@ -125,14 +126,14 @@ export default function HomePage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Fazer o Diagnóstico Gratuito
+                Agendar Discovery Gratuita
               </a>
-              <Link href="/como-funciona" className="btn-outline">
-                Ver como funciona
+              <Link href="/calculadora-bi" className="btn-outline">
+                Calcular meu custo de dados →
               </Link>
             </div>
             <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
-              Leva 3 minutos · Gratuito · Resultado imediato
+              Discovery gratuita · Sem compromisso · Resultado imediato
             </p>
           </div>
         </div>
@@ -189,30 +190,94 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── DIAGNÓSTICO (oferta principal) ──────────────────── */}
+      {/* ── DOIS CAMINHOS ───────────────────────────────────── */}
       <section id="diagnostico" className="lc-cta-band">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <p
-            className="section-eyebrow"
-            style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}
-          >
-            Diagnóstico gratuito
-          </p>
-          <h2 className="lc-cta-title" style={{ maxWidth: "680px", margin: "0 auto" }}>
-            Descubra em 3 minutos quanto tempo sua empresa perde por causa de dados descentralizados
-          </h2>
-          <p className="lc-cta-sub" style={{ maxWidth: "540px", margin: "1rem auto 0" }}>
-            Receba uma análise gratuita com recomendações práticas para reduzir retrabalho,
-            aumentar a confiança nos números e acelerar a tomada de decisão.
-          </p>
-          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Iniciar Diagnóstico
-            </a>
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="text-center" style={{ marginBottom: "2.5rem" }}>
+            <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+              Por onde começar?
+            </p>
+            <h2 className="lc-cta-title" style={{ maxWidth: "640px", margin: "0 auto" }}>
+              Escolha o ponto de entrada certo para o seu momento
+            </h2>
           </div>
-          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
-            Gratuito · Sem compromisso · Resultado imediato
-          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
+            {/* Card 1 — Discovery */}
+            <div
+              style={{
+                border: "1px solid rgba(46,230,166,0.25)",
+                borderRadius: "16px",
+                padding: "2rem 1.75rem",
+                background: "rgba(46,230,166,0.05)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2ee6a6", margin: 0 }}>
+                Conversa estratégica
+              </p>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--color-text, #f0ede8)", lineHeight: 1.3, margin: 0 }}>
+                Discovery Gratuita
+              </h3>
+              <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.65, margin: 0, flexGrow: 1 }}>
+                30 minutos para mapear seus gargalos de dados, entender o que está travando as decisões e
+                receber um plano inicial concreto. Sem apresentação de produto. Sem compromisso.
+              </p>
+              <p style={{ fontSize: "0.8rem", color: "rgba(240,237,232,0.38)", margin: 0 }}>
+                Ideal para · quem não sabe por onde começar
+              </p>
+              <a
+                href={WA_DIAGNOSTICO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-accent"
+                style={{ marginTop: "0.5rem", textAlign: "center" }}
+              >
+                Agendar Discovery
+              </a>
+            </div>
+
+            {/* Card 2 — Calculadora */}
+            <div
+              style={{
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "16px",
+                padding: "2rem 1.75rem",
+                background: "rgba(255,255,255,0.03)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", margin: 0 }}>
+                Autodiagnóstico
+              </p>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--color-text, #f0ede8)", lineHeight: 1.3, margin: 0 }}>
+                Calculadora de Economias em BI
+              </h3>
+              <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.65, margin: 0, flexGrow: 1 }}>
+                Descubra quanto sua equipe gasta por ano com trabalho manual de dados. Preencha em
+                menos de 3 minutos e saia com um PDF executivo pronto para apresentar à diretoria.
+              </p>
+              <p style={{ fontSize: "0.8rem", color: "rgba(240,237,232,0.38)", margin: 0 }}>
+                Ideal para · quem precisa justificar um investimento em dados
+              </p>
+              <Link
+                href="/calculadora-bi"
+                className="btn-outline"
+                style={{ marginTop: "0.5rem", textAlign: "center" }}
+              >
+                Calcular agora (grátis) →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -348,9 +413,14 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="mt-8">
-                <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Quero resolver isso
-                </a>
+                <div className="ts-cta-row">
+                  <Link href="/calculadora-bi" className="btn-accent">
+                    Calcular meu custo de dados
+                  </Link>
+                  <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                    Conversar pelo WhatsApp →
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -445,16 +515,19 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
           <h2 className="lc-cta-title">Descubra onde sua empresa está perdendo tempo com dados.</h2>
           <p className="lc-cta-sub">
-            Receba gratuitamente um diagnóstico personalizado da sua maturidade de dados.
+            Calcule o custo real em 3 minutos — ou agende um diagnóstico gratuito com nossa equipe.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Fazer Diagnóstico Gratuito
-            </a>
-            <Link href="/como-funciona" className="btn-outline">
-              Ver como funciona
+            <Link href="/calculadora-bi" className="btn-accent">
+              Calcular meu custo de dados
             </Link>
+            <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Agendar Discovery Gratuita →
+            </a>
           </div>
+          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
+            Calculadora gratuita · PDF executivo incluso · Ou 30 min de diagnóstico sem compromisso
+          </p>
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon, WHATSAPP_URL } from "@/components/StickyTopNav";
-import { WA_DIAGNOSTICO, CALENDLY_URL } from "@/lib/links";
+import { WA_DIAGNOSTICO, WA_CALCULADORA } from "@/lib/links";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -267,12 +267,12 @@ export default function DiscoveryPage() {
               <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
                 Fazer o Diagnóstico Gratuito
               </a>
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-                Prefiro agendar pelo Calendly
-              </a>
+              <Link href="/calculadora-bi" className="btn-calendly">
+                Calcular meu custo de dados →
+              </Link>
             </div>
             <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
-              Leva 3 minutos · Gratuito · Resultado imediato
+              Diagnóstico gratuito · Ou calcule o custo em 3 min
             </p>
           </div>
         </div>
@@ -335,14 +335,14 @@ export default function DiscoveryPage() {
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
             <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Iniciar Diagnóstico
+              Agendar Diagnóstico pelo WhatsApp
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Agendar pelo Calendly
-            </a>
+            <Link href="/calculadora-bi" className="btn-calendly">
+              Calcular meu custo de dados →
+            </Link>
           </div>
           <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
-            Gratuito · Sem compromisso · Resultado imediato
+            Gratuito · Sem compromisso · PDF executivo incluso na calculadora
           </p>
         </div>
       </section>
@@ -524,10 +524,15 @@ export default function DiscoveryPage() {
                 ))}
               </ul>
               <div className="mt-8">
-                <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  Iniciar Diagnóstico Gratuito
-                </a>
-                <p className="lc-cta-caption">30 minutos · Gratuito · Sem compromisso</p>
+                <div className="ts-cta-row">
+                  <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                    Agendar Diagnóstico Gratuito
+                  </a>
+                  <Link href="/calculadora-bi" className="btn-calendly">
+                    Calcular meu custo →
+                  </Link>
+                </div>
+                <p className="lc-cta-caption">30 minutos · Gratuito · Ou calcule em 3 min sem sair do site</p>
               </div>
             </div>
           </div>
@@ -675,9 +680,9 @@ export default function DiscoveryPage() {
             <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
               Fazer Diagnóstico Gratuito
             </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-calendly">
-              Agendar pelo Calendly
-            </a>
+            <Link href="/calculadora-bi" className="btn-calendly">
+              Calcular meu custo de dados →
+            </Link>
           </div>
         </div>
       </div>

@@ -25,3 +25,8 @@ export const WA_COMECAR_EN =
   WA + encodeURIComponent("Hi! I want to simplify how my company manages data. Can we talk?");
 export const WA_DISCOVERY_EN =
   WA + encodeURIComponent("Hi! I'd like to schedule my free 30-minute Discovery call.");
+
+export const WA_CALCULADORA =
+  WA + encodeURIComponent("Olá! Acabei de usar a Calculadora de Economias em BI da Loyal Consulting e quero conversar sobre os resultados.");
+export const WA_CALCULADORA_EN =
+  WA + encodeURIComponent("Hi! I just used the BI Economics Calculator from Loyal Consulting and I'd like to talk about the results.");

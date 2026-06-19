@@ -71,6 +71,37 @@ CREATE TABLE IF NOT EXISTS lead_events (
 CREATE INDEX IF NOT EXISTS lead_events_tipo_created_at_idx
 ON lead_events (tipo, created_at DESC);
 
+CREATE TABLE IF NOT EXISTS estimativas_bi (
+  id           SERIAL PRIMARY KEY,
+  empresa      TEXT,
+  nome         TEXT,
+  email        TEXT,
+  fontes       TEXT,
+  local        TEXT,
+  frequencia   TEXT,
+  divergem     TEXT,
+  membros      INT,
+  horas_semana NUMERIC,
+  horas_ano    NUMERIC,
+  custo_anual  NUMERIC,
+  team         JSONB NOT NULL DEFAULT '[]'::jsonb,
+  lead_source  TEXT NOT NULL DEFAULT 'calculadora_bi',
+  utm_source   TEXT,
+  utm_medium   TEXT,
+  utm_campaign TEXT,
+  utm_term     TEXT,
+  utm_content  TEXT,
+  criado_em    TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- Migração para tabelas já existentes
+ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS lead_source  TEXT NOT NULL DEFAULT 'calculadora_bi';
+ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_source   TEXT;
+ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_medium   TEXT;
+ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_campaign TEXT;
+ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_term     TEXT;
+ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_content  TEXT;
+
 CREATE OR REPLACE FUNCTION set_updated_at()
 RETURNS TRIGGER AS $$
 BEGIN

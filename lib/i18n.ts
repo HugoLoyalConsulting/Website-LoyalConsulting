@@ -9,6 +9,7 @@ export const PT_TO_EN: Record<string, string> = {
   "/planos": "/en/plans",
   "/contato": "/en/contact",
   "/discovery": "/en/discovery",
+  "/calculadora-bi": "/en/bi-calculator",
   "/obrigado": "/en/thank-you",
 };
 

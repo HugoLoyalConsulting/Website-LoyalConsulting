@@ -1,0 +1,2005 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <title>Calculadora de Economias em BI | Loyal Consulting</title>
+  <meta name="description" content="Descubra quanto sua empresa gasta por ano com trabalho manual de dados. Calcule a economia potencial com automação e BI em menos de 5 minutos." />
+  <meta name="author" content="Loyal Consulting" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Loyal Consulting" />
+  <meta property="og:title"       content="Calculadora de Economias em BI — Gratuito" />
+  <meta property="og:description" content="Quanto custa manter seus dados no modo manual? Preencha em 5 minutos e receba um relatório executivo com os cenários de economia." />
+  <meta property="og:locale"      content="pt_BR" />
+
+  <style>
+    :root {
+      --bg: #040e0c;
+      --panel: #091e1a;
+      --panel-soft: #0d2722;
+      --panel-glass: rgba(9, 30, 26, 0.78);
+      --panel-glass-soft: rgba(9, 30, 26, 0.52);
+      --text: #f0fdf8;
+      --muted: #c8ede5;
+      --line: #1a403a;
+      --line-glass: rgba(100, 210, 190, 0.36);
+      --primary: #0d9e8f;
+      --primary-2: #06d6a0;
+      --accent: #34d399;
+      --danger: #c81f1f;
+      --ok: #059669;
+      --warn: #d77d1f;
+      --shadow: 0 26px 58px rgba(2, 12, 10, 0.65);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(118deg, #07c9af 0%, #05786c 38%, #041916 66%, #052a20 100%),
+        radial-gradient(circle at 18% 14%, rgba(6, 214, 160, 0.36), transparent 40%),
+        radial-gradient(circle at 82% 82%, rgba(13, 158, 143, 0.30), transparent 44%),
+        var(--bg);
+      background-attachment: fixed;
+    }
+
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(44px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+    body::before {
+      width: 360px; height: 360px;
+      left: -130px; top: 30%;
+      background: rgba(6, 214, 160, 0.38);
+    }
+    body::after {
+      width: 380px; height: 380px;
+      right: -140px; top: 8%;
+      background: rgba(13, 158, 143, 0.32);
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding:
+        calc(34px + env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        calc(118px + env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
+    }
+
+    /* ── Card principal ─────────────────────────────────────── */
+    .card {
+      background: linear-gradient(165deg, var(--panel-glass), var(--panel-glass-soft));
+      backdrop-filter: blur(14px) saturate(1.08);
+      -webkit-backdrop-filter: blur(14px) saturate(1.08);
+      border: 1px solid var(--line-glass);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(130deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.02) 35%, transparent 60%);
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    .header-badge {
+      display: inline-flex;
+      background: transparent;
+      color: transparent;
+      background-image: linear-gradient(112deg, #0d9e8f 0%, #06d6a0 48%, #34d399 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: 1px solid color-mix(in srgb, #0d9e8f 50%, #34d399 50%);
+      box-shadow: 0 14px 28px rgba(13, 158, 143, 0.30);
+    }
+
+    h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Progress ───────────────────────────────────────────── */
+    .status-bar { margin-top: 22px; display: grid; gap: 10px; }
+    .status-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .track {
+      width: 100%;
+      height: 12px;
+      background: color-mix(in srgb, var(--panel-soft) 70%, transparent);
+      border-radius: 999px;
+      border: 1px solid var(--line-glass);
+      overflow: hidden;
+    }
+    .fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.4s ease;
+    }
+
+    /* ── Step pills ─────────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .step-pill {
+      border: 1px solid var(--line-glass);
+      background: linear-gradient(160deg,
+        color-mix(in srgb, var(--panel-soft) 84%, transparent),
+        color-mix(in srgb, var(--panel) 65%, transparent));
+      backdrop-filter: blur(6px);
+      padding: 8px 4px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: default;
+      user-select: none;
+      transition: all 0.25s ease;
+    }
+    .step-pill.active {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(120deg, var(--primary), var(--primary-2));
+    }
+    .step-pill.done {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+
+    /* ── Sections ───────────────────────────────────────────── */
+    .section {
+      margin-top: 28px;
+      border: 1px solid var(--line-glass);
+      border-radius: 18px;
+      background: linear-gradient(165deg,
+        color-mix(in srgb, var(--panel-glass) 95%, transparent),
+        color-mix(in srgb, var(--panel-soft) 78%, transparent));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 24px;
+      animation: fade-up 0.36s ease;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section h2 { margin: 0; font-size: 17px; }
+    .section > p { margin-top: 6px; font-size: 13px; color: var(--muted); }
+
+    .hidden { display: none !important; }
+
+    /* ── Grid de campos ─────────────────────────────────────── */
+    .grid { margin-top: 20px; display: grid; gap: 18px; }
+    @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    .field { display: grid; gap: 6px; }
+    .field label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      border: 1px solid var(--line-glass);
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 13px;
+      background: color-mix(in srgb, var(--panel) 82%, transparent);
+      color: var(--text);
+      outline: none;
+      backdrop-filter: blur(6px);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field input::placeholder { color: rgba(232, 240, 255, 0.45); }
+    .field input:focus, .field select:focus {
+      border-color: var(--primary-2);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-2) 22%, transparent);
+    }
+    .field.invalid input, .field.invalid select {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 22%, transparent);
+    }
+    .field-error {
+      font-size: 11px;
+      color: #ff8585;
+      min-height: 14px;
+    }
+
+    /* ── Welcome screen ─────────────────────────────────────── */
+    .welcome-intro {
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .welcome-benefits {
+      margin-top: 20px;
+      display: grid;
+      gap: 10px;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line-glass);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(13, 158, 143, 0.14), rgba(6, 214, 160, 0.07));
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .benefit-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Tooltip ────────────────────────────────────────────── */
+    .tooltip-wrap { position: relative; display: inline-block; }
+    .tooltip-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--primary) 40%, transparent);
+      border: 1px solid color-mix(in srgb, var(--primary) 60%, transparent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      cursor: default;
+      user-select: none;
+    }
+    .tooltip-box {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      background: var(--panel);
+      border: 1px solid var(--line-glass);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+      z-index: 100;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+    }
+    .tooltip-wrap:hover .tooltip-box,
+    .tooltip-wrap:focus-within .tooltip-box { display: block; }
+
+    /* ── Team table ─────────────────────────────────────────── */
+    .team-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .team-header-labels {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* ── Member cards ───────────────────────────────────── */
+    .member-card {
+      background: linear-gradient(145deg,
+        color-mix(in srgb, var(--panel) 88%, transparent),
+        color-mix(in srgb, var(--panel-soft) 74%, transparent));
+      border: 1px solid var(--line-glass);
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .member-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .member-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .member-card-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary-2);
+    }
+    .card-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 480px) { .card-main { grid-template-columns: 1fr; } }
+    .card-field label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .ativ-section { border-top: 1px solid var(--line-glass); padding-top: 12px; }
+    .ativ-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .ativ-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--line-glass) 40%, transparent);
+    }
+    .ativ-row:last-of-type { border-bottom: none; }
+    .ativ-row-name {
+      flex: 1;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .ativ-row-name small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .inp-ativ {
+      width: 60px;
+      text-align: center;
+      border: 1px solid var(--line-glass);
+      border-radius: 8px;
+      padding: 7px 6px;
+      font-size: 14px;
+      background: color-mix(in srgb, var(--bg) 55%, transparent);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -moz-appearance: textfield;
+    }
+    .inp-ativ::-webkit-outer-spin-button,
+    .inp-ativ::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .inp-ativ::placeholder { color: rgba(219, 231, 245, 0.28); }
+    .inp-ativ:focus {
+      border-color: var(--primary-2);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-2) 20%, transparent);
+    }
+    .inp-ativ.invalid {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--danger) 20%, transparent);
+    }
+    .ativ-total-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .ativ-total-label { font-size: 12px; color: var(--muted); }
+    .ativ-total-val { font-size: 17px; font-weight: 700; color: var(--primary-2); }
+    .ativ-total-unit { font-size: 11px; color: var(--muted); }
+
+    .team-input {
+      width: 100%;
+      border: 1px solid var(--line-glass);
+      border-radius: 8px;
+      padding: 9px 10px;
+      font-size: 12px;
+      background: color-mix(in srgb, var(--bg) 55%, transparent);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .team-input::placeholder { color: rgba(219, 231, 245, 0.38); }
+    .team-input:focus {
+      border-color: var(--primary-2);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-2) 20%, transparent);
+    }
+    .team-input.invalid {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--danger) 20%, transparent);
+    }
+
+    .btn-remove {
+      background: none;
+      border: 1px solid color-mix(in srgb, var(--danger) 50%, transparent);
+      color: #ff8585;
+      border-radius: 8px;
+      width: 30px; height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .btn-remove:hover {
+      background: color-mix(in srgb, var(--danger) 18%, transparent);
+      border-color: var(--danger);
+    }
+    .btn-remove:disabled {
+      opacity: 0.28;
+      cursor: not-allowed;
+    }
+
+    .hours-warn {
+      font-size: 10px;
+      color: var(--warn);
+      padding: 2px 0 0 2px;
+      display: none;
+    }
+
+    /* ── Question cards ─────────────────────────────────────── */
+    .question {
+      border: 1px solid var(--line-glass);
+      border-radius: 14px;
+      padding: 20px;
+      background: linear-gradient(170deg,
+        color-mix(in srgb, var(--panel) 88%, transparent),
+        color-mix(in srgb, var(--panel-soft) 74%, transparent));
+      margin-top: 18px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .question.invalid {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 18%, transparent);
+    }
+    .question h3 { margin: 0; font-size: 14px; line-height: 1.4; }
+    .question > p { margin-top: 4px; font-size: 12px; color: var(--muted); }
+
+    .radio-grid, .check-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    @media (min-width: 640px) {
+      .radio-grid { grid-template-columns: repeat(4, 1fr); }
+      .check-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .radio-opt, .check-opt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      min-width: 0;
+      word-break: break-word;
+      border: 1px solid var(--line-glass);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 12px;
+      color: var(--muted);
+      transition: all 0.2s ease;
+      background: color-mix(in srgb, var(--panel-soft) 60%, transparent);
+      user-select: none;
+    }
+    .radio-opt:hover, .check-opt:hover {
+      border-color: color-mix(in srgb, var(--primary-2) 50%, transparent);
+      color: var(--text);
+    }
+    .radio-opt input, .check-opt input { display: none; }
+    .radio-dot, .check-box {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--line);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .check-box { border-radius: 4px; }
+    .radio-opt.selected, .check-opt.selected {
+      border-color: var(--primary-2);
+      background: linear-gradient(140deg,
+        color-mix(in srgb, var(--primary) 18%, transparent),
+        color-mix(in srgb, var(--primary-2) 12%, transparent));
+      color: var(--text);
+    }
+    .radio-opt.selected .radio-dot {
+      background: var(--primary-2);
+      border-color: var(--primary-2);
+      box-shadow: 0 0 8px var(--primary-2);
+    }
+    .check-opt.selected .check-box {
+      background: var(--primary-2);
+      border-color: var(--primary-2);
+      box-shadow: 0 0 8px var(--primary-2);
+    }
+
+    /* ── Result section ─────────────────────────────────────── */
+    .result-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (min-width: 640px) { .result-cards { grid-template-columns: repeat(4, 1fr); } }
+
+    .result-card {
+      background: linear-gradient(145deg,
+        color-mix(in srgb, var(--primary) 14%, transparent),
+        color-mix(in srgb, var(--primary-2) 8%, transparent));
+      border: 1px solid color-mix(in srgb, var(--primary-2) 35%, var(--line-glass));
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: center;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .result-card .rc-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .result-card .rc-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-top: 8px;
+      line-height: 1;
+      word-break: break-word;
+    }
+    .result-card .rc-sub {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Custo anual destaque */
+    .result-card.highlight {
+      background: linear-gradient(145deg,
+        color-mix(in srgb, #0d9e8f 22%, transparent),
+        color-mix(in srgb, var(--primary-2) 14%, transparent));
+      border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+    }
+    @media (min-width: 640px) { .result-card.highlight { grid-column: span 1; } }
+    .result-card.highlight .rc-value { font-size: 26px; color: #6ee7b7; }
+
+    /* ── Automation table ───────────────────────────────────── */
+    .auto-table-wrap { overflow-x: auto; margin-top: 14px; }
+    .auto-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .auto-table thead th {
+      padding: 8px 14px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 1px solid var(--line-glass);
+    }
+    .auto-table tbody tr {
+      border-bottom: 1px solid color-mix(in srgb, var(--line-glass) 50%, transparent);
+      transition: background 0.15s;
+    }
+    .auto-table tbody tr:hover { background: color-mix(in srgb, var(--primary) 8%, transparent); }
+    .auto-table tbody td {
+      padding: 10px 14px;
+      color: var(--muted);
+    }
+    .auto-table tbody td:first-child {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .auto-table tbody td.eco-value {
+      font-weight: 700;
+      color: #80f5c0;
+    }
+
+    /* ── Diagnóstico grid ───────────────────────────────────── */
+    .diag-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media (min-width: 540px) { .diag-grid { grid-template-columns: 1fr 1fr; } }
+    .diag-item {
+      background: color-mix(in srgb, var(--panel-soft) 70%, transparent);
+      border: 1px solid var(--line-glass);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .diag-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .diag-value {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ── Payback section (REMOVED — kept stub to avoid parse error) */
+    .payback-card {
+      background: linear-gradient(145deg,
+        color-mix(in srgb, var(--ok) 18%, transparent),
+        color-mix(in srgb, var(--ok) 8%, transparent));
+      border: 1px solid color-mix(in srgb, var(--ok) 35%, transparent);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .payback-card.payback-roi {
+      background: linear-gradient(145deg,
+        color-mix(in srgb, var(--primary) 18%, transparent),
+        color-mix(in srgb, var(--primary-2) 10%, transparent));
+      border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+    }
+    .payback-card .pb-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .payback-card .pb-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #80f5c0;
+      margin-top: 6px;
+    }
+    .payback-card.payback-roi .pb-value { color: #6ee7b7; }
+    .payback-card .pb-sub {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* ── Chart ──────────────────────────────────────────────── */
+    .chart-wrap {
+      margin-top: 14px;
+      height: 240px;
+      position: relative;
+    }
+    #chart-canvas { width: 100% !important; height: 100% !important; }
+
+    /* ── CTA WhatsApp ───────────────────────────────────────── */
+    .cta-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border-radius: 14px;
+      background: linear-gradient(120deg, #25d366, #128c7e);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: opacity 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.28);
+    }
+    .cta-wa:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── Buttons (navigation) ───────────────────────────────── */
+    .nav-btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--primary), var(--primary-2));
+      color: #fff;
+      flex: 1;
+      min-width: 140px;
+      box-shadow: 0 10px 26px rgba(13, 158, 143, 0.32);
+    }
+    .btn-secondary {
+      background: color-mix(in srgb, var(--panel-soft) 80%, transparent);
+      color: var(--muted);
+      border: 1px solid var(--line-glass);
+    }
+
+    .btn-add {
+      background: linear-gradient(120deg,
+        color-mix(in srgb, var(--primary) 30%, transparent),
+        color-mix(in srgb, var(--primary-2) 20%, transparent));
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--primary-2) 40%, transparent);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-add:hover {
+      background: linear-gradient(120deg,
+        color-mix(in srgb, var(--primary) 45%, transparent),
+        color-mix(in srgb, var(--primary-2) 32%, transparent));
+    }
+
+    /* ── PDF report (fora do viewport) ─────────────────────── */
+    #pdf-report {
+      position: fixed;
+      left: -9999px;
+      top: 0;
+      width: 900px;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background: #fff;
+      color: #1a1a2e;
+      padding: 50px 56px;
+    }
+    .pdf-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+    .pdf-logo { font-size: 22px; font-weight: 900; color: #0d9e8f; }
+    .pdf-date { font-size: 12px; color: #666; }
+    .pdf-company { font-size: 13px; color: #333; margin-top: 4px; }
+    .pdf-title { font-size: 26px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
+    .pdf-subtitle { font-size: 14px; color: #555; margin-bottom: 30px; }
+    .pdf-divider { height: 2px; background: linear-gradient(90deg, #0d9e8f, #06d6a0); margin: 24px 0; border: none; }
+    .pdf-section-title { font-size: 15px; font-weight: 800; color: #1a1a2e; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .pdf-cards { display: flex; gap: 14px; margin-bottom: 24px; }
+    .pdf-card {
+      flex: 1;
+      background: #f0fdfb;
+      border: 1px solid #99e6d8;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .pdf-card .cv-label { font-size: 10px; color: #666; text-transform: uppercase; font-weight: 700; }
+    .pdf-card .cv-value { font-size: 22px; font-weight: 900; color: #0d9e8f; margin-top: 6px; }
+    .pdf-card.highlight-card { background: #f0faf8; border-color: #41e4d6; }
+    .pdf-card.highlight-card .cv-value { color: #0d9488; font-size: 28px; }
+    .pdf-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 24px; }
+    .pdf-table th {
+      background: #f0fdfb;
+      color: #333;
+      font-weight: 700;
+      padding: 9px 12px;
+      text-align: left;
+      border-bottom: 2px solid #99e6d8;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .pdf-table td { padding: 9px 12px; border-bottom: 1px solid #ece8f8; color: #333; }
+    .pdf-table tr:nth-child(even) td { background: #faf9ff; }
+    /* Tabelas de dados (Equipe e Automação) — tudo centralizado */
+    #pdf-team-table th, #pdf-team-table td,
+    #pdf-auto-table  th, #pdf-auto-table  td { text-align: center; }
+    .pdf-conclusion {
+      background: #f0faf8;
+      border-left: 4px solid #41e4d6;
+      border-radius: 0 10px 10px 0;
+      padding: 18px 20px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #1a3a35;
+      line-height: 1.6;
+    }
+    .pdf-footer {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 11px;
+      color: #999;
+      border-top: 1px solid #eee;
+      padding-top: 14px;
+    }
+
+    /* ── Misc ───────────────────────────────────────────────── */
+    .note-box {
+      margin-top: 14px;
+      padding: 13px 16px;
+      border: 1px solid color-mix(in srgb, var(--primary-2) 40%, var(--line-glass));
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(65, 228, 214, 0.1), rgba(65, 228, 214, 0.04));
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .note-box strong { color: var(--accent); }
+
+    .pdf-loading {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid var(--line-glass);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ═══════════════════════════════════════════════════════
+       CARD PRINCIPAL — cabeçalho fixo com progress e pills
+  ════════════════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="header-badge">Gratuito</div>
+    <h1>Calculadora de Economias em BI</h1>
+    <p class="subtitle">Loyal Consulting — Descubra quanto sua empresa gasta com trabalho manual de dados</p>
+
+    <div class="status-bar">
+      <div class="status-head">
+        <span id="step-label">Tela inicial</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="track"><div class="fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="steps">
+      <div class="step-pill active" id="pill-0">Início</div>
+      <div class="step-pill" id="pill-1">Empresa</div>
+      <div class="step-pill" id="pill-2">Equipe</div>
+      <div class="step-pill" id="pill-3">Operação</div>
+      <div class="step-pill" id="pill-4">Resultado</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STEP 0 — Tela de boas-vindas
+  ════════════════════════════════════════════════════════ -->
+  <div class="section" id="step-0">
+    <h2>Quanto custa manter seus dados no modo manual?</h2>
+    <p style="margin-top:8px;font-size:14px;line-height:1.6;color:var(--muted);">
+      Sua equipe passa horas por semana extraindo dados, cruzando planilhas e fechando relatórios.
+      Em menos de 5 minutos você descobre quanto isso custa por ano — e quanto poderia economizar com automação.
+    </p>
+
+    <div class="welcome-benefits" style="margin-top:22px;">
+      <div class="benefit-item">
+        <span class="benefit-icon">⏱</span>
+        <div>
+          <strong>5 minutos de preenchimento</strong>
+          <span style="display:block;font-size:12px;color:var(--muted);margin-top:2px;">cadastre os cargos, salários e horas gastas por atividade</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">💰</span>
+        <div>
+          <strong>Custo real do trabalho manual</strong>
+          <span style="display:block;font-size:12px;color:var(--muted);margin-top:2px;">estimativa consolidada por pessoa, atividade e ano</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">📊</span>
+        <div>
+          <strong>Simulação de economia por nível de automação</strong>
+          <span style="display:block;font-size:12px;color:var(--muted);margin-top:2px;">de 10% a 100%, em tabela clara</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">📄</span>
+        <div>
+          <strong>Relatório em PDF pronto para apresentar</strong>
+          <span style="display:block;font-size:12px;color:var(--muted);margin-top:2px;">com suas respostas, equipe e projeção de economias</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-btns" style="margin-top:28px;">
+      <button class="btn btn-primary" onclick="goToStep(1)">Quero ver os números →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STEP 1 — Informações Básicas
+  ════════════════════════════════════════════════════════ -->
+  <div class="section hidden" id="step-1">
+    <h2>Informações Básicas</h2>
+    <p>Esses dados vão aparecer no seu relatório em PDF.</p>
+
+    <div class="grid grid-2">
+      <div class="field" id="f-empresa">
+        <label>Empresa</label>
+        <input type="text" id="empresa" placeholder="Nome da empresa" autocomplete="organization" />
+        <span class="field-error" id="err-empresa"></span>
+      </div>
+      <div class="field" id="f-nome">
+        <label>Nome do responsável</label>
+        <input type="text" id="nome" placeholder="Seu nome" autocomplete="name" />
+        <span class="field-error" id="err-nome"></span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="field" id="f-email">
+        <label>E-mail profissional</label>
+        <input type="email" id="email" placeholder="voce@empresa.com.br" autocomplete="email" />
+        <span class="field-error" id="err-email"></span>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn btn-secondary" onclick="goToStep(0)">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextFromStep(1)">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STEP 2 — Equipe Envolvida
+  ════════════════════════════════════════════════════════ -->
+  <div class="section hidden" id="step-2">
+    <h2>Sua Equipe</h2>
+    <p>Cadastre todos que dedicam tempo a tarefas manuais com dados — mesmo que seja parte do dia.</p>
+
+    <div class="note-box">
+      <strong>O que considerar nas horas semanais?</strong><br>
+      Exportação de dados, atualização de planilhas, consolidação de informações, cruzamento de bases, validação de números, elaboração de relatórios, atualização de dashboards e atendimento de solicitações de indicadores.
+    </div>
+
+    <div class="team-header">
+      <div class="team-header-labels">
+        <span id="team-count-label">0 colaborador(es)</span>
+      </div>
+      <button class="btn-add" onclick="addMember()">
+        <span>+</span> Adicionar Colaborador
+      </button>
+    </div>
+
+    <div id="team-cards"></div>
+
+    <span class="field-error" id="err-team" style="margin-top:8px;display:block;"></span>
+
+    <div class="nav-btns">
+      <button class="btn btn-secondary" onclick="goToStep(1)">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextFromStep(2)">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STEP 3 — Complexidade Operacional
+  ════════════════════════════════════════════════════════ -->
+  <div class="section hidden" id="step-3">
+    <h2>Contexto Operacional</h2>
+    <p>Isso ajuda a calibrar a análise de acordo com a realidade da sua empresa.</p>
+
+    <!-- Q1 -->
+    <div class="question" id="q1">
+      <h3>Quantas fontes de dados precisam ser consultadas regularmente?</h3>
+      <p>Considere sistemas diferentes que a equipe acessa para montar os relatórios.</p>
+      <div class="radio-grid" data-group="fontes">
+        <label class="radio-opt"><input type="radio" name="fontes" value="1"><span class="radio-dot"></span>1</label>
+        <label class="radio-opt"><input type="radio" name="fontes" value="2-3"><span class="radio-dot"></span>2–3</label>
+        <label class="radio-opt"><input type="radio" name="fontes" value="4-6"><span class="radio-dot"></span>4–6</label>
+        <label class="radio-opt"><input type="radio" name="fontes" value="7+"><span class="radio-dot"></span>7+</label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question" id="q2">
+      <h3>Onde seus dados estão atualmente?</h3>
+      <p>Pode selecionar mais de um.</p>
+      <div class="check-grid" data-group="local">
+        <label class="check-opt"><input type="checkbox" name="local" value="ERP"><span class="check-box"></span>ERP</label>
+        <label class="check-opt"><input type="checkbox" name="local" value="CRM"><span class="check-box"></span>CRM</label>
+        <label class="check-opt"><input type="checkbox" name="local" value="Excel"><span class="check-box"></span>Excel</label>
+        <label class="check-opt"><input type="checkbox" name="local" value="Google Sheets"><span class="check-box"></span>Google Sheets</label>
+        <label class="check-opt"><input type="checkbox" name="local" value="Banco de Dados"><span class="check-box"></span>Banco de Dados</label>
+        <label class="check-opt"><input type="checkbox" name="local" value="APIs"><span class="check-box"></span>APIs</label>
+        <label class="check-opt"><input type="checkbox" name="local" value="Outros"><span class="check-box"></span>Outros</label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question" id="q3">
+      <h3>Com que frequência os relatórios precisam ser atualizados?</h3>
+      <div class="radio-grid" data-group="frequencia">
+        <label class="radio-opt"><input type="radio" name="frequencia" value="Diariamente"><span class="radio-dot"></span>Diariamente</label>
+        <label class="radio-opt"><input type="radio" name="frequencia" value="Semanalmente"><span class="radio-dot"></span>Semanalmente</label>
+        <label class="radio-opt"><input type="radio" name="frequencia" value="Quinzenalmente"><span class="radio-dot"></span>Quinzenalmente</label>
+        <label class="radio-opt"><input type="radio" name="frequencia" value="Mensalmente"><span class="radio-dot"></span>Mensalmente</label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question" id="q4">
+      <h3>Os números costumam divergir entre sistemas ou relatórios?</h3>
+      <p>Quando dois departamentos mostram métricas diferentes para o mesmo período, por exemplo.</p>
+      <div class="radio-grid" data-group="divergem">
+        <label class="radio-opt"><input type="radio" name="divergem" value="Nunca"><span class="radio-dot"></span>Nunca</label>
+        <label class="radio-opt"><input type="radio" name="divergem" value="Raramente"><span class="radio-dot"></span>Raramente</label>
+        <label class="radio-opt"><input type="radio" name="divergem" value="Às vezes"><span class="radio-dot"></span>Às vezes</label>
+        <label class="radio-opt"><input type="radio" name="divergem" value="Frequentemente"><span class="radio-dot"></span>Frequentemente</label>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn btn-secondary" onclick="goToStep(2)">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextFromStep(3)">Ver meu resultado →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STEP 4 — Resultado
+  ════════════════════════════════════════════════════════ -->
+  <div class="section hidden" id="step-4">
+    <h2>Seu Resultado</h2>
+    <p id="result-subtitle"></p>
+
+    <!-- Cards de resumo -->
+    <div class="result-cards">
+      <div class="result-card">
+        <div class="rc-label">Colaboradores</div>
+        <div class="rc-value" id="rc-membros">—</div>
+        <div class="rc-sub">analisados</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-label">Horas Semanais</div>
+        <div class="rc-value" id="rc-horas-sem">—</div>
+        <div class="rc-sub">gastas com dados</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-label">Horas Anuais</div>
+        <div class="rc-value" id="rc-horas-ano">—</div>
+        <div class="rc-sub">de trabalho manual</div>
+      </div>
+      <div class="result-card highlight">
+        <div class="rc-label">Custo Anual Estimado</div>
+        <div class="rc-value" id="rc-custo-anual">—</div>
+        <div class="rc-sub">em trabalho manual com dados</div>
+      </div>
+    </div>
+
+    <!-- Gráfico -->
+    <div class="section" style="margin-top:20px;">
+      <h2 style="font-size:15px;">Cenários de Automação</h2>
+      <p>Economia estimada com diferentes níveis de automação do trabalho manual com dados.</p>
+      <div class="chart-wrap">
+        <canvas id="chart-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Tabela de automação -->
+    <div class="section" style="margin-top:16px;">
+      <h2 style="font-size:15px;">Tabela de Economias</h2>
+      <div class="auto-table-wrap">
+        <table class="auto-table">
+          <thead>
+            <tr>
+              <th>Automação</th>
+              <th>Economia Anual (R$)</th>
+              <th>Economia Mensal (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="auto-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Respostas do diagnóstico -->
+    <div class="section" style="margin-top:16px;">
+      <h2 style="font-size:15px;">O que você nos disse</h2>
+      <div id="diag-grid" class="diag-grid"></div>
+    </div>
+
+    <!-- Exportação PDF -->
+    <div class="section" style="margin-top:16px;">
+      <h2 style="font-size:15px;">Exportar Relatório</h2>
+      <p>Gere um PDF executivo com todos os dados para apresentar internamente.</p>
+      <div class="pdf-loading" id="pdf-loading">
+        <div class="spinner"></div>
+        <span>Gerando PDF...</span>
+      </div>
+      <button class="btn btn-primary" style="width:100%;margin-top:14px;" onclick="generatePDF()" id="btn-pdf">
+        📄 Baixar Relatório em PDF
+      </button>
+    </div>
+
+    <!-- CTA WhatsApp -->
+    <div class="section" style="margin-top:16px;">
+      <h2 style="font-size:15px;">Quer discutir esses números?</h2>
+      <p>Fale com a Loyal Consulting e veja como esses resultados se traduzem em um projeto real para a sua empresa.</p>
+      <a id="btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="cta-wa">
+        💬 Falar com um especialista no WhatsApp
+      </a>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn btn-secondary" onclick="goToStep(3)">← Ajustar respostas</button>
+      <button class="btn btn-primary" onclick="generatePDF()">📄 Exportar PDF</button>
+    </div>
+  </div>
+
+</div><!-- /.app -->
+
+<!-- PDF report (fora do viewport) -->
+<div id="pdf-report">
+  <div class="pdf-header">
+    <div>
+      <div class="pdf-logo">Loyal Consulting</div>
+      <div class="pdf-company" id="pdf-company-name"></div>
+    </div>
+    <div style="text-align:right;">
+      <div class="pdf-date" id="pdf-date"></div>
+      <div class="pdf-company" id="pdf-contact-name"></div>
+    </div>
+  </div>
+
+  <div class="pdf-title">Estimativa de Economias com BI e Automação</div>
+  <div class="pdf-subtitle" id="pdf-subtitle-text"></div>
+  <hr class="pdf-divider">
+
+  <div class="pdf-section-title">Resumo Executivo</div>
+  <div class="pdf-cards">
+    <div class="pdf-card">
+      <div class="cv-label">Colaboradores</div>
+      <div class="cv-value" id="pdf-rc-membros">—</div>
+    </div>
+    <div class="pdf-card">
+      <div class="cv-label">Horas Semanais</div>
+      <div class="cv-value" id="pdf-rc-horas-sem">—</div>
+    </div>
+    <div class="pdf-card">
+      <div class="cv-label">Horas Anuais</div>
+      <div class="cv-value" id="pdf-rc-horas-ano">—</div>
+    </div>
+    <div class="pdf-card highlight-card">
+      <div class="cv-label">Custo Anual Estimado</div>
+      <div class="cv-value" id="pdf-rc-custo">—</div>
+    </div>
+  </div>
+
+  <hr class="pdf-divider">
+  <div class="pdf-section-title">Equipe Analisada</div>
+  <table class="pdf-table" id="pdf-team-table">
+    <thead>
+      <tr>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Extrair</th>
+        <th>Modelar</th>
+        <th>Relacionar</th>
+        <th>Consolidar</th>
+        <th>Analisar</th>
+        <th>Total h/sem</th>
+        <th>Custo Anual</th>
+      </tr>
+    </thead>
+    <tbody id="pdf-team-tbody"></tbody>
+  </table>
+
+  <hr class="pdf-divider">
+  <div class="pdf-section-title">Cenários de Automação</div>
+  <table class="pdf-table" id="pdf-auto-table">
+    <thead>
+      <tr>
+        <th>Nível de Automação</th>
+        <th>Economia Anual (R$)</th>
+        <th>Economia Mensal (R$)</th>
+      </tr>
+    </thead>
+    <tbody id="pdf-auto-tbody"></tbody>
+  </table>
+
+  <hr class="pdf-divider">
+  <div class="pdf-section-title">Diagnóstico Operacional</div>
+  <table class="pdf-table" id="pdf-diag-table">
+    <thead>
+      <tr><th style="width:38%">Pergunta</th><th>Resposta do Lead</th></tr>
+    </thead>
+    <tbody id="pdf-diag-tbody"></tbody>
+  </table>
+
+  <hr class="pdf-divider">
+  <div class="pdf-section-title">Conclusão</div>
+  <div class="pdf-conclusion" id="pdf-conclusion"></div>
+
+  <div class="pdf-footer">
+    Relatório gerado pela Calculadora de Economias em BI — Loyal Consulting &nbsp;|&nbsp;
+    loyalconsulting.com.br &nbsp;|&nbsp; Este documento é uma estimativa baseada nos dados informados.
+  </div>
+</div>
+
+<!-- ── Vendor libs ────────────────────────────────────────── -->
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/html2canvas.min.js"></script>
+<script src="vendor/jspdf.umd.min.js"></script>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const API_URL       = '';
+const WA_NUMBER     = '5511981316880';
+const HOURS_IN_MONTH = 176;
+const WEEKS_IN_YEAR  = 52;
+
+// ============================================================
+// STATE
+// ============================================================
+const S = {
+  step: 0,
+  basics: { empresa: '', nome: '', email: '' },
+  team: [],
+  complexity: { fontes: '', local: [], frequencia: '', divergem: '' },
+  results: null,
+};
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  addMember();
+  initRadioCheckGroups();
+});
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+const STEP_LABELS = ['Tela inicial', 'Informações básicas', 'Sua equipe', 'Contexto operacional', 'Resultado'];
+const PCT = [0, 25, 50, 75, 100];
+
+function goToStep(n) {
+  document.getElementById(`step-${S.step}`).classList.add('hidden');
+  document.getElementById(`step-${n}`).classList.remove('hidden');
+
+  // update pills
+  for (let i = 0; i <= 4; i++) {
+    const pill = document.getElementById(`pill-${i}`);
+    pill.classList.remove('active', 'done');
+    if (i === n) pill.classList.add('active');
+    else if (i < n) pill.classList.add('done');
+  }
+
+  document.getElementById('progress-fill').style.width = PCT[n] + '%';
+  document.getElementById('progress-pct').textContent  = PCT[n] + '%';
+  document.getElementById('step-label').textContent    = STEP_LABELS[n];
+
+  S.step = n;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function nextFromStep(n) {
+  if (!validateStep(n)) return;
+  if (n === 3) {
+    buildResults();
+    goToStep(4);
+    submitToAPI();
+  } else {
+    goToStep(n + 1);
+  }
+}
+
+// ============================================================
+// VALIDATION
+// ============================================================
+function validateStep(n) {
+  let ok = true;
+
+  if (n === 1) {
+    ok = validateField('empresa', 'f-empresa', 'err-empresa', v => v.trim().length >= 2, 'Informe o nome da empresa') && ok;
+    ok = validateField('nome',    'f-nome',    'err-nome',    v => v.trim().length >= 2, 'Informe seu nome') && ok;
+    ok = validateField('email',   'f-email',   'err-email',   v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), 'Informe um e-mail válido') && ok;
+    if (ok) {
+      S.basics.empresa = document.getElementById('empresa').value.trim();
+      S.basics.nome    = document.getElementById('nome').value.trim();
+      S.basics.email   = document.getElementById('email').value.trim();
+    }
+  }
+
+  if (n === 2) {
+    const cards  = document.querySelectorAll('.member-card');
+    let teamOk   = true;
+    S.team       = [];
+
+    cards.forEach((card, i) => {
+      const cargo   = card.querySelector('.inp-cargo');
+      const salario = card.querySelector('.inp-salario');
+      let rowOk     = true;
+
+      if (!cargo.value.trim()) { markInvalid(cargo, true); rowOk = false; }
+      else                     { markInvalid(cargo, false); }
+      if (!salario.value.trim() || parseBRL(salario.value) <= 0) { markInvalid(salario, true); rowOk = false; }
+      else                     { markInvalid(salario, false); }
+
+      const ativ   = {};
+      let   totalH = 0;
+      ATIVIDADES.forEach(a => {
+        const inp = card.querySelector(`#ativ-${i}-${a.key}`);
+        const v   = inp ? (Math.max(0, parseFloat(inp.value) || 0)) : 0;
+        ativ[a.key] = v;
+        totalH += v;
+      });
+
+      if (totalH <= 0) {
+        ATIVIDADES.forEach(a => {
+          const inp = card.querySelector(`#ativ-${i}-${a.key}`);
+          if (inp) markInvalid(inp, true);
+        });
+        rowOk = false;
+      } else {
+        ATIVIDADES.forEach(a => {
+          const inp = card.querySelector(`#ativ-${i}-${a.key}`);
+          if (inp) markInvalid(inp, false);
+        });
+      }
+
+      if (!rowOk) teamOk = false;
+      S.team.push({ cargo: cargo.value.trim(), salario: parseBRL(salario.value), horas: totalH, ativ });
+    });
+
+    if (S.team.length === 0) {
+      document.getElementById('err-team').textContent = 'Adicione pelo menos um colaborador.';
+      return false;
+    }
+    document.getElementById('err-team').textContent = '';
+    ok = teamOk;
+  }
+
+  if (n === 3) {
+    let q1ok = document.querySelector('[name=fontes]:checked');
+    let q2ok = document.querySelectorAll('[name=local]:checked').length > 0;
+    let q3ok = document.querySelector('[name=frequencia]:checked');
+    let q4ok = document.querySelector('[name=divergem]:checked');
+
+    markQuestion('q1', !q1ok);
+    markQuestion('q2', !q2ok);
+    markQuestion('q3', !q3ok);
+    markQuestion('q4', !q4ok);
+
+    if (q1ok) S.complexity.fontes     = q1ok.value;
+    S.complexity.local = Array.from(document.querySelectorAll('[name=local]:checked')).map(c => c.value);
+    if (q3ok) S.complexity.frequencia = q3ok.value;
+    if (q4ok) S.complexity.divergem   = q4ok.value;
+
+    ok = !!(q1ok && q2ok && q3ok && q4ok);
+  }
+
+  return ok;
+}
+
+function validateField(id, fieldId, errId, test, msg) {
+  const el  = document.getElementById(id);
+  const ok  = test(el.value);
+  document.getElementById(fieldId).classList.toggle('invalid', !ok);
+  document.getElementById(errId).textContent = ok ? '' : msg;
+  return ok;
+}
+
+function markQuestion(id, invalid) {
+  document.getElementById(id).classList.toggle('invalid', invalid);
+}
+
+function markInvalid(el, invalid) {
+  el.classList.toggle('invalid', invalid);
+}
+
+// ============================================================
+// TEAM TABLE
+// ============================================================
+const ATIVIDADES = [
+  { key: 'puxar',      label: 'Extrair dados',       sub: 'baixar de sistemas, exportar relatórios' },
+  { key: 'montar',     label: 'Modelar / ajustar',   sub: 'limpar, formatar, criar fórmulas e cálculos' },
+  { key: 'cruzar',     label: 'Relacionar bases',    sub: 'combinar tabelas, PROCV, merge entre fontes' },
+  { key: 'consolidar', label: 'Consolidar',          sub: 'juntar versões e fechar o relatório final' },
+  { key: 'analisar',   label: 'Analisar resultados', sub: 'interpretar números e tirar conclusões' },
+];
+
+function addMember() {
+  S.team.push({ cargo: '', salario: 0, horas: 0,
+    ativ: { puxar: 0, montar: 0, cruzar: 0, consolidar: 0, analisar: 0 } });
+  renderTeamTable();
+}
+
+function removeMember(i) {
+  if (S.team.length <= 1) return;
+  S.team.splice(i, 1);
+  renderTeamTable();
+}
+
+function calcHorasTotal(i) {
+  return ATIVIDADES.reduce((s, a) => s + (S.team[i].ativ[a.key] || 0), 0);
+}
+
+function updateHorasTotal(i) {
+  const total = calcHorasTotal(i);
+  S.team[i].horas = total;
+  const el = document.getElementById(`ativ-total-val-${i}`);
+  if (el) el.textContent = total % 1 === 0 ? total : total.toFixed(1);
+  const warn = document.getElementById(`warn-horas-${i}`);
+  if (warn) warn.style.display = total > 40 ? 'block' : 'none';
+}
+
+function maskAtividade(el, i, key) {
+  const v = Math.max(0, parseFloat(el.value) || 0);
+  S.team[i].ativ[key] = v;
+  updateHorasTotal(i);
+}
+
+function renderTeamTable() {
+  const wrap  = document.getElementById('team-cards');
+  const count = S.team.length;
+  document.getElementById('team-count-label').textContent = `${count} colaborador${count !== 1 ? 'es' : ''}`;
+
+  wrap.innerHTML = S.team.map((m, i) => {
+    const total    = calcHorasTotal(i);
+    const ativRows = ATIVIDADES.map(a => `
+      <div class="ativ-row">
+        <div class="ativ-row-name">
+          ${a.label}
+          <small>${a.sub}</small>
+        </div>
+        <input class="inp-ativ" type="number" min="0" max="80" step="0.5"
+          placeholder="0" value="${m.ativ[a.key] || ''}"
+          oninput="maskAtividade(this,${i},'${a.key}')"
+          id="ativ-${i}-${a.key}" />
+        <span style="font-size:11px;color:var(--muted);">h</span>
+      </div>`).join('');
+
+    return `
+    <div class="member-card" id="card-${i}">
+      <div class="member-card-header">
+        <span class="member-card-title">Colaborador ${i + 1}</span>
+        <button class="btn-remove" onclick="removeMember(${i})"
+          ${count <= 1 ? 'disabled' : ''} title="Remover">×</button>
+      </div>
+      <div class="card-main">
+        <div class="card-field">
+          <label>Cargo *</label>
+          <input class="team-input inp-cargo" placeholder="Ex: Analista de BI"
+            value="${escHtml(m.cargo)}" oninput="S.team[${i}].cargo=this.value" />
+        </div>
+        <div class="card-field">
+          <label>Salário Mensal (R$) *</label>
+          <input class="team-input inp-salario" placeholder="R$ 0"
+            value="${m.salario ? formatBRL(m.salario) : ''}"
+            oninput="maskSalario(this,${i})" />
+        </div>
+      </div>
+      <div class="ativ-section">
+        <div class="ativ-section-label">Horas/semana por atividade *</div>
+        ${ativRows}
+        <div class="ativ-total-row">
+          <span class="ativ-total-label">Total:</span>
+          <span class="ativ-total-val" id="ativ-total-val-${i}">${total % 1 === 0 ? total : total.toFixed(1)}</span>
+          <span class="ativ-total-unit">h/sem</span>
+        </div>
+        <div class="hours-warn" id="warn-horas-${i}" style="${total > 40 ? 'display:block' : ''}">
+          ⚠ Valor alto — verifique se está correto
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function maskSalario(el, i) {
+  let raw = el.value.replace(/\D/g, '');
+  if (!raw) { el.value = ''; S.team[i].salario = 0; return; }
+  const n = parseInt(raw, 10) / 100;
+  S.team[i].salario = n;
+  el.value = formatBRL(n);
+  el.setSelectionRange(el.value.length, el.value.length);
+}
+
+// ============================================================
+// RADIO / CHECKBOX UI
+// ============================================================
+function initRadioCheckGroups() {
+  // Radio groups
+  document.querySelectorAll('.radio-grid').forEach(grid => {
+    grid.querySelectorAll('.radio-opt').forEach(label => {
+      label.addEventListener('click', () => {
+        const grp = grid.dataset.group;
+        grid.querySelectorAll('.radio-opt').forEach(l => l.classList.remove('selected'));
+        label.classList.add('selected');
+        document.getElementById(`q${getQIndex(grp)}`).classList.remove('invalid');
+      });
+    });
+  });
+
+  // Checkbox groups
+  document.querySelectorAll('.check-grid').forEach(grid => {
+    grid.querySelectorAll('.check-opt').forEach(label => {
+      label.addEventListener('click', (e) => {
+        // Impede o browser de disparar clique sintético no <input> hidden
+        // (evita duplo-toggle: handler + ativação nativa = volta ao estado original)
+        e.preventDefault();
+        label.classList.toggle('selected');
+        const inp = label.querySelector('input');
+        inp.checked = !inp.checked;
+        document.getElementById('q2').classList.remove('invalid');
+      });
+    });
+  });
+}
+
+function getQIndex(group) {
+  return { fontes: 1, local: 2, frequencia: 3, divergem: 4 }[group] || 1;
+}
+
+// ============================================================
+// CALCULATIONS
+// ============================================================
+function calcResults() {
+  let totalAnual  = 0;
+  let totalHoras  = 0;
+
+  S.team.forEach(m => {
+    const custoHora   = m.salario / HOURS_IN_MONTH;
+    const custoAnual  = m.horas * custoHora * 4.33 * 12;
+    totalAnual += custoAnual;
+    totalHoras += Number(m.horas);
+  });
+
+  return {
+    membros:       S.team.length,
+    totalAnual,
+    totalHoras,
+    totalHorasAnuais: totalHoras * WEEKS_IN_YEAR,
+  };
+}
+
+// ============================================================
+// BUILD RESULTS
+// ============================================================
+let chartInstance = null;
+
+function buildResults() {
+  const r = calcResults();
+  S.results = r;
+
+  // subtitle
+  document.getElementById('result-subtitle').textContent =
+    `${S.basics.empresa} — ${S.basics.nome}`;
+
+  // cards
+  document.getElementById('rc-membros').textContent    = r.membros;
+  document.getElementById('rc-horas-sem').textContent  = fmtNum(r.totalHoras);
+  document.getElementById('rc-horas-ano').textContent  = fmtNum(r.totalHorasAnuais);
+  document.getElementById('rc-custo-anual').textContent = formatBRL(r.totalAnual);
+
+  // automation table
+  const pcts = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+  const tbody = document.getElementById('auto-tbody');
+  tbody.innerHTML = pcts.map(p => {
+    const eco     = r.totalAnual * p / 100;
+    const ecoMes  = eco / 12;
+    return `<tr>
+      <td>${p}%</td>
+      <td class="eco-value">${formatBRL(eco)}</td>
+      <td>${formatBRL(ecoMes)}</td>
+    </tr>`;
+  }).join('');
+
+  // chart
+  buildChart(r.totalAnual);
+
+  // WhatsApp CTA
+  buildWhatsApp(r);
+
+  // Diagnóstico
+  buildDiagGrid();
+}
+
+function buildChart(totalAnual) {
+  const ctx = document.getElementById('chart-canvas').getContext('2d');
+  if (chartInstance) chartInstance.destroy();
+
+  const labels = ['10%','20%','30%','40%','50%','60%','70%','80%','90%','100%'];
+  const data   = [10,20,30,40,50,60,70,80,90,100].map(p => totalAnual * p / 100);
+
+  chartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Economia Anual (R$)',
+        data,
+        backgroundColor: data.map((_, i) =>
+          `hsla(${168 + i * 2}, 70%, ${42 + i * 2}%, 0.75)`
+        ),
+        borderColor: data.map((_, i) =>
+          `hsla(${168 + i * 2}, 80%, ${55 + i}%, 1)`
+        ),
+        borderWidth: 1,
+        borderRadius: 8,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' ' + formatBRL(ctx.parsed.y),
+          },
+        },
+      },
+      scales: {
+        x: {
+          ticks: { color: 'rgba(219,231,245,0.7)', font: { size: 11 } },
+          grid:  { color: 'rgba(160,184,255,0.12)' },
+        },
+        y: {
+          ticks: {
+            color: 'rgba(219,231,245,0.7)',
+            font: { size: 11 },
+            callback: v => formatBRL(v),
+          },
+          grid: { color: 'rgba(160,184,255,0.12)' },
+        },
+      },
+    },
+  });
+}
+
+// ============================================================
+// DIAGNÓSTICO
+// ============================================================
+const DIAG_LABELS = {
+  fontes:     'Fontes de dados consultadas',
+  local:      'Onde os dados ficam armazenados',
+  frequencia: 'Frequência de atualização',
+  divergem:   'Dados divergem entre fontes',
+};
+
+function buildDiagGrid() {
+  const c   = S.complexity;
+  const items = [
+    { label: 'Empresa',         value: S.basics.empresa },
+    { label: 'Responsável',     value: `${S.basics.nome} — ${S.basics.email}` },
+    { label: DIAG_LABELS.fontes,    value: c.fontes    || '—' },
+    { label: DIAG_LABELS.local,     value: c.local.length ? c.local.join(', ') : '—' },
+    { label: DIAG_LABELS.frequencia,value: c.frequencia || '—' },
+    { label: DIAG_LABELS.divergem,  value: c.divergem   || '—' },
+  ];
+  document.getElementById('diag-grid').innerHTML = items.map(it => `
+    <div class="diag-item">
+      <div class="diag-label">${it.label}</div>
+      <div class="diag-value">${escHtml(it.value)}</div>
+    </div>`).join('');
+}
+
+// ============================================================
+// WHATSAPP CTA
+// ============================================================
+function buildWhatsApp(r) {
+  const msg = encodeURIComponent(
+    `Olá! Acabei de usar a Calculadora de Economias em BI da Loyal Consulting.\n\n` +
+    `Empresa: ${S.basics.empresa}\n` +
+    `Custo anual estimado: ${formatBRL(r.totalAnual)}\n` +
+    `Equipe: ${r.membros} colaborador${r.membros !== 1 ? 'es' : ''}\n` +
+    `Horas/semana com dados: ${fmtNum(r.totalHoras)}h\n\n` +
+    `Gostaria de entender como reduzir esses custos com automação e BI.`
+  );
+  document.getElementById('btn-whatsapp').href = `https://wa.me/${WA_NUMBER}?text=${msg}`;
+}
+
+// ============================================================
+// PDF GENERATION
+// ============================================================
+async function generatePDF() {
+  if (!S.results) return;
+
+  const loading = document.getElementById('pdf-loading');
+  const btnPDF  = document.getElementById('btn-pdf');
+  loading.style.display = 'flex';
+  btnPDF.disabled = true;
+
+  try {
+    populatePDFReport();
+
+    const report = document.getElementById('pdf-report');
+
+    // 1ª renderização para medir posições
+    const c0 = await html2canvas(report, { scale: 1.8, useCORS: true, backgroundColor: '#fff' });
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const pdfW = pdf.internal.pageSize.getWidth();
+    const pdfH = pdf.internal.pageSize.getHeight();
+    const pageHeightPx = (pdfH / pdfW) * c0.width; // px de canvas por página
+
+    // offsetTop acumulado até o container — confiável em position:fixed
+    function elTop(el) {
+      let t = 0, cur = el;
+      while (cur && cur !== report) { t += cur.offsetTop; cur = cur.offsetParent; }
+      return t;
+    }
+
+    // Empurra cada <hr> que cairia nos últimos 30% de uma página para a próxima.
+    // offsetTop já inclui o marginTop do elemento, então o delta necessário em
+    // offsetTop é igual ao delta em marginTop — aplicamos sobre getComputedStyle.
+    const domScale = c0.width / report.offsetWidth;
+    const pushed = [];
+    report.querySelectorAll('hr.pdf-divider').forEach(hr => {
+      const top       = elTop(hr);
+      const yCanvas   = top * domScale;
+      const posInPage = yCanvas % pageHeightPx;
+      if (posInPage > pageHeightPx * 0.70) {
+        // alvo: 8px de buffer após o início da próxima página
+        const targetYCanvas = Math.ceil(yCanvas / pageHeightPx) * pageHeightPx + 8;
+        const delta         = targetYCanvas / domScale - top;   // Δ em offsetTop
+        const curMargin     = parseFloat(window.getComputedStyle(hr).marginTop) || 24;
+        hr.style.marginTop  = (curMargin + delta) + 'px';
+        pushed.push(hr);
+      }
+    });
+
+    // 2ª renderização somente se houve ajustes
+    const canvas = pushed.length
+      ? await html2canvas(report, { scale: 1.8, useCORS: true, backgroundColor: '#fff' })
+      : c0;
+
+    // Restaura margens inline (retorna ao valor do CSS)
+    pushed.forEach(hr => { hr.style.marginTop = ''; });
+
+    const ratio  = canvas.width / canvas.height;
+    const imgW   = pdfW;
+    const imgH   = pdfW / ratio;
+    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+
+    let yPos = 0;
+    while (yPos < imgH) {
+      if (yPos > 0) pdf.addPage();
+      pdf.addImage(imgData, 'JPEG', 0, -yPos, imgW, imgH);
+      yPos += pdfH;
+    }
+
+    const empresa = S.basics.empresa.replace(/[^a-z0-9]/gi, '_');
+    pdf.save(`Loyal_Consulting_Economias_BI_${empresa}.pdf`);
+  } catch (e) {
+    alert('Erro ao gerar o PDF. Tente novamente.');
+    console.error(e);
+  } finally {
+    loading.style.display = 'none';
+    btnPDF.disabled = false;
+  }
+}
+
+function populatePDFReport() {
+  const r   = S.results;
+  const now = new Date();
+
+  document.getElementById('pdf-company-name').textContent  = S.basics.empresa;
+  document.getElementById('pdf-contact-name').textContent  = S.basics.nome;
+  document.getElementById('pdf-date').textContent          = now.toLocaleDateString('pt-BR', { dateStyle: 'long' });
+  document.getElementById('pdf-subtitle-text').textContent =
+    `Análise de ${r.membros} colaborador${r.membros !== 1 ? 'es' : ''} — gerada em ${now.toLocaleDateString('pt-BR')}`;
+
+  document.getElementById('pdf-rc-membros').textContent    = r.membros;
+  document.getElementById('pdf-rc-horas-sem').textContent  = fmtNum(r.totalHoras) + 'h';
+  document.getElementById('pdf-rc-horas-ano').textContent  = fmtNum(r.totalHorasAnuais) + 'h';
+  document.getElementById('pdf-rc-custo').textContent      = formatBRL(r.totalAnual);
+
+  // Team table
+  const teamTbody = document.getElementById('pdf-team-tbody');
+  teamTbody.innerHTML = S.team.map(m => {
+    const custoHora  = m.salario / HOURS_IN_MONTH;
+    const custoAnual = m.horas * custoHora * 4.33 * 12;
+    const a = m.ativ || {};
+    return `<tr>
+      <td>${escHtml(m.cargo)}</td>
+      <td>${formatBRL(m.salario)}</td>
+      <td style="text-align:center">${a.puxar      || 0}h</td>
+      <td style="text-align:center">${a.montar     || 0}h</td>
+      <td style="text-align:center">${a.cruzar     || 0}h</td>
+      <td style="text-align:center">${a.consolidar || 0}h</td>
+      <td style="text-align:center">${a.analisar   || 0}h</td>
+      <td style="text-align:center;font-weight:700">${m.horas}h</td>
+      <td>${formatBRL(custoAnual)}</td>
+    </tr>`;
+  }).join('');
+
+  // Automation table
+  const autoTbody = document.getElementById('pdf-auto-tbody');
+  autoTbody.innerHTML = [100,90,80,70,60,50,40,30,20,10].map(p => {
+    const eco = r.totalAnual * p / 100;
+    return `<tr>
+      <td>${p}%</td>
+      <td>${formatBRL(eco)}</td>
+      <td>${formatBRL(eco / 12)}</td>
+    </tr>`;
+  }).join('');
+
+  // Diagnóstico operacional
+  const c = S.complexity;
+  const diagRows = [
+    ['Empresa',                    S.basics.empresa],
+    ['Responsável',                S.basics.nome],
+    ['E-mail',                     S.basics.email],
+    [DIAG_LABELS.fontes,           c.fontes    || '—'],
+    [DIAG_LABELS.local,            c.local.length ? c.local.join(', ') : '—'],
+    [DIAG_LABELS.frequencia,       c.frequencia || '—'],
+    [DIAG_LABELS.divergem,         c.divergem   || '—'],
+  ];
+  document.getElementById('pdf-diag-tbody').innerHTML = diagRows.map(([q, a]) =>
+    `<tr><td>${escHtml(q)}</td><td><strong>${escHtml(a)}</strong></td></tr>`
+  ).join('');
+
+  // Conclusion
+  document.getElementById('pdf-conclusion').textContent = generateConclusion(r);
+}
+
+function generateConclusion(r) {
+  const custoAnual = r.totalAnual;
+  const horasSem   = r.totalHoras;
+  const membros    = r.membros;
+
+  let txt = `A análise identificou que ${membros} profissional${membros !== 1 ? 'is' : ''} da equipe de ${S.basics.empresa} `;
+  txt += `dedica${membros !== 1 ? 'm' : ''} aproximadamente ${fmtNum(horasSem)} horas por semana `;
+  txt += `— ${fmtNum(r.totalHorasAnuais)} horas no ano — a tarefas manuais com dados.`;
+  txt += ` O custo estimado desse trabalho é de ${formatBRL(custoAnual)} anuais, `;
+  txt += `considerando o custo hora de cada profissional.`;
+
+  if (custoAnual > 200000) {
+    txt += ` Esse volume representa uma oportunidade significativa de redução de custos operacionais com automação e BI.`;
+  } else if (custoAnual > 60000) {
+    txt += ` Com um projeto de automação parcial, é possível redirecionar parte dessas horas para atividades de maior valor analítico.`;
+  } else {
+    txt += ` Mesmo em equipes menores, a automação de tarefas repetitivas com dados libera tempo valioso para análise e tomada de decisão.`;
+  }
+
+  if (S.complexity.divergem === 'Frequentemente' || S.complexity.divergem === 'Às vezes') {
+    txt += ` Além do custo direto, a inconsistência entre sistemas identificada no diagnóstico representa um risco adicional para a qualidade das decisões.`;
+  }
+
+  txt += ` A Loyal Consulting pode ajudar a estruturar um projeto de BI que endereça esses pontos com clareza e previsibilidade.`;
+  return txt;
+}
+
+// ============================================================
+// BACKEND SUBMISSION
+// ============================================================
+function getUtmParams() {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source:   p.get('utm_source')   || undefined,
+    utm_medium:   p.get('utm_medium')   || undefined,
+    utm_campaign: p.get('utm_campaign') || undefined,
+    utm_term:     p.get('utm_term')     || undefined,
+    utm_content:  p.get('utm_content')  || undefined,
+  };
+}
+
+async function submitToAPI() {
+  if (!S.results) return;
+
+  const payload = {
+    empresa:    S.basics.empresa,
+    nome:       S.basics.nome,
+    email:      S.basics.email,
+    team:       S.team,
+    complexity: S.complexity,
+    results: {
+      membros:         S.results.membros,
+      totalHoras:      S.results.totalHoras,
+      totalHorasAnuais: S.results.totalHorasAnuais,
+      totalAnual:      S.results.totalAnual,
+    },
+    lead_source: 'calculadora_bi',
+    ...getUtmParams(),
+  };
+
+  try {
+    await fetch(`${API_URL}/api/estimativas-bi`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    });
+  } catch {
+    // silencioso — não bloquear o usuário
+  }
+}
+
+// ============================================================
+// UTILS
+// ============================================================
+function formatBRL(n) {
+  return (n || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+}
+
+function parseBRL(s) {
+  if (!s) return 0;
+  return parseFloat(s.replace(/[R$\s.]/g, '').replace(',', '.')) || 0;
+}
+
+function fmtNum(n) {
+  return (n || 0).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>

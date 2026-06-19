@@ -5,7 +5,7 @@ import { MarqueeBand } from "@/components/MarqueeBand";
 import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { StickyTopNav } from "@/components/StickyTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WA_DIAGNOSTICO_EN } from "@/lib/links";
+import { WA_DIAGNOSTICO_EN, WA_CALCULADORA_EN } from "@/lib/links";
 
 // ── Today × After ─────────────────────────────────────────────────────────
 const today = [
@@ -125,10 +125,10 @@ export default function HomePage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Get a Free Assessment
+                Schedule Free Discovery
               </a>
-              <Link href="/en/how-it-works" className="btn-outline">
-                See how it works
+              <Link href="/en/bi-calculator" className="btn-outline">
+                Calculate my data cost →
               </Link>
             </div>
             <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
@@ -189,30 +189,94 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── ASSESSMENT (main offer) ──────────────────────────── */}
+      {/* ── TWO PATHS ───────────────────────────────────────── */}
       <section id="assessment" className="lc-cta-band">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
-          <p
-            className="section-eyebrow"
-            style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}
-          >
-            Free assessment
-          </p>
-          <h2 className="lc-cta-title" style={{ maxWidth: "680px", margin: "0 auto" }}>
-            Find out in 3 minutes how much time your company loses because of decentralized data
-          </h2>
-          <p className="lc-cta-sub" style={{ maxWidth: "540px", margin: "1rem auto 0" }}>
-            Receive a free analysis with practical recommendations to reduce rework,
-            increase confidence in your numbers and speed up decision-making.
-          </p>
-          <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Start Assessment
-            </a>
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="text-center" style={{ marginBottom: "2.5rem" }}>
+            <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+              Where do you start?
+            </p>
+            <h2 className="lc-cta-title" style={{ maxWidth: "640px", margin: "0 auto" }}>
+              Choose the right entry point for where you are right now
+            </h2>
           </div>
-          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
-            Free · No commitment · Immediate result
-          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
+            {/* Card 1 — Discovery */}
+            <div
+              style={{
+                border: "1px solid rgba(46,230,166,0.25)",
+                borderRadius: "16px",
+                padding: "2rem 1.75rem",
+                background: "rgba(46,230,166,0.05)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2ee6a6", margin: 0 }}>
+                Strategic conversation
+              </p>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--color-text, #f0ede8)", lineHeight: 1.3, margin: 0 }}>
+                Free Discovery Call
+              </h3>
+              <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.65, margin: 0, flexGrow: 1 }}>
+                30 minutes to map your data bottlenecks, understand what&apos;s blocking decisions, and
+                walk away with a concrete initial plan. No sales pitch. No commitment.
+              </p>
+              <p style={{ fontSize: "0.8rem", color: "rgba(240,237,232,0.38)", margin: 0 }}>
+                Best for · teams that don&apos;t know where to start
+              </p>
+              <a
+                href={WA_DIAGNOSTICO_EN}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-accent"
+                style={{ marginTop: "0.5rem", textAlign: "center" }}
+              >
+                Schedule Discovery
+              </a>
+            </div>
+
+            {/* Card 2 — Calculator */}
+            <div
+              style={{
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "16px",
+                padding: "2rem 1.75rem",
+                background: "rgba(255,255,255,0.03)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", margin: 0 }}>
+                Self-assessment
+              </p>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--color-text, #f0ede8)", lineHeight: 1.3, margin: 0 }}>
+                BI Economics Calculator
+              </h3>
+              <p style={{ fontSize: "0.9rem", color: "rgba(240,237,232,0.6)", lineHeight: 1.65, margin: 0, flexGrow: 1 }}>
+                Find out how much your team spends each year on manual data work. Takes under
+                3 minutes and generates an executive PDF ready to present to leadership.
+              </p>
+              <p style={{ fontSize: "0.8rem", color: "rgba(240,237,232,0.38)", margin: 0 }}>
+                Best for · teams that need to justify a data investment
+              </p>
+              <Link
+                href="/en/bi-calculator"
+                className="btn-outline"
+                style={{ marginTop: "0.5rem", textAlign: "center" }}
+              >
+                Calculate now (free) →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -347,9 +411,14 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="mt-8">
-                <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                  I want to solve this
-                </a>
+                <div className="ts-cta-row">
+                  <Link href="/en/bi-calculator" className="btn-accent">
+                    Calculate my data cost
+                  </Link>
+                  <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                    Talk on WhatsApp →
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -444,16 +513,19 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 text-center">
           <h2 className="lc-cta-title">Find out where your company is losing time on data.</h2>
           <p className="lc-cta-sub">
-            Get a free personalized assessment of your data maturity.
+            Calculate the real cost in 3 minutes — or schedule a free assessment with our team.
           </p>
           <div className="ts-cta-row mt-8" style={{ justifyContent: "center" }}>
-            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Get Free Assessment
-            </a>
-            <Link href="/en/how-it-works" className="btn-outline">
-              See how it works
+            <Link href="/en/bi-calculator" className="btn-accent">
+              Calculate my data cost
             </Link>
+            <a href={WA_DIAGNOSTICO_EN} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Schedule Free Discovery →
+            </a>
           </div>
+          <p style={{ marginTop: "0.75rem", fontSize: "0.78rem", color: "rgba(240,237,232,0.45)" }}>
+            Free calculator · Executive PDF included · Or 30 min assessment, no commitment
+          </p>
         </div>
       </div>
 
