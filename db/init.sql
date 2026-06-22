@@ -102,6 +102,26 @@ ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_campaign TEXT;
 ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_term     TEXT;
 ALTER TABLE estimativas_bi ADD COLUMN IF NOT EXISTS utm_content  TEXT;
 
+CREATE TABLE IF NOT EXISTS discovery_responses (
+  id              SERIAL PRIMARY KEY,
+  nome            TEXT NOT NULL,
+  departamento    TEXT NOT NULL,
+  empresa         TEXT,
+  email           TEXT,
+  whatsapp        TEXT,
+  metricas        TEXT NOT NULL,
+  fontes_dados    TEXT NOT NULL,
+  quem_consolida  TEXT NOT NULL,
+  como_agir       TEXT,
+  variant         TEXT NOT NULL DEFAULT 'A',
+  utm_source      TEXT,
+  utm_medium      TEXT,
+  utm_campaign    TEXT,
+  utm_term        TEXT,
+  utm_content     TEXT,
+  criado_em       TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 CREATE OR REPLACE FUNCTION set_updated_at()
 RETURNS TRIGGER AS $$
 BEGIN

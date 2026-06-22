@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroCarouselScene } from "@/components/HeroCarouselScene";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { SimpleDiscoveryForm } from "@/components/SimpleDiscoveryForm";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { MarqueeBand } from "@/components/MarqueeBand";
 import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/StickyTopNav";
@@ -671,7 +671,7 @@ export default function DiscoveryPage() {
 
       {/* ── FORM + FOOTER ────────────────────────────────────── */}
       <div className="lp-dark-band">
-        <LeadCaptureForm locale="en" />
+        <SimpleDiscoveryForm locale="en" />
         <footer className="mx-auto mt-16 w-full max-w-7xl px-5 pb-12 sm:px-8">
           <div className="section-divider" />
           <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
