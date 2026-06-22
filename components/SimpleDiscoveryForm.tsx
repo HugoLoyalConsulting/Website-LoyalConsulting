@@ -111,7 +111,9 @@ export function SimpleDiscoveryForm({ locale = "pt" }: { locale?: Locale }) {
     setIsSubmitting(true);
     setErrorMsg("");
     try {
-      const res = await fetch("/api/discovery-simples", {
+      const endpoint =
+        process.env.NEXT_PUBLIC_DISCOVERY_SIMPLES_ENDPOINT?.trim() || "/api/discovery-simples";
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

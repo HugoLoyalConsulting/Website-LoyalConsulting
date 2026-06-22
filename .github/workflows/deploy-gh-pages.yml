@@ -36,6 +36,7 @@ jobs:
           # Domínio próprio (www.loyalconsulting.com.br) é servido na raiz: sem basePath
           NEXT_PUBLIC_LEADS_ENDPOINT: ${{ vars.PUBLIC_BACKEND_URL }}/api/leads
           NEXT_PUBLIC_TELEMETRY_ENDPOINT: ${{ vars.PUBLIC_BACKEND_URL }}/api/telemetry
+          NEXT_PUBLIC_DISCOVERY_SIMPLES_ENDPOINT: ${{ vars.PUBLIC_BACKEND_URL }}/api/discovery-simples
           # Integrações opcionais: defina em Settings → Secrets and variables → Actions → Variables
           NEXT_PUBLIC_HUBSPOT_PORTAL_ID: ${{ vars.HUBSPOT_PORTAL_ID }}
           NEXT_PUBLIC_CLARITY_PROJECT_ID: ${{ vars.CLARITY_PROJECT_ID }}
