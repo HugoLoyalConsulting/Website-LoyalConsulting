@@ -12,6 +12,8 @@ export const leadSchema = z.object({
   whatsapp: z.string().max(25).optional().or(z.literal("")),
   preferredContactMode: z.array(z.string().max(40)).min(1, "Selecione um meio de contato"),
   dores: z.array(z.string()).min(1, "Selecione pelo menos uma dor"),
+  acompanhamento: z.array(z.string().max(120)).default([]),
+  indicadores: z.string().max(300).optional().or(z.literal("")),
   tipoServico: z.array(z.string().max(120)).default([]),
   fontesDados: z.array(z.string().max(120)).default([]),
   origemDados: z.array(z.string().max(120)).default([]),

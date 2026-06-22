@@ -20,6 +20,8 @@ type LeadPayload = {
   frequenciaAtualizacao: string;
   dorDescricao: string;
   consentimentoLgpd: boolean;
+  acompanhamento: string[];
+  indicadores: string;
   utmSource: string;
   utmMedium: string;
   utmCampaign: string;
@@ -32,11 +34,26 @@ type LeadPayload = {
 
 type OptionGroup = { readonly group: string; readonly options: readonly string[] };
 
+const WA_NUMBER    = "5511999999999"; // substituir pelo número comercial
+const CALENDLY_URL = "https://calendly.com/loyalconsulting/discovery"; // substituir pela URL real
+
 const STRINGS = {
   pt: {
     kicker: "Diagnóstico gratuito",
     title: "Conte o seu cenário e receba uma recomendação personalizada",
     copy: "Nossa equipe analisa o contexto e entra em contato para estruturar um plano de inteligência analítica personalizado para sua empresa.",
+    sectionOpening: "Para começar",
+    openingQuestion: "Como você sabe hoje se a sua área está indo bem ou mal?",
+    openingOptions: [
+      "Tenho metas e indicadores que acompanho regularmente",
+      "Tenho um dashboard ou sistema que acesso",
+      "Olho no Excel que alguém da equipe atualiza",
+      "Peço relatório ou atualização para alguém",
+      "Conversa com a equipe, sem número fixo",
+      "Na intuição mesmo, sem métrica definida",
+    ],
+    indicadores: "Que números ou indicadores você costuma olhar? (opcional)",
+    indicadoresPlaceholder: "Ex: faturamento mensal, NPS, taxa de conversão, entregas no prazo, custo por lead…",
     sectionBasics: "Informações básicas",
     sectionPains: "Dores e necessidades",
     firstName: "Nome *",
@@ -200,17 +217,32 @@ const STRINGS = {
       "Mensalmente",
     ],
     context: "Descreva o contexto e o objetivo (opcional)",
-    lgpd: "Autorizo o uso dos dados para contato comercial e registro em CRM conforme a finalidade do atendimento.",
+    lgpd: "Li e concordo com o uso dos meus dados pessoais pela Loyal Consulting para fins de contato comercial, diagnóstico de necessidades e registro em CRM, em conformidade com a LGPD (Lei n.º 13.709/2018). Posso revogar este consentimento a qualquer momento.",
     submit: "Solicitar diagnóstico gratuito",
     submitting: "Enviando...",
     genericError: "Não foi possível enviar agora.",
     submitError: "Falha ao enviar formulário.",
+    orLabel: "Ou prefere ir direto ao ponto?",
+    ctaWa: "💬 Falar no WhatsApp",
+    ctaCalendly: "📅 Agendar Discovery gratuito",
     thankYouPath: "/obrigado",
   },
   en: {
     kicker: "Free assessment",
     title: "Tell us about your scenario and get a personalized recommendation",
     copy: "Our team reviews your context and gets in touch to outline an analytics plan tailored to your company.",
+    sectionOpening: "To start",
+    openingQuestion: "How do you know today whether your area is doing well or poorly?",
+    openingOptions: [
+      "I have goals and indicators I track regularly",
+      "I have a dashboard or system I access",
+      "I look at a spreadsheet someone on the team keeps updated",
+      "I ask someone for a report or update",
+      "Team conversations — no fixed number",
+      "Gut feeling, no defined metric",
+    ],
+    indicadores: "What numbers or indicators do you usually look at? (optional)",
+    indicadoresPlaceholder: "E.g. monthly revenue, NPS, conversion rate, on-time delivery, cost per lead…",
     sectionBasics: "Basic information",
     sectionPains: "Pain points and needs",
     firstName: "First name *",
@@ -374,11 +406,14 @@ const STRINGS = {
       "Monthly",
     ],
     context: "Describe your context and goal (optional)",
-    lgpd: "I authorize the use of my data for business contact and CRM registration for the purpose of this service.",
+    lgpd: "I have read and agree to the use of my personal data by Loyal Consulting for business contact, needs assessment and CRM registration, in accordance with Brazil's LGPD (Law No. 13,709/2018). I may revoke this consent at any time.",
     submit: "Request free assessment",
     submitting: "Sending...",
     genericError: "We couldn't send it right now.",
     submitError: "Failed to submit the form.",
+    orLabel: "Or prefer to talk directly?",
+    ctaWa: "💬 Chat on WhatsApp",
+    ctaCalendly: "📅 Book a free Discovery call",
     thankYouPath: "/en/thank-you",
   },
 } as const;
@@ -399,6 +434,8 @@ const defaultPayload: LeadPayload = {
   frequenciaAtualizacao: "",
   dorDescricao: "",
   consentimentoLgpd: false,
+  acompanhamento: [],
+  indicadores: "",
   utmSource: "",
   utmMedium: "",
   utmCampaign: "",
@@ -582,6 +619,53 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
           {/* Right: form */}
           <form onSubmit={onSubmit} className="grid gap-6">
 
+            {/* ── Consentimento LGPD ── */}
+            <label className="checkbox-item" style={{ alignItems: "flex-start", padding: "14px 16px", borderColor: "rgba(6,214,160,0.3)", background: "rgba(6,214,160,0.05)" }}>
+              <input
+                type="checkbox"
+                required
+                checked={form.consentimentoLgpd}
+                onChange={(e) => setForm((p) => ({ ...p, consentimentoLgpd: e.target.checked }))}
+                className="mt-1"
+              />
+              <span style={{ fontSize: "0.78rem", lineHeight: "1.55" }}>{t.lgpd}</span>
+            </label>
+
+            {/* ── Seção 0: Ponto de partida ── */}
+            <p className="field-label" style={{ fontWeight: 600, fontSize: "0.78rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", marginBottom: "-0.5rem" }}>
+              {t.sectionOpening}
+            </p>
+
+            <fieldset>
+              <legend className="field-label mb-3">{t.openingQuestion}</legend>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {t.openingOptions.map((opt) => (
+                  <label key={opt} className="checkbox-item">
+                    <input
+                      type="checkbox"
+                      checked={form.acompanhamento.includes(opt)}
+                      onChange={(e) =>
+                        setForm((p) => ({ ...p, acompanhamento: toggleArray(p.acompanhamento, opt, e.target.checked) }))
+                      }
+                    />
+                    <span>{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <label className="field-label">
+              {t.indicadores}
+              <input
+                type="text"
+                value={form.indicadores}
+                onChange={(e) => setForm((p) => ({ ...p, indicadores: e.target.value }))}
+                className="field-input"
+                placeholder={t.indicadoresPlaceholder}
+                maxLength={300}
+              />
+            </label>
+
             {/* ── Seção 1: Informações básicas ── */}
             <p className="field-label" style={{ fontWeight: 600, fontSize: "0.78rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", marginBottom: "-0.5rem" }}>
               {t.sectionBasics}
@@ -724,27 +808,6 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
               </div>
             </fieldset>
 
-            <fieldset>
-              <legend className="field-label mb-3">{t.services}</legend>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {t.serviceOptions.map((opt) => (
-                  <label key={opt} className="checkbox-item">
-                    <input
-                      type="checkbox"
-                      checked={form.tipoServico.includes(opt)}
-                      onChange={(e) =>
-                        setForm((p) => ({
-                          ...p,
-                          tipoServico: toggleArray(p.tipoServico, opt, e.target.checked),
-                        }))
-                      }
-                    />
-                    <span>{opt}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
             {/* ── Dropdowns de stack ── */}
             <MultiSelectDropdown
               label={t.origemDados}
@@ -793,18 +856,7 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
               />
             </label>
 
-            {/* ── LGPD + Submit ── */}
-            <label className="checkbox-item">
-              <input
-                type="checkbox"
-                required
-                checked={form.consentimentoLgpd}
-                onChange={(e) => setForm((p) => ({ ...p, consentimentoLgpd: e.target.checked }))}
-                className="mt-1"
-              />
-              <span>{t.lgpd}</span>
-            </label>
-
+            {/* ── Submit ── */}
             <div>
               <button
                 type="submit"
@@ -816,6 +868,33 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
               {status !== "idle" && (
                 <p className={`mt-3 text-sm ${status}`}>{message}</p>
               )}
+            </div>
+
+            {/* ── CTAs alternativos ── */}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "18px" }}>
+              <p style={{ fontSize: "0.78rem", color: "var(--text-muted, #9ca3af)", marginBottom: "10px" }}>
+                {t.orLabel}
+              </p>
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                <a
+                  href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo formulário de diagnóstico e gostaria de conversar com um especialista.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                  style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                >
+                  {t.ctaWa}
+                </a>
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                  style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                >
+                  {t.ctaCalendly}
+                </a>
+              </div>
             </div>
           </form>
         </div>

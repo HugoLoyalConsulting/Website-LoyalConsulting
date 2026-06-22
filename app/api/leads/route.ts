@@ -123,6 +123,9 @@ export async function POST(request: NextRequest) {
   const cleanFerramentasBI = data.ferramentasBI.map((item) => sanitizeText(item)).filter(Boolean);
   const cleanFrequencia = sanitizeText(data.frequenciaAtualizacao || "");
 
+  const cleanAcompanhamento = (data.acompanhamento ?? []).map((item) => sanitizeText(item)).filter(Boolean);
+  const cleanIndicadores = sanitizeText(data.indicadores || "");
+
   const metadata = JSON.stringify({
     setor: cleanSetor,
     tipoServico: cleanTipoServico,
@@ -130,6 +133,8 @@ export async function POST(request: NextRequest) {
     origemDados: cleanOrigemDados,
     ferramentasBI: cleanFerramentasBI,
     frequenciaAtualizacao: cleanFrequencia,
+    acompanhamento: cleanAcompanhamento,
+    indicadores: cleanIndicadores || null,
   });
 
   try {
@@ -244,6 +249,8 @@ export async function POST(request: NextRequest) {
          <tr><td><strong>Área / Setor</strong></td><td>${cleanAreaSetor || "—"}</td></tr>
          <tr><td><strong>Tamanho da empresa</strong></td><td>${cleanTamanhoEmpresa || "—"}</td></tr>
          <tr><td><strong>Dores</strong></td><td>${cleanDores.join(", ") || "—"}</td></tr>
+         <tr><td><strong>Como acompanha a área</strong></td><td>${cleanAcompanhamento.join(", ") || "—"}</td></tr>
+         <tr><td><strong>Indicadores que usa</strong></td><td>${cleanIndicadores || "—"}</td></tr>
          <tr><td><strong>Descrição</strong></td><td>${cleanDescricao || "—"}</td></tr>
        </table>`
     );
