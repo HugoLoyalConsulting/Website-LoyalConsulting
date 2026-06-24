@@ -170,7 +170,7 @@ export default function CalculadoraBIPage() {
                     lineHeight: 1.55,
                   }}
                 >
-                  <span style={{ flexShrink: 0, color: "#2ee6a6", fontWeight: 700, marginTop: "0.05rem" }}>×</span>
+                  <span style={{ flexShrink: 0, color: "#f97316", fontWeight: 700, marginTop: "0.05rem" }}>×</span>
                   {item}
                 </div>
               ))}
