@@ -351,7 +351,7 @@ export default function CalculadoraBIPage() {
                 Leve o PDF para a conversa. Nossa equipe interpreta os resultados, identifica onde o ganho
                 é mais rápido e apresenta um caminho concreto para reduzir esse custo.
               </p>
-              <a href={WA_CALCULADORA} target="_blank" rel="noopener noreferrer" className="btn-accent" style={{ marginTop: "0.5rem", textAlign: "center" }}>
+              <a href={WA_CALCULADORA} target="_blank" rel="noopener noreferrer" className="btn-accent" style={{ marginTop: "0.5rem", alignSelf: "flex-start" }}>
                 Conversar sobre o resultado →
               </a>
             </div>
@@ -366,7 +366,7 @@ export default function CalculadoraBIPage() {
                 Entenda o processo completo — do diagnóstico à integração dos dados e dashboards —
                 e descubra qual etapa faz mais sentido para o momento atual da sua empresa.
               </p>
-              <Link href="/discovery" className="btn-outline" style={{ marginTop: "0.5rem", textAlign: "center" }}>
+              <Link href="/discovery" className="btn-outline" style={{ marginTop: "0.5rem", alignSelf: "flex-start" }}>
                 Ver como funciona a Discovery →
               </Link>
             </div>
