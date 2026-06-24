@@ -4302,3 +4302,16 @@ body::before {
   .lc-how-title { font-size: 1.1rem; }
   .lc-how-body  { font-size: 1rem; }
 }
+
+/* ── Friso esquerdo: laranja (Hoje) e teal (Depois) ─────────
+   O override Neo-Analytical seta border:1px uniforme;
+   border-left-color vem depois e sobrescreve só a esquerda. */
+.lc-dores-consequences:not(.lc-dores-consequences--cool) {
+  border-left-color: rgba(249, 115, 22, 0.65);
+}
+
+@media (max-width: 768px) {
+  .lc-dores-consequences:not(.lc-dores-consequences--cool) {
+    border-top-color: rgba(249, 115, 22, 0.65);
+  }
+}

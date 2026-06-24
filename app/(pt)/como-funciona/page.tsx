@@ -18,19 +18,22 @@ const services = [
   {
     title: "Integração e automação de dados",
     body: "Quando cada área vive da sua planilha e ninguém concorda sobre qual número está certo, o problema não é a análise; é a base. Conectamos ERPs, CRMs, planilhas e APIs em um modelo único e confiável, com atualizações automáticas e visibilidade de ponta a ponta, sem depender de processos manuais.",
-    img: "dashboard-monitor-dados-futurista.jpg",
+    img: "pipeline-dados-centralizado.png",
+    imgFit: "contain" as const,
     tag: "Fonte única de verdade",
   },
   {
     title: "Dashboards",
     body: "A reunião para de ser um debate sobre qual planilha está certa quando existe uma tela de referência compartilhada, atualizada automaticamente. Construímos painéis em Power BI, Tableau, Looker ou Python, com as perguntas certas respondidas no lugar certo.",
     img: "dashboard-ui-kpis.webp",
+    imgFit: "cover" as const,
     tag: "Decisão em segundos",
   },
   {
     title: "Mentoria e Treinamento",
     body: "Às vezes o problema não é falta de ferramenta; é não saber o que fazer com ela. Sessões práticas direcionadas ao seu contexto real: sem teoria desnecessária, com foco no que gera resultado imediato no trabalho.",
     img: "analistas-revisando-dashboard.jpg",
+    imgFit: "cover" as const,
     tag: "Seu time voa sozinho",
   },
 ];
@@ -121,7 +124,12 @@ export default function ComoFuncionaPage() {
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    style={{ objectFit: "cover", filter: "brightness(0.8) saturate(0.7)" }}
+                    style={{
+                      objectFit: service.imgFit,
+                      filter: service.imgFit === "contain"
+                        ? "brightness(0.95)"
+                        : "brightness(0.8) saturate(0.7)",
+                    }}
                   />
                 </figure>
                 <h3 className="lc-how-title" style={{ paddingTop: "1.5rem" }}>{service.title}</h3>
