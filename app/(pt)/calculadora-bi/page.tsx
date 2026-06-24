@@ -15,21 +15,16 @@ export const metadata: Metadata = buildMetadata({
 const beneficios = [
   {
     n: "01",
-    titulo: "Menos de 3 minutos",
-    corpo: "Sem cadastro, sem compromisso. Você preenche os dados da equipe e recebe a estimativa na hora.",
-  },
-  {
-    n: "02",
     titulo: "Por cargo e atividade",
     corpo: "O custo real de cada etapa da cadeia de dados: extração, modelagem, cruzamento, consolidação, análise.",
   },
   {
-    n: "03",
+    n: "02",
     titulo: "Cenários de automação",
     corpo: "Projeção de economia com 10%, 50% e 100% de automação — para você mostrar o impacto antes de qualquer investimento.",
   },
   {
-    n: "04",
+    n: "03",
     titulo: "Relatório em PDF",
     corpo: "Pronto para apresentar à diretoria ou usar como base para justificar um projeto de BI.",
   },
@@ -191,7 +186,10 @@ export default function CalculadoraBIPage() {
           <div className="section-divider" />
           <div className="mt-8">
             <p className="section-eyebrow">O que você recebe</p>
-            <h2 className="section-title mt-3">Quatro entregas em menos de 3 minutos</h2>
+            <h2 className="section-title mt-3">Três entregas em menos de 3 minutos</h2>
+            <p style={{ marginTop: "0.75rem", fontSize: "0.85rem", color: "rgba(240,237,232,0.55)" }}>
+              Sem cadastro, sem compromisso. Você preenche os dados da equipe e recebe a estimativa na hora.
+            </p>
           </div>
           <ol className="mt-12" style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 0 }}>
             {beneficios.map((b) => (
