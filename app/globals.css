@@ -4279,3 +4279,26 @@ body::before {
   background: rgba(255, 255, 255, 0.13);
   color: #f0ede8;
 }
+
+/* ── lc-how-step: padding generoso + fonte -10% ────────────
+   Sobrescreve os valores anteriores; veio por último, vence. */
+.lc-how-step > .lc-how-num,
+.lc-how-step > .lc-how-title,
+.lc-how-step > .lc-how-body,
+.lc-how-step > .lc-how-tags {
+  padding-left: 2.8rem;
+  padding-right: 2.8rem;
+}
+
+.lc-how-step > .lc-how-num       { padding-top: 2.8rem; }
+.lc-how-step > .lc-how-tags      { padding-bottom: 2.8rem; }
+.lc-how-step > .lc-how-body      { padding-bottom: 2.8rem; }
+
+.lc-how-num   { font-size: 2rem; }
+.lc-how-title { font-size: 1rem; }
+.lc-how-body  { font-size: 0.82rem; line-height: 1.55; }
+
+@media (min-width: 901px) {
+  .lc-how-title { font-size: 1.1rem; }
+  .lc-how-body  { font-size: 1rem; }
+}

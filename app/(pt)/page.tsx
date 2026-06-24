@@ -126,14 +126,14 @@ export default function HomePage() {
             </p>
             <div className="ts-cta-row reveal-up">
               <a href={WA_DIAGNOSTICO} target="_blank" rel="noopener noreferrer" className="btn-accent">
-                Agendar Discovery Gratuita
+                Agendar Discovery
               </a>
               <Link href="/calculadora-bi" className="btn-outline">
                 Calcular meu custo de dados →
               </Link>
             </div>
             <p className="reveal-up" style={{ marginTop: "1rem", fontSize: "0.8rem", color: "rgba(240,237,232,0.45)" }}>
-              Discovery gratuita · Sem compromisso · Resultado imediato
+              Sem apresentação de produto · Sem compromisso · 30 minutos
             </p>
           </div>
         </div>
