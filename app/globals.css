@@ -3260,6 +3260,119 @@ body::before {
   }
 }
 
+/* ── lc-path-card — Dois Caminhos (homepage e LPs) ─────────── */
+.lc-path-card {
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  transition:
+    transform 380ms var(--ease-premium),
+    box-shadow 380ms var(--ease-premium),
+    border-color 260ms var(--ease-premium);
+}
+
+.lc-path-card:hover {
+  transform: translateY(-6px) scale(1.015);
+}
+
+.lc-path-card--discovery {
+  border: 1px solid rgba(46, 230, 166, 0.3);
+  background: linear-gradient(135deg, rgba(46, 230, 166, 0.08), rgba(14, 165, 233, 0.04));
+}
+
+.lc-path-card--discovery:hover {
+  border-color: rgba(46, 230, 166, 0.55);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.42),
+    0 0 30px rgba(46, 230, 166, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.lc-path-card--teal {
+  border: 1px solid rgba(46, 230, 166, 0.25);
+  background: linear-gradient(135deg, rgba(46, 230, 166, 0.06), rgba(3, 105, 161, 0.07));
+}
+
+.lc-path-card--teal:hover {
+  border-color: rgba(46, 230, 166, 0.5);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(46, 230, 166, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+/* ── btn-teal — degradê verde-água → azul-escuro ───────────── */
+.btn-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.78rem 1.6rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient(120deg, #2ee6a6 0%, #0ea5e9 50%, #0369a1 100%);
+  background-size: 170% 100%;
+  box-shadow:
+    0 12px 34px rgba(46, 230, 166, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition:
+    transform 320ms var(--ease-premium),
+    box-shadow 360ms var(--ease-premium),
+    background-position 460ms var(--ease-premium);
+}
+
+.btn-teal:hover {
+  transform: translateY(-3px) scale(1.03);
+  background-position: 100% 0;
+  box-shadow:
+    0 20px 44px rgba(46, 230, 166, 0.34),
+    0 0 24px rgba(14, 165, 233, 0.22);
+}
+
+/* ── :active — feedback imediato no clique ─────────────────── */
+.btn-accent:active,
+.btn-primary:active,
+.btn-outline:active,
+.btn-teal:active,
+.btn-calendly:active {
+  transform: scale(0.97) !important;
+  transition-duration: 80ms !important;
+}
+
+/* ── lc-benefit-item hover ─────────────────────────────────── */
+.lc-benefit-item {
+  transition: transform 280ms var(--ease-premium), border-color 260ms, background 260ms;
+}
+
+.lc-benefit-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(46, 230, 166, 0.3);
+  background: rgba(46, 230, 166, 0.04);
+}
+
+/* ── lc-faq-card hover ─────────────────────────────────────── */
+.lc-faq-card {
+  transition: transform 280ms var(--ease-premium), border-color 260ms, background 260ms;
+}
+
+.lc-faq-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(124, 247, 197, 0.3);
+  background: rgba(124, 247, 197, 0.04);
+}
+
 /* ── ANTES → DEPOIS ─────────────────────────────────────────── */
 .lc-beforeafter-grid {
   display: grid;

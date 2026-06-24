@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { query } from "@/lib/db";
 import { sanitizeText } from "@/lib/sanitization";
 
+export const dynamic = "force-static";
+
 function parseAllowedOrigins() {
   const value = process.env.ALLOWED_ORIGINS || process.env.APP_ORIGIN || "";
   return value

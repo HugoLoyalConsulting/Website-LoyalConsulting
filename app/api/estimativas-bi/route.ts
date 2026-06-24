@@ -4,6 +4,8 @@ import { sanitizeText } from "@/lib/sanitization";
 import { query } from "@/lib/db";
 import { sendNotificationEmail } from "@/lib/email";
 
+export const dynamic = "force-static";
+
 function getIp(request: NextRequest) {
   const fwd = request.headers.get("x-forwarded-for");
   return fwd?.split(",")[0]?.trim() || "unknown";

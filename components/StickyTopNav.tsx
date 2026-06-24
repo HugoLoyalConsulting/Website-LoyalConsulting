@@ -196,7 +196,7 @@ export function StickyTopNav({ locale = "pt" }: { locale?: Locale }) {
         className={`ts-nav-drawer${menuOpen ? " ts-nav-drawer--open" : ""}`}
         onClick={closeMenu}
         aria-hidden={!menuOpen}
-        {...(!menuOpen ? ({ inert: "" } as object) : {})}
+        inert={!menuOpen}
       >
         <div className="ts-nav-drawer-inner" onClick={(e) => e.stopPropagation()}>
           {t.items.map((item) => (

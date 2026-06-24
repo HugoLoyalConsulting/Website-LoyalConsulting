@@ -3,6 +3,8 @@ import { applyRateLimit } from "@/lib/rate-limit";
 import { sanitizePhone, sanitizeText } from "@/lib/sanitization";
 import { query } from "@/lib/db";
 import { forwardLeadToHubSpot } from "@/lib/integrations";
+
+export const dynamic = "force-static";
 import { leadSchema } from "@/lib/validations";
 import type { LeadStatus } from "@/lib/types";
 import { sendNotificationEmail } from "@/lib/email";

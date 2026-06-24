@@ -209,17 +209,7 @@ export default function HomePage() {
             }}
           >
             {/* Card 1 — Discovery */}
-            <div
-              style={{
-                border: "1px solid rgba(46,230,166,0.25)",
-                borderRadius: "16px",
-                padding: "2rem 1.75rem",
-                background: "rgba(46,230,166,0.05)",
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-              }}
-            >
+            <div className="lc-path-card lc-path-card--discovery">
               <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2ee6a6", margin: 0 }}>
                 Conversa estratégica
               </p>
@@ -245,18 +235,8 @@ export default function HomePage() {
             </div>
 
             {/* Card 2 — Calculadora */}
-            <div
-              style={{
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "16px",
-                padding: "2rem 1.75rem",
-                background: "rgba(255,255,255,0.03)",
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-              }}
-            >
-              <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(240,237,232,0.45)", margin: 0 }}>
+            <div className="lc-path-card lc-path-card--teal">
+              <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2ee6a6", margin: 0 }}>
                 Autodiagnóstico
               </p>
               <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--color-text, #f0ede8)", lineHeight: 1.3, margin: 0 }}>
@@ -271,7 +251,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/calculadora-bi"
-                className="btn-outline"
+                className="btn-teal"
                 style={{ marginTop: "0.5rem", textAlign: "center" }}
               >
                 Calcular agora (grátis) →
