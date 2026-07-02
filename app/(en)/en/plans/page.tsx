@@ -15,7 +15,6 @@ export const metadata: Metadata = buildMetadata({
 const plans = [
   {
     tier: "BASIC",
-    price: "R$ 2,000+",
     desc: "For teams that need to automate an extraction, organize a data base or take their first steps with data.",
     features: [
       "Pipeline or extraction automation",
@@ -28,7 +27,6 @@ const plans = [
   },
   {
     tier: "PRO",
-    price: "R$ 5,000+",
     desc: "For areas that need to integrate different sources and get a complete dashboard to track results.",
     features: [
       "Multiple integrated sources",
@@ -41,7 +39,6 @@ const plans = [
   },
   {
     tier: "PREMIUM",
-    price: "R$ 10,000+",
     desc: "For more complex operations, with robust automations, multiple dashboards and recurring refreshes.",
     features: [
       "Advanced pipelines and integrations",
@@ -105,12 +102,12 @@ export default function PlansPage() {
           <div>
             <p className="section-eyebrow reveal-up">Plans</p>
             <h1 className="ts-hero-h1 reveal-up mt-3" style={{ fontSize: "clamp(2.2rem, 4vw, 4rem)" }}>
-              The investment follows<br />
+              The scope follows<br />
               project complexity
             </h1>
             <p className="ts-hero-sub reveal-up">
-              The values below are starting points. The exact scope is defined with you,
-              based on the data sources and the KPIs you need.
+              Every project is defined together with you, based on your data sources and
+              the KPIs you need. Pricing is shared in the free Discovery call.
             </p>
           </div>
         </div>
@@ -127,9 +124,6 @@ export default function PlansPage() {
                 className={`lc-plan-card${plan.highlight ? " lc-plan-card--highlight" : ""}`}
               >
                 <span className="lc-plan-tier">{plan.tier}</span>
-                <div>
-                  <p className="lc-plan-price">{plan.price}</p>
-                </div>
                 <p className="lc-plan-desc">{plan.desc}</p>
                 <div>
                   <p className="lc-plan-section-label">Typical complexity</p>
