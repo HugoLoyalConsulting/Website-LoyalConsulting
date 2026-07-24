@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
+const WA_NUMBER = "5511981316880";
+
 type ContactMode = "email" | "whatsapp" | "both";
 
 type FormState = {
@@ -242,6 +244,26 @@ export function Form() {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 grid gap-4 sm:grid-cols-2">
+
+          <label className="sm:col-span-2 flex items-start gap-3 rounded-xl2 border border-primary/30 bg-primary/5 p-4 text-sm">
+            <input
+              type="checkbox"
+              required
+              checked={form.consentimentoLgpd}
+              onChange={(event) => setForm((prev) => ({ ...prev, consentimentoLgpd: event.target.checked }))}
+              className="mt-1 shrink-0"
+            />
+            <span style={{ fontSize: "0.8em", lineHeight: "1.55" }}>
+              Li e concordo com o uso dos meus dados pessoais pela <strong>Loyal Consulting</strong> para
+              fins de contato comercial, diagnóstico de necessidades, elaboração de propostas e registro em CRM,
+              em conformidade com a <strong>LGPD (Lei n.º 13.709/2018)</strong>. Posso revogar este consentimento
+              a qualquer momento pelo e-mail{" "}
+              <a href="mailto:contato@loyalconsulting.com.br" className="underline opacity-70">
+                contato@loyalconsulting.com.br
+              </a>.
+            </span>
+          </label>
+
           <label className="text-sm">
             Nome *
             <input
@@ -419,20 +441,6 @@ export function Form() {
             />
           </label>
 
-          <label className="sm:col-span-2 flex items-start gap-3 rounded-xl2 border border-white/10 p-4 text-sm">
-            <input
-              type="checkbox"
-              required
-              checked={form.consentimentoLgpd}
-              onChange={(event) => setForm((prev) => ({ ...prev, consentimentoLgpd: event.target.checked }))}
-              className="mt-1"
-            />
-            <span style={{ fontSize: "0.8em" }}>
-              Autorizo o tratamento dos meus dados pessoais para fins de contato comercial, diagnóstico de necessidades,
-              elaboração de propostas, acompanhamento do atendimento e armazenamento em plataforma de CRM, em
-              conformidade com a Lei Geral de Proteção de Dados (LGPD).
-            </span>
-          </label>
 
           <div className="sm:col-span-2">
             <button
@@ -446,6 +454,23 @@ export function Form() {
             {messageType !== "idle" ? (
               <p className={`mt-3 text-sm ${messageType === "success" ? "text-success" : "text-danger"}`}>{message}</p>
             ) : null}
+          </div>
+
+          <div className="sm:col-span-2" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "18px" }}>
+            <p style={{ fontSize: "0.78rem", color: "var(--text-muted, #9ca3af)", marginBottom: "10px" }}>
+              Ou prefere ir direto ao ponto?
+            </p>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              <a
+                href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Vim pelo site da Loyal Consulting e gostaria de falar com um especialista.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl2 border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-text transition-opacity hover:opacity-80"
+                style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+              >
+                💬 Falar no WhatsApp
+              </a>
+            </div>
           </div>
         </form>
       </div>
