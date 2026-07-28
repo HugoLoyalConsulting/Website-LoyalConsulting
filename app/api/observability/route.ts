@@ -3,9 +3,12 @@ import { query } from "@/lib/db";
 import { authorizeOperatorRead, operatorTokenFromRequest } from "@/lib/operator-auth";
 import { buildObservabilitySnapshot } from "@/lib/observability-summary";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export async function GET(request: NextRequest) {
+  if (process.env.STATIC_EXPORT === "true") {
+    return NextResponse.json({ success: false, error: "Disponível somente no backend operacional" }, { status: 503 });
+  }
   const access = authorizeOperatorRead(process.env.LEADS_DASH_TOKEN?.trim() || null, operatorTokenFromRequest(request));
   if (!access.ok) {
     const error = access.status === 503 ? "Observabilidade administrativa indisponível" : "Não autorizado";
