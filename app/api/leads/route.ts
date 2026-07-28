@@ -8,6 +8,7 @@ export const dynamic = "force-static";
 import { leadSchema } from "@/lib/validations";
 import type { LeadStatus } from "@/lib/types";
 import { sendNotificationEmail } from "@/lib/email";
+import { authorizeOperatorRead, operatorTokenFromRequest } from "@/lib/operator-auth";
 
 const ALLOWED_STATUSES: LeadStatus[] = [
   "novo",
@@ -268,6 +269,11 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  const access = authorizeOperatorRead(process.env.LEADS_DASH_TOKEN?.trim() || null, operatorTokenFromRequest(request));
+  if (!access.ok) {
+    const message = access.status === 503 ? "Leitura administrativa indisponível" : "Não autorizado";
+    return withCorsHeaders(request, NextResponse.json({ success: false, error: message }, { status: access.status }));
+  }
   const url = new URL(request.url);
   const status = url.searchParams.get("status");
   const page = Number(url.searchParams.get("page") || "1");
