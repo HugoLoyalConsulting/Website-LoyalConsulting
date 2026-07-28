@@ -548,6 +548,14 @@ function resolveEndpoint() {
   return configured && configured.length > 0 ? configured : "/api/leads";
 }
 
+function trackFunnel(event: string) {
+  const endpoint = process.env.NEXT_PUBLIC_TELEMETRY_ENDPOINT?.trim();
+  if (!endpoint || typeof window === "undefined") return;
+  const payload = JSON.stringify({ event, path: window.location.pathname, referrer: document.referrer || "", viewport: `${window.innerWidth}x${window.innerHeight}`, sessionId: window.sessionStorage.getItem("lc_telemetry_session") || "", ts: new Date().toISOString() });
+  if (navigator.sendBeacon) navigator.sendBeacon(endpoint, new Blob([payload], { type: "application/json" }));
+  else fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: payload, keepalive: true }).catch(() => undefined);
+}
+
 function getErrorText(payload: unknown, fallback: string): string {
   if (!payload || typeof payload !== "object") return fallback;
   const maybeError = (payload as { error?: string }).error;
@@ -585,6 +593,7 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
     setIsSubmitting(true);
     setStatus("idle");
     setMessage("");
+    trackFunnel("lead_form_submit_started");
     try {
       const endpoint = resolveEndpoint();
       const response = await fetch(endpoint, {
@@ -594,10 +603,12 @@ export function LeadCaptureForm({ locale = "pt" }: { locale?: Locale }) {
       });
       const data = (await response.json()) as unknown;
       if (!response.ok) throw new Error(getErrorText(data, t.genericError));
+      trackFunnel("lead_form_submit_succeeded");
       identifyInHubSpot(form.email);
       router.push(t.thankYouPath);
       return;
     } catch (error) {
+      trackFunnel("lead_form_submit_failed");
       setStatus("error");
       setMessage(error instanceof Error ? error.message : t.submitError);
     } finally {
