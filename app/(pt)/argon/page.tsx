@@ -42,7 +42,15 @@ export default function ArgonLandingPage() {
 
       <section id="dores" className="argon-section argon-pains" aria-labelledby="dores-title">
         <div className="argon-section-intro"><p className="argon-kicker">Dores que resolvemos</p><h2 id="dores-title">Não é só fazer uma placa. É fazer a marca aparecer do jeito certo.</h2></div>
-        <div className="argon-pain-list">{pains.map(([title, text], index) => <article className="argon-pain" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+        <div className="argon-pain-list">{pains.map(([title, text]) => <article className="argon-pain" key={title}><span className="argon-pain-marker" aria-hidden="true">×</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+      </section>
+
+      <section className="argon-section argon-before-after" aria-labelledby="antes-depois-title">
+        <div><p className="argon-kicker">Antes × Depois</p><h2 id="antes-depois-title">Da incerteza a uma marca que se faz notar.</h2></div>
+        <div className="argon-contrast-grid">
+          <article className="argon-before"><span>Antes</span><ul><li>Escolhas desconectadas para cada peça</li><li>Acabamento e leitura sem prioridade</li><li>Prazo sem próximos passos claros</li></ul></article>
+          <article className="argon-after"><span>Depois</span><ul><li>Comunicação visual pensada como conjunto</li><li>Presença, acabamento e aplicação alinhados</li><li>Conversa objetiva para definir o projeto</li></ul></article>
+        </div>
       </section>
 
       <section id="solucoes" className="argon-section" aria-labelledby="servicos">

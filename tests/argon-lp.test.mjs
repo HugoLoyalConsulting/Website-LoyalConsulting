@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication notice", async () => {
   const page = await readFile(new URL("../app/(pt)/argon/page.tsx", import.meta.url), "utf8");
   const form = await readFile(new URL("../components/ArgonQuoteForm.tsx", import.meta.url), "utf8");
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(page, /Comunicação visual personalizada/);
   assert.match(page, /Desde 1987/);
   assert.match(page, /Solicitar orçamento/);
@@ -15,6 +16,9 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(form, /Abrimos o WhatsApp com suas informações/);
   assert.match(page, /5511972070323/);
   assert.match(page, /Dores que resolvemos/);
+  assert.match(page, /Antes × Depois/);
+  assert.match(page, /argon-before-after/);
+  assert.match(css, /argon-pain-marker/);
   assert.match(page, /Mapa do site/);
   assert.match(page, /HTTPS/);
   assert.match(page, /argon-sitemap/);
@@ -23,7 +27,6 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(form, /name="services"/);
   assert.match(form, /serviceLabels/);
   assert.ok(page.indexOf("Várzea Paulista") > page.indexOf("<footer"), "city must only appear in footer");
-  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(css, /--argon-ink/);
   assert.match(css, /--argon-type-display/);
 });
