@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ArgonQuoteForm } from "@/components/ArgonQuoteForm";
 
@@ -7,21 +8,27 @@ export const metadata: Metadata = {
 };
 
 const services = ["Letreiros e logotipos caixa", "Neon", "Bandejas e displays", "Luminárias em acrílico"];
+const gallery = ["argon-01.jpg", "argon-02.jpg", "argon-03.jpg", "argon-04.jpg", "argon-05.jpg", "argon-06.jpg"];
 
 export default function ArgonLandingPage() {
   return (
-    <main className="argon-page">
-      <header className="argon-nav">
-        <a href="#topo" aria-label="Argon-Bras Luminosos">ARGON-BRAS</a>
-        <a href="#orcamento">Solicitar orçamento</a>
+    <main className="argon-page argon-modern">
+      <header className="argon-nav glass-panel">
+        <a href="#topo" aria-label="Argon-Bras Luminosos"><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={145} height={49} priority /></a>
+        <a href="#orcamento" className="argon-nav-cta">Solicitar orçamento</a>
       </header>
       <section id="topo" className="argon-hero">
-        <p className="argon-kicker">Comunicação visual · Várzea Paulista, SP</p>
-        <h1>Comunicação visual personalizada para sua marca aparecer.</h1>
-        <p>Letreiros, neons, luminosos, fachadas e displays com a experiência da Argon-Bras Luminosos.</p>
-        <div className="argon-actions">
-          <a className="argon-button" href="#orcamento">Solicitar orçamento</a>
-          <a className="argon-link" href="https://wa.me/551145821572" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <div className="argon-hero-copy glass-panel">
+          <p className="argon-kicker">Comunicação visual · Várzea Paulista, SP</p>
+          <h1>Comunicação visual personalizada para sua marca aparecer.</h1>
+          <p>Letreiros, neons, luminosos, fachadas e displays com a experiência da Argon-Bras Luminosos.</p>
+          <div className="argon-actions">
+            <a className="argon-button" href="#orcamento">Solicitar orçamento</a>
+            <a className="argon-link" href="https://wa.me/551145821572" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          </div>
+        </div>
+        <div className="argon-gallery" aria-label="Galeria de projetos Argon-Bras">
+          <div className="argon-gallery-track">{[...gallery, ...gallery].map((image, index) => <figure className="argon-gallery-item" key={`${image}-${index}`}><Image src={`/images/argon/${image}`} alt="Projeto de comunicação visual da Argon-Bras" width={900} height={600} priority={index < 2} /></figure>)}</div>
         </div>
       </section>
       <section className="argon-section" aria-labelledby="servicos">
