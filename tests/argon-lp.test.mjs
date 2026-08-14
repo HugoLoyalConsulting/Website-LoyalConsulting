@@ -10,6 +10,8 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(page, /Solicitar orçamento/);
   assert.match(page, /Não inventamos depoimentos/);
   assert.match(page, /ArgonQuoteForm/);
+  assert.match(page, /argon-gallery-track/);
+  assert.match(page, /argon-gallery-item/);
   assert.match(form, /Formulário ainda não está conectado/);
   assert.match(form, /Falar no WhatsApp/);
 });
