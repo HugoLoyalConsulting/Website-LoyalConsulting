@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 const whatsapp = "https://wa.me/5511972070323";
-const services = ["Letreiros e logotipos caixa", "Neon", "Bandejas e displays", "Luminárias em acrílico"];
+const serviceGroups = [
+  { title: "Fachadas e identidade", items: ["Letreiros e logotipos caixa", "Fachadas", "Banners e adesivos"] },
+  { title: "Iluminação e destaque", items: ["Neon", "Luminárias em acrílico", "Luminosos"] },
+  { title: "Ambientes e ponto de venda", items: ["Bandejas e displays", "Sinalização", "Displays para PDV"] },
+];
 const pains = [
   ["Qualidade que não acompanha a ideia", "Materiais, acabamento e leitura precisam funcionar no ambiente real — não apenas na apresentação."],
   ["Prazo sem clareza", "Um projeto visual precisa de uma conversa objetiva sobre escopo, produção, instalação e próximos passos."],
@@ -56,7 +60,7 @@ export default function ArgonLandingPage() {
       <section id="solucoes" className="argon-section" aria-labelledby="servicos">
         <p className="argon-kicker">Comunicação visual completa</p>
         <h2 id="servicos">Tudo o que sua marca precisa para ganhar espaço físico.</h2>
-        <div className="argon-grid">{services.map((service) => <article key={service}><h3>{service}</h3><p>Uma solução integrada ao projeto, à identidade e ao contexto de aplicação da sua marca.</p></article>)}</div>
+        <div className="argon-service-groups">{serviceGroups.map((group) => <article className="argon-service-group" key={group.title}><h3>{group.title}</h3><ul>{group.items.map((service) => <li key={service}>{service}</li>)}</ul></article>)}</div>
       </section>
 
       <section className="argon-section argon-proof">
