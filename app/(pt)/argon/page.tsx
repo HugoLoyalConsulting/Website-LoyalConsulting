@@ -22,7 +22,7 @@ export default function ArgonLandingPage() {
     <main className="argon-page argon-modern">
       <header className="argon-nav glass-panel">
         <a href="#topo" aria-label="Argon-Bras Luminosos"><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={145} height={49} priority /></a>
-        <nav aria-label="Navegação principal"><a href="#solucoes">Soluções</a><a href="#dores">Por que Argon</a><a href="#orcamento" className="argon-nav-cta">Solicitar orçamento</a></nav>
+        <nav aria-label="Navegação principal"><a href="#solucoes">Soluções</a><a href="#dores">Por que Argon</a><a className="argon-whatsapp-float" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.1 4.9A9.9 9.9 0 0 0 2.3 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4A9.9 9.9 0 1 0 19.1 4.9Zm-7.2 14a6.9 6.9 0 0 1-3.5-1l-.4-.2-3.3.8.9-3.2-.2-.4a6.9 6.9 0 1 1 6.5 3.9Zm3.8-5.1c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.4.1-.1.2-.5.7-.6.8-.1.1-.2.1-.4 0a5.7 5.7 0 0 1-1.7-1 6.3 6.3 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.3c.1-.1.1-.2.2-.3 0-.1 0-.2 0-.3l-.7-1.5c-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.7.7-.7 1.7s.7 2 1 2.2c.1.1 1.6 2.5 3.9 3.5.5.2.9.4 1.2.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z" fill="currentColor" /></svg></a></nav>
       </header>
 
       <section id="topo" className="argon-hero">
