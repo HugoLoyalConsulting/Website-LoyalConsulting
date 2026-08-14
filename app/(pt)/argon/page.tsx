@@ -32,7 +32,7 @@ export default function ArgonLandingPage() {
           <p>Da fachada ao ponto de venda: comunicação visual pensada para quem exige qualidade, clareza de prazo e acabamento premium.</p>
           <div className="argon-actions">
             <a className="argon-button" href="#orcamento">Solicitar orçamento</a>
-            <a className="argon-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp <span>11 97207-0323</span></a>
+            <a className="argon-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">Falar no WhatsApp</a>
           </div>
         </div>
         <div className="argon-gallery" aria-label="Galeria de projetos Argon-Bras">
@@ -66,12 +66,12 @@ export default function ArgonLandingPage() {
       </section>
 
       <section id="orcamento" className="argon-section argon-form-panel">
-        <div><p className="argon-kicker">Próximo passo</p><h2>Seu projeto merece uma conversa direta.</h2><p>Conte o que precisa: tipo de peça, local de aplicação, prazo desejado e referências. Para atendimento rápido, chame no WhatsApp.</p><a className="argon-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span>11 97207-0323</span></a></div>
+        <div><p className="argon-kicker">Próximo passo</p><h2>Seu projeto merece uma conversa direta.</h2><p>Conte o que precisa: tipo de peça, local de aplicação, prazo desejado e referências. Para atendimento rápido, chame no WhatsApp.</p><a className="argon-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">Falar no WhatsApp</a></div>
         <ArgonQuoteForm />
       </section>
 
       <footer className="argon-footer">
-        <div><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={142} height={48} /><p>Comunicação visual personalizada.</p><p className="argon-location">Várzea Paulista, SP</p><a href="mailto:argonbras@gmail.com">argonbras@gmail.com</a></div>
+        <div><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={142} height={48} /><p>Comunicação visual personalizada.</p><p className="argon-location">Várzea Paulista, SP</p><a href={whatsapp} target="_blank" rel="noopener noreferrer">11 97207-0323</a><a href="mailto:argonbras@gmail.com">argonbras@gmail.com</a></div>
         <nav className="argon-sitemap" aria-label="Mapa do site"><strong>Mapa do site</strong><a href="#topo">Início</a><a href="#dores">Por que Argon</a><a href="#solucoes">Soluções</a><a href="#orcamento">Orçamento</a></nav>
         <div className="argon-security" aria-label="Conexão segura HTTPS"><b>HTTPS</b><span>Conexão segura</span></div>
       </footer>

@@ -16,7 +16,8 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(page, /argon-gallery-track/);
   assert.match(page, /argon-gallery-item/);
   assert.match(form, /Abrimos o WhatsApp com suas informações/);
-  assert.match(page, /5511972070323/);
+  assert.ok(page.indexOf("11 97207-0323") > page.indexOf("<footer"), "WhatsApp number must only be visible in footer");
+  assert.match(page, /argon-whatsapp-float/);
   assert.match(page, /Dores que resolvemos/);
   assert.match(page, /Antes × Depois/);
   assert.match(page, /argon-before-after/);
