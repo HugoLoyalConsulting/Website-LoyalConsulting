@@ -8,12 +8,16 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(page, /Comunicação visual personalizada/);
   assert.match(page, /Desde 1987/);
   assert.match(page, /Solicitar orçamento/);
-  assert.match(page, /Não inventamos depoimentos/);
+  assert.match(page, /Experiência para conversar/);
   assert.match(page, /ArgonQuoteForm/);
   assert.match(page, /argon-gallery-track/);
   assert.match(page, /argon-gallery-item/);
   assert.match(form, /Formulário ainda não está conectado/);
-  assert.match(form, /Falar no WhatsApp/);
+  assert.match(page, /5511972070323/);
+  assert.match(page, /Dores que resolvemos/);
+  assert.match(page, /Mapa do site/);
+  assert.match(page, /HTTPS/);
+  assert.match(page, /argon-sitemap/);
 });
 
 test("Argon database migration isolates quote requests by tenant", async () => {

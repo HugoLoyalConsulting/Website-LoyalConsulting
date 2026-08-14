@@ -31,7 +31,7 @@ export function ArgonQuoteForm() {
   }
 
   if (!endpoint) {
-    return <p className="argon-form" role="status">O formulário está em conexão final com o CRM. <a className="argon-link" href="https://wa.me/551145821572" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a> para solicitar orçamento agora.</p>;
+    return <p className="argon-form" role="status">O formulário está em conexão final com o CRM. <a className="argon-link" href="https://wa.me/5511972070323" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a> para solicitar orçamento agora.</p>;
   }
 
   return (
