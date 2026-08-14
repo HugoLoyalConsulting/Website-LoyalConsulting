@@ -1,3 +1,5 @@
+/usr/bin/bash: fork: retry: Resource temporarily unavailable
+/usr/bin/bash: fork: retry: Resource temporarily unavailable
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
@@ -28,7 +30,7 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(form, /serviceLabels/);
   assert.ok(page.indexOf("Várzea Paulista") > page.indexOf("<footer"), "city must only appear in footer");
   assert.match(css, /--argon-ink/);
-  assert.match(css, /--argon-type-display/);
+  assert.match(css, /argon-mobile-nav/);
 });
 
 test("Argon database migration isolates quote requests by tenant", async () => {
