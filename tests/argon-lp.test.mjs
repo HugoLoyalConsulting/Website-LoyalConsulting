@@ -18,6 +18,10 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(page, /Mapa do site/);
   assert.match(page, /HTTPS/);
   assert.match(page, /argon-sitemap/);
+  assert.ok(page.indexOf("Várzea Paulista") > page.indexOf("<footer"), "city must only appear in footer");
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /--argon-ink/);
+  assert.match(css, /--argon-type-display/);
 });
 
 test("Argon database migration isolates quote requests by tenant", async () => {

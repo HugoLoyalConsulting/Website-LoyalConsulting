@@ -27,7 +27,7 @@ export default function ArgonLandingPage() {
 
       <section id="topo" className="argon-hero">
         <div className="argon-hero-copy glass-panel">
-          <p className="argon-kicker">Comunicação visual · Várzea Paulista, SP</p>
+          <p className="argon-kicker">Comunicação visual</p>
           <h1>Sua marca merece ser vista com presença.</h1>
           <p>Da fachada ao ponto de venda: comunicação visual pensada para quem exige qualidade, clareza de prazo e acabamento premium.</p>
           <div className="argon-actions">
@@ -63,7 +63,7 @@ export default function ArgonLandingPage() {
       </section>
 
       <footer className="argon-footer">
-        <div><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={142} height={48} /><p>Comunicação visual personalizada.</p><a href="mailto:argonbras@gmail.com">argonbras@gmail.com</a></div>
+        <div><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={142} height={48} /><p>Comunicação visual personalizada.</p><p className="argon-location">Várzea Paulista, SP</p><a href="mailto:argonbras@gmail.com">argonbras@gmail.com</a></div>
         <nav className="argon-sitemap" aria-label="Mapa do site"><strong>Mapa do site</strong><a href="#topo">Início</a><a href="#dores">Por que Argon</a><a href="#solucoes">Soluções</a><a href="#orcamento">Orçamento</a></nav>
         <div className="argon-security" aria-label="Conexão segura HTTPS"><b>HTTPS</b><span>Conexão segura</span></div>
       </footer>
