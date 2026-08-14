@@ -12,12 +12,16 @@ test("Argon landing page keeps confirmed claims, quote CTA and a no-fabrication 
   assert.match(page, /ArgonQuoteForm/);
   assert.match(page, /argon-gallery-track/);
   assert.match(page, /argon-gallery-item/);
-  assert.match(form, /Formulário ainda não está conectado/);
+  assert.match(form, /Abrimos o WhatsApp com suas informações/);
   assert.match(page, /5511972070323/);
   assert.match(page, /Dores que resolvemos/);
   assert.match(page, /Mapa do site/);
   assert.match(page, /HTTPS/);
   assert.match(page, /argon-sitemap/);
+  assert.match(page, /argon-whatsapp-float/);
+  assert.match(form, /checkbox/);
+  assert.match(form, /name="services"/);
+  assert.match(form, /serviceLabels/);
   assert.ok(page.indexOf("Várzea Paulista") > page.indexOf("<footer"), "city must only appear in footer");
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(css, /--argon-ink/);
