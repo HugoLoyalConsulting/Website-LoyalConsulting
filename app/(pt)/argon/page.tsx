@@ -20,6 +20,7 @@ const pains = [
   ["Visual que não parece premium", "A comunicação da marca merece proporção, presença e cuidado com os detalhes."],
 ];
 const gallery = ["argon-01.jpg", "argon-02.jpg", "argon-03.jpg", "argon-04.jpg", "argon-05.jpg", "argon-06.jpg"];
+const processSteps = ["Briefing do projeto", "Definição da solução", "Produção", "Instalação e entrega"];
 
 export default function ArgonLandingPage() {
   return (
@@ -44,6 +45,8 @@ export default function ArgonLandingPage() {
         </div>
       </section>
 
+      <div className="argon-marquee" aria-label="Especialidades Argon-Bras"><div>FACHADAS · LETREIROS · NEON · SINALIZAÇÃO · DISPLAYS · LUMINOSOS · </div></div>
+
       <section id="dores" className="argon-section argon-pains" aria-labelledby="dores-title">
         <div className="argon-section-intro"><p className="argon-kicker">Dores que resolvemos</p><h2 id="dores-title">Não é só fazer uma placa. É fazer a marca aparecer do jeito certo.</h2></div>
         <div className="argon-pain-list">{pains.map(([title, text]) => <article className="argon-pain" key={title}><span className="argon-pain-marker" aria-hidden="true">×</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
@@ -62,6 +65,8 @@ export default function ArgonLandingPage() {
         <h2 id="servicos">Tudo o que sua marca precisa para ganhar espaço físico.</h2>
         <div className="argon-service-groups">{serviceGroups.map((group) => <article className="argon-service-group" key={group.title}><h3>{group.title}</h3><ul>{group.items.map((service) => <li key={service}>{service}</li>)}</ul></article>)}</div>
       </section>
+
+      <section className="argon-section argon-process" aria-labelledby="processo-title"><p className="argon-kicker">Como funciona</p><h2 id="processo-title">Do briefing à entrega, com um caminho claro.</h2><ol>{processSteps.map((step, index) => <li key={step}><span>0{index + 1}</span><strong>{step}</strong></li>)}</ol></section>
 
       <section className="argon-section argon-proof">
         <p className="argon-kicker">História confirmada</p>
