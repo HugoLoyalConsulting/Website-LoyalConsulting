@@ -17,11 +17,11 @@ const serviceGroups = [
   { eyebrow: "Destaque", title: "Iluminação e luminosos", image: "argon-02.jpg", copy: "Recursos de luz e acabamento para chamar atenção com intenção.", items: ["Neon", "Luminárias em acrílico", "Luminosos"] },
   { eyebrow: "Ambiente", title: "Ponto de venda e orientação", image: "argon-04.jpg", copy: "Elementos que ajudam a apresentar, organizar e direcionar.", items: ["Bandejas e displays", "Sinalização", "Displays para PDV"] },
 ];
-const processSteps = [
-  ["01", "Briefing", "Você apresenta o contexto, a peça e o local de aplicação."],
-  ["02", "Solução", "Conversamos sobre a melhor forma de materializar sua ideia."],
-  ["03", "Produção", "O projeto segue com foco em acabamento e aplicação."],
-  ["04", "Entrega", "A instalação e os próximos passos são alinhados com clareza."],
+const processSteps = [["01", "Briefing", "Você apresenta o contexto, a peça e o local de aplicação."], ["02", "Solução", "Conversamos sobre a melhor forma de materializar sua ideia."], ["03", "Produção", "O projeto segue com foco em acabamento e aplicação."], ["04", "Entrega", "A instalação e os próximos passos são alinhados com clareza."]];
+const faqs = [
+  ["O que eu preciso informar para começar?", "Conte qual peça você imagina, onde ela será aplicada e, se houver, medidas, prazo ou referências."],
+  ["Posso conversar mesmo sem saber a solução ideal?", "Sim. Você pode descrever o espaço e o objetivo da comunicação visual para iniciar a conversa."],
+  ["Quais tipos de projeto entram no atendimento?", "Fachadas, letreiros, luminosos, neon, displays, sinalização e outras necessidades de comunicação visual podem ser apresentadas no briefing."],
 ];
 
 export default function ArgonLandingPage() {
@@ -45,6 +45,8 @@ export default function ArgonLandingPage() {
       <section className="argon-section argon-showcase argon-shell"><div><p className="argon-kicker">Antes × Depois</p><h2>Uma peça isolada resolve pouco. Um conjunto coerente muda a leitura do lugar.</h2><p>Fachada, iluminação, sinalização e display podem ser pensados como partes da mesma experiência visual.</p></div><figure><Image src="/images/argon/argon-03.jpg" alt="Exemplo de comunicação visual Argon-Bras" width={900} height={600} /><figcaption>Comunicação visual aplicada ao ambiente.</figcaption></figure></section>
 
       <section id="processo" className="argon-section argon-process argon-shell"><div className="argon-section-intro"><p className="argon-kicker">Como funciona</p><h2>Do briefing à entrega, um caminho claro para tirar o projeto do papel.</h2></div><ol>{processSteps.map(([number, title, text]) => <li key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
+
+      <section className="argon-section argon-faq argon-shell" aria-labelledby="faq-title"><div className="argon-section-intro"><p className="argon-kicker">Para começar sem atrito</p><h2 id="faq-title">O essencial para conversar sobre seu projeto.</h2></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="argon-section argon-proof argon-shell"><p className="argon-kicker">História confirmada</p><h2>Desde 1987, a Argon-Bras atua em comunicação visual.</h2><p>Experiência para conversar sobre o que realmente importa: acabamento, leitura, aplicação e a presença que sua marca precisa transmitir.</p></section>
 
