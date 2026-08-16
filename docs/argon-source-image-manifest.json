@@ -1,0 +1,240 @@
+[
+  {
+    "file": "argon-source-01.png",
+    "asset_id": "11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png",
+    "source_url": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png",
+    "bytes": 14375,
+    "sha256": "cca43487db8f86d73be1088facb19efbe38f2478322f9ba4f4b08472b6045d53"
+  },
+  {
+    "file": "argon-source-02.jpg",
+    "asset_id": "b4ec61_013d75120c404b2eb02919dd2dc5cab5~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_013d75120c404b2eb02919dd2dc5cab5~mv2.jpg",
+    "bytes": 52011,
+    "sha256": "2f92461b773c4bbdfdcbb8766804849a3d5957461745d0dd5c5dbeb16a470fa3"
+  },
+  {
+    "file": "argon-source-03.jpg",
+    "asset_id": "b4ec61_026cd422dd464f98a183e3d4c93e9ff2~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_026cd422dd464f98a183e3d4c93e9ff2~mv2.jpg",
+    "bytes": 102684,
+    "sha256": "695524863c8bbecfc99714225c5cc76b1f94be146c85fe8436d084d20b139ba7"
+  },
+  {
+    "file": "argon-source-04.jpg",
+    "asset_id": "b4ec61_093ab18b5f744f1c8876d1bcd3ae8689~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_093ab18b5f744f1c8876d1bcd3ae8689~mv2.jpg",
+    "bytes": 4149979,
+    "sha256": "a421f0aef6ad89d01edabc0513b3eb2fa1594e2687d6798e1cdf527b50fa2cf4"
+  },
+  {
+    "file": "argon-source-05.png",
+    "asset_id": "b4ec61_0b496438a0f540699ddffe09945b3a27~mv2.png",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_0b496438a0f540699ddffe09945b3a27~mv2.png",
+    "bytes": 95544,
+    "sha256": "c19a3ae5f73d2e2bd53628f2549283b2c9543e81a2a2d3470b3536a31757479d"
+  },
+  {
+    "file": "argon-source-06.jpg",
+    "asset_id": "b4ec61_0e4df2f4686448afb8b1b60a81ac02f9~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_0e4df2f4686448afb8b1b60a81ac02f9~mv2.jpg",
+    "bytes": 217176,
+    "sha256": "25dfd232406b0fa669a97069a482da3a7ba1582630c1a23d200beef06c695b6e"
+  },
+  {
+    "file": "argon-source-07.png",
+    "asset_id": "b4ec61_1274f266c8d2491c8dd2a5056ceaa2a8~mv2.png",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_1274f266c8d2491c8dd2a5056ceaa2a8~mv2.png",
+    "bytes": 85524,
+    "sha256": "689d808e50a8f21fac43d3d4c9437172474c6448a5e6a69bad0a57c5fbce7ccf"
+  },
+  {
+    "file": "argon-source-08.jpg",
+    "asset_id": "b4ec61_14dd9ef23ba949b7b9d61ddba6ae3ea0~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_14dd9ef23ba949b7b9d61ddba6ae3ea0~mv2.jpg",
+    "bytes": 818146,
+    "sha256": "d67a79aac7975eea8f7707cbfdadfe0925d66ab96e58027073de3f1d5472e39b"
+  },
+  {
+    "file": "argon-source-09.jpg",
+    "asset_id": "b4ec61_27d870a70f4e46eb9d760fc1983ff3a6~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_27d870a70f4e46eb9d760fc1983ff3a6~mv2.jpg",
+    "bytes": 112329,
+    "sha256": "15aba0cdb1cf288ec0620d15d08c5689b561ec87e9d3e21599ff39bb954c444c"
+  },
+  {
+    "file": "argon-source-10.jpg",
+    "asset_id": "b4ec61_28668115f15b41c6b98304257afea72c~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_28668115f15b41c6b98304257afea72c~mv2.jpg",
+    "bytes": 56811,
+    "sha256": "dc8959863f19ca0e960698f405bb06e3236359ae8353775d4e8c51e5b87213b2"
+  },
+  {
+    "file": "argon-source-11.jpg",
+    "asset_id": "b4ec61_31e99c681a8f4b0e80c8fcaf6453962e~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_31e99c681a8f4b0e80c8fcaf6453962e~mv2.jpg",
+    "bytes": 142832,
+    "sha256": "b7e371371ff1edb49d31924cbf647cf2a7205c9343ffdf0827a5015a3811f3dc"
+  },
+  {
+    "file": "argon-source-12.jpg",
+    "asset_id": "b4ec61_3323a49d97b6433fa91f0837c84e7fff~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_3323a49d97b6433fa91f0837c84e7fff~mv2.jpg",
+    "bytes": 79034,
+    "sha256": "5e4c55a23ffec9caeae751c10b4b606a7fc7d8c45ee46e3df99b4ce8e223efa1"
+  },
+  {
+    "file": "argon-source-13.jpg",
+    "asset_id": "b4ec61_414995fa48a1474ebae1275290c1df57~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_414995fa48a1474ebae1275290c1df57~mv2.jpg",
+    "bytes": 69378,
+    "sha256": "bc513e0908a9fe04135ff376266e624f6d3362f13a7ffbeb6c589798a08bcbe6"
+  },
+  {
+    "file": "argon-source-14.jpg",
+    "asset_id": "b4ec61_48aabd87b7634c46b09368eba4984204~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_48aabd87b7634c46b09368eba4984204~mv2.jpg",
+    "bytes": 1239537,
+    "sha256": "fcc650abb052913ccd7e3033daa0ff2a89e3b2d1736d0d753165db1cb27780e6"
+  },
+  {
+    "file": "argon-source-15.png",
+    "asset_id": "b4ec61_4b70f05dd400418d8282a6ea45115059~mv2.png",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_4b70f05dd400418d8282a6ea45115059~mv2.png",
+    "bytes": 94569,
+    "sha256": "aedf863416a882e49e536e8488665a9cd534244466fd9233fbe5652fdb72f01d"
+  },
+  {
+    "file": "argon-source-16.jpeg",
+    "asset_id": "b4ec61_6979e55cbe7b4869bdbaf3da4a8007ef~mv2.jpeg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_6979e55cbe7b4869bdbaf3da4a8007ef~mv2.jpeg",
+    "bytes": 138054,
+    "sha256": "0d97f22264651d71d67eebe2d7c4ee0acb49b30ced591a8322b9c943b460f489"
+  },
+  {
+    "file": "argon-source-17.jpg",
+    "asset_id": "b4ec61_73d081588ffb4018913a1f31ae3e7733~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_73d081588ffb4018913a1f31ae3e7733~mv2.jpg",
+    "bytes": 54867,
+    "sha256": "1ea62284c61c2784b8e7d8b31fc8932821c13986be963634a6dfd87ed79acedb"
+  },
+  {
+    "file": "argon-source-18.jpg",
+    "asset_id": "b4ec61_7b966e6b8c9b42178a05b93ee025c7a5~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_7b966e6b8c9b42178a05b93ee025c7a5~mv2.jpg",
+    "bytes": 667836,
+    "sha256": "71473f64ed8cc12f6484d1e04b24f8897c3c1007ae1687cb21515568aaa539fb"
+  },
+  {
+    "file": "argon-source-19.jpg",
+    "asset_id": "b4ec61_81d73b0ca3404162a8fa2ead05788465~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_81d73b0ca3404162a8fa2ead05788465~mv2.jpg",
+    "bytes": 366441,
+    "sha256": "b65b0e916cfd8d03ef579f5887d4508351e9cf247229ac458f7ce33214c72aae"
+  },
+  {
+    "file": "argon-source-20.jpg",
+    "asset_id": "b4ec61_8684584faf2243a7be0c8ffd5e2efd98~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_8684584faf2243a7be0c8ffd5e2efd98~mv2.jpg",
+    "bytes": 174936,
+    "sha256": "b003cfe904a835f5f3325c343d1c8700606163cf741b0a34c5a8d7deb419380f"
+  },
+  {
+    "file": "argon-source-21.jpg",
+    "asset_id": "b4ec61_9bbd6ea49bf94f168b6812bf91c7619c~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_9bbd6ea49bf94f168b6812bf91c7619c~mv2.jpg",
+    "bytes": 3667669,
+    "sha256": "224612be52315ab4514d93c34c6806e38475e0b9679de111e549433bbeb8f953"
+  },
+  {
+    "file": "argon-source-22.png",
+    "asset_id": "b4ec61_9ee7998f755e4e7e81fab53ce9f4320c~mv2.png",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_9ee7998f755e4e7e81fab53ce9f4320c~mv2.png",
+    "bytes": 77688,
+    "sha256": "eb287ecf6efd76a3ab8d59f490339885fe0e78b95e1cd5d3d27e51422e25f774"
+  },
+  {
+    "file": "argon-source-23.jpg",
+    "asset_id": "b4ec61_a20ec259d7414ea2a792fabf06346610~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_a20ec259d7414ea2a792fabf06346610~mv2.jpg",
+    "bytes": 353113,
+    "sha256": "e9e600fa0ca7fb267e0f2859daf0975ac02b514ff556a6e1964525a258a81eb2"
+  },
+  {
+    "file": "argon-source-24.jpg",
+    "asset_id": "b4ec61_a438f08b1c8c4ad2922bf4fe9fc5b94a~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_a438f08b1c8c4ad2922bf4fe9fc5b94a~mv2.jpg",
+    "bytes": 55923,
+    "sha256": "7e69bad7cffd8d391b424f00b35c1d6b746fd23ccdd06ed2c66fc2ec4955209b"
+  },
+  {
+    "file": "argon-source-25.jpg",
+    "asset_id": "b4ec61_aef6685d8cbb4b3aa7e6114fee51b100~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_aef6685d8cbb4b3aa7e6114fee51b100~mv2.jpg",
+    "bytes": 95020,
+    "sha256": "c62eb1224e2c4441b3f806cac850f3caa3ec2e1406f0448f5a1b57930ddd693d"
+  },
+  {
+    "file": "argon-source-26.jpg",
+    "asset_id": "b4ec61_c3355515adc2488cbf5ab9ba5d66ae7c~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_c3355515adc2488cbf5ab9ba5d66ae7c~mv2.jpg",
+    "bytes": 146014,
+    "sha256": "b0c9c214397e4929668899964bd4e2022290db5be9c4acc4aaeb0c1caacc2399"
+  },
+  {
+    "file": "argon-source-27.jpg",
+    "asset_id": "b4ec61_c48dbb7415c04c488b21de0a44bac450~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_c48dbb7415c04c488b21de0a44bac450~mv2.jpg",
+    "bytes": 68017,
+    "sha256": "391d3042bdb1f54a86700546d1f6c9346b9590394dd7ffcdf9a796977f650488"
+  },
+  {
+    "file": "argon-source-28.jpg",
+    "asset_id": "b4ec61_d6dcba8d368249c5a59a9724d0ebd2e6~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_d6dcba8d368249c5a59a9724d0ebd2e6~mv2.jpg",
+    "bytes": 61411,
+    "sha256": "8cd10db68777a90d4658adf66f4c5ea967c25286c9406495b53ad4ad42b70b56"
+  },
+  {
+    "file": "argon-source-29.jpg",
+    "asset_id": "b4ec61_e6002cf2c1a84d93836eefb58f413470~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_e6002cf2c1a84d93836eefb58f413470~mv2.jpg",
+    "bytes": 32846,
+    "sha256": "4b2e46dd58f54313f153333ca50ebfa45015b89ecca3cc695f0558edd7e4f0c3"
+  },
+  {
+    "file": "argon-source-30.jpeg",
+    "asset_id": "b4ec61_edb704c45a594152936762f5eed1367c~mv2.jpeg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_edb704c45a594152936762f5eed1367c~mv2.jpeg",
+    "bytes": 21826,
+    "sha256": "93f86c51d7a443569a0dbf843286ca0f8e711bbd13d5875bb9c5697506d8be48"
+  },
+  {
+    "file": "argon-source-31.png",
+    "asset_id": "b4ec61_f770e93269984ec391cdfb2ad11a8d39~mv2.png",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_f770e93269984ec391cdfb2ad11a8d39~mv2.png",
+    "bytes": 717553,
+    "sha256": "9ecc6319b45d47176e3c0341ef2e9abbba465d24e0c48e237156d128e10dd50d"
+  },
+  {
+    "file": "argon-source-32.jpg",
+    "asset_id": "b4ec61_f9469f063c634ad8b1c2e224c4aa0e24~mv2.jpg",
+    "source_url": "https://static.wixstatic.com/media/b4ec61_f9469f063c634ad8b1c2e224c4aa0e24~mv2.jpg",
+    "bytes": 66825,
+    "sha256": "5fd31e69671b7c5ebf06071a3c4c5c4c53e0f960157588a1806912bb0b217810"
+  },
+  {
+    "file": "argon-source-33.jpg",
+    "asset_id": "nsplsh_454a7a78463575774a2d6f~mv2_d_3024_4032_s_4_2.jpg",
+    "source_url": "https://static.wixstatic.com/media/nsplsh_454a7a78463575774a2d6f~mv2_d_3024_4032_s_4_2.jpg",
+    "bytes": 1287702,
+    "sha256": "7ced43b1cdfb388b32d90aa372beb6f73523d7b9cbb7e88eedb41e60947daefc"
+  },
+  {
+    "file": "argon-source-34.jpg",
+    "asset_id": "nsplsh_6637735674475f634d646b~mv2_d_4000_2668_s_4_2.jpg",
+    "source_url": "https://static.wixstatic.com/media/nsplsh_6637735674475f634d646b~mv2_d_4000_2668_s_4_2.jpg",
+    "bytes": 746975,
+    "sha256": "1d4c45615266a3245433c2bb3c2ecff1bd7f85ffa49206bb178e9a924b68020d"
+  }
+]

@@ -4,17 +4,22 @@ import { ArgonQuoteForm } from "@/components/ArgonQuoteForm";
 import { ArgonMobileMenu } from "@/components/ArgonMobileMenu";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.loyalconsulting.com.br"),
   title: "Argon-Bras Luminosos | Comunicação visual personalizada",
-  description: "Comunicação visual para fachadas, ambientes e pontos de venda. Solicite um orçamento.",
+  description: "Comunicação visual para fachadas, letreiros, neon, luminosos, sinalização e pontos de venda.",
+  alternates: { canonical: "/argon/" },
+  openGraph: { type: "website", locale: "pt_BR", url: "/argon/", siteName: "Argon-Bras Luminosos", title: "Argon-Bras Luminosos", description: "Comunicação visual personalizada para o espaço físico.", images: [{ url: "/images/argon/source-original/argon-source-10.jpg", width: 1200, height: 630, alt: "Projeto de comunicação visual Argon-Bras" }] },
+  robots: { index: true, follow: true },
 };
 
 const whatsapp = "https://wa.me/5511972070323?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Argon%20e%20gostaria%20de%20falar%20mais.";
-const gallery = ["argon-01.jpg", "argon-02.jpg", "argon-03.jpg", "argon-04.jpg", "argon-05.jpg", "argon-06.jpg"];
+const gallery = ["source-original/argon-source-10.jpg", "source-original/argon-source-13.jpg", "source-original/argon-source-12.jpg", "source-original/argon-source-16.jpeg", "source-original/argon-source-20.jpg", "source-original/argon-source-25.jpg"];
 const now = ["Fachada sem presença ou leitura", "Peças que não conversam entre si", "Escolhas de acabamento sem clareza", "Um projeto sem caminho de produção definido"];
 const later = ["Uma identidade visual aplicada ao ambiente", "Fachada, luminoso e sinalização em conjunto", "Conversa objetiva sobre solução e aplicação", "Um próximo passo claro para seu projeto"];
 const serviceGroups = [
-  { tone: "cyan", eyebrow: "Ambientes e ativações", title: "Displays, PDV e experiências", images: ["argon-01.jpg", "argon-02.jpg", "argon-03.jpg"], copy: "Projetos visuais de ambiente, exposição e ponto de venda presentes nas imagens de referência da Argon.", items: ["Displays para PDV", "Ambientação", "Comunicação para eventos"] },
-  { tone: "magenta", eyebrow: "Iluminação", title: "Neon e luminosos", images: ["argon-04.jpg", "argon-05.jpg", "argon-06.jpg"], copy: "Peças luminosas e composições em neon presentes nas imagens de referência da Argon.", items: ["Neon", "Luminosos", "Iluminação decorativa"] },
+  { tone: "indigo", eyebrow: "Presença de marca", title: "Fachadas, letras e sinalização", images: ["source-original/argon-source-10.jpg", "source-original/argon-source-13.jpg", "source-original/argon-source-18.jpg"], copy: "Projetos de fachada, letras e sinalização visíveis no acervo público original da Argon.", items: ["Fachadas", "Letreiros e logotipos caixa", "Sinalização"] },
+  { tone: "cyan", eyebrow: "Ambientes e ativações", title: "Displays, PDV e experiências", images: ["source-original/argon-source-12.jpg", "source-original/argon-source-25.jpg", "source-original/argon-source-27.jpg"], copy: "Projetos visuais de ambiente, exposição e ponto de venda presentes no acervo público original da Argon.", items: ["Displays para PDV", "Ambientação", "Comunicação para eventos"] },
+  { tone: "magenta", eyebrow: "Iluminação", title: "Neon e luminosos", images: ["source-original/argon-source-16.jpeg", "source-original/argon-source-20.jpg", "source-original/argon-source-32.jpg"], copy: "Peças luminosas e composições em neon presentes no acervo público original da Argon.", items: ["Neon", "Luminosos", "Iluminação decorativa"] },
 ];
 const processSteps = [["01", "Briefing", "Você apresenta o contexto, a peça e o local de aplicação."], ["02", "Solução", "Conversamos sobre a melhor forma de materializar sua ideia."], ["03", "Produção", "O projeto segue com foco em acabamento e aplicação."], ["04", "Entrega", "A instalação e os próximos passos são alinhados com clareza."]];
 const faqs = [
@@ -23,9 +28,21 @@ const faqs = [
   ["Quais tipos de projeto entram no atendimento?", "Fachadas, letreiros, luminosos, neon, displays, sinalização e outras necessidades de comunicação visual podem ser apresentadas no briefing."],
 ];
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Argon-Bras Luminosos",
+  url: "https://www.loyalconsulting.com.br/argon/",
+  telephone: "+5511972070323",
+  email: "argonbras@gmail.com",
+  address: { "@type": "PostalAddress", addressLocality: "Várzea Paulista", addressRegion: "SP", addressCountry: "BR" },
+  image: "https://www.loyalconsulting.com.br/images/argon/source-original/argon-source-10.jpg",
+};
+
 export default function ArgonLandingPage() {
   return (
     <main className="argon-page argon-modern" id="topo">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <header className="argon-nav glass-panel">
         <a href="#topo" aria-label="Argon-Bras Luminosos"><Image src="/images/argon/logo-argon.jpg" alt="Argon-Bras" width={145} height={49} priority /></a>
         <nav aria-label="Navegação principal"><a href="#solucoes">Soluções</a><a href="#processo">Como funciona</a><a href="#orcamento">Orçamento</a><a className="argon-whatsapp-float" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.1 4.9A9.9 9.9 0 0 0 2.3 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4A9.9 9.9 0 1 0 19.1 4.9Zm-7.2 14a6.9 6.9 0 0 1-3.5-1l-.4-.2-3.3.8.9-3.2-.2-.4a6.9 6.9 0 1 1 6.5 3.9Zm3.8-5.1c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.4.1-.1.2-.5.7-.6.8-.1.1-.2.1-.4 0a5.7 5.7 0 0 1-1.7-1 6.3 6.3 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.3c.1-.1.1-.2.2-.3 0-.1 0-.2 0-.3l-.7-1.5c-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.7.7-.7 1.7s.7 2 1 2.2c.1.1 1.6 2.5 3.9 3.5.5.2.9.4 1.2.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z" fill="currentColor" /></svg></a></nav><ArgonMobileMenu />
